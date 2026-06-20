@@ -52,8 +52,18 @@ Each run creates a timestamped directory under `artifacts/prototype0/` containin
 ### Colab and Modal
 
 For the 0.6B model, local execution or free Colab is the cheapest path. For the
-1.7B model, use a free/low-cost Colab T4 when available. Modal is useful for
-repeatable short GPU jobs and should be run only when a GPU is needed:
+1.7B model, use a free/low-cost Colab T4 when available. A dedicated configuration
+keeps the Colab run reproducible:
+
+```bash
+fe-prototype0 --config configs/prototype0_qwen3_1.7b_colab.yaml
+```
+
+The full Colab walkthrough, including cloning and downloading artifacts, is in
+[docs/colab.md](docs/colab.md).
+
+Modal is useful for repeatable short GPU jobs and should be run only when a GPU
+is needed:
 
 ```bash
 modal run cloud/modal_prototype0.py
@@ -65,4 +75,3 @@ movement of the happy/sad margin is reported as a diagnostic, not a hard gate.
 ## Roadmap
 
 See [docs/roadmap.md](docs/roadmap.md).
-
