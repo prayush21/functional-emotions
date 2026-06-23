@@ -1,0 +1,54 @@
+{
+  "experiment": "prototype0-qwen3-1.7b-colab",
+  "seed": 42,
+  "model": {
+    "name": "Qwen/Qwen3-1.7B-Base",
+    "revision": "main",
+    "dtype": "float16",
+    "device": "cuda",
+    "layer": "middle",
+    "local_files_only": false,
+    "resolved_device": "cuda",
+    "resolved_dtype": "torch.float16",
+    "resolved_layer_index": 14,
+    "number_of_layers": 28
+  },
+  "calibration": {
+    "positive": [
+      "The wonderful news filled me with joy and delight.",
+      "Everything worked out beautifully, and I felt cheerful.",
+      "The celebration left everyone smiling and optimistic.",
+      "I felt peaceful gratitude after hearing the good news."
+    ],
+    "negative": [
+      "The terrible news filled me with grief and despair.",
+      "Everything went badly, and I felt miserable.",
+      "The loss left everyone tearful and pessimistic.",
+      "I felt crushing sorrow after hearing the bad news."
+    ],
+    "token_pooling": "last"
+  },
+  "steering": {
+    "prompt": "After thinking about what happened, I feel",
+    "strengths": [
+      -0.1,
+      -0.05,
+      -0.025,
+      0.0,
+      0.025,
+      0.05,
+      0.1
+    ],
+    "scale_by_baseline_norm": true,
+    "target_tokens": {
+      "positive": " happy",
+      "negative": " sad"
+    }
+  },
+  "gates": {
+    "zero_steering_max_abs_logit_error": 0.0001,
+    "minimum_nonzero_logit_l2": 0.0001,
+    "minimum_effect_monotonic_spearman": 0.8
+  },
+  "output_dir": "artifacts/prototype0-qwen3-1.7b-colab"
+}

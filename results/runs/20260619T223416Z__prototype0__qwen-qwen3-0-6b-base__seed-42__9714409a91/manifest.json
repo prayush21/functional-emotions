@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "run_id": "20260619T223416Z__prototype0__qwen-qwen3-0-6b-base__seed-42__9714409a91",
+  "created_at": "2026-06-19T22:34:16.455039+00:00",
+  "experiment": "prototype0",
+  "seed": 42,
+  "config_sha256": "9714409a918fe7de06706e482322f8ebd8165d412b0c69229ce9ff1cc653885f",
+  "model": {
+    "name": "Qwen/Qwen3-0.6B-Base",
+    "requested_revision": "main",
+    "resolved_revision": null
+  },
+  "code": {
+    "commit": null,
+    "dirty": null
+  },
+  "legacy_import": true
+}

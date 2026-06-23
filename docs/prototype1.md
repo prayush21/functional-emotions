@@ -1,0 +1,95 @@
+# Prototype 1 experiment card
+
+## Question
+
+Can a small open-weight base model yield linear emotion-concept directions that
+generalize to stories about topics never used to construct those directions?
+
+Prototype 1 is an extraction and held-out validation experiment. It does not yet
+claim lexical robustness, causal influence, or human-like emotion geometry; those
+belong to later prototypes.
+
+## Method
+
+The implementation follows the paper's extraction recipe at reduced scale:
+
+1. An instruction-tuned generator writes implicit-emotion stories for every
+   `(topic, emotion)` pair. The target word and configured direct synonyms are
+   forbidden and automatically audited.
+2. Topics are deterministically split into train and test sets. Every story for a
+   topic stays in one split, preventing near-duplicate premises from crossing the
+   boundary.
+3. The base model processes each story. Residual-stream activations are averaged
+   over tokens beginning at token 50 for every decoder layer. A shorter story
+   contributes its final-token activation rather than an empty average.
+4. For emotion `e`, the raw direction is the mean train activation for `e` minus
+   the mean activation across all train emotions.
+5. On separate emotionally neutral paragraphs, PCA components sufficient to
+   explain 50% of activation variance are computed independently at each layer.
+   Those components are projected out of every raw direction, and the result is
+   normalized.
+6. Cleaned vectors are scored on held-out-topic stories using dot products.
+   Accuracy, one-vs-rest macro AUC, correct-class margin, and per-emotion metrics
+   are reported for every layer.
+
+The hard-gate layer is pre-registered as two-thirds of the way through the model,
+matching the paper's main analysis depth. The code does not select the best layer
+using held-out results.
+
+## Run
+
+Generate the compact dataset, then extract and validate vectors:
+
+```bash
+fe-prototype1 --config configs/prototype1.yaml --stage generate
+fe-prototype1 --config configs/prototype1.yaml --stage extract
+```
+
+Or run both stages in one process:
+
+```bash
+fe-prototype1 --config configs/prototype1.yaml --stage all
+```
+
+Generation and extraction intentionally use separate model settings. The default
+generator is instruction-tuned; the measured model is `Qwen/Qwen3-0.6B-Base`.
+The committed config is a 4-emotion, 12-topic feasibility run. A paper-scale run
+should expand to the paper's 171 emotions, 100 topics, and 12 stories per pair
+only after this version passes and artifact storage is ready.
+
+## Hard gates
+
+- Train and held-out topic sets are disjoint.
+- No story contains its emotion label or configured direct synonyms.
+- Held-out accuracy at the pre-registered layer is at least `0.40` versus `0.25`
+  chance for four emotions.
+- Held-out macro AUC is at least `0.60`.
+- Mean correct-class margin is non-negative.
+
+Thresholds are feasibility criteria, not evidence that the replication is
+complete. Prototype 2 adds lexical controls, shuffled-label controls, intensity
+sweeps, implicit scenarios, and logit-lens validation.
+
+## Outputs
+
+Each timestamped directory under `artifacts/prototype1/` contains:
+
+- `emotion_vectors.safetensors` — cleaned vector for each emotion and layer;
+- `neutral_pca.safetensors` — per-layer neutral principal components;
+- `metrics.json` — gates, dataset audit, split, PCA metadata, and validation;
+- `config.json`, `environment.json`, `manifest.json`, and `summary.json` — exact
+  provenance and compact registry data.
+
+The environment record includes SHA-256 hashes of both JSONL datasets. Register an
+accepted run with `fe-register-run` using the same workflow as Prototype 0.
+
+## Expected failures
+
+- Leakage errors mean the generated text named the target concept; regenerate or
+  extend `forbidden_terms`.
+- Chance held-out accuracy with strong train separation indicates topic/template
+  confounding or a direction that does not generalize.
+- PCA removal making performance worse is reportable. Raw and cleaned metrics are
+  both retained; the implementation never hides the comparison.
+- Very short generations undermine token-50 pooling. Increase generation length
+  before interpreting a run that frequently uses the final-token fallback.

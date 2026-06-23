@@ -1,0 +1,11 @@
+{
+  "all_hard_gates_pass": true,
+  "layer_index": 14,
+  "hidden_size": 2048,
+  "effect_monotonic_spearman": 0.8857142857142858,
+  "baseline_margin": -0.734375,
+  "minimum_strength": -0.1,
+  "minimum_strength_margin": -2.203125,
+  "maximum_strength": 0.1,
+  "maximum_strength_margin": 0.328125
+}

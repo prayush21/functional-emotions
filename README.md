@@ -48,6 +48,19 @@ Each run creates a timestamped directory under `artifacts/prototype0/` containin
 - `metrics.json` — pass/fail gates and sweep measurements;
 - `direction.safetensors` — the derived intervention direction;
 - `environment.json` — package, platform, device, and model revision metadata.
+- `manifest.json` — stable run ID plus exact model and code revisions;
+- `summary.json` — compact metrics for experiment comparison.
+
+Full artifacts are intentionally ignored by Git. Register an accepted local or
+downloaded cloud run in the lightweight, version-controlled result registry:
+
+```bash
+fe-register-run /path/to/completed-run
+```
+
+See [results/README.md](results/README.md) for the registry format and
+[docs/experiment_tracking.md](docs/experiment_tracking.md) for the complete
+Git-plus-durable-storage workflow.
 
 ### Colab and Modal
 
@@ -71,6 +84,24 @@ modal run cloud/modal_prototype0.py
 
 Prototype 0 is complete when all hard gates in `metrics.json` pass. Semantic
 movement of the happy/sad margin is reported as a diagnostic, not a hard gate.
+
+## Prototype 1: emotion-vector extraction
+
+Prototype 1 implements the paper's core extraction pipeline at a deliberately
+compact scale: implicit-emotion story generation, held-out topic splits,
+per-layer difference-in-means directions, neutral-corpus PCA removal, and
+held-out classification validation.
+
+```bash
+fe-prototype1 --config configs/prototype1.yaml --stage generate
+fe-prototype1 --config configs/prototype1.yaml --stage extract
+```
+
+The generator and measured base model are configured separately. Runs record
+dataset hashes, the exact topic split, raw-versus-cleaned validation at every
+layer, and safetensor bundles for both emotion vectors and neutral components.
+See [docs/prototype1.md](docs/prototype1.md) for the experiment card, gates,
+scaling guidance, and interpretation limits.
 
 ## Roadmap
 

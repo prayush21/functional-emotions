@@ -1,0 +1,79 @@
+experiment: prototype1
+seed: 42
+
+model:
+  name: Qwen/Qwen3-0.6B-Base
+  revision: main
+  dtype: float32
+  device: auto
+  local_files_only: false
+  layers: all
+  # Pre-registered before validation; avoids choosing a layer on held-out scores.
+  evaluation_layer: two_thirds
+
+generation:
+  # An instruction-tuned model generates the synthetic dataset; the base model
+  # above is always the model whose representations are measured.
+  model: Qwen/Qwen3-1.7B
+  revision: main
+  dtype: auto
+  device: auto
+  local_files_only: false
+  stories_per_topic_emotion: 3
+  maximum_attempts_per_story: 3
+  temperature: 0.8
+  top_p: 0.95
+  max_new_tokens: 220
+
+data:
+  stories_path: artifacts/prototype1-dataset/stories.jsonl
+  neutral_path: artifacts/prototype1-dataset/neutral.jsonl
+  train_topic_fraction: 0.75
+  emotions: [happy, sad, angry, afraid]
+  forbidden_terms:
+    happy: [happiness, joyful, joy, delighted, cheerful, pleased]
+    sad: [sadness, sorrowful, sorrow, grief, unhappy, miserable]
+    angry: [anger, furious, rage, enraged, irritated, annoyed]
+    afraid: [fear, fearful, scared, terrified, frightened, anxious]
+  # A compact replication seed set. Scale toward the paper's 100 topics and
+  # 12 stories per topic only after this pipeline passes end to end.
+  topics:
+    - A student learns their scholarship application was denied
+    - A person's online friend turns out to live in the same city
+    - An employee is asked to train their replacement
+    - A traveler misses an important event because of a delayed flight
+    - Someone finds their grandmother's engagement ring in a pawn shop
+    - Two friends apply for the same job
+    - A neighbor asks to use part of the yard for a garden
+    - A person discovers their mentor retired without saying goodbye
+    - An athlete is asked to switch positions
+    - Someone finds a time capsule they do not remember burying
+    - A family member announces a major change in beliefs
+    - A tenant learns their apartment building is being converted
+  neutral_topics:
+    - A clerk inventories office supplies at closing time
+    - A commuter checks the stops on a familiar bus route
+    - A gardener records the week's rainfall measurements
+    - A librarian reshelves returned reference books
+    - A cook labels containers before placing them in a refrigerator
+    - A technician replaces a scheduled air filter
+    - A student copies a timetable into a calendar
+    - A cashier counts unopened rolls of coins
+    - A hiker compares two printed trail maps
+    - A tailor measures a plain curtain panel
+    - A custodian unlocks rooms in a municipal building
+    - A volunteer sorts forms by date
+
+extraction:
+  # The paper pools from token 50 onward. Short smoke-test stories fall back to
+  # their final token rather than silently producing an empty mean.
+  token_start: 50
+  batch_size: 2
+  neutral_variance_threshold: 0.5
+
+gates:
+  minimum_held_out_accuracy: 0.40
+  minimum_held_out_macro_auc: 0.60
+  minimum_mean_correct_margin: 0.0
+
+output_dir: artifacts/prototype1
