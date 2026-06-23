@@ -39,10 +39,7 @@ def run() -> dict:
     sys.path.insert(0, "/root/src")
     from functional_emotions.prototype0 import load_config, run as run_experiment
 
-    config = load_config(Path("/root/configs/prototype0.yaml"))
-    config["model"]["name"] = "Qwen/Qwen3-1.7B-Base"
-    config["model"]["dtype"] = "float16"
-    config["model"]["device"] = "cuda"
+    config = load_config(Path("/root/configs/prototype0_qwen3_1.7b_colab.yaml"))
     config["output_dir"] = "/tmp/prototype0"
     output = run_experiment(config)
     return json.loads((output / "metrics.json").read_text())

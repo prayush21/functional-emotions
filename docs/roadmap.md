@@ -12,6 +12,10 @@ Generate implicit-emotion stories on held-out topic splits, compute per-layer
 difference-in-means vectors, remove neutral-corpus principal components, and
 validate on held-out stories.
 
+Implemented as `fe-prototype1`. The committed configuration is a compact
+feasibility run; the next milestone is accepting and registering its first run
+before scaling the emotion and topic sets.
+
 ## Prototype 2 — semantic validation
 
 Test implicit scenarios, numerical intensity sweeps, lexical controls, logit-lens
@@ -41,4 +45,3 @@ entity re-reference, and base-versus-instruct changes.
 
 In isolated simulations, evaluate reward hacking, sycophancy/harshness, and
 blackmail-like behavior under emotion-vector interventions.
-

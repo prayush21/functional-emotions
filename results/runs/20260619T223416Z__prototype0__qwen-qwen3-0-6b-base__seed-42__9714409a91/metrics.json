@@ -1,0 +1,75 @@
+{
+  "all_hard_gates_pass": true,
+  "gates": {
+    "zero_intervention_reproduces_baseline": true,
+    "nonzero_intervention_changes_logits": true,
+    "effect_grows_with_absolute_strength": true
+  },
+  "layer_index": 14,
+  "hidden_size": 1024,
+  "baseline_activation_norm": 54.04235076904297,
+  "direction_norm": 1.0,
+  "effect_monotonic_spearman": 0.942857142857143,
+  "target_token_ids": {
+    "positive": 6247,
+    "negative": 12421
+  },
+  "sweep": [
+    {
+      "raw_strength": -0.1,
+      "applied_strength": -5.404235076904297,
+      "max_abs_logit_change": 2.1659345626831055,
+      "logit_l2": 161.7065887451172,
+      "kl_from_baseline": 0.06515441834926605,
+      "positive_minus_negative_logit_margin": -3.762144088745117
+    },
+    {
+      "raw_strength": -0.05,
+      "applied_strength": -2.7021175384521485,
+      "max_abs_logit_change": 1.1383380889892578,
+      "logit_l2": 87.6238021850586,
+      "kl_from_baseline": 0.021793829277157784,
+      "positive_minus_negative_logit_margin": -3.0082626342773438
+    },
+    {
+      "raw_strength": -0.025,
+      "applied_strength": -1.3510587692260743,
+      "max_abs_logit_change": 0.587620735168457,
+      "logit_l2": 44.62364959716797,
+      "kl_from_baseline": 0.006161431781947613,
+      "positive_minus_negative_logit_margin": -2.496603012084961
+    },
+    {
+      "raw_strength": 0.0,
+      "applied_strength": 0.0,
+      "max_abs_logit_change": 0.0,
+      "logit_l2": 0.0,
+      "kl_from_baseline": 0.0,
+      "positive_minus_negative_logit_margin": -1.932891845703125
+    },
+    {
+      "raw_strength": 0.025,
+      "applied_strength": 1.3510587692260743,
+      "max_abs_logit_change": 0.5922956466674805,
+      "logit_l2": 44.336830139160156,
+      "kl_from_baseline": 0.007178861182183027,
+      "positive_minus_negative_logit_margin": -1.3586158752441406
+    },
+    {
+      "raw_strength": 0.05,
+      "applied_strength": 2.7021175384521485,
+      "max_abs_logit_change": 1.1643638610839844,
+      "logit_l2": 87.63443756103516,
+      "kl_from_baseline": 0.029820360243320465,
+      "positive_minus_negative_logit_margin": -0.7987804412841797
+    },
+    {
+      "raw_strength": 0.1,
+      "applied_strength": 5.404235076904297,
+      "max_abs_logit_change": 2.1970839500427246,
+      "logit_l2": 171.47964477539062,
+      "kl_from_baseline": 0.12287558615207672,
+      "positive_minus_negative_logit_margin": 0.2624092102050781
+    }
+  ]
+}

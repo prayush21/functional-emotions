@@ -23,6 +23,13 @@ from .instrumentation import (
     resolve_layer_index,
     steer_layer_output,
 )
+from .tracking import (
+    build_manifest,
+    git_metadata,
+    make_run_id,
+    sha256_json,
+    summary_from_metrics,
+)
 
 
 def choose_device(requested: str) -> str:
@@ -139,6 +146,7 @@ def run(config: dict[str, Any]) -> Path:
         local_files_only=local_only,
     ).to(device)
     model.eval()
+    resolved_model_revision = getattr(model.config, "_commit_hash", None)
 
     layers = decoder_layers(model)
     layer_index = resolve_layer_index(config["model"]["layer"], len(layers))
@@ -204,14 +212,24 @@ def run(config: dict[str, Any]) -> Path:
         ),
     }
 
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    output = Path(config["output_dir"]) / timestamp
-    output.mkdir(parents=True, exist_ok=False)
+    created_at = datetime.now(timezone.utc)
+    timestamp = created_at.strftime("%Y%m%dT%H%M%SZ")
     resolved = json.loads(json.dumps(config))
     resolved["model"]["resolved_device"] = device
     resolved["model"]["resolved_dtype"] = str(dtype)
     resolved["model"]["resolved_layer_index"] = layer_index
     resolved["model"]["number_of_layers"] = len(layers)
+    resolved["model"]["resolved_revision"] = resolved_model_revision
+    config_hash = sha256_json(resolved)
+    run_id = make_run_id(
+        timestamp=timestamp,
+        experiment=resolved["experiment"],
+        model_name=model_name,
+        seed=seed,
+        config_hash=config_hash,
+    )
+    output = Path(config["output_dir"]) / run_id
+    output.mkdir(parents=True, exist_ok=False)
 
     metrics = {
         "all_hard_gates_pass": all(gates.values()),
@@ -224,8 +242,9 @@ def run(config: dict[str, Any]) -> Path:
         "target_token_ids": {"positive": positive_id, "negative": negative_id},
         "sweep": rows,
     }
+    code = git_metadata()
     environment = {
-        "created_at": datetime.now(timezone.utc).isoformat(),
+        "created_at": created_at.isoformat(),
         "platform": platform.platform(),
         "python": platform.python_version(),
         "torch": torch.__version__,
@@ -233,12 +252,27 @@ def run(config: dict[str, Any]) -> Path:
         "device": device,
         "model_name": model_name,
         "requested_revision": revision,
+        "resolved_model_revision": resolved_model_revision,
+        "code_git_commit": code["commit"],
+        "code_git_dirty": code["dirty"],
+        "config_sha256": config_hash,
+        "run_id": run_id,
     }
+    manifest = build_manifest(
+        run_id=run_id,
+        created_at=created_at.isoformat(),
+        config=resolved,
+        resolved_model_revision=resolved_model_revision,
+        code=code,
+    )
+    summary = summary_from_metrics(metrics)
 
     for filename, value in (
         ("config.json", resolved),
         ("metrics.json", metrics),
         ("environment.json", environment),
+        ("manifest.json", manifest),
+        ("summary.json", summary),
     ):
         (output / filename).write_text(json.dumps(value, indent=2) + "\n")
     save_file({"direction": direction.contiguous()}, output / "direction.safetensors")
