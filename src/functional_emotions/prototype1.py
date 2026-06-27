@@ -7,6 +7,7 @@ import math
 import platform
 import random
 import re
+import shutil
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -54,6 +55,17 @@ def dataset_sha256(rows: list[dict[str, Any]]) -> str:
     return hashlib.sha256(canonical.encode()).hexdigest()
 
 
+def _forbidden_pattern(term: str) -> re.Pattern[str]:
+    escaped = re.escape(term)
+    variants = [escaped]
+    if term.endswith("y") and len(term) > 1:
+        variants.append(re.escape(term[:-1]) + r"i(?:ly|ness|er|est)?")
+    if term.endswith("e") and len(term) > 1:
+        variants.append(re.escape(term[:-1]) + r"(?:ing|ed)")
+    variants.append(escaped + r"(?:s|ed|ing|ly)?")
+    return re.compile(rf"\b(?:{'|'.join(dict.fromkeys(variants))})\b", re.I)
+
+
 def split_topics(topics: list[str], train_fraction: float, seed: int) -> tuple[set[str], set[str]]:
     if len(topics) < 2:
         raise ValueError("At least two topics are required for a held-out topic split")
@@ -81,7 +93,7 @@ def validate_story_rows(
     leaks = []
     for index, row in enumerate(rows):
         terms = [row["emotion"], *forbidden_terms.get(row["emotion"], [])]
-        matched = [term for term in terms if re.search(rf"\b{re.escape(term)}\b", row["text"], re.I)]
+        matched = [term for term in terms if _forbidden_pattern(term).search(row["text"])]
         if matched:
             leaks.append({"row": index, "emotion": row["emotion"], "terms": matched})
     counts = Counter((row["topic"], row["emotion"]) for row in rows)
@@ -250,6 +262,47 @@ def pooled_activations(
     return torch.cat(batches) if batches else torch.empty(0)
 
 
+def pooling_diagnostics(
+    tokenizer: Any,
+    rows: list[dict[str, Any]],
+    token_start: int,
+    split_name: str,
+) -> dict[str, Any]:
+    lengths = []
+    fallback_rows = []
+    per_emotion: dict[str, dict[str, int]] = {}
+    for index, row in enumerate(rows):
+        token_count = len(tokenizer(row["text"], truncation=True)["input_ids"])
+        lengths.append(token_count)
+        emotion = row.get("emotion")
+        if emotion is not None:
+            bucket = per_emotion.setdefault(emotion, {"rows": 0, "fallback_rows": 0})
+            bucket["rows"] += 1
+        if token_count <= token_start:
+            fallback = {
+                "row": index,
+                "id": row.get("id"),
+                "topic": row.get("topic"),
+                "emotion": emotion,
+                "token_count": token_count,
+            }
+            fallback_rows.append(fallback)
+            if emotion is not None:
+                per_emotion[emotion]["fallback_rows"] += 1
+    return {
+        "split": split_name,
+        "rows": len(rows),
+        "token_start": token_start,
+        "minimum_tokens": min(lengths, default=0),
+        "median_tokens": float(np.median(lengths)) if lengths else 0.0,
+        "maximum_tokens": max(lengths, default=0),
+        "final_token_fallback_rows": len(fallback_rows),
+        "final_token_fallback_fraction": len(fallback_rows) / len(rows) if rows else 0.0,
+        "fallback_examples": fallback_rows[:20],
+        "per_emotion": per_emotion,
+    }
+
+
 def difference_in_means(activations: Tensor, labels: list[str], emotions: list[str]) -> Tensor:
     global_mean = activations.mean(dim=0)
     vectors = []
@@ -330,6 +383,13 @@ def evaluate_vectors(
         masked = scores.clone()
         masked[torch.arange(len(scores)), label_ids] = -torch.inf
         margins = correct_scores - masked.max(dim=1).values
+        confusion = [
+            [
+                int(((label_ids == true_index) & (predicted == predicted_index)).sum())
+                for predicted_index in range(len(emotions))
+            ]
+            for true_index in range(len(emotions))
+        ]
         aucs = [
             binary_auc(scores[:, index], label_ids == index) for index in range(len(emotions))
         ]
@@ -345,10 +405,53 @@ def evaluate_vectors(
                 "accuracy": float((predicted == label_ids).float().mean()),
                 "macro_auc": float(np.nanmean(aucs)),
                 "mean_correct_margin": float(margins.mean()),
+                "confusion_matrix": {
+                    "labels": emotions,
+                    "rows_are_true_labels": confusion,
+                },
                 "per_emotion": per_emotion,
             }
         )
     return results
+
+
+def selected_layer_examples(
+    rows: list[dict[str, Any]],
+    activations: Tensor,
+    emotions: list[str],
+    raw_vectors: Tensor,
+    clean_vectors: Tensor,
+    layer_position: int,
+) -> list[dict[str, Any]]:
+    raw_scores = activations[:, layer_position] @ raw_vectors[:, layer_position].T
+    clean_scores = activations[:, layer_position] @ clean_vectors[:, layer_position].T
+    examples = []
+    for index, row in enumerate(rows):
+        label_index = emotions.index(row["emotion"])
+        raw_predicted = int(raw_scores[index].argmax())
+        clean_predicted = int(clean_scores[index].argmax())
+        clean_masked = clean_scores[index].clone()
+        clean_masked[label_index] = -torch.inf
+        examples.append(
+            {
+                "id": row.get("id"),
+                "topic": row["topic"],
+                "emotion": row["emotion"],
+                "raw_prediction": emotions[raw_predicted],
+                "pca_cleaned_prediction": emotions[clean_predicted],
+                "pca_cleaned_correct": clean_predicted == label_index,
+                "pca_cleaned_margin": float(clean_scores[index, label_index] - clean_masked.max()),
+                "raw_scores": {
+                    emotion: float(raw_scores[index, emotion_index])
+                    for emotion_index, emotion in enumerate(emotions)
+                },
+                "pca_cleaned_scores": {
+                    emotion: float(clean_scores[index, emotion_index])
+                    for emotion_index, emotion in enumerate(emotions)
+                },
+            }
+        )
+    return examples
 
 
 def resolve_layer_indices(specification: Any, number_of_layers: int) -> list[int]:
@@ -408,12 +511,13 @@ def run(config: dict[str, Any]) -> Path:
     number_of_layers = len(decoder_layers(model))
     layer_indices = resolve_layer_indices(model_config.get("layers", "all"), number_of_layers)
     extraction = config["extraction"]
+    token_start = int(extraction.get("token_start", 50))
     activation_args = {
         "model": model,
         "tokenizer": tokenizer,
         "device": device,
         "layer_indices": layer_indices,
-        "token_start": int(extraction.get("token_start", 50)),
+        "token_start": token_start,
         "batch_size": int(extraction.get("batch_size", 2)),
     }
     train_activations = pooled_activations(
@@ -478,6 +582,10 @@ def run(config: dict[str, Any]) -> Path:
     )
     output = Path(config["output_dir"]) / run_id
     output.mkdir(parents=True, exist_ok=False)
+    dataset_output = output / "dataset"
+    dataset_output.mkdir()
+    shutil.copy2(Path(data["stories_path"]), dataset_output / "stories.jsonl")
+    shutil.copy2(Path(data["neutral_path"]), dataset_output / "neutral.jsonl")
     metrics = {
         "all_hard_gates_pass": all(gates.values()),
         "gates": gates,
@@ -485,16 +593,33 @@ def run(config: dict[str, Any]) -> Path:
         "selection_metric": "pre_registered_model.evaluation_layer",
         "chance_accuracy": 1 / len(emotions),
         "dataset_audit": audit,
+        "dataset_artifacts": {
+            "stories": "dataset/stories.jsonl",
+            "neutral": "dataset/neutral.jsonl",
+        },
         "split": {
             "train_topics": sorted(train_topics),
             "test_topics": sorted(test_topics),
             "train_stories": len(train_rows),
             "test_stories": len(test_rows),
         },
+        "pooling": [
+            pooling_diagnostics(tokenizer, train_rows, token_start, "train"),
+            pooling_diagnostics(tokenizer, test_rows, token_start, "test"),
+            pooling_diagnostics(tokenizer, neutral, token_start, "neutral"),
+        ],
         "neutral_pca": [
             {"layer": layer, **metadata}
             for layer, metadata in zip(layer_indices, pca_metadata, strict=True)
         ],
+        "selected_layer_examples": selected_layer_examples(
+            test_rows,
+            test_activations,
+            emotions,
+            raw_vectors,
+            clean_vectors,
+            selected_position,
+        ),
         "layers": [
             {
                 "layer": layer,

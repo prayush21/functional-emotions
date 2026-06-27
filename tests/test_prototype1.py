@@ -5,6 +5,7 @@ from functional_emotions.prototype1 import (
     difference_in_means,
     evaluate_vectors,
     neutral_pca,
+    pooling_diagnostics,
     remove_components,
     resolve_evaluation_layer,
     split_topics,
@@ -30,6 +31,29 @@ def test_story_audit_detects_whole_word_label_leakage():
     audit = validate_story_rows(rows, ["happy", "sad"], {"sad": ["sorrow"]})
 
     assert audit["lexical_leakage"] == [{"row": 0, "emotion": "happy", "terms": ["happy"]}]
+
+
+def test_story_audit_detects_simple_morphological_leakage():
+    rows = [{"topic": "one", "emotion": "happy", "text": "She smiled happily at the result."}]
+    audit = validate_story_rows(rows, ["happy"], {})
+
+    assert audit["lexical_leakage"] == [{"row": 0, "emotion": "happy", "terms": ["happy"]}]
+
+
+def test_pooling_diagnostics_report_final_token_fallbacks():
+    class TinyTokenizer:
+        def __call__(self, text, truncation=True):
+            return {"input_ids": text.split()}
+
+    rows = [
+        {"id": "a", "topic": "one", "emotion": "happy", "text": "one two"},
+        {"id": "b", "topic": "two", "emotion": "sad", "text": "one two three four"},
+    ]
+    diagnostics = pooling_diagnostics(TinyTokenizer(), rows, token_start=3, split_name="test")
+
+    assert diagnostics["final_token_fallback_rows"] == 1
+    assert diagnostics["fallback_examples"][0]["id"] == "a"
+    assert diagnostics["per_emotion"]["happy"]["fallback_rows"] == 1
 
 
 def test_difference_in_means_uses_across_emotion_baseline():
@@ -73,6 +97,10 @@ def test_held_out_validation_scores_separable_vectors():
     assert result["accuracy"] == 1.0
     assert result["macro_auc"] == 1.0
     assert result["mean_correct_margin"] > 0
+    assert result["confusion_matrix"] == {
+        "labels": ["a", "b"],
+        "rows_are_true_labels": [[2, 0], [0, 2]],
+    }
     assert binary_auc(torch.tensor([0.0, 1.0]), torch.tensor([False, True])) == 1.0
 
 

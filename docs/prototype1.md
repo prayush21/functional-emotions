@@ -77,11 +77,16 @@ Each timestamped directory under `artifacts/prototype1/` contains:
 - `emotion_vectors.safetensors` — cleaned vector for each emotion and layer;
 - `neutral_pca.safetensors` — per-layer neutral principal components;
 - `metrics.json` — gates, dataset audit, split, PCA metadata, and validation;
+- `dataset/stories.jsonl` and `dataset/neutral.jsonl` — the exact generated text
+  used for extraction and validation;
 - `config.json`, `environment.json`, `manifest.json`, and `summary.json` — exact
   provenance and compact registry data.
 
-The environment record includes SHA-256 hashes of both JSONL datasets. Register an
-accepted run with `fe-register-run` using the same workflow as Prototype 0.
+The environment record includes SHA-256 hashes of both JSONL datasets. The metrics
+also include pooling diagnostics, confusion matrices for every layer, and
+selected-layer per-example score dumps so failures can be inspected after a Colab
+runtime shuts down. Register an accepted run with `fe-register-run` using the same
+workflow as Prototype 0.
 
 ## Expected failures
 
@@ -89,7 +94,11 @@ accepted run with `fe-register-run` using the same workflow as Prototype 0.
   extend `forbidden_terms`.
 - Chance held-out accuracy with strong train separation indicates topic/template
   confounding or a direction that does not generalize.
+- High macro AUC with negative correct-class margin means one-vs-rest ranking is
+  promising, but the multiclass winner is still wrong often enough to fail the
+  hard gate. Inspect `selected_layer_examples` and the confusion matrix.
 - PCA removal making performance worse is reportable. Raw and cleaned metrics are
   both retained; the implementation never hides the comparison.
 - Very short generations undermine token-50 pooling. Increase generation length
-  before interpreting a run that frequently uses the final-token fallback.
+  before interpreting a run that frequently uses the final-token fallback reported
+  under `pooling`.
