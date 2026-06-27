@@ -38,18 +38,18 @@ data:
   # A compact replication seed set. Scale toward the paper's 100 topics and
   # 12 stories per topic only after this pipeline passes end to end.
   topics:
-    - A student learns their scholarship application was denied
-    - A person's online friend turns out to live in the same city
-    - An employee is asked to train their replacement
-    - A traveler misses an important event because of a delayed flight
-    - Someone finds their grandmother's engagement ring in a pawn shop
-    - Two friends apply for the same job
-    - A neighbor asks to use part of the yard for a garden
-    - A person discovers their mentor retired without saying goodbye
-    - An athlete is asked to switch positions
-    - Someone finds a time capsule they do not remember burying
-    - A family member announces a major change in beliefs
-    - A tenant learns their apartment building is being converted
+    - A student receives an unexpected email from the financial aid office
+    - A person finds a handwritten note tucked inside a library book
+    - An employee is asked to stay after a routine meeting
+    - A traveler hears an announcement while waiting at the gate
+    - Someone recognizes a familiar ring in a secondhand shop display
+    - Two friends learn they have been invited to the same interview
+    - A neighbor asks to talk about using part of a shared yard
+    - A person learns their mentor has made a private decision
+    - An athlete is asked to discuss changing positions before practice
+    - Someone opens a time capsule they do not remember burying
+    - A family member asks everyone to gather for an announcement
+    - A tenant receives a notice about upcoming changes to the building
   neutral_topics:
     - A clerk inventories office supplies at closing time
     - A commuter checks the stops on a familiar bus route
