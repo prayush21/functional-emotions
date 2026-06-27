@@ -21,6 +21,10 @@ before scaling the emotion and topic sets.
 Test implicit scenarios, numerical intensity sweeps, lexical controls, logit-lens
 effects, shuffled-label controls, and cross-topic generalization.
 
+Implemented as `fe-prototype2`. This prototype treats Prototype 1 as a completed
+failed-but-informative feasibility run and asks whether its signal survives
+semantic controls before moving to emotion-space geometry.
+
 ## Prototype 3 — emotion-space geometry
 
 Measure cosine structure, clustering, PCA/UMAP, valence/arousal alignment, and

@@ -100,8 +100,28 @@ fe-prototype1 --config configs/prototype1.yaml --stage extract
 The generator and measured base model are configured separately. Runs record
 dataset hashes, the exact topic split, raw-versus-cleaned validation at every
 layer, and safetensor bundles for both emotion vectors and neutral components.
+Prototype 1 now runs end to end. The first completed compact run found
+above-chance held-out signal, but failed the mean-margin hard gate because the
+uncalibrated multiclass scores over-predicted `angry` and never selected
+`afraid` at the pre-registered layer. Prototype 2 will test semantic robustness
+and controls rather than tuning Prototype 1 to pass.
 See [docs/prototype1.md](docs/prototype1.md) for the experiment card, gates,
 scaling guidance, and interpretation limits.
+
+## Prototype 2: semantic validation and controls
+
+Prototype 2 explains the Prototype 1 result rather than tuning it to pass. It
+loads a completed Prototype 1 artifact bundle, reruns held-out scoring, compares
+real versus shuffled vector labels, raw versus PCA-cleaned directions, diagnostic
+best layers, emotion confusion patterns, compact lexical scenarios, implicit
+intensity sweeps, and simple train-score calibration.
+
+```bash
+fe-prototype2 --config configs/prototype2.yaml
+```
+
+See [docs/prototype2.md](docs/prototype2.md) for Colab cells, expected outputs,
+and interpretation guidance.
 
 ## Roadmap
 

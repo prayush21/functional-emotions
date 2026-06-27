@@ -23,6 +23,7 @@ cloud = ["modal>=0.73,<2"]
 [project.scripts]
 fe-prototype0 = "functional_emotions.prototype0:main"
 fe-prototype1 = "functional_emotions.prototype1:main"
+fe-prototype2 = "functional_emotions.prototype2:main"
 fe-register-run = "functional_emotions.registry:main"
 
 [tool.hatch.build.targets.wheel]

@@ -70,6 +70,23 @@ Thresholds are feasibility criteria, not evidence that the replication is
 complete. Prototype 2 adds lexical controls, shuffled-label controls, intensity
 sweeps, implicit scenarios, and logit-lens validation.
 
+## Current result
+
+A completed compact run on June 27, 2026 did not pass all hard gates:
+
+- held-out accuracy was `0.472`, above the `0.40` feasibility threshold;
+- held-out macro AUC was `0.867`, above the `0.60` feasibility threshold;
+- mean correct-class margin was `-3.261`, below the non-negative margin gate.
+
+The failure mode was not topic leakage, label leakage, or token-pooling fallback.
+Train and held-out topic sets were disjoint, the lexical audit passed, and no
+train or held-out stories used final-token fallback pooling. The main issue was
+multiclass calibration at the pre-registered layer: `angry` was over-predicted
+and `afraid` was never the argmax, despite one-vs-rest AUC indicating separable
+signal. Prototype 1 should therefore be treated as a completed failed
+feasibility run: it found emotion-related signal, but the cleaned
+difference-in-means vectors were not a reliable four-way classifier.
+
 ## Outputs
 
 Each timestamped directory under `artifacts/prototype1/` contains:

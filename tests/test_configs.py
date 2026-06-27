@@ -22,3 +22,12 @@ def test_prototype1_config_has_held_out_topics_and_paper_pooling():
     assert 0.0 < config["data"]["train_topic_fraction"] < 1.0
     assert len(config["data"]["topics"]) >= 2
     assert len(config["data"]["emotions"]) >= 2
+
+
+def test_prototype2_config_points_to_prototype1_bundle_and_keeps_controls_diagnostic():
+    config = yaml.safe_load(Path("configs/prototype2.yaml").read_text())
+
+    assert config["experiment"] == "prototype2"
+    assert config["prototype1"]["run_dir"]
+    assert config["extraction"]["token_start"] == 50
+    assert config["controls"]["shuffle_seed"] != config["seed"]
