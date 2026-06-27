@@ -5,6 +5,7 @@ from functional_emotions.prototype1 import (
     binary_auc,
     difference_in_means,
     evaluate_vectors,
+    generation_failure_report,
     generation_inputs,
     neutral_pca,
     pooling_diagnostics,
@@ -12,6 +13,7 @@ from functional_emotions.prototype1 import (
     resolve_evaluation_layer,
     split_topics,
     validate_story_rows,
+    write_generation_failure_diagnostics,
 )
 
 
@@ -94,6 +96,38 @@ def test_generation_inputs_accept_chat_template_batch_encoding_shape():
 
     assert torch.equal(input_ids, torch.tensor([[1, 2, 3]]))
     assert torch.equal(attention_mask, torch.tensor([[1, 1, 1]]))
+
+
+def test_generation_failure_report_counts_matched_terms():
+    report = generation_failure_report(
+        topic="A student finds a map",
+        emotion="happy",
+        story_index=0,
+        sequence=0,
+        maximum_attempts=2,
+        forbidden_terms=["joy"],
+        prompt="prompt",
+        attempts=[
+            {"attempt": 1, "matched_terms": ["happy"], "text": "happy text"},
+            {"attempt": 2, "matched_terms": ["joy"], "text": "joy text"},
+        ],
+        successful_rows=0,
+    )
+
+    assert report["forbidden_terms"] == ["happy", "joy"]
+    assert report["matched_term_counts"] == {"happy": 1, "joy": 1}
+
+
+def test_generation_failure_diagnostics_are_written(tmp_path):
+    dataset_path = tmp_path / "stories.jsonl"
+    report = {"topic": "topic", "attempts": []}
+    partial_rows = [{"id": "story-000000", "topic": "topic", "emotion": "happy", "text": "ok"}]
+
+    failure_path = write_generation_failure_diagnostics(dataset_path, report, partial_rows)
+
+    assert failure_path == tmp_path / "generation_failure.json"
+    assert failure_path.is_file()
+    assert (tmp_path / "generation_partial_stories.jsonl").read_text().strip()
 
 
 def test_difference_in_means_uses_across_emotion_baseline():

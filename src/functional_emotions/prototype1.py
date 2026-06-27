@@ -176,6 +176,47 @@ def generation_inputs(tokenizer: Any, prompt: str, device: str) -> tuple[Tensor,
     return batch["input_ids"].to(device), batch["attention_mask"].to(device)
 
 
+def generation_failure_report(
+    *,
+    topic: str,
+    emotion: str,
+    story_index: int,
+    sequence: int,
+    maximum_attempts: int,
+    forbidden_terms: list[str],
+    prompt: str,
+    attempts: list[dict[str, Any]],
+    successful_rows: int,
+) -> dict[str, Any]:
+    matched_counts = Counter(
+        term for attempt in attempts for term in attempt.get("matched_terms", [])
+    )
+    return {
+        "topic": topic,
+        "emotion": emotion,
+        "story_index": story_index,
+        "sequence": sequence,
+        "maximum_attempts": maximum_attempts,
+        "successful_rows_before_failure": successful_rows,
+        "forbidden_terms": [emotion, *forbidden_terms],
+        "matched_term_counts": dict(matched_counts),
+        "prompt": prompt,
+        "attempts": attempts,
+    }
+
+
+def write_generation_failure_diagnostics(
+    dataset_path: Path,
+    report: dict[str, Any],
+    partial_rows: list[dict[str, Any]],
+) -> Path:
+    dataset_path.parent.mkdir(parents=True, exist_ok=True)
+    failure_path = dataset_path.parent / "generation_failure.json"
+    failure_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
+    write_jsonl(dataset_path.parent / "generation_partial_stories.jsonl", partial_rows)
+    return failure_path
+
+
 def generate_dataset(config: dict[str, Any]) -> Path:
     seed = int(config["seed"])
     random.seed(seed)
@@ -204,6 +245,8 @@ def generate_dataset(config: dict[str, Any]) -> Path:
     forbidden = data.get("forbidden_terms", {})
     stories_per_pair = int(generation["stories_per_topic_emotion"])
     maximum_attempts = int(generation.get("maximum_attempts_per_story", 3))
+    dataset_path = Path(data["stories_path"])
+    neutral_path = Path(data["neutral_path"])
     rows: list[dict[str, Any]] = []
 
     def sample(prompt: str, sample_seed: int) -> str:
@@ -227,18 +270,62 @@ def generate_dataset(config: dict[str, Any]) -> Path:
             for story_index in range(stories_per_pair):
                 prompt = _generation_prompt(topic, emotion, forbidden.get(emotion, []), False)
                 text = ""
+                attempts = []
                 for attempt in range(maximum_attempts):
-                    text = sample(prompt, seed + sequence * maximum_attempts + attempt)
+                    sample_seed = seed + sequence * maximum_attempts + attempt
+                    text = sample(prompt, sample_seed)
                     check = validate_story_rows(
                         [{"topic": topic, "emotion": emotion, "text": text}],
                         emotions,
                         forbidden,
                     )
+                    leakage = check["lexical_leakage"]
+                    matched_terms = leakage[0]["terms"] if leakage else []
+                    attempts.append(
+                        {
+                            "attempt": attempt + 1,
+                            "sample_seed": sample_seed,
+                            "accepted": bool(text and not leakage),
+                            "matched_terms": matched_terms,
+                            "character_count": len(text),
+                            "word_count": len(text.split()),
+                            "text": text,
+                        }
+                    )
                     if text and not check["lexical_leakage"]:
                         break
                 else:
+                    report = generation_failure_report(
+                        topic=topic,
+                        emotion=emotion,
+                        story_index=story_index,
+                        sequence=sequence,
+                        maximum_attempts=maximum_attempts,
+                        forbidden_terms=forbidden.get(emotion, []),
+                        prompt=prompt,
+                        attempts=attempts,
+                        successful_rows=len(rows),
+                    )
+                    failure_path = write_generation_failure_diagnostics(
+                        dataset_path, report, rows
+                    )
+                    print(
+                        json.dumps(
+                            {
+                                "generation_failure": str(failure_path),
+                                "partial_stories": str(
+                                    failure_path.parent / "generation_partial_stories.jsonl"
+                                ),
+                                "topic": topic,
+                                "emotion": emotion,
+                                "matched_term_counts": report["matched_term_counts"],
+                            },
+                            indent=2,
+                        )
+                    )
                     raise RuntimeError(
-                        f"Could not generate a leakage-free story for {emotion!r}/{topic!r}"
+                        f"Could not generate a leakage-free story for {emotion!r}/{topic!r}; "
+                        f"diagnostics written to {failure_path}"
                     )
                 rows.append(
                     {
@@ -259,8 +346,6 @@ def generate_dataset(config: dict[str, Any]) -> Path:
         )
         sequence += 1
 
-    dataset_path = Path(data["stories_path"])
-    neutral_path = Path(data["neutral_path"])
     write_jsonl(dataset_path, rows)
     write_jsonl(neutral_path, neutral_rows)
     print(json.dumps({"stories": str(dataset_path), "neutral": str(neutral_path)}, indent=2))
