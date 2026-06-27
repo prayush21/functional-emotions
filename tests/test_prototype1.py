@@ -4,6 +4,7 @@ from functional_emotions.prototype1 import (
     binary_auc,
     difference_in_means,
     evaluate_vectors,
+    generation_inputs,
     neutral_pca,
     pooling_diagnostics,
     remove_components,
@@ -54,6 +55,36 @@ def test_pooling_diagnostics_report_final_token_fallbacks():
     assert diagnostics["final_token_fallback_rows"] == 1
     assert diagnostics["fallback_examples"][0]["id"] == "a"
     assert diagnostics["per_emotion"]["happy"]["fallback_rows"] == 1
+
+
+def test_generation_inputs_accept_chat_template_tensor():
+    class ChatTokenizer:
+        chat_template = "template"
+
+        def apply_chat_template(self, messages, add_generation_prompt, return_tensors):
+            return torch.tensor([[1, 2, 3]])
+
+    input_ids, attention_mask = generation_inputs(ChatTokenizer(), "prompt", "cpu")
+
+    assert torch.equal(input_ids, torch.tensor([[1, 2, 3]]))
+    assert torch.equal(attention_mask, torch.tensor([[1, 1, 1]]))
+
+
+def test_generation_inputs_accept_chat_template_batch_encoding_shape():
+    class ChatBatch(dict):
+        def to(self, device):
+            return self
+
+    class ChatTokenizer:
+        chat_template = "template"
+
+        def apply_chat_template(self, messages, add_generation_prompt, return_tensors):
+            return ChatBatch({"input_ids": torch.tensor([[1, 2, 3]])})
+
+    input_ids, attention_mask = generation_inputs(ChatTokenizer(), "prompt", "cpu")
+
+    assert torch.equal(input_ids, torch.tensor([[1, 2, 3]]))
+    assert torch.equal(attention_mask, torch.tensor([[1, 1, 1]]))
 
 
 def test_difference_in_means_uses_across_emotion_baseline():

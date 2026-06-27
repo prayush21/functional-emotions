@@ -129,6 +129,26 @@ def _generation_prompt(topic: str, emotion: str, forbidden: list[str], neutral: 
     )
 
 
+def generation_inputs(tokenizer: Any, prompt: str, device: str) -> tuple[Tensor, Tensor]:
+    messages = [{"role": "user", "content": prompt}]
+    if hasattr(tokenizer, "apply_chat_template") and tokenizer.chat_template:
+        encoded = tokenizer.apply_chat_template(
+            messages, add_generation_prompt=True, return_tensors="pt"
+        )
+        if isinstance(encoded, Tensor):
+            input_ids = encoded.to(device)
+            attention_mask = torch.ones_like(input_ids)
+            return input_ids, attention_mask
+        batch = encoded.to(device) if hasattr(encoded, "to") else encoded
+        input_ids = batch["input_ids"]
+        attention_mask = batch.get("attention_mask")
+        if attention_mask is None:
+            attention_mask = torch.ones_like(input_ids)
+        return input_ids.to(device), attention_mask.to(device)
+    batch = tokenizer(prompt, return_tensors="pt")
+    return batch["input_ids"].to(device), batch["attention_mask"].to(device)
+
+
 def generate_dataset(config: dict[str, Any]) -> Path:
     seed = int(config["seed"])
     random.seed(seed)
@@ -161,16 +181,7 @@ def generate_dataset(config: dict[str, Any]) -> Path:
 
     def sample(prompt: str, sample_seed: int) -> str:
         torch.manual_seed(sample_seed)
-        messages = [{"role": "user", "content": prompt}]
-        if hasattr(tokenizer, "apply_chat_template") and tokenizer.chat_template:
-            encoded = tokenizer.apply_chat_template(
-                messages, add_generation_prompt=True, return_tensors="pt"
-            ).to(device)
-            attention_mask = torch.ones_like(encoded)
-        else:
-            batch = tokenizer(prompt, return_tensors="pt")
-            encoded = batch["input_ids"].to(device)
-            attention_mask = batch["attention_mask"].to(device)
+        encoded, attention_mask = generation_inputs(tokenizer, prompt, device)
         with torch.inference_mode():
             output = model.generate(
                 input_ids=encoded,
