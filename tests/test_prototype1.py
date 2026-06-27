@@ -1,6 +1,7 @@
 import torch
 
 from functional_emotions.prototype1 import (
+    _generation_prompt,
     binary_auc,
     difference_in_means,
     evaluate_vectors,
@@ -55,6 +56,14 @@ def test_pooling_diagnostics_report_final_token_fallbacks():
     assert diagnostics["final_token_fallback_rows"] == 1
     assert diagnostics["fallback_examples"][0]["id"] == "a"
     assert diagnostics["per_emotion"]["happy"]["fallback_rows"] == 1
+
+
+def test_emotion_generation_prompt_uses_behavioral_guidance():
+    prompt = _generation_prompt("A student receives an email", "happy", ["joy"], False)
+
+    assert "experiencing happy" not in prompt
+    assert "plausible context" in prompt
+    assert "Forbidden words" in prompt
 
 
 def test_generation_inputs_accept_chat_template_tensor():

@@ -112,6 +112,31 @@ def _clean_generation(text: str) -> str:
     return text.strip().strip('"')
 
 
+def _emotion_generation_guidance(emotion: str) -> str:
+    guidance = {
+        "happy": (
+            "Use signs such as an easing posture, quickened steps, careful but buoyant "
+            "choices, spontaneous generosity, or a private smile."
+        ),
+        "sad": (
+            "Use signs such as slowed movement, quiet withdrawal, lingering over small "
+            "objects, heavy pauses, or difficulty continuing ordinary tasks."
+        ),
+        "angry": (
+            "Use signs such as clipped movements, tightened hands, controlled speech, "
+            "sharp decisions, or forceful handling of ordinary objects."
+        ),
+        "afraid": (
+            "Use signs such as scanning exits, guarded breathing, hesitation, checking "
+            "details repeatedly, or keeping close to familiar things."
+        ),
+    }
+    return guidance.get(
+        emotion,
+        "Use only concrete actions, choices, physical sensations, and body language.",
+    )
+
+
 def _generation_prompt(topic: str, emotion: str, forbidden: list[str], neutral: bool) -> str:
     if neutral:
         return (
@@ -121,10 +146,12 @@ def _generation_prompt(topic: str, emotion: str, forbidden: list[str], neutral: 
         )
     avoid = ", ".join([emotion, *forbidden])
     return (
-        "Write one self-contained story paragraph based on the premise below. The story should "
-        f"follow a character experiencing {emotion}, but must never use these words: {avoid}. "
-        "Convey the state only through actions, choices, physical sensations, and body language. "
-        "Do not name or explain the emotion.\n\n"
+        "Write one self-contained story paragraph based on the premise below. The paragraph "
+        "should imply the private target state through concrete behavior, not labels. If the "
+        "premise is ambiguous, add plausible context that makes the target state fit naturally. "
+        f"{_emotion_generation_guidance(emotion)} "
+        f"Forbidden words that must not appear in the paragraph: {avoid}. "
+        "Do not name, summarize, or explain the state.\n\n"
         f"Premise: {topic}\n\nReturn only the story paragraph."
     )
 

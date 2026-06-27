@@ -20,7 +20,7 @@ generation:
   device: auto
   local_files_only: false
   stories_per_topic_emotion: 3
-  maximum_attempts_per_story: 3
+  maximum_attempts_per_story: 15
   temperature: 0.8
   top_p: 0.95
   max_new_tokens: 220
