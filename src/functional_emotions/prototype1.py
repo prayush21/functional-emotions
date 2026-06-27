@@ -112,6 +112,12 @@ def _clean_generation(text: str) -> str:
     return text.strip().strip('"')
 
 
+def _generation_malformed_reason(text: str) -> str | None:
+    if re.search(r"<think\b", text, re.I) and not re.search(r"</think>", text, re.I):
+        return "unterminated_think"
+    return None
+
+
 def _emotion_generation_guidance(emotion: str) -> str:
     guidance = {
         "happy": (
@@ -156,12 +162,25 @@ def _generation_prompt(topic: str, emotion: str, forbidden: list[str], neutral: 
     )
 
 
-def generation_inputs(tokenizer: Any, prompt: str, device: str) -> tuple[Tensor, Tensor]:
+def generation_inputs(
+    tokenizer: Any,
+    prompt: str,
+    device: str,
+    enable_thinking: bool = True,
+) -> tuple[Tensor, Tensor]:
     messages = [{"role": "user", "content": prompt}]
     if hasattr(tokenizer, "apply_chat_template") and tokenizer.chat_template:
-        encoded = tokenizer.apply_chat_template(
-            messages, add_generation_prompt=True, return_tensors="pt"
-        )
+        try:
+            encoded = tokenizer.apply_chat_template(
+                messages,
+                add_generation_prompt=True,
+                return_tensors="pt",
+                enable_thinking=enable_thinking,
+            )
+        except TypeError:
+            encoded = tokenizer.apply_chat_template(
+                messages, add_generation_prompt=True, return_tensors="pt"
+            )
         if isinstance(encoded, Tensor):
             input_ids = encoded.to(device)
             attention_mask = torch.ones_like(input_ids)
@@ -249,9 +268,11 @@ def generate_dataset(config: dict[str, Any]) -> Path:
     neutral_path = Path(data["neutral_path"])
     rows: list[dict[str, Any]] = []
 
-    def sample(prompt: str, sample_seed: int) -> str:
+    enable_thinking = bool(generation.get("enable_thinking", True))
+
+    def sample(prompt: str, sample_seed: int) -> tuple[str, str | None, str]:
         torch.manual_seed(sample_seed)
-        encoded, attention_mask = generation_inputs(tokenizer, prompt, device)
+        encoded, attention_mask = generation_inputs(tokenizer, prompt, device, enable_thinking)
         with torch.inference_mode():
             output = model.generate(
                 input_ids=encoded,
@@ -262,7 +283,11 @@ def generate_dataset(config: dict[str, Any]) -> Path:
                 max_new_tokens=int(generation.get("max_new_tokens", 220)),
                 pad_token_id=tokenizer.pad_token_id,
             )
-        return _clean_generation(tokenizer.decode(output[0, encoded.shape[1] :], skip_special_tokens=True))
+        raw = tokenizer.decode(output[0, encoded.shape[1] :], skip_special_tokens=True)
+        malformed_reason = _generation_malformed_reason(raw)
+        if malformed_reason:
+            return "", malformed_reason, raw
+        return _clean_generation(raw), None, raw
 
     sequence = 0
     for topic in data["topics"]:
@@ -273,7 +298,7 @@ def generate_dataset(config: dict[str, Any]) -> Path:
                 attempts = []
                 for attempt in range(maximum_attempts):
                     sample_seed = seed + sequence * maximum_attempts + attempt
-                    text = sample(prompt, sample_seed)
+                    text, malformed_reason, raw_text = sample(prompt, sample_seed)
                     check = validate_story_rows(
                         [{"topic": topic, "emotion": emotion, "text": text}],
                         emotions,
@@ -285,14 +310,16 @@ def generate_dataset(config: dict[str, Any]) -> Path:
                         {
                             "attempt": attempt + 1,
                             "sample_seed": sample_seed,
-                            "accepted": bool(text and not leakage),
+                            "accepted": bool(text and not leakage and not malformed_reason),
+                            "malformed_reason": malformed_reason,
                             "matched_terms": matched_terms,
                             "character_count": len(text),
                             "word_count": len(text.split()),
                             "text": text,
+                            "raw_text": raw_text,
                         }
                     )
-                    if text and not check["lexical_leakage"]:
+                    if text and not check["lexical_leakage"] and not malformed_reason:
                         break
                 else:
                     report = generation_failure_report(
@@ -341,8 +368,13 @@ def generate_dataset(config: dict[str, Any]) -> Path:
     neutral_rows = []
     for index, topic in enumerate(data["neutral_topics"]):
         prompt = _generation_prompt(topic, "", [], True)
+        text, malformed_reason, _raw_text = sample(prompt, seed + sequence)
+        if malformed_reason:
+            raise RuntimeError(
+                f"Could not generate a valid neutral paragraph for {topic!r}: {malformed_reason}"
+            )
         neutral_rows.append(
-            {"id": f"neutral-{index:06d}", "topic": topic, "text": sample(prompt, seed + sequence)}
+            {"id": f"neutral-{index:06d}", "topic": topic, "text": text}
         )
         sequence += 1
 

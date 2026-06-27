@@ -1,6 +1,7 @@
 import torch
 
 from functional_emotions.prototype1 import (
+    _generation_malformed_reason,
     _generation_prompt,
     binary_auc,
     difference_in_means,
@@ -68,6 +69,11 @@ def test_emotion_generation_prompt_uses_behavioral_guidance():
     assert "Forbidden words" in prompt
 
 
+def test_unterminated_think_output_is_malformed():
+    assert _generation_malformed_reason("<think>reasoning without an end") == "unterminated_think"
+    assert _generation_malformed_reason("<think>done</think>story") is None
+
+
 def test_generation_inputs_accept_chat_template_tensor():
     class ChatTokenizer:
         chat_template = "template"
@@ -79,6 +85,25 @@ def test_generation_inputs_accept_chat_template_tensor():
 
     assert torch.equal(input_ids, torch.tensor([[1, 2, 3]]))
     assert torch.equal(attention_mask, torch.tensor([[1, 1, 1]]))
+
+
+def test_generation_inputs_passes_enable_thinking_when_supported():
+    class ChatTokenizer:
+        chat_template = "template"
+
+        def __init__(self):
+            self.enable_thinking = None
+
+        def apply_chat_template(
+            self, messages, add_generation_prompt, return_tensors, enable_thinking=True
+        ):
+            self.enable_thinking = enable_thinking
+            return torch.tensor([[1, 2, 3]])
+
+    tokenizer = ChatTokenizer()
+    generation_inputs(tokenizer, "prompt", "cpu", enable_thinking=False)
+
+    assert tokenizer.enable_thinking is False
 
 
 def test_generation_inputs_accept_chat_template_batch_encoding_shape():

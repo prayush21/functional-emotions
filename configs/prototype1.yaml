@@ -19,6 +19,7 @@ generation:
   dtype: auto
   device: auto
   local_files_only: false
+  enable_thinking: false
   stories_per_topic_emotion: 3
   maximum_attempts_per_story: 15
   temperature: 0.8
