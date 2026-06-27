@@ -389,6 +389,10 @@ def encode(tokenizer: Any, texts: list[str], device: str) -> dict[str, Tensor]:
     return {key: value.to(device) for key, value in batch.items()}
 
 
+def flat_nonzero(values: Tensor) -> Tensor:
+    return torch.nonzero(values, as_tuple=False).flatten()
+
+
 def pooled_activations(
     model: Any,
     tokenizer: Any,
@@ -409,7 +413,7 @@ def pooled_activations(
             hidden = output.hidden_states[layer_index + 1]
             vectors = []
             for row in range(hidden.shape[0]):
-                valid = torch.flatnonzero(masks[row])
+                valid = flat_nonzero(masks[row])
                 selected = valid[token_start:] if len(valid) > token_start else valid[-1:]
                 vectors.append(hidden[row, selected].float().mean(dim=0).cpu())
             pooled_layers.append(torch.stack(vectors))

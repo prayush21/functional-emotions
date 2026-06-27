@@ -6,6 +6,7 @@ from functional_emotions.prototype1 import (
     binary_auc,
     difference_in_means,
     evaluate_vectors,
+    flat_nonzero,
     generation_failure_report,
     generation_inputs,
     neutral_pca,
@@ -161,6 +162,12 @@ def test_difference_in_means_uses_across_emotion_baseline():
 
     assert torch.equal(vectors[0], torch.tensor([[1.5, -1.5]]))
     assert torch.equal(vectors[1], -vectors[0])
+
+
+def test_flat_nonzero_uses_older_torch_compatible_api():
+    values = torch.tensor([False, True, False, True])
+
+    assert torch.equal(flat_nonzero(values), torch.tensor([1, 3]))
 
 
 def test_neutral_pca_removal_is_orthogonal_and_normalized():
