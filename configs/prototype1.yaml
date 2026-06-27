@@ -38,7 +38,7 @@ data:
   # A compact replication seed set. Scale toward the paper's 100 topics and
   # 12 stories per topic only after this pipeline passes end to end.
   topics:
-    - A student receives an unexpected email from the financial aid office
+    - A student finds a folded campus map left on their desk
     - A person finds a handwritten note tucked inside a library book
     - An employee is asked to stay after a routine meeting
     - A traveler hears an announcement while waiting at the gate
