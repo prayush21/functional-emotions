@@ -25,6 +25,15 @@ Implemented as `fe-prototype2`. This prototype treats Prototype 1 as a completed
 failed-but-informative feasibility run and asks whether its signal survives
 semantic controls before moving to emotion-space geometry.
 
+## Prototype 2.5 — revised extraction bridge
+
+When Prototype 2 finds fragile semantic robustness, revise the compact
+extraction run before geometry: expand topics and stories per topic/emotion,
+balance angry-versus-afraid contexts, then rerun Prototype 2 controls on the new
+vectors.
+
+Implemented as `fe-prototype25`.
+
 ## Prototype 3 — emotion-space geometry
 
 Measure cosine structure, clustering, PCA/UMAP, valence/arousal alignment, and

@@ -113,7 +113,8 @@ scaling guidance, and interpretation limits.
 Prototype 2 explains the Prototype 1 result rather than tuning it to pass. It
 loads a completed Prototype 1 artifact bundle, reruns held-out scoring, compares
 real versus shuffled vector labels, raw versus PCA-cleaned directions, diagnostic
-best layers, emotion confusion patterns, compact lexical scenarios, implicit
+best layers, emotion confusion patterns, compact lexical scenarios,
+topic-stratified held-out metrics, logit-lens emotion-word effects, implicit
 intensity sweeps, and simple train-score calibration.
 
 ```bash
@@ -122,6 +123,20 @@ fe-prototype2 --config configs/prototype2.yaml
 
 See [docs/prototype2.md](docs/prototype2.md) for Colab cells, expected outputs,
 and interpretation guidance.
+
+## Prototype 2.5: revised extraction before geometry
+
+Prototype 2.5 is a bridge step prompted by Prototype 2's failure modes. It
+orchestrates a larger, better-balanced Prototype 1 extraction and immediately
+runs the Prototype 2 controls on the new bundle.
+
+```bash
+fe-prototype25 --config configs/prototype25.yaml --stage prepare
+fe-prototype25 --config configs/prototype25.yaml --stage all
+```
+
+Use this before Prototype 3 if semantic controls fail on the current vectors.
+See [docs/prototype25.md](docs/prototype25.md).
 
 ## Roadmap
 

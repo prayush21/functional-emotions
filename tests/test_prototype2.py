@@ -7,11 +7,14 @@ from functional_emotions.prototype2 import (
     apply_zscore_calibration,
     calibration_parameters,
     confusion_diagnostics,
+    default_lexical_scenarios,
     evaluate_score_matrix,
+    logit_lens_diagnostic,
     metric_deltas,
     pca_comparison,
     shuffled_label_control,
     spearman,
+    topic_stratified_metrics,
 )
 
 
@@ -93,3 +96,62 @@ def test_metric_deltas_are_real_minus_control():
         "macro_auc": 0.30000000000000004,
         "mean_correct_margin": 0.5,
     }
+
+
+def test_default_lexical_controls_cover_each_emotion():
+    rows = default_lexical_scenarios()
+    controls = {
+        row["emotion"]
+        for row in rows
+        if row.get("variant") == "minimal_control"
+    }
+
+    assert controls == {"happy", "sad", "angry", "afraid"}
+
+
+def test_topic_stratified_metrics_reports_topic_minimums():
+    rows = [
+        {"topic": "one", "emotion": "a"},
+        {"topic": "one", "emotion": "b"},
+        {"topic": "two", "emotion": "a"},
+        {"topic": "two", "emotion": "b"},
+    ]
+    scores = [torch.tensor([[2.0, 0.0], [0.0, 2.0], [2.0, 0.0], [2.0, 0.0]])]
+
+    result = topic_stratified_metrics(rows, scores, ["a", "b"], [5])
+
+    assert result["layers"][0]["minimum_topic_accuracy"] == 0.5
+    assert result["layers"][0]["mean_topic_accuracy"] == 0.75
+    assert [row["topic"] for row in result["layers"][0]["topics"]] == ["one", "two"]
+
+
+def test_logit_lens_diagnostic_scores_emotion_tokens_with_fake_head():
+    class TinyTokenizer:
+        def __call__(self, text, add_special_tokens=False):
+            return {"input_ids": [0 if text.strip() == "a" else 1]}
+
+    class TinyModel(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.head = torch.nn.Linear(2, 2, bias=False)
+            with torch.no_grad():
+                self.head.weight.copy_(torch.tensor([[1.0, 0.0], [0.0, 1.0]]))
+
+        def get_output_embeddings(self):
+            return self.head
+
+    activations = torch.tensor([[[2.0, 0.0]], [[0.0, 2.0]]])
+
+    result = logit_lens_diagnostic(
+        TinyModel(),
+        TinyTokenizer(),
+        activations,
+        ["a", "b"],
+        ["a", "b"],
+        [0],
+        terms_by_emotion={"a": ["a"], "b": ["b"]},
+    )
+
+    assert result["available"] is True
+    assert result["layers"][0]["metrics"]["accuracy"] == 1.0
+    assert result["emotion_token_ids"] == {"a": [0], "b": [1]}

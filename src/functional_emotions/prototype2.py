@@ -16,7 +16,7 @@ import torch
 import transformers
 import yaml
 from safetensors.torch import load_file
-from torch import Tensor
+from torch import Tensor, nn
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from .instrumentation import decoder_layers
@@ -77,6 +77,7 @@ def safetensor_metadata(path: Path) -> dict[str, Any]:
 
 
 def evaluate_score_matrix(scores: Tensor, labels: list[str], emotions: list[str]) -> dict[str, Any]:
+    scores = scores.detach().cpu()
     label_ids = torch.tensor([emotions.index(label) for label in labels])
     predicted = scores.argmax(dim=1)
     correct_scores = scores[torch.arange(len(scores)), label_ids]
@@ -305,6 +306,143 @@ def calibration_diagnostic(
     return rows
 
 
+def final_norm_module(model: nn.Module) -> nn.Module | None:
+    candidates = (
+        ("model", "norm"),
+        ("transformer", "ln_f"),
+        ("gpt_neox", "final_layer_norm"),
+    )
+    for path in candidates:
+        current: Any = model
+        for attribute in path:
+            current = getattr(current, attribute, None)
+            if current is None:
+                break
+        if isinstance(current, nn.Module):
+            return current
+    return None
+
+
+def emotion_logit_token_ids(
+    tokenizer: Any,
+    emotions: list[str],
+    terms_by_emotion: dict[str, list[str]] | None = None,
+) -> dict[str, list[int]]:
+    terms_by_emotion = terms_by_emotion or {}
+    token_ids = {}
+    for emotion in emotions:
+        terms = terms_by_emotion.get(emotion) or [emotion]
+        ids = []
+        for term in terms:
+            variants = [term, f" {term}"]
+            for variant in variants:
+                encoded = tokenizer(variant, add_special_tokens=False)["input_ids"]
+                if encoded:
+                    ids.append(int(encoded[0]))
+        token_ids[emotion] = sorted(set(ids))
+    return token_ids
+
+
+def logit_lens_diagnostic(
+    model: nn.Module,
+    tokenizer: Any,
+    activations: Tensor,
+    labels: list[str],
+    emotions: list[str],
+    layers: list[int],
+    terms_by_emotion: dict[str, list[str]] | None = None,
+    batch_size: int = 4,
+) -> dict[str, Any]:
+    output_embeddings = model.get_output_embeddings()
+    if output_embeddings is None:
+        return {"available": False, "reason": "model_has_no_output_embeddings", "layers": []}
+    norm = final_norm_module(model)
+    token_ids = emotion_logit_token_ids(tokenizer, emotions, terms_by_emotion)
+    if any(not ids for ids in token_ids.values()):
+        return {
+            "available": False,
+            "reason": "missing_emotion_token_ids",
+            "emotion_token_ids": token_ids,
+            "layers": [],
+        }
+
+    device = next(model.parameters()).device
+    per_layer = []
+    for layer_position, layer in enumerate(layers):
+        scores = []
+        for offset in range(0, activations.shape[0], batch_size):
+            hidden = activations[offset : offset + batch_size, layer_position].to(device)
+            hidden = hidden.to(dtype=next(output_embeddings.parameters()).dtype)
+            with torch.inference_mode():
+                if norm is not None:
+                    hidden = norm(hidden)
+                logits = output_embeddings(hidden).float().cpu()
+            scores.append(
+                torch.stack(
+                    [
+                        logits[:, token_ids[emotion]].mean(dim=1)
+                        for emotion in emotions
+                    ],
+                    dim=1,
+                )
+            )
+        layer_scores = torch.cat(scores) if scores else torch.empty(0, len(emotions))
+        per_layer.append(
+            {
+                "layer": layer,
+                "metrics": evaluate_score_matrix(layer_scores, labels, emotions),
+                "mean_logits": {
+                    emotion: float(layer_scores[:, index].mean())
+                    for index, emotion in enumerate(emotions)
+                },
+                "diagnostic_only": True,
+            }
+        )
+    return {
+        "available": True,
+        "method": "pooled residual through final norm and output embeddings",
+        "emotion_token_ids": token_ids,
+        "layers": per_layer,
+        "diagnostic_only": True,
+    }
+
+
+def topic_stratified_metrics(
+    rows: list[dict[str, Any]],
+    scores_by_layer: list[Tensor],
+    emotions: list[str],
+    layers: list[int],
+) -> dict[str, Any]:
+    topics = sorted({row["topic"] for row in rows})
+    per_layer = []
+    for layer, scores in zip(layers, scores_by_layer, strict=True):
+        topic_rows = []
+        for topic in topics:
+            indices = [index for index, row in enumerate(rows) if row["topic"] == topic]
+            labels = [rows[index]["emotion"] for index in indices]
+            topic_scores = scores[indices]
+            topic_rows.append(
+                {
+                    "topic": topic,
+                    "rows": len(indices),
+                    "metrics": evaluate_score_matrix(topic_scores, labels, emotions),
+                }
+            )
+        accuracies = [row["metrics"]["accuracy"] for row in topic_rows]
+        margins = [row["metrics"]["mean_correct_margin"] for row in topic_rows]
+        per_layer.append(
+            {
+                "layer": layer,
+                "topics": topic_rows,
+                "minimum_topic_accuracy": min(accuracies) if accuracies else math.nan,
+                "mean_topic_accuracy": float(np.mean(accuracies)) if accuracies else math.nan,
+                "minimum_topic_margin": min(margins) if margins else math.nan,
+                "diagnostic_only": True,
+            }
+        )
+    return {"layers": per_layer, "diagnostic_only": True}
+
+
 def default_lexical_scenarios() -> list[dict[str, str]]:
     return [
         {
@@ -318,9 +456,21 @@ def default_lexical_scenarios() -> list[dict[str, str]]:
             "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark.",
         },
         {
+            "id": "lex-sad-control",
+            "emotion": "sad",
+            "variant": "minimal_control",
+            "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark.",
+        },
+        {
             "id": "lex-angry-1",
             "emotion": "angry",
             "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands.",
+        },
+        {
+            "id": "lex-angry-control",
+            "emotion": "angry",
+            "variant": "minimal_control",
+            "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands.",
         },
         {
             "id": "lex-afraid-1",
@@ -496,7 +646,15 @@ def answer_summary(metrics: dict[str, Any], selected_layer: int) -> dict[str, An
     selected_calibration = selected_layer_row(metrics["calibration"], selected_layer)
     selected_lexical = selected_layer_row(metrics["lexical_robustness"]["layers"], selected_layer)
     selected_intensity = selected_layer_row(metrics["intensity_sweep"]["layers"], selected_layer)
+    selected_topic = selected_layer_row(
+        metrics["cross_topic_generalization"]["pca_cleaned"]["layers"], selected_layer
+    )
     confusion = metrics["emotion_confusion"]
+    selected_logit_lens = (
+        selected_layer_row(metrics["logit_lens"]["layers"], selected_layer)
+        if metrics["logit_lens"]["available"]
+        else None
+    )
     return {
         "is_there_signal_beyond_shuffled_labels": (
             selected_shuffle["effect"]["macro_auc"] > 0
@@ -504,7 +662,28 @@ def answer_summary(metrics: dict[str, Any], selected_layer: int) -> dict[str, An
         ),
         "shuffled_label_effect_at_selected_layer": selected_shuffle["effect"],
         "is_signal_stable_across_layers": layer_stability(metrics["pca_comparison"]),
+        "cross_topic_generalization": {
+            "selected_layer_minimum_topic_accuracy": selected_topic[
+                "minimum_topic_accuracy"
+            ],
+            "selected_layer_mean_topic_accuracy": selected_topic["mean_topic_accuracy"],
+            "selected_layer_minimum_topic_margin": selected_topic["minimum_topic_margin"],
+        },
         "is_pca_cleaning_helping_at_selected_layer": selected_pca["pca_minus_raw"],
+        "logit_lens": {
+            "available": metrics["logit_lens"]["available"],
+            "selected_layer_accuracy": (
+                selected_logit_lens["metrics"]["accuracy"]
+                if selected_logit_lens is not None
+                else None
+            ),
+            "selected_layer_macro_auc": (
+                selected_logit_lens["metrics"]["macro_auc"]
+                if selected_logit_lens is not None
+                else None
+            ),
+            "diagnostic_only": True,
+        },
         "afraid_status": {
             "ever_wins_argmax_across_layers": confusion["afraid_ever_wins_argmax"],
             "selected_layer_win_rate": selected_confusion_win_rate(
@@ -666,6 +845,7 @@ def run(config: dict[str, Any]) -> Path:
     labels = [row["emotion"] for row in test_rows]
     raw_validation = evaluate_vectors(test_activations, labels, emotions, raw_vectors)
     clean_validation = evaluate_vectors(test_activations, labels, emotions, clean_vectors)
+    raw_scores = score_layers(test_activations, raw_vectors)
     clean_scores = score_layers(test_activations, clean_vectors)
 
     selected_layer = int(
@@ -709,6 +889,17 @@ def run(config: dict[str, Any]) -> Path:
     )
     for row in lexical["layers"]:
         row["chance_accuracy"] = lexical["chance_accuracy"]
+    logit_lens_config = config.get("logit_lens", {})
+    logit_lens = logit_lens_diagnostic(
+        model,
+        tokenizer,
+        test_activations,
+        labels,
+        emotions,
+        layer_indices,
+        terms_by_emotion=logit_lens_config.get("terms"),
+        batch_size=int(logit_lens_config.get("batch_size", extraction.get("batch_size", 2))),
+    )
 
     metrics = {
         "all_soft_gates_pass": None,
@@ -756,6 +947,14 @@ def run(config: dict[str, Any]) -> Path:
         "emotion_confusion": confusion_diagnostics(
             clean_scores, clean_validation, emotions, layer_indices
         ),
+        "cross_topic_generalization": {
+            "raw": topic_stratified_metrics(test_rows, raw_scores, emotions, layer_indices),
+            "pca_cleaned": topic_stratified_metrics(
+                test_rows, clean_scores, emotions, layer_indices
+            ),
+            "diagnostic_only": True,
+        },
+        "logit_lens": logit_lens,
         "lexical_robustness": lexical,
         "intensity_sweep": intensity,
         "calibration": calibration_rows,
@@ -812,6 +1011,12 @@ def run(config: dict[str, Any]) -> Path:
     (diagnostics / "intensity_scores.json").write_text(
         json.dumps(metrics["intensity_sweep"], indent=2) + "\n"
     )
+    (diagnostics / "logit_lens.json").write_text(
+        json.dumps(metrics["logit_lens"], indent=2) + "\n"
+    )
+    (diagnostics / "cross_topic_generalization.json").write_text(
+        json.dumps(metrics["cross_topic_generalization"], indent=2) + "\n"
+    )
 
     code = git_metadata()
     environment = {
@@ -853,6 +1058,14 @@ def run(config: dict[str, Any]) -> Path:
             metrics["calibration"], selected_layer
         )["calibrated_minus_uncalibrated"]["mean_correct_margin"],
         "answers": metrics["answers"],
+        "logit_lens_selected_layer_accuracy": selected_layer_row(
+            metrics["logit_lens"]["layers"], selected_layer
+        )["metrics"]["accuracy"]
+        if metrics["logit_lens"]["available"]
+        else None,
+        "minimum_topic_accuracy": selected_layer_row(
+            metrics["cross_topic_generalization"]["pca_cleaned"]["layers"], selected_layer
+        )["minimum_topic_accuracy"],
     }
     for filename, value in (
         ("config.json", resolved),

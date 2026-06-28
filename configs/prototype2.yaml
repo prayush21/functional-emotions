@@ -21,6 +21,16 @@ extraction:
 controls:
   shuffle_seed: 43
 
+logit_lens:
+  # Projects pooled layer activations through the final norm and lm_head, then
+  # scores compact emotion-word token sets. This is diagnostic only.
+  batch_size: 4
+  terms:
+    happy: [happy, glad]
+    sad: [sad, downcast]
+    angry: [angry, mad]
+    afraid: [afraid, scared]
+
 lexical_robustness:
   # If omitted, the runner uses a compact hand-authored set of implicit scenarios
   # with a small number of minimal lexical-control variants.
