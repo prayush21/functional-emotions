@@ -50,21 +50,43 @@ matching_token:
       text: "After reading the message, the person felt"
 
 free_generation:
-  strengths: [-2, 0, 2]
-  max_new_tokens: 32
+  strengths: [-8, -4, 0, 4, 8]
+  max_new_tokens: 96
+  do_sample: true
+  temperature: 0.8
+  top_p: 0.95
+  samples_per_condition: 3
+  seed: 271828
+  terms:
+    happy: ["happy", "joyful", "pleased", "glad", "smile", "smiled", "relieved", "delighted"]
+    sad: ["sad", "sorrowful", "unhappy", "mournful", "cried", "tears", "lonely", "grief"]
+    angry: ["angry", "furious", "annoyed", "mad", "irritated", "rage", "shouted", "glared"]
+    afraid: ["afraid", "scared", "fearful", "anxious", "terrified", "panic", "trembled", "nervous"]
   prompts:
     - id: fg-happy-1
       target_emotion: happy
-      text: "The door opened and Avery"
+      text: "Avery saw everyone waiting with smiles and"
+    - id: fg-happy-2
+      target_emotion: happy
+      text: "Avery read the note and felt"
     - id: fg-sad-1
       target_emotion: sad
-      text: "The door opened and Avery"
+      text: "Avery looked at the empty chair and"
+    - id: fg-sad-2
+      target_emotion: sad
+      text: "Avery read the note and felt"
     - id: fg-angry-1
       target_emotion: angry
-      text: "The door opened and Avery"
+      text: "Avery saw the broken promise and"
+    - id: fg-angry-2
+      target_emotion: angry
+      text: "Avery read the note and felt"
     - id: fg-afraid-1
       target_emotion: afraid
-      text: "The door opened and Avery"
+      text: "Avery heard the sound behind the door and"
+    - id: fg-afraid-2
+      target_emotion: afraid
+      text: "Avery read the note and felt"
 
 controls:
   random_seed: 314159

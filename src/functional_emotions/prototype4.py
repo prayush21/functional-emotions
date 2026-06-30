@@ -5,6 +5,7 @@ import json
 import math
 import platform
 import random
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -300,12 +301,20 @@ def generate_with_optional_steering(
     vector: Tensor | None,
     strength: float,
     max_new_tokens: int,
+    do_sample: bool,
+    temperature: float | None,
+    top_p: float | None,
 ) -> Tensor:
     kwargs = {
         "max_new_tokens": max_new_tokens,
-        "do_sample": False,
+        "do_sample": do_sample,
         "pad_token_id": tokenizer.pad_token_id,
     }
+    if do_sample:
+        if temperature is not None:
+            kwargs["temperature"] = temperature
+        if top_p is not None:
+            kwargs["top_p"] = top_p
     if vector is None or strength == 0.0:
         with torch.inference_mode():
             return model.generate(**inputs, **kwargs)
@@ -426,6 +435,12 @@ def run_free_generation_interventions(
     prompts: list[dict[str, str]],
     strengths: list[float],
     max_new_tokens: int,
+    do_sample: bool,
+    temperature: float | None,
+    top_p: float | None,
+    samples_per_condition: int,
+    seed: int,
+    terms_by_emotion: dict[str, list[str]],
     scale_by_vector_norm: bool,
 ) -> dict[str, Any]:
     samples = []
@@ -436,41 +451,91 @@ def run_free_generation_interventions(
         for raw_strength in strengths:
             raw_strength = float(raw_strength)
             applied = apply_steering_scale(raw_strength, vector, scale_by_vector_norm)
-            inputs = encode(tokenizer, [prompt], device)
-            prompt_length = int(inputs["attention_mask"].sum(dim=1)[0])
-            generated = generate_with_optional_steering(
-                model=model,
-                layer=layer,
-                tokenizer=tokenizer,
-                inputs=inputs,
-                vector=vector.to(device),
-                strength=applied,
-                max_new_tokens=max_new_tokens,
-            )
-            continuation = generated[:, prompt_length:]
-            text = tokenizer.batch_decode(continuation.cpu(), skip_special_tokens=True)[0]
-            fluency = average_continuation_logprob(
-                model=model,
-                layer=layer,
-                sequence=generated,
-                prompt_length=prompt_length,
-                vector=vector.to(device),
-                strength=applied,
-                pad_token_id=tokenizer.pad_token_id,
-            )
-            samples.append(
-                {
-                    "prompt_id": prompt_row["id"],
-                    "prompt": prompt,
-                    "target_emotion": target,
-                    "raw_strength": raw_strength,
-                    "applied_strength": applied,
-                    "continuation": text,
-                    "average_token_logprob": fluency,
-                    "perplexity_like": math.exp(-fluency) if not math.isnan(fluency) else math.nan,
-                }
-            )
-    return {"samples": samples}
+            for sample_index in range(samples_per_condition):
+                torch.manual_seed(seed + len(samples))
+                inputs = encode(tokenizer, [prompt], device)
+                prompt_length = int(inputs["attention_mask"].sum(dim=1)[0])
+                generated = generate_with_optional_steering(
+                    model=model,
+                    layer=layer,
+                    tokenizer=tokenizer,
+                    inputs=inputs,
+                    vector=vector.to(device),
+                    strength=applied,
+                    max_new_tokens=max_new_tokens,
+                    do_sample=do_sample,
+                    temperature=temperature,
+                    top_p=top_p,
+                )
+                continuation = generated[:, prompt_length:]
+                text = tokenizer.batch_decode(continuation.cpu(), skip_special_tokens=True)[0]
+                fluency = average_continuation_logprob(
+                    model=model,
+                    layer=layer,
+                    sequence=generated,
+                    prompt_length=prompt_length,
+                    vector=vector.to(device),
+                    strength=applied,
+                    pad_token_id=tokenizer.pad_token_id,
+                )
+                lexical = lexical_emotion_scores(text, terms_by_emotion, target)
+                samples.append(
+                    {
+                        "prompt_id": prompt_row["id"],
+                        "prompt": prompt,
+                        "target_emotion": target,
+                        "sample_index": sample_index,
+                        "raw_strength": raw_strength,
+                        "applied_strength": applied,
+                        "continuation": text,
+                        "average_token_logprob": fluency,
+                        "perplexity_like": (
+                            math.exp(-fluency) if not math.isnan(fluency) else math.nan
+                        ),
+                        **lexical,
+                    }
+                )
+    return {
+        "generation_config": {
+            "max_new_tokens": max_new_tokens,
+            "do_sample": do_sample,
+            "temperature": temperature,
+            "top_p": top_p,
+            "samples_per_condition": samples_per_condition,
+            "seed": seed,
+        },
+        "lexical_terms": terms_by_emotion,
+        "samples": samples,
+    }
+
+
+def lexical_emotion_scores(
+    text: str, terms_by_emotion: dict[str, list[str]], target_emotion: str
+) -> dict[str, Any]:
+    counts = {
+        emotion: sum(count_term_occurrences(text, term) for term in terms)
+        for emotion, terms in terms_by_emotion.items()
+    }
+    target_count = counts.get(target_emotion, 0)
+    non_target_counts = [
+        count for emotion, count in counts.items() if emotion != target_emotion
+    ]
+    non_target_mean = float(np.mean(non_target_counts)) if non_target_counts else 0.0
+    return {
+        "emotion_term_counts": counts,
+        "target_term_count": target_count,
+        "non_target_mean_term_count": non_target_mean,
+        "lexical_specificity": float(target_count - non_target_mean),
+    }
+
+
+def count_term_occurrences(text: str, term: str) -> int:
+    return len(
+        re.findall(
+            rf"(?<![A-Za-z]){re.escape(term.lower())}(?![A-Za-z])",
+            text.lower(),
+        )
+    )
 
 
 def summarize_free_generation(samples: list[dict[str, Any]]) -> dict[str, Any]:
@@ -479,10 +544,36 @@ def summarize_free_generation(samples: list[dict[str, Any]]) -> dict[str, Any]:
         for sample in samples
         if not math.isnan(sample["average_token_logprob"])
     ]
+    positive = [
+        sample for sample in samples if float(sample.get("raw_strength", 0.0)) > 0.0
+    ]
+    zero = [
+        sample for sample in samples if float(sample.get("raw_strength", 0.0)) == 0.0
+    ]
     return {
         "sample_count": len(samples),
         "mean_average_token_logprob": float(np.mean(finite)) if finite else math.nan,
         "minimum_average_token_logprob": min(finite) if finite else math.nan,
+        "mean_positive_target_term_count": float(
+            np.mean([sample["target_term_count"] for sample in positive])
+        )
+        if positive
+        else math.nan,
+        "mean_zero_target_term_count": float(
+            np.mean([sample["target_term_count"] for sample in zero])
+        )
+        if zero
+        else math.nan,
+        "mean_positive_lexical_specificity": float(
+            np.mean([sample["lexical_specificity"] for sample in positive])
+        )
+        if positive
+        else math.nan,
+        "mean_zero_lexical_specificity": float(
+            np.mean([sample["lexical_specificity"] for sample in zero])
+        )
+        if zero
+        else math.nan,
     }
 
 
@@ -547,6 +638,12 @@ def summary_from_metrics(metrics: dict[str, Any]) -> dict[str, Any]:
             "mean_spearman"
         ],
         "free_generation_sample_count": metrics["free_generation"]["sample_count"],
+        "free_generation_mean_positive_target_term_count": metrics["free_generation"][
+            "mean_positive_target_term_count"
+        ],
+        "free_generation_mean_positive_lexical_specificity": metrics["free_generation"][
+            "mean_positive_lexical_specificity"
+        ],
         "interpretation_caveat": INTERPRETATION_CAVEAT,
     }
 
@@ -648,18 +745,37 @@ def run(config: dict[str, Any]) -> Path:
         random_seed=int(config["controls"]["random_seed"]),
         scale_by_vector_norm=bool(config["intervention"].get("scale_by_vector_norm", False)),
     )
+    free_generation_config = config["free_generation"]
     free_generation_strengths = [
-        float(value) for value in config["free_generation"].get("strengths", strengths)
+        float(value) for value in free_generation_config.get("strengths", strengths)
     ]
+    free_generation_terms = (
+        free_generation_config.get("terms")
+        or config["matching_token"].get("terms", {})
+    )
     free_generation = run_free_generation_interventions(
         model=model,
         tokenizer=tokenizer,
         layer=layer,
         device=device,
         vectors=vectors,
-        prompts=config["free_generation"]["prompts"],
+        prompts=free_generation_config["prompts"],
         strengths=free_generation_strengths,
-        max_new_tokens=int(config["free_generation"]["max_new_tokens"]),
+        max_new_tokens=int(free_generation_config["max_new_tokens"]),
+        do_sample=bool(free_generation_config.get("do_sample", False)),
+        temperature=(
+            float(free_generation_config["temperature"])
+            if free_generation_config.get("temperature") is not None
+            else None
+        ),
+        top_p=(
+            float(free_generation_config["top_p"])
+            if free_generation_config.get("top_p") is not None
+            else None
+        ),
+        samples_per_condition=int(free_generation_config.get("samples_per_condition", 1)),
+        seed=int(free_generation_config.get("seed", seed)),
+        terms_by_emotion=free_generation_terms,
         scale_by_vector_norm=bool(config["intervention"].get("scale_by_vector_norm", False)),
     )
     free_generation_summary = summarize_free_generation(free_generation["samples"])

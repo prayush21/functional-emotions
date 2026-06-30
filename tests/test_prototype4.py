@@ -12,6 +12,7 @@ from functional_emotions import prototype4
 from functional_emotions.prototype4 import (
     INTERPRETATION_CAVEAT,
     aggregate_matching_rows,
+    lexical_emotion_scores,
     matched_random_vector,
     resolve_selected_layer,
     run,
@@ -207,6 +208,20 @@ def test_aggregate_matching_rows_tracks_specificity():
     assert aggregate["mean_kl_from_baseline"] == pytest.approx(0.2)
 
 
+def test_lexical_emotion_scores_count_target_specific_terms():
+    terms = {
+        "happy": ["happy", "smiled"],
+        "sad": ["sad", "tears"],
+    }
+
+    scores = lexical_emotion_scores("Avery smiled and felt happy.", terms, "happy")
+
+    assert scores["emotion_term_counts"]["happy"] == 2
+    assert scores["emotion_term_counts"]["sad"] == 0
+    assert scores["target_term_count"] == 2
+    assert scores["lexical_specificity"] == pytest.approx(2.0)
+
+
 def test_prototype4_run_writes_steering_artifacts(tmp_path, monkeypatch):
     monkeypatch.setattr(prototype4.AutoTokenizer, "from_pretrained", FakeTokenizer.from_pretrained)
     monkeypatch.setattr(
@@ -246,6 +261,17 @@ def test_prototype4_run_writes_steering_artifacts(tmp_path, monkeypatch):
         "free_generation": {
             "strengths": [0, 1],
             "max_new_tokens": 2,
+            "do_sample": True,
+            "temperature": 0.8,
+            "top_p": 0.95,
+            "samples_per_condition": 2,
+            "seed": 1234,
+            "terms": {
+                "happy": ["happy"],
+                "sad": ["sad"],
+                "angry": ["angry"],
+                "afraid": ["afraid"],
+            },
             "prompts": [
                 {"id": "fg-happy", "target_emotion": "happy", "text": "neutral"}
             ],
@@ -266,8 +292,15 @@ def test_prototype4_run_writes_steering_artifacts(tmp_path, monkeypatch):
     assert metrics["hard_gates"]["random_vector_control_recorded"]
     assert metrics["zero_fidelity"]["max_abs_logit_error"] == 0.0
     assert metrics["matching_token"]["positive_strength_summary"]["mean_target_delta"] > 0.0
+    assert metrics["free_generation"]["sample_count"] == 4
+    assert metrics["free_generation"]["mean_positive_target_term_count"] > 0.0
     assert summary["interpretation_caveat"] == INTERPRETATION_CAVEAT
-    assert (output / "diagnostics" / "free_generation_samples.json").is_file()
+    free_generation = json.loads(
+        (output / "diagnostics" / "free_generation_samples.json").read_text()
+    )
+    assert free_generation["generation_config"]["do_sample"] is True
+    assert free_generation["generation_config"]["samples_per_condition"] == 2
+    assert all("emotion_term_counts" in sample for sample in free_generation["samples"])
     assert (output / "diagnostics" / "kl_fluency.json").is_file()
     assert (output / "diagnostics" / "controls.json").is_file()
     assert {row["control"] for row in matching["rows"]} == {
@@ -284,4 +317,7 @@ def test_prototype4_config_points_to_canonical_bundle():
     assert "colab-run-prototype-2.5" in config["prototype1"]["run_dir"]
     assert config["prototype1"]["emotion_vectors"] == "emotion_vectors.safetensors"
     assert 0 in config["intervention"]["strengths"]
+    assert config["free_generation"]["do_sample"] is True
+    assert config["free_generation"]["samples_per_condition"] > 1
+    assert max(config["free_generation"]["strengths"]) >= 8
     assert config["output_dir"] == "artifacts/prototype4"

@@ -47,8 +47,14 @@ Two modes are recorded:
 
 - Matching-token scoring: compact prompts compare next-token logits for
   emotion terms under real, random-vector, and wrong-emotion controls.
-- Free generation: short deterministic continuations are generated under signed
-  steering strengths and scored with an average token logprob fluency proxy.
+- Free generation: sampled continuations are generated under stronger signed
+  steering strengths and scored with average token logprob, perplexity-like, and
+  generated-text emotion-term diagnostics.
+
+The default free-generation sweep is intentionally more aggressive than the
+matching-token sweep: strengths `[-8, -4, 0, 4, 8]`, 96 generated tokens,
+`temperature: 0.8`, `top_p: 0.95`, and three samples per condition over
+emotion-open prompts such as `Avery read the note and felt`.
 
 ## Controls and Diagnostics
 
@@ -60,6 +66,7 @@ Prototype 4 records:
 - opposite-sign steering;
 - KL divergence from baseline next-token distributions;
 - average generated-token logprob and perplexity-like fluency diagnostics;
+- generated-text target emotion term counts and lexical specificity;
 - specificity: target emotion terms versus non-target emotion terms;
 - dose-response Spearman correlations for intended emotion effects.
 
