@@ -27,3 +27,20 @@ New runs record:
 - package, platform, device, and seed metadata;
 - compact outcome metrics and gates.
 
+## Current accepted handoff
+
+The current best handoff to Prototype 3 is:
+
+```text
+results/runs/colab-run-prototype-2.5/
+```
+
+Prototype 3 should use the nested Prototype 1 vector bundle:
+
+```text
+results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306/
+```
+
+The earlier Prototype 1 run remains preserved as a failed baseline because it
+motivated Prototype 2 and Prototype 2.5. See
+`docs/results_interpretation.md` for the research interpretation and caveats.

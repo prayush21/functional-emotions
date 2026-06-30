@@ -1,0 +1,1555 @@
+{
+  "all_hard_gates_pass": false,
+  "gates": {
+    "topic_splits_are_disjoint": true,
+    "stories_have_no_label_leakage": true,
+    "held_out_accuracy_above_threshold": true,
+    "held_out_macro_auc_above_threshold": true,
+    "held_out_margin_is_positive": false
+  },
+  "selected_layer": 19,
+  "selection_metric": "pre_registered_model.evaluation_layer",
+  "chance_accuracy": 0.25,
+  "dataset_audit": {
+    "number_of_stories": 24,
+    "number_of_topics": 6,
+    "emotion_counts": {
+      "happy": 6,
+      "sad": 6,
+      "angry": 6,
+      "afraid": 6
+    },
+    "minimum_stories_per_topic_emotion": 1,
+    "lexical_leakage": []
+  },
+  "split": {
+    "train_topics": [
+      "A person finds a note tucked inside a library book",
+      "A student opens a message that changes their plans for the semester",
+      "A traveler receives unexpected news while waiting to board",
+      "An employee is unexpectedly asked to stay after a meeting"
+    ],
+    "test_topics": [
+      "A neighbor returns an item that was borrowed months ago",
+      "Two friends arrive early to an event and realize no one else is there yet"
+    ],
+    "train_stories": 16,
+    "test_stories": 8
+  },
+  "neutral_pca": [
+    {
+      "layer": 0,
+      "number_of_components": 1,
+      "explained_variance": 0.9221319556236267
+    },
+    {
+      "layer": 1,
+      "number_of_components": 1,
+      "explained_variance": 0.9095839262008667
+    },
+    {
+      "layer": 2,
+      "number_of_components": 1,
+      "explained_variance": 0.9065173864364624
+    },
+    {
+      "layer": 3,
+      "number_of_components": 1,
+      "explained_variance": 0.8864201307296753
+    },
+    {
+      "layer": 4,
+      "number_of_components": 1,
+      "explained_variance": 0.8926649689674377
+    },
+    {
+      "layer": 5,
+      "number_of_components": 1,
+      "explained_variance": 0.8726455569267273
+    },
+    {
+      "layer": 6,
+      "number_of_components": 1,
+      "explained_variance": 0.8491827845573425
+    },
+    {
+      "layer": 7,
+      "number_of_components": 1,
+      "explained_variance": 0.8438125252723694
+    },
+    {
+      "layer": 8,
+      "number_of_components": 1,
+      "explained_variance": 0.8462328314781189
+    },
+    {
+      "layer": 9,
+      "number_of_components": 1,
+      "explained_variance": 0.8465340733528137
+    },
+    {
+      "layer": 10,
+      "number_of_components": 1,
+      "explained_variance": 0.8371297717094421
+    },
+    {
+      "layer": 11,
+      "number_of_components": 1,
+      "explained_variance": 0.8444448113441467
+    },
+    {
+      "layer": 12,
+      "number_of_components": 1,
+      "explained_variance": 0.8308671116828918
+    },
+    {
+      "layer": 13,
+      "number_of_components": 1,
+      "explained_variance": 0.8317692279815674
+    },
+    {
+      "layer": 14,
+      "number_of_components": 1,
+      "explained_variance": 0.8242677450180054
+    },
+    {
+      "layer": 15,
+      "number_of_components": 1,
+      "explained_variance": 0.8134340643882751
+    },
+    {
+      "layer": 16,
+      "number_of_components": 1,
+      "explained_variance": 0.8447998762130737
+    },
+    {
+      "layer": 17,
+      "number_of_components": 1,
+      "explained_variance": 0.8076203465461731
+    },
+    {
+      "layer": 18,
+      "number_of_components": 1,
+      "explained_variance": 0.7917472124099731
+    },
+    {
+      "layer": 19,
+      "number_of_components": 1,
+      "explained_variance": 0.797048807144165
+    },
+    {
+      "layer": 20,
+      "number_of_components": 1,
+      "explained_variance": 0.7727007865905762
+    },
+    {
+      "layer": 21,
+      "number_of_components": 1,
+      "explained_variance": 0.7294368743896484
+    },
+    {
+      "layer": 22,
+      "number_of_components": 1,
+      "explained_variance": 0.7210842370986938
+    },
+    {
+      "layer": 23,
+      "number_of_components": 1,
+      "explained_variance": 0.7369463443756104
+    },
+    {
+      "layer": 24,
+      "number_of_components": 1,
+      "explained_variance": 0.7425451278686523
+    },
+    {
+      "layer": 25,
+      "number_of_components": 1,
+      "explained_variance": 0.7039499878883362
+    },
+    {
+      "layer": 26,
+      "number_of_components": 1,
+      "explained_variance": 0.6598637700080872
+    },
+    {
+      "layer": 27,
+      "number_of_components": 1,
+      "explained_variance": 0.6230788826942444
+    }
+  ],
+  "layers": [
+    {
+      "layer": 0,
+      "raw": {
+        "accuracy": 0.375,
+        "macro_auc": 0.7500000000000001,
+        "mean_correct_margin": -0.03962690010666847,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.5,
+            "auc": 0.8333333333333334
+          },
+          "sad": {
+            "accuracy": 0.5,
+            "auc": 0.8333333333333334
+          },
+          "angry": {
+            "accuracy": 0.5,
+            "auc": 0.75
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.5833333333333334
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.375,
+        "macro_auc": 0.7708333333333333,
+        "mean_correct_margin": -0.07962191104888916,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "angry": {
+            "accuracy": 0.5,
+            "auc": 0.75
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.6666666666666666
+          }
+        }
+      }
+    },
+    {
+      "layer": 1,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.7291666666666666,
+        "mean_correct_margin": -0.36435750126838684,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.5833333333333334
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.7291666666666666,
+        "mean_correct_margin": -0.3852840065956116,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.5833333333333334
+          }
+        }
+      }
+    },
+    {
+      "layer": 2,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8541666666666666,
+        "mean_correct_margin": -0.34983545541763306,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8333333333333334,
+        "mean_correct_margin": -0.3263658285140991,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      }
+    },
+    {
+      "layer": 3,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.7916666666666666,
+        "mean_correct_margin": -0.9601218104362488,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8333333333333334
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.7916666666666666,
+        "mean_correct_margin": -1.0325026512145996,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8333333333333334
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      }
+    },
+    {
+      "layer": 4,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8125,
+        "mean_correct_margin": -0.9354109764099121,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8333333333333334
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8125,
+        "mean_correct_margin": -0.9930404424667358,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8333333333333334
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      }
+    },
+    {
+      "layer": 5,
+      "raw": {
+        "accuracy": 0.5,
+        "macro_auc": 0.8333333333333333,
+        "mean_correct_margin": -0.6515195965766907,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.9166666666666666
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5,
+        "macro_auc": 0.8333333333333333,
+        "mean_correct_margin": -0.6357009410858154,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.9166666666666666
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      }
+    },
+    {
+      "layer": 6,
+      "raw": {
+        "accuracy": 0.375,
+        "macro_auc": 0.8958333333333334,
+        "mean_correct_margin": -0.4244271218776703,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.5,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.375,
+        "macro_auc": 0.8958333333333334,
+        "mean_correct_margin": -0.43046846985816956,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.5,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      }
+    },
+    {
+      "layer": 7,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8958333333333334,
+        "mean_correct_margin": -0.819130539894104,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8958333333333334,
+        "mean_correct_margin": -0.7914272546768188,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      }
+    },
+    {
+      "layer": 8,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8541666666666667,
+        "mean_correct_margin": -1.4241331815719604,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8541666666666667,
+        "mean_correct_margin": -1.3362834453582764,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      }
+    },
+    {
+      "layer": 9,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8958333333333334,
+        "mean_correct_margin": -1.0002565383911133,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8958333333333334,
+        "mean_correct_margin": -1.0362694263458252,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 10,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.875,
+        "mean_correct_margin": -2.0040102005004883,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.875,
+        "mean_correct_margin": -2.0501036643981934,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 11,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.875,
+        "mean_correct_margin": -2.2567410469055176,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.875,
+        "mean_correct_margin": -2.2941880226135254,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      }
+    },
+    {
+      "layer": 12,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8541666666666667,
+        "mean_correct_margin": -2.9847941398620605,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8541666666666667,
+        "mean_correct_margin": -3.035573720932007,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      }
+    },
+    {
+      "layer": 13,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8541666666666667,
+        "mean_correct_margin": -4.374720573425293,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8541666666666667,
+        "mean_correct_margin": -4.502164840698242,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      }
+    },
+    {
+      "layer": 14,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.875,
+        "mean_correct_margin": -3.371553659439087,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.875,
+        "mean_correct_margin": -3.4762191772460938,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      }
+    },
+    {
+      "layer": 15,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9583333333333334,
+        "mean_correct_margin": -4.193181991577148,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9583333333333334,
+        "mean_correct_margin": -4.3003926277160645,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 16,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9375,
+        "mean_correct_margin": -6.869978427886963,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9375,
+        "mean_correct_margin": -6.999150276184082,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 17,
+      "raw": {
+        "accuracy": 0.375,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": -3.2765116691589355,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.5,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.375,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": -3.3520469665527344,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.5,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 18,
+      "raw": {
+        "accuracy": 0.5,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": -2.590297222137451,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": -2.7051382064819336,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 19,
+      "raw": {
+        "accuracy": 0.5,
+        "macro_auc": 0.9583333333333334,
+        "mean_correct_margin": -0.8415412902832031,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5,
+        "macro_auc": 0.9583333333333334,
+        "mean_correct_margin": -0.7869912385940552,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 20,
+      "raw": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": -7.720664978027344,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": -7.789036750793457,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 21,
+      "raw": {
+        "accuracy": 0.5,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -6.988899230957031,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -7.232837677001953,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 22,
+      "raw": {
+        "accuracy": 0.5,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -9.940078735351562,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -11.129167556762695,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 23,
+      "raw": {
+        "accuracy": 0.5,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -13.711071014404297,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -15.294027328491211,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 24,
+      "raw": {
+        "accuracy": 0.75,
+        "macro_auc": 1.0,
+        "mean_correct_margin": 1.925215721130371,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.75,
+        "macro_auc": 1.0,
+        "mean_correct_margin": 0.5180339813232422,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 25,
+      "raw": {
+        "accuracy": 0.75,
+        "macro_auc": 1.0,
+        "mean_correct_margin": 6.057027816772461,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.75,
+        "macro_auc": 1.0,
+        "mean_correct_margin": 6.1877875328063965,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 26,
+      "raw": {
+        "accuracy": 0.5,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -9.389137268066406,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -6.533514022827148,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    {
+      "layer": 27,
+      "raw": {
+        "accuracy": 0.75,
+        "macro_auc": 1.0,
+        "mean_correct_margin": 3.5129857063293457,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.75,
+        "macro_auc": 1.0,
+        "mean_correct_margin": 3.9701902866363525,
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      }
+    }
+  ]
+}

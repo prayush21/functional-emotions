@@ -1,0 +1,5130 @@
+{
+  "chance_accuracy": 0.25,
+  "lexical_leakage": [],
+  "layers": [
+    {
+      "layer": 0,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.625,
+        "mean_correct_margin": -0.27056050300598145,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.6666666666666666
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.1062714233994484,
+          "scores": {
+            "happy": -0.1062714233994484,
+            "sad": -0.32868558168411255,
+            "angry": 0.06237449496984482,
+            "afraid": 0.33076709508895874
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.3153626620769501,
+          "scores": {
+            "happy": -0.084490105509758,
+            "sad": -0.3153626620769501,
+            "angry": 0.06584569811820984,
+            "afraid": 0.2945559620857239
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -0.3206171691417694,
+          "scores": {
+            "happy": -0.07962487637996674,
+            "sad": -0.3206171691417694,
+            "angry": 0.062253423035144806,
+            "afraid": 0.2979150712490082
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.09664162248373032,
+          "scores": {
+            "happy": -0.09375910460948944,
+            "sad": -0.3778669834136963,
+            "angry": 0.09664162248373032,
+            "afraid": 0.3284526467323303
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 0.08890575915575027,
+          "scores": {
+            "happy": -0.09580733627080917,
+            "sad": -0.3701651692390442,
+            "angry": 0.08890575915575027,
+            "afraid": 0.3311997652053833
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.3374459743499756,
+          "scores": {
+            "happy": -0.09280472993850708,
+            "sad": -0.3863562345504761,
+            "angry": 0.09408155083656311,
+            "afraid": 0.3374459743499756
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -0.13378584384918213,
+          "scores": {
+            "happy": -0.13378584384918213,
+            "sad": -0.32965314388275146,
+            "angry": 0.051300182938575745,
+            "afraid": 0.36910146474838257
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 0.3297366201877594,
+          "scores": {
+            "happy": -0.09127315133810043,
+            "sad": -0.3803867995738983,
+            "angry": 0.09510312229394913,
+            "afraid": 0.3297366201877594
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 1,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.5416666666666667,
+        "mean_correct_margin": -0.3996860682964325,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.75
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.5833333333333334
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.26838740706443787,
+          "scores": {
+            "happy": -0.26838740706443787,
+            "sad": -0.12519043684005737,
+            "angry": -0.22424495220184326,
+            "afraid": 0.6077269911766052
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.1434539407491684,
+          "scores": {
+            "happy": -0.13158215582370758,
+            "sad": -0.1434539407491684,
+            "angry": -0.29086238145828247,
+            "afraid": 0.5462507009506226
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -0.1352706104516983,
+          "scores": {
+            "happy": -0.13258978724479675,
+            "sad": -0.1352706104516983,
+            "angry": -0.3039805293083191,
+            "afraid": 0.5527353286743164
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.1938762664794922,
+          "scores": {
+            "happy": -0.16212451457977295,
+            "sad": -0.17534533143043518,
+            "angry": -0.1938762664794922,
+            "afraid": 0.512381911277771
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -0.20821142196655273,
+          "scores": {
+            "happy": -0.1535881906747818,
+            "sad": -0.18162137269973755,
+            "angry": -0.20821142196655273,
+            "afraid": 0.5229741930961609
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.585379421710968,
+          "scores": {
+            "happy": -0.19135022163391113,
+            "sad": -0.17929643392562866,
+            "angry": -0.23421907424926758,
+            "afraid": 0.585379421710968
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -0.3302440047264099,
+          "scores": {
+            "happy": -0.3302440047264099,
+            "sad": -0.1402759701013565,
+            "angry": -0.17001944780349731,
+            "afraid": 0.6329176425933838
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 0.5509952902793884,
+          "scores": {
+            "happy": -0.14127065241336823,
+            "sad": -0.17024046182632446,
+            "angry": -0.26078835129737854,
+            "afraid": 0.5509952902793884
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 2,
+      "metrics": {
+        "accuracy": 0.0,
+        "macro_auc": 0.7083333333333334,
+        "mean_correct_margin": -0.2931160032749176,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.16666666666666666
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.34091717004776,
+          "scores": {
+            "happy": 0.34091717004776,
+            "sad": 0.3469148874282837,
+            "angry": -0.5012218952178955,
+            "afraid": -0.15351255238056183
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.33977264165878296,
+          "scores": {
+            "happy": 0.35735660791397095,
+            "sad": 0.33977264165878296,
+            "angry": -0.475795179605484,
+            "afraid": -0.1875237673521042
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 0.3443218171596527,
+          "scores": {
+            "happy": 0.35175821185112,
+            "sad": 0.3443218171596527,
+            "angry": -0.46761029958724976,
+            "afraid": -0.1937921643257141
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -0.31350278854370117,
+          "scores": {
+            "happy": 0.34813642501831055,
+            "sad": 0.27042356133461,
+            "angry": -0.31350278854370117,
+            "afraid": -0.2731899619102478
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": -0.36447831988334656,
+          "scores": {
+            "happy": 0.35467463731765747,
+            "sad": 0.2983109951019287,
+            "angry": -0.36447831988334656,
+            "afraid": -0.2550853192806244
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -0.12027700245380402,
+          "scores": {
+            "happy": 0.299468457698822,
+            "sad": 0.2809525728225708,
+            "angry": -0.43404752016067505,
+            "afraid": -0.12027700245380402
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 0.23446182906627655,
+          "scores": {
+            "happy": 0.23446182906627655,
+            "sad": 0.2623515725135803,
+            "angry": -0.4169137477874756,
+            "afraid": -0.05736594647169113
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": -0.15230464935302734,
+          "scores": {
+            "happy": 0.3331780433654785,
+            "sad": 0.3155624568462372,
+            "angry": -0.4661780297756195,
+            "afraid": -0.15230464935302734
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 3,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.6666666666666666,
+        "mean_correct_margin": -0.304861456155777,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.3333333333333333
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.4166666666666667
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.16798873245716095,
+          "scores": {
+            "happy": 0.16798873245716095,
+            "sad": -0.04944282025098801,
+            "angry": 0.35620611906051636,
+            "afraid": -0.4268392324447632
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.1287148892879486,
+          "scores": {
+            "happy": 0.3277852237224579,
+            "sad": -0.1287148892879486,
+            "angry": 0.4816684424877167,
+            "afraid": -0.6105476021766663
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": -0.17010045051574707,
+          "scores": {
+            "happy": 0.36870190501213074,
+            "sad": -0.17010045051574707,
+            "angry": 0.5039029121398926,
+            "afraid": -0.6297822594642639
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.7993521690368652,
+          "scores": {
+            "happy": 0.35011449456214905,
+            "sad": -0.2172563374042511,
+            "angry": 0.7993521690368652,
+            "afraid": -0.8391895294189453
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 0.7129871249198914,
+          "scores": {
+            "happy": 0.31356123089790344,
+            "sad": -0.28813308477401733,
+            "angry": 0.7129871249198914,
+            "afraid": -0.6653687357902527
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.2870599627494812,
+          "scores": {
+            "happy": 0.05045408010482788,
+            "sad": -0.1428479254245758,
+            "angry": 0.4082435369491577,
+            "afraid": -0.2870599627494812
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 0.0854334831237793,
+          "scores": {
+            "happy": 0.0854334831237793,
+            "sad": -0.1252513974905014,
+            "angry": 0.39588087797164917,
+            "afraid": -0.3223809599876404
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": -0.3808794915676117,
+          "scores": {
+            "happy": 0.07808847725391388,
+            "sad": -0.08544748276472092,
+            "angry": 0.42832085490226746,
+            "afraid": -0.3808794915676117
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 4,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.8124999999999999,
+        "mean_correct_margin": -0.6892068386077881,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.3333333333333333
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.17600031197071075,
+          "scores": {
+            "happy": 0.17600031197071075,
+            "sad": -0.38783156871795654,
+            "angry": 1.0123354196548462,
+            "afraid": -0.7162792086601257
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.3181707262992859,
+          "scores": {
+            "happy": 0.17618097364902496,
+            "sad": -0.3181707262992859,
+            "angry": 1.1750190258026123,
+            "afraid": -0.922224760055542
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": -0.3351362645626068,
+          "scores": {
+            "happy": 0.2327275276184082,
+            "sad": -0.3351362645626068,
+            "angry": 1.1714080572128296,
+            "afraid": -0.9548078179359436
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 1.3769094944000244,
+          "scores": {
+            "happy": 0.19005939364433289,
+            "sad": -0.4997752010822296,
+            "angry": 1.3769094944000244,
+            "afraid": -0.9544014930725098
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 1.3056063652038574,
+          "scores": {
+            "happy": 0.132843017578125,
+            "sad": -0.4803309440612793,
+            "angry": 1.3056063652038574,
+            "afraid": -0.8568364381790161
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.6310380697250366,
+          "scores": {
+            "happy": 0.14995308220386505,
+            "sad": -0.36765360832214355,
+            "angry": 0.9227170348167419,
+            "afraid": -0.6310380697250366
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 0.13850925862789154,
+          "scores": {
+            "happy": 0.13850925862789154,
+            "sad": -0.3709642291069031,
+            "angry": 0.9822072386741638,
+            "afraid": -0.6707204580307007
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": -0.6841990947723389,
+          "scores": {
+            "happy": 0.15077409148216248,
+            "sad": -0.3411979675292969,
+            "angry": 0.9555466771125793,
+            "afraid": -0.6841990947723389
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 5,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9375,
+        "mean_correct_margin": -0.5226256847381592,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.75
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.1528929471969604,
+          "scores": {
+            "happy": 1.1528929471969604,
+            "sad": 0.46149444580078125,
+            "angry": 0.051156699657440186,
+            "afraid": -1.44178307056427
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.6310985684394836,
+          "scores": {
+            "happy": 0.9133031368255615,
+            "sad": 0.6310985684394836,
+            "angry": 0.3193766474723816,
+            "afraid": -1.6064475774765015
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 0.6321113109588623,
+          "scores": {
+            "happy": 0.9621086120605469,
+            "sad": 0.6321113109588623,
+            "angry": 0.2719383239746094,
+            "afraid": -1.6092745065689087
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.8332824110984802,
+          "scores": {
+            "happy": 1.2310638427734375,
+            "sad": 0.22467181086540222,
+            "angry": 0.8332824110984802,
+            "afraid": -1.9785796403884888
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 0.7131485939025879,
+          "scores": {
+            "happy": 1.1289961338043213,
+            "sad": 0.2399924397468567,
+            "angry": 0.7131485939025879,
+            "afraid": -1.799656867980957
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -1.1473631858825684,
+          "scores": {
+            "happy": 0.8529492020606995,
+            "sad": 0.46218299865722656,
+            "angry": 0.012303948402404785,
+            "afraid": -1.1473631858825684
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 1.1184128522872925,
+          "scores": {
+            "happy": 1.1184128522872925,
+            "sad": 0.3855867087841034,
+            "angry": 0.10728776454925537,
+            "afraid": -1.3952877521514893
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": -1.257521390914917,
+          "scores": {
+            "happy": 0.9215660095214844,
+            "sad": 0.5256439447402954,
+            "angry": 0.00807654857635498,
+            "afraid": -1.257521390914917
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 6,
+      "metrics": {
+        "accuracy": 0.625,
+        "macro_auc": 0.9166666666666666,
+        "mean_correct_margin": -0.2392231673002243,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.5,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.9275286197662354,
+          "scores": {
+            "happy": 0.9275286197662354,
+            "sad": 0.5417267084121704,
+            "angry": 0.15798956155776978,
+            "afraid": -1.430294156074524
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.9053183794021606,
+          "scores": {
+            "happy": 0.5783501267433167,
+            "sad": 0.9053183794021606,
+            "angry": 0.19991815090179443,
+            "afraid": -1.4838306903839111
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 0.7990514636039734,
+          "scores": {
+            "happy": 0.57328861951828,
+            "sad": 0.7990514636039734,
+            "angry": 0.15000635385513306,
+            "afraid": -1.3416869640350342
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 1.0934370756149292,
+          "scores": {
+            "happy": 1.0322586297988892,
+            "sad": -0.05701802670955658,
+            "angry": 1.0934370756149292,
+            "afraid": -1.8032593727111816
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 0.8765211701393127,
+          "scores": {
+            "happy": 1.0627107620239258,
+            "sad": -0.02803248167037964,
+            "angry": 0.8765211701393127,
+            "afraid": -1.6671676635742188
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.0234777927398682,
+          "scores": {
+            "happy": 0.3625120520591736,
+            "sad": 0.6083984971046448,
+            "angry": 0.1909545660018921,
+            "afraid": -1.0234777927398682
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 0.9677524566650391,
+          "scores": {
+            "happy": 0.9677524566650391,
+            "sad": 0.4034823477268219,
+            "angry": 0.25524675846099854,
+            "afraid": -1.4272867441177368
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": -0.9956892132759094,
+          "scores": {
+            "happy": 0.3433009684085846,
+            "sad": 0.6640118360519409,
+            "angry": 0.12151002883911133,
+            "afraid": -0.9956892132759094
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 7,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9166666666666666,
+        "mean_correct_margin": -0.8033084869384766,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6666666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.4464603662490845,
+          "scores": {
+            "happy": -0.4464603662490845,
+            "sad": 2.038391590118408,
+            "angry": -1.5035148859024048,
+            "afraid": -0.1813681423664093
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.5149972438812256,
+          "scores": {
+            "happy": -0.9144234657287598,
+            "sad": 2.5149972438812256,
+            "angry": -1.2667937278747559,
+            "afraid": -0.4086777865886688
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 2.4381916522979736,
+          "scores": {
+            "happy": -0.9883441925048828,
+            "sad": 2.4381916522979736,
+            "angry": -1.3482415676116943,
+            "afraid": -0.20711961388587952
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.40866875648498535,
+          "scores": {
+            "happy": -0.292064368724823,
+            "sad": 1.414031744003296,
+            "angry": -0.40866875648498535,
+            "afraid": -0.6772373914718628
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": -0.6214296221733093,
+          "scores": {
+            "happy": -0.13359230756759644,
+            "sad": 1.2285994291305542,
+            "angry": -0.6214296221733093,
+            "afraid": -0.46651479601860046
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.3873465955257416,
+          "scores": {
+            "happy": -1.2796001434326172,
+            "sad": 2.0609734058380127,
+            "angry": -1.3534685373306274,
+            "afraid": 0.3873465955257416
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": -0.5437222719192505,
+          "scores": {
+            "happy": -0.5437222719192505,
+            "sad": 1.938106656074524,
+            "angry": -1.2885246276855469,
+            "afraid": -0.18921461701393127
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 0.461640328168869,
+          "scores": {
+            "happy": -1.2768937349319458,
+            "sad": 2.144057273864746,
+            "angry": -1.5326223373413086,
+            "afraid": 0.461640328168869
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 8,
+      "metrics": {
+        "accuracy": 0.5,
+        "macro_auc": 0.8958333333333334,
+        "mean_correct_margin": -0.11526697874069214,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.5833333333333334
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.8513564467430115,
+          "scores": {
+            "happy": -0.8513564467430115,
+            "sad": 0.8910752534866333,
+            "angry": -0.5073680877685547,
+            "afraid": 0.3514576256275177
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 1.3328537940979004,
+          "scores": {
+            "happy": -0.9217302203178406,
+            "sad": 1.3328537940979004,
+            "angry": -0.4627096652984619,
+            "afraid": -0.017943687736988068
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 1.351381540298462,
+          "scores": {
+            "happy": -1.0274004936218262,
+            "sad": 1.351381540298462,
+            "angry": -0.5592358112335205,
+            "afraid": 0.1353873908519745
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.6668461561203003,
+          "scores": {
+            "happy": -0.6005170345306396,
+            "sad": 0.14009611308574677,
+            "angry": 0.6668461561203003,
+            "afraid": -0.18675804138183594
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 0.3938169479370117,
+          "scores": {
+            "happy": -0.3772241473197937,
+            "sad": 0.07311680912971497,
+            "angry": 0.3938169479370117,
+            "afraid": -0.08295752108097076
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.6028995513916016,
+          "scores": {
+            "happy": -1.4501382112503052,
+            "sad": 1.0749945640563965,
+            "angry": -0.4064618945121765,
+            "afraid": 0.6028995513916016
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": -1.0050866603851318,
+          "scores": {
+            "happy": -1.0050866603851318,
+            "sad": 0.6856546998023987,
+            "angry": -0.2933729887008667,
+            "afraid": 0.480232298374176
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 0.7504897117614746,
+          "scores": {
+            "happy": -1.4253029823303223,
+            "sad": 1.1815993785858154,
+            "angry": -0.7169768810272217,
+            "afraid": 0.7504897117614746
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 9,
+      "metrics": {
+        "accuracy": 0.5,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": 0.08202406018972397,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.20743560791015625,
+          "scores": {
+            "happy": -0.20743560791015625,
+            "sad": -0.9323109984397888,
+            "angry": 1.1726157665252686,
+            "afraid": 0.02722230553627014
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.1996678113937378,
+          "scores": {
+            "happy": -1.6848342418670654,
+            "sad": 0.1996678113937378,
+            "angry": 0.9622701406478882,
+            "afraid": 0.41690611839294434
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": -0.052364349365234375,
+          "scores": {
+            "happy": -1.6919002532958984,
+            "sad": -0.052364349365234375,
+            "angry": 0.834998369216919,
+            "afraid": 0.7635403275489807
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 2.812986373901367,
+          "scores": {
+            "happy": -0.6819454431533813,
+            "sad": -2.083348274230957,
+            "angry": 2.812986373901367,
+            "afraid": 0.08052495121955872
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 2.3732175827026367,
+          "scores": {
+            "happy": -0.21734732389450073,
+            "sad": -2.3874244689941406,
+            "angry": 2.3732175827026367,
+            "afraid": 0.3438422381877899
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 1.1439929008483887,
+          "scores": {
+            "happy": -1.7849617004394531,
+            "sad": -0.3797323703765869,
+            "angry": 0.8339187502861023,
+            "afraid": 1.1439929008483887
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": -0.48675596714019775,
+          "scores": {
+            "happy": -0.48675596714019775,
+            "sad": -1.269719123840332,
+            "angry": 1.6125386953353882,
+            "afraid": 0.19651931524276733
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 1.3533912897109985,
+          "scores": {
+            "happy": -1.4915084838867188,
+            "sad": -0.6966888308525085,
+            "angry": 0.6397985816001892,
+            "afraid": 1.3533912897109985
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 10,
+      "metrics": {
+        "accuracy": 0.875,
+        "macro_auc": 1.0,
+        "mean_correct_margin": 1.2063630819320679,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.5,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.36004638671875,
+          "scores": {
+            "happy": 1.36004638671875,
+            "sad": -0.378700315952301,
+            "angry": -0.3156564235687256,
+            "afraid": -0.5468921661376953
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.078009605407715,
+          "scores": {
+            "happy": -1.6171740293502808,
+            "sad": 2.078009605407715,
+            "angry": -0.6850485801696777,
+            "afraid": 0.06281337141990662
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 1.7840389013290405,
+          "scores": {
+            "happy": -1.4163557291030884,
+            "sad": 1.7840389013290405,
+            "angry": -0.9576971530914307,
+            "afraid": 0.38550451397895813
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 1.7943388223648071,
+          "scores": {
+            "happy": -0.3562300205230713,
+            "sad": -1.4829468727111816,
+            "angry": 1.7943388223648071,
+            "afraid": 0.14651459455490112
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 1.2973272800445557,
+          "scores": {
+            "happy": 0.5305213928222656,
+            "sad": -1.938273310661316,
+            "angry": 1.2973272800445557,
+            "afraid": 0.22095105051994324
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.5728342533111572,
+          "scores": {
+            "happy": -1.2437373399734497,
+            "sad": 0.9043023586273193,
+            "angry": -0.40397709608078003,
+            "afraid": 0.5728342533111572
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 1.3587249517440796,
+          "scores": {
+            "happy": 1.3587249517440796,
+            "sad": -0.6680155396461487,
+            "angry": -0.27454012632369995,
+            "afraid": -0.3186185956001282
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 1.405942440032959,
+          "scores": {
+            "happy": -1.1003944873809814,
+            "sad": 0.5608983635902405,
+            "angry": -1.177182912826538,
+            "afraid": 1.405942440032959
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 11,
+      "metrics": {
+        "accuracy": 0.5,
+        "macro_auc": 1.0,
+        "mean_correct_margin": 0.3443271815776825,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 2.731137990951538,
+          "scores": {
+            "happy": 2.731137990951538,
+            "sad": 1.061488151550293,
+            "angry": -1.4794917106628418,
+            "afraid": -2.104212522506714
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 3.0259761810302734,
+          "scores": {
+            "happy": -0.5344046950340271,
+            "sad": 3.0259761810302734,
+            "angry": -1.588133692741394,
+            "afraid": -0.9645664095878601
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 2.767159938812256,
+          "scores": {
+            "happy": -0.2894117832183838,
+            "sad": 2.767159938812256,
+            "angry": -1.9385466575622559,
+            "afraid": -0.6586023569107056
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.4559403955936432,
+          "scores": {
+            "happy": 1.0443243980407715,
+            "sad": 1.0059151649475098,
+            "angry": 0.4559403955936432,
+            "afraid": -2.173607587814331
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 0.041259825229644775,
+          "scores": {
+            "happy": 2.0225958824157715,
+            "sad": 0.22081971168518066,
+            "angry": 0.041259825229644775,
+            "afraid": -1.9750535488128662
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.49222755432128906,
+          "scores": {
+            "happy": -0.7974929809570312,
+            "sad": 2.7167978286743164,
+            "angry": -1.548856258392334,
+            "afraid": -0.49222755432128906
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 2.8685379028320312,
+          "scores": {
+            "happy": 2.8685379028320312,
+            "sad": 0.9296690821647644,
+            "angry": -1.4025170803070068,
+            "afraid": -2.1668877601623535
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 0.5103640556335449,
+          "scores": {
+            "happy": -0.7777869701385498,
+            "sad": 2.202472448348999,
+            "angry": -2.235280752182007,
+            "afraid": 0.5103640556335449
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 12,
+      "metrics": {
+        "accuracy": 0.5,
+        "macro_auc": 0.9166666666666667,
+        "mean_correct_margin": -0.706074595451355,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8333333333333334
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 2.6520848274230957,
+          "scores": {
+            "happy": 2.6520848274230957,
+            "sad": 2.4223060607910156,
+            "angry": -1.8385205268859863,
+            "afraid": -2.9649345874786377
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 4.490060806274414,
+          "scores": {
+            "happy": -0.992683470249176,
+            "sad": 4.490060806274414,
+            "angry": -1.743844985961914,
+            "afraid": -1.7090208530426025
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 4.032712459564209,
+          "scores": {
+            "happy": -0.7877416610717773,
+            "sad": 4.032712459564209,
+            "angry": -1.974574327468872,
+            "afraid": -1.2925503253936768
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.19067537784576416,
+          "scores": {
+            "happy": 0.4326365888118744,
+            "sad": 3.266108989715576,
+            "angry": 0.19067537784576416,
+            "afraid": -3.437405586242676
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": -0.3683112859725952,
+          "scores": {
+            "happy": 1.4796485900878906,
+            "sad": 2.3208413124084473,
+            "angry": -0.3683112859725952,
+            "afraid": -3.0523324012756348
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.9303735494613647,
+          "scores": {
+            "happy": -0.6331387758255005,
+            "sad": 4.557113170623779,
+            "angry": -1.9294471740722656,
+            "afraid": -1.9303735494613647
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 2.8753318786621094,
+          "scores": {
+            "happy": 2.8753318786621094,
+            "sad": 2.26717472076416,
+            "angry": -1.6908577680587769,
+            "afraid": -3.141592264175415
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": -0.9109004735946655,
+          "scores": {
+            "happy": -0.45050400495529175,
+            "sad": 3.6267573833465576,
+            "angry": -2.359971523284912,
+            "afraid": -0.9109004735946655
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 13,
+      "metrics": {
+        "accuracy": 0.75,
+        "macro_auc": 0.9375,
+        "mean_correct_margin": 0.4991101026535034,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.9166666666666666
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.9993631839752197,
+          "scores": {
+            "happy": 1.9993631839752197,
+            "sad": 0.6472729444503784,
+            "angry": 0.33634841442108154,
+            "afraid": -2.6073508262634277
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.6229300498962402,
+          "scores": {
+            "happy": -1.0630236864089966,
+            "sad": 2.6229300498962402,
+            "angry": 0.5794830322265625,
+            "afraid": -1.8196924924850464
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 2.2975780963897705,
+          "scores": {
+            "happy": -0.904871940612793,
+            "sad": 2.2975780963897705,
+            "angry": 0.3948957324028015,
+            "afraid": -1.5239362716674805
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 3.345928192138672,
+          "scores": {
+            "happy": -0.49885302782058716,
+            "sad": 1.2078449726104736,
+            "angry": 3.345928192138672,
+            "afraid": -3.3780248165130615
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 2.4938883781433105,
+          "scores": {
+            "happy": 0.7653731107711792,
+            "sad": 0.31535327434539795,
+            "angry": 2.4938883781433105,
+            "afraid": -3.014282703399658
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.8428863286972046,
+          "scores": {
+            "happy": -1.1203677654266357,
+            "sad": 2.3164567947387695,
+            "angry": 0.990506649017334,
+            "afraid": -1.8428863286972046
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 2.2753632068634033,
+          "scores": {
+            "happy": 2.2753632068634033,
+            "sad": 0.4153139591217041,
+            "angry": 0.6311928629875183,
+            "afraid": -2.8936567306518555
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": -1.0977706909179688,
+          "scores": {
+            "happy": -0.7366898655891418,
+            "sad": 1.5589944124221802,
+            "angry": 0.47590768337249756,
+            "afraid": -1.0977706909179688
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 14,
+      "metrics": {
+        "accuracy": 0.75,
+        "macro_auc": 0.9583333333333334,
+        "mean_correct_margin": 0.5322360992431641,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.5543711185455322,
+          "scores": {
+            "happy": 1.5543711185455322,
+            "sad": 1.1091609001159668,
+            "angry": -0.09136664867401123,
+            "afraid": -2.227964401245117
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 3.0845279693603516,
+          "scores": {
+            "happy": -1.4974673986434937,
+            "sad": 3.0845279693603516,
+            "angry": -0.30924004316329956,
+            "afraid": -1.0977212190628052
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 2.7244818210601807,
+          "scores": {
+            "happy": -1.204655408859253,
+            "sad": 2.7244818210601807,
+            "angry": -0.38608288764953613,
+            "afraid": -0.9795123338699341
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 2.81105899810791,
+          "scores": {
+            "happy": -1.0665174722671509,
+            "sad": 1.1785775423049927,
+            "angry": 2.81105899810791,
+            "afraid": -2.3905699253082275
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 2.212770462036133,
+          "scores": {
+            "happy": 0.059858858585357666,
+            "sad": 0.3731561303138733,
+            "angry": 2.212770462036133,
+            "afraid": -2.185952663421631
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.6778593063354492,
+          "scores": {
+            "happy": -1.3302624225616455,
+            "sad": 2.682002067565918,
+            "angry": 0.6437926292419434,
+            "afraid": -1.6778593063354492
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 1.7213956117630005,
+          "scores": {
+            "happy": 1.7213956117630005,
+            "sad": 0.9494900703430176,
+            "angry": 0.06378304958343506,
+            "afraid": -2.36286997795105
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": -0.7044048309326172,
+          "scores": {
+            "happy": -1.0595779418945312,
+            "sad": 1.8713891506195068,
+            "angry": 0.019271433353424072,
+            "afraid": -0.7044048309326172
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 15,
+      "metrics": {
+        "accuracy": 0.75,
+        "macro_auc": 0.9583333333333334,
+        "mean_correct_margin": 1.737907886505127,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 3.2773423194885254,
+          "scores": {
+            "happy": 3.2773423194885254,
+            "sad": 0.013213276863098145,
+            "angry": -1.2942826747894287,
+            "afraid": -1.839080810546875
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.5020477771759033,
+          "scores": {
+            "happy": -0.5261654257774353,
+            "sad": 2.5020477771759033,
+            "angry": -1.019234538078308,
+            "afraid": -0.9011428952217102
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 2.1003050804138184,
+          "scores": {
+            "happy": -0.5891872048377991,
+            "sad": 2.1003050804138184,
+            "angry": -1.2300306558609009,
+            "afraid": -0.31920719146728516
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 3.4205126762390137,
+          "scores": {
+            "happy": -1.0809788703918457,
+            "sad": 0.034601449966430664,
+            "angry": 3.4205126762390137,
+            "afraid": -1.8842136859893799
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 2.241060972213745,
+          "scores": {
+            "happy": 0.6925961971282959,
+            "sad": -1.294439435005188,
+            "angry": 2.241060972213745,
+            "afraid": -1.310825228691101
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.9301453828811646,
+          "scores": {
+            "happy": -0.2344094216823578,
+            "sad": 1.7516305446624756,
+            "angry": -0.49280300736427307,
+            "afraid": -0.9301453828811646
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 3.0993947982788086,
+          "scores": {
+            "happy": 3.0993947982788086,
+            "sad": -0.50423264503479,
+            "angry": -0.693565309047699,
+            "afraid": -1.7198950052261353
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 0.3351355791091919,
+          "scores": {
+            "happy": -0.17809879779815674,
+            "sad": 0.9999547600746155,
+            "angry": -1.2894494533538818,
+            "afraid": 0.3351355791091919
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 16,
+      "metrics": {
+        "accuracy": 0.5,
+        "macro_auc": 0.9583333333333334,
+        "mean_correct_margin": 0.6702609062194824,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.5,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.5,
+            "auc": 0.8333333333333334
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 2.18721342086792,
+          "scores": {
+            "happy": 2.18721342086792,
+            "sad": -2.570974111557007,
+            "angry": 1.6109659671783447,
+            "afraid": -1.0072345733642578
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.12391388416290283,
+          "scores": {
+            "happy": -1.7530256509780884,
+            "sad": -0.12391388416290283,
+            "angry": 0.9127858877182007,
+            "afraid": 0.8782463073730469
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -0.7793525457382202,
+          "scores": {
+            "happy": -1.635294795036316,
+            "sad": -0.7793525457382202,
+            "angry": 0.7928850650787354,
+            "afraid": 1.436880350112915
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 5.705193519592285,
+          "scores": {
+            "happy": -2.624451160430908,
+            "sad": -3.2237977981567383,
+            "angry": 5.705193519592285,
+            "afraid": 0.37128299474716187
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 4.4359612464904785,
+          "scores": {
+            "happy": -0.33483028411865234,
+            "sad": -4.548404216766357,
+            "angry": 4.4359612464904785,
+            "afraid": 0.5629910826683044
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.5835919380187988,
+          "scores": {
+            "happy": -1.523289680480957,
+            "sad": -0.8311147689819336,
+            "angry": 1.7711304426193237,
+            "afraid": 0.5835919380187988
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 1.9962048530578613,
+          "scores": {
+            "happy": 1.9962048530578613,
+            "sad": -3.5408504009246826,
+            "angry": 2.148343563079834,
+            "afraid": -0.4491826295852661
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 1.590174913406372,
+          "scores": {
+            "happy": -1.3347305059432983,
+            "sad": -1.8581647872924805,
+            "angry": 1.4186053276062012,
+            "afraid": 1.590174913406372
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 17,
+      "metrics": {
+        "accuracy": 0.75,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": 1.4775669574737549,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 4.055552005767822,
+          "scores": {
+            "happy": 4.055552005767822,
+            "sad": 0.2624116539955139,
+            "angry": 1.2084887027740479,
+            "afraid": -4.620569705963135
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.5535454750061035,
+          "scores": {
+            "happy": 0.5037685036659241,
+            "sad": 2.5535454750061035,
+            "angry": -0.06755924224853516,
+            "afraid": -2.4993958473205566
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "sad",
+          "intended_score": 1.4295897483825684,
+          "scores": {
+            "happy": 0.7053459286689758,
+            "sad": 1.4295897483825684,
+            "angry": -0.3152419328689575,
+            "afraid": -1.5369007587432861
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 6.553346633911133,
+          "scores": {
+            "happy": -0.25522541999816895,
+            "sad": -1.6148536205291748,
+            "angry": 6.553346633911133,
+            "afraid": -3.6637392044067383
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 5.467264652252197,
+          "scores": {
+            "happy": 2.1416077613830566,
+            "sad": -3.202019214630127,
+            "angry": 5.467264652252197,
+            "afraid": -3.508456230163574
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -2.0195863246917725,
+          "scores": {
+            "happy": -0.2621312737464905,
+            "sad": 1.04423189163208,
+            "angry": 1.7214994430541992,
+            "afraid": -2.0195863246917725
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 4.430492877960205,
+          "scores": {
+            "happy": 4.430492877960205,
+            "sad": -1.5028424263000488,
+            "angry": 2.7733359336853027,
+            "afraid": -4.716224193572998
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": -0.2388458251953125,
+          "scores": {
+            "happy": -0.7265443801879883,
+            "sad": -0.516521692276001,
+            "angry": 1.6120014190673828,
+            "afraid": -0.2388458251953125
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 18,
+      "metrics": {
+        "accuracy": 0.625,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": 0.7164516448974609,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.5,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 3.474433183670044,
+          "scores": {
+            "happy": 3.474433183670044,
+            "sad": -6.20771598815918,
+            "angry": 1.4210907220840454,
+            "afraid": 1.0960251092910767
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -2.9175944328308105,
+          "scores": {
+            "happy": -1.1995842456817627,
+            "sad": -2.9175944328308105,
+            "angry": 0.7489004135131836,
+            "afraid": 2.8085312843322754
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -4.439076900482178,
+          "scores": {
+            "happy": -0.8590402603149414,
+            "sad": -4.439076900482178,
+            "angry": 0.7622789144515991,
+            "afraid": 3.772676706314087
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 9.37424373626709,
+          "scores": {
+            "happy": -2.1688692569732666,
+            "sad": -10.317036628723145,
+            "angry": 9.37424373626709,
+            "afraid": 2.7850918769836426
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 8.226394653320312,
+          "scores": {
+            "happy": 1.4567584991455078,
+            "sad": -12.536378860473633,
+            "angry": 8.226394653320312,
+            "afraid": 2.526686906814575
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 3.72784423828125,
+          "scores": {
+            "happy": -0.36072325706481934,
+            "sad": -5.85980749130249,
+            "angry": 1.7611998319625854,
+            "afraid": 3.72784423828125
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "angry",
+          "intended_score": 3.626779079437256,
+          "scores": {
+            "happy": 3.626779079437256,
+            "sad": -9.646675109863281,
+            "angry": 4.039387226104736,
+            "afraid": 1.7036561965942383
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 5.3047637939453125,
+          "scores": {
+            "happy": -0.27181553840637207,
+            "sad": -7.631953239440918,
+            "angry": 1.5315099954605103,
+            "afraid": 5.3047637939453125
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 19,
+      "metrics": {
+        "accuracy": 0.5,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": -1.4471886157989502,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9166666666666666
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 6.522414207458496,
+          "scores": {
+            "happy": 6.522414207458496,
+            "sad": -9.534788131713867,
+            "angry": -2.1596920490264893,
+            "afraid": 4.402923107147217
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -4.201828479766846,
+          "scores": {
+            "happy": 3.1277928352355957,
+            "sad": -4.201828479766846,
+            "angry": -4.987739562988281,
+            "afraid": 4.9954328536987305
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -5.988863468170166,
+          "scores": {
+            "happy": 3.9125137329101562,
+            "sad": -5.988863468170166,
+            "angry": -4.873126983642578,
+            "afraid": 5.763552188873291
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 4.2170209884643555,
+          "scores": {
+            "happy": 1.141038417816162,
+            "sad": -14.951547622680664,
+            "angry": 4.2170209884643555,
+            "afraid": 8.29121208190918
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 3.6178860664367676,
+          "scores": {
+            "happy": 6.280706405639648,
+            "sad": -17.65440559387207,
+            "angry": 3.6178860664367676,
+            "afraid": 6.798556327819824
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 8.16137409210205,
+          "scores": {
+            "happy": 2.766932725906372,
+            "sad": -7.531301975250244,
+            "angry": -5.049216270446777,
+            "afraid": 8.16137409210205
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "happy",
+          "intended_score": 6.875491142272949,
+          "scores": {
+            "happy": 6.875491142272949,
+            "sad": -13.627754211425781,
+            "angry": 0.7314777374267578,
+            "afraid": 5.233670711517334
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 10.483003616333008,
+          "scores": {
+            "happy": 3.011727809906006,
+            "sad": -9.90461540222168,
+            "angry": -5.688035488128662,
+            "afraid": 10.483003616333008
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 20,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -4.300376892089844,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -2.234025239944458,
+          "scores": {
+            "happy": -2.234025239944458,
+            "sad": -3.6119887828826904,
+            "angry": -4.789356708526611,
+            "afraid": 8.417927742004395
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 4.1435089111328125,
+          "scores": {
+            "happy": -7.795953750610352,
+            "sad": 4.1435089111328125,
+            "angry": -9.274996757507324,
+            "afraid": 10.012462615966797
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 1.1212825775146484,
+          "scores": {
+            "happy": -6.445305824279785,
+            "sad": 1.1212825775146484,
+            "angry": -10.044631958007812,
+            "afraid": 11.976574897766113
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.21800947189331055,
+          "scores": {
+            "happy": -10.095794677734375,
+            "sad": -8.047633171081543,
+            "angry": -0.21800947189331055,
+            "afraid": 14.902913093566895
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -0.7696647644042969,
+          "scores": {
+            "happy": -5.4843854904174805,
+            "sad": -11.143951416015625,
+            "angry": -0.7696647644042969,
+            "afraid": 14.123814582824707
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 15.451299667358398,
+          "scores": {
+            "happy": -8.907939910888672,
+            "sad": -0.8335309028625488,
+            "angry": -9.896622657775879,
+            "afraid": 15.451299667358398
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -2.934206962585449,
+          "scores": {
+            "happy": -2.934206962585449,
+            "sad": -7.3181891441345215,
+            "angry": -3.0684618949890137,
+            "afraid": 10.694907188415527
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 17.300926208496094,
+          "scores": {
+            "happy": -8.178667068481445,
+            "sad": -3.030937910079956,
+            "angry": -10.740204811096191,
+            "afraid": 17.300926208496094
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 21,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -5.9921979904174805,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 4.137813568115234,
+          "scores": {
+            "happy": 4.137813568115234,
+            "sad": -11.322662353515625,
+            "angry": -7.999349594116211,
+            "afraid": 11.891143798828125
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -2.446356773376465,
+          "scores": {
+            "happy": -5.628605842590332,
+            "sad": -2.446356773376465,
+            "angry": -10.677136421203613,
+            "afraid": 15.05684757232666
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -6.843217849731445,
+          "scores": {
+            "happy": -3.6601343154907227,
+            "sad": -6.843217849731445,
+            "angry": -11.331615447998047,
+            "afraid": 17.473087310791016
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.015587329864501953,
+          "scores": {
+            "happy": -7.776809215545654,
+            "sad": -15.25607681274414,
+            "angry": -0.015587329864501953,
+            "afraid": 19.147167205810547
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -1.828296184539795,
+          "scores": {
+            "happy": -1.0443737506866455,
+            "sad": -20.317222595214844,
+            "angry": -1.828296184539795,
+            "afraid": 18.922527313232422
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 20.425077438354492,
+          "scores": {
+            "happy": -4.574800491333008,
+            "sad": -7.773532390594482,
+            "angry": -13.15672779083252,
+            "afraid": 20.425077438354492
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 3.623257875442505,
+          "scores": {
+            "happy": 3.623257875442505,
+            "sad": -16.07410430908203,
+            "angry": -6.549718856811523,
+            "afraid": 15.099410057067871
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 23.46087074279785,
+          "scores": {
+            "happy": -4.564235687255859,
+            "sad": -10.26569938659668,
+            "angry": -14.461244583129883,
+            "afraid": 23.46087074279785
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 22,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -18.076766967773438,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -19.664791107177734,
+          "scores": {
+            "happy": -19.664791107177734,
+            "sad": -14.096482276916504,
+            "angry": -4.269712448120117,
+            "afraid": 30.466293334960938
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -1.643784999847412,
+          "scores": {
+            "happy": -26.84675407409668,
+            "sad": -1.643784999847412,
+            "angry": -10.697701454162598,
+            "afraid": 31.292430877685547
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -6.692906856536865,
+          "scores": {
+            "happy": -27.327903747558594,
+            "sad": -6.692906856536865,
+            "angry": -10.9697904586792,
+            "afraid": 35.88527297973633
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 3.9879703521728516,
+          "scores": {
+            "happy": -35.9520263671875,
+            "sad": -20.256521224975586,
+            "angry": 3.9879703521728516,
+            "afraid": 42.54881286621094
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 2.6426124572753906,
+          "scores": {
+            "happy": -28.64973258972168,
+            "sad": -24.770931243896484,
+            "angry": 2.6426124572753906,
+            "afraid": 41.133544921875
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 44.80350875854492,
+          "scores": {
+            "happy": -32.4163703918457,
+            "sad": -12.612146377563477,
+            "angry": -11.050752639770508,
+            "afraid": 44.80350875854492
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -22.102066040039062,
+          "scores": {
+            "happy": -22.102066040039062,
+            "sad": -21.907981872558594,
+            "angry": -2.16343355178833,
+            "afraid": 37.07770538330078
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 48.56951904296875,
+          "scores": {
+            "happy": -33.256622314453125,
+            "sad": -14.816594123840332,
+            "angry": -12.839111328125,
+            "afraid": 48.56951904296875
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 23,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 1.0,
+        "mean_correct_margin": -23.11063003540039,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -14.448152542114258,
+          "scores": {
+            "happy": -14.448152542114258,
+            "sad": 6.657190799713135,
+            "angry": -29.29151725769043,
+            "afraid": 29.205312728881836
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 22.384437561035156,
+          "scores": {
+            "happy": -27.47197914123535,
+            "sad": 22.384437561035156,
+            "angry": -34.377647399902344,
+            "afraid": 31.46686363220215
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 16.547815322875977,
+          "scores": {
+            "happy": -26.66608428955078,
+            "sad": 16.547815322875977,
+            "angry": -35.10231399536133,
+            "afraid": 36.045616149902344
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -27.520910263061523,
+          "scores": {
+            "happy": -32.804901123046875,
+            "sad": 7.6520562171936035,
+            "angry": -27.520910263061523,
+            "afraid": 42.698448181152344
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -27.512847900390625,
+          "scores": {
+            "happy": -23.504671096801758,
+            "sad": 0.9074101448059082,
+            "angry": -27.512847900390625,
+            "afraid": 40.21507263183594
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 45.76585006713867,
+          "scores": {
+            "happy": -29.142356872558594,
+            "sad": 10.825698852539062,
+            "angry": -39.03234100341797,
+            "afraid": 45.76585006713867
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -16.52200698852539,
+          "scores": {
+            "happy": -16.52200698852539,
+            "sad": 1.1216859817504883,
+            "angry": -28.780181884765625,
+            "afraid": 35.05515670776367
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 50.01203918457031,
+          "scores": {
+            "happy": -29.289236068725586,
+            "sad": 8.079078674316406,
+            "angry": -41.53458023071289,
+            "afraid": 50.01203918457031
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 24,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9791666666666666,
+        "mean_correct_margin": -41.951473236083984,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.9166666666666666
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -20.864953994750977,
+          "scores": {
+            "happy": -20.864953994750977,
+            "sad": -5.431353569030762,
+            "angry": -48.51871871948242,
+            "afraid": 58.502567291259766
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 11.857151985168457,
+          "scores": {
+            "happy": -26.673324584960938,
+            "sad": 11.857151985168457,
+            "angry": -51.98232650756836,
+            "afraid": 52.19212341308594
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 4.078525066375732,
+          "scores": {
+            "happy": -26.556472778320312,
+            "sad": 4.078525066375732,
+            "angry": -51.67061233520508,
+            "afraid": 58.072425842285156
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -47.96348190307617,
+          "scores": {
+            "happy": -34.42652893066406,
+            "sad": -6.936516761779785,
+            "angry": -47.96348190307617,
+            "afraid": 70.69579315185547
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -48.320674896240234,
+          "scores": {
+            "happy": -24.78306770324707,
+            "sad": -14.010360717773438,
+            "angry": -48.320674896240234,
+            "afraid": 68.50279235839844
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 73.81449890136719,
+          "scores": {
+            "happy": -31.74864387512207,
+            "sad": -3.1812949180603027,
+            "angry": -59.058349609375,
+            "afraid": 73.81449890136719
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -22.610225677490234,
+          "scores": {
+            "happy": -22.610225677490234,
+            "sad": -13.022550582885742,
+            "angry": -48.1669921875,
+            "afraid": 65.76964569091797
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 78.87313842773438,
+          "scores": {
+            "happy": -31.693737030029297,
+            "sad": -6.078310012817383,
+            "angry": -62.75677490234375,
+            "afraid": 78.87313842773438
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 25,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9583333333333334,
+        "mean_correct_margin": -36.806671142578125,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 9.52047348022461,
+          "scores": {
+            "happy": 9.52047348022461,
+            "sad": 18.84400177001953,
+            "angry": -90.74971008300781,
+            "afraid": 47.06652069091797
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 33.69797134399414,
+          "scores": {
+            "happy": 0.8323993682861328,
+            "sad": 33.69797134399414,
+            "angry": -90.23731994628906,
+            "afraid": 42.15839385986328
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 26.419841766357422,
+          "scores": {
+            "happy": 1.7720212936401367,
+            "sad": 26.419841766357422,
+            "angry": -91.17622375488281,
+            "afraid": 47.97061538696289
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -83.34857940673828,
+          "scores": {
+            "happy": 0.026144981384277344,
+            "sad": 14.390852928161621,
+            "angry": -83.34857940673828,
+            "afraid": 53.1390380859375
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -85.21983337402344,
+          "scores": {
+            "happy": 10.413403511047363,
+            "sad": 6.815085411071777,
+            "angry": -85.21983337402344,
+            "afraid": 51.7369499206543
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 63.660888671875,
+          "scores": {
+            "happy": -0.6932668685913086,
+            "sad": 21.596759796142578,
+            "angry": -103.58341979980469,
+            "afraid": 63.660888671875
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 8.404597282409668,
+          "scores": {
+            "happy": 8.404597282409668,
+            "sad": 9.657133102416992,
+            "angry": -88.83343505859375,
+            "afraid": 53.984283447265625
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 69.31069946289062,
+          "scores": {
+            "happy": -1.1586122512817383,
+            "sad": 19.246871948242188,
+            "angry": -107.88261413574219,
+            "afraid": 69.31069946289062
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 26,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9583333333333334,
+        "mean_correct_margin": -56.94868469238281,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 31.10358238220215,
+          "scores": {
+            "happy": 31.10358238220215,
+            "sad": -80.56703186035156,
+            "angry": -56.81630325317383,
+            "afraid": 79.12391662597656
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -59.1771354675293,
+          "scores": {
+            "happy": 20.00179672241211,
+            "sad": -59.1771354675293,
+            "angry": -53.1960334777832,
+            "afraid": 68.93121337890625
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -69.3553466796875,
+          "scores": {
+            "happy": 20.76012420654297,
+            "sad": -69.3553466796875,
+            "angry": -54.652076721191406,
+            "afraid": 77.33218383789062
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -46.36848831176758,
+          "scores": {
+            "happy": 24.321266174316406,
+            "sad": -93.78006744384766,
+            "angry": -46.36848831176758,
+            "afraid": 87.35990905761719
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -48.75933837890625,
+          "scores": {
+            "happy": 34.2949104309082,
+            "sad": -100.25679016113281,
+            "angry": -48.75933837890625,
+            "afraid": 85.92454528808594
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 106.86822509765625,
+          "scores": {
+            "happy": 13.302773475646973,
+            "sad": -82.27691650390625,
+            "angry": -72.62457275390625,
+            "afraid": 106.86822509765625
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 29.919992446899414,
+          "scores": {
+            "happy": 29.919992446899414,
+            "sad": -93.90597534179688,
+            "angry": -53.61666488647461,
+            "afraid": 88.16861724853516
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 113.45233154296875,
+          "scores": {
+            "happy": 13.130134582519531,
+            "sad": -86.2901382446289,
+            "angry": -77.10348510742188,
+            "afraid": 113.45233154296875
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    },
+    {
+      "layer": 27,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.9583333333333334,
+        "mean_correct_margin": -8.240402221679688,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.8333333333333334
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 1.0
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 1.0
+          }
+        }
+      },
+      "examples": [
+        {
+          "id": "lex-happy-1",
+          "emotion": "happy",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -3.3566651344299316,
+          "scores": {
+            "happy": -3.3566651344299316,
+            "sad": -14.995489120483398,
+            "angry": -7.75333309173584,
+            "afraid": 17.575803756713867
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."
+        },
+        {
+          "id": "lex-sad-1",
+          "emotion": "sad",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -10.369112014770508,
+          "scores": {
+            "happy": -4.815378189086914,
+            "sad": -10.369112014770508,
+            "angry": -7.033449649810791,
+            "afraid": 14.961028099060059
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."
+        },
+        {
+          "id": "lex-sad-control",
+          "emotion": "sad",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -12.038735389709473,
+          "scores": {
+            "happy": -4.905007362365723,
+            "sad": -12.038735389709473,
+            "angry": -6.423398017883301,
+            "afraid": 15.750844955444336
+          },
+          "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."
+        },
+        {
+          "id": "lex-angry-1",
+          "emotion": "angry",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -4.183605670928955,
+          "scores": {
+            "happy": -3.9874250888824463,
+            "sad": -14.8881254196167,
+            "angry": -4.183605670928955,
+            "afraid": 15.57603645324707
+          },
+          "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."
+        },
+        {
+          "id": "lex-angry-control",
+          "emotion": "angry",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -4.162998199462891,
+          "scores": {
+            "happy": -2.2612860202789307,
+            "sad": -15.759605407714844,
+            "angry": -4.162998199462891,
+            "afraid": 14.974344253540039
+          },
+          "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."
+        },
+        {
+          "id": "lex-afraid-1",
+          "emotion": "afraid",
+          "level": null,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 25.73728370666504,
+          "scores": {
+            "happy": -8.718995094299316,
+            "sad": -17.999706268310547,
+            "angry": -11.483617782592773,
+            "afraid": 25.73728370666504
+          },
+          "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."
+        },
+        {
+          "id": "lex-happy-control",
+          "emotion": "happy",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": -3.7411415576934814,
+          "scores": {
+            "happy": -3.7411415576934814,
+            "sad": -18.525056838989258,
+            "angry": -7.411129474639893,
+            "afraid": 20.0043888092041
+          },
+          "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."
+        },
+        {
+          "id": "lex-afraid-control",
+          "emotion": "afraid",
+          "level": null,
+          "variant": "minimal_control",
+          "prediction": "afraid",
+          "intended_score": 27.176599502563477,
+          "scores": {
+            "happy": -9.13860034942627,
+            "sad": -18.96548843383789,
+            "angry": -12.238004684448242,
+            "afraid": 27.176599502563477
+          },
+          "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."
+        }
+      ],
+      "chance_accuracy": 0.25
+    }
+  ]
+}
