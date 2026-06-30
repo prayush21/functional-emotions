@@ -48,6 +48,11 @@ steering.
 Run matching-token and free-generation interventions with dose-response,
 specificity, random-vector, KL, and fluency controls.
 
+Implemented as `fe-prototype4`. It consumes the canonical Prototype 2.5 nested
+Prototype 1 vector bundle and explicitly preserves the Prototype 3 caveat: the
+four vectors are compact and causally testable, but their valence/arousal
+geometry is weak.
+
 ## Prototype 5 — activity preferences
 
 Reproduce pairwise preferences, Elo ratings, activation/preference correlations,

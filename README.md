@@ -152,6 +152,21 @@ This is a structural checkpoint before causal steering. It does not rerun
 extraction or semantic validation, and it does not make claims about subjective
 experience. See [docs/prototype3.md](docs/prototype3.md).
 
+## Prototype 4: causal emotion steering
+
+Prototype 4 consumes the canonical Prototype 2.5 nested Prototype 1 vector
+bundle and applies signed residual-stream interventions at the selected layer.
+It records matching-token and free-generation effects with dose-response,
+specificity, random-vector, wrong-emotion, KL, and fluency controls.
+
+```bash
+fe-prototype4 --config configs/prototype4.yaml
+```
+
+Because Prototype 3 found weak valence/arousal geometry, Prototype 4 is framed
+narrowly as local causal efficacy over compact validated vectors, not evidence
+of a mature emotion manifold. See [docs/prototype4.md](docs/prototype4.md).
+
 ## Roadmap
 
 See [docs/roadmap.md](docs/roadmap.md).

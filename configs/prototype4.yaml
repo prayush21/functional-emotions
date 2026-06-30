@@ -1,0 +1,75 @@
+experiment: prototype4
+seed: 42
+
+prototype1:
+  # Canonical vector source from the accepted Prototype 2.5 handoff.
+  run_dir: results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306
+  emotion_vectors: emotion_vectors.safetensors
+
+model:
+  # Defaults are inherited from the Prototype 1 bundle when left unset.
+  name:
+  revision:
+  dtype:
+  device:
+  local_files_only:
+
+emotions:
+  - happy
+  - sad
+  - angry
+  - afraid
+
+intervention:
+  # If omitted, the runner uses Prototype 1's pre-registered selected layer.
+  layer:
+  strengths: [-4, -2, -1, 0, 1, 2, 4]
+  # False means the saved vector is multiplied directly by the signed strength.
+  # Set true for a stronger diagnostic where each strength is additionally
+  # scaled by the selected vector norm.
+  scale_by_vector_norm: false
+
+matching_token:
+  terms:
+    happy: ["happy", "joyful", "pleased", "glad"]
+    sad: ["sad", "sorrowful", "unhappy", "mournful"]
+    angry: ["angry", "furious", "annoyed", "mad"]
+    afraid: ["afraid", "scared", "fearful", "anxious"]
+  prompts:
+    - id: mt-happy-1
+      target_emotion: happy
+      text: "After reading the message, the person felt"
+    - id: mt-sad-1
+      target_emotion: sad
+      text: "After reading the message, the person felt"
+    - id: mt-angry-1
+      target_emotion: angry
+      text: "After reading the message, the person felt"
+    - id: mt-afraid-1
+      target_emotion: afraid
+      text: "After reading the message, the person felt"
+
+free_generation:
+  strengths: [-2, 0, 2]
+  max_new_tokens: 32
+  prompts:
+    - id: fg-happy-1
+      target_emotion: happy
+      text: "The door opened and Avery"
+    - id: fg-sad-1
+      target_emotion: sad
+      text: "The door opened and Avery"
+    - id: fg-angry-1
+      target_emotion: angry
+      text: "The door opened and Avery"
+    - id: fg-afraid-1
+      target_emotion: afraid
+      text: "The door opened and Avery"
+
+controls:
+  random_seed: 314159
+
+gates:
+  zero_steering_max_abs_logit_error: 1.0e-6
+
+output_dir: artifacts/prototype4

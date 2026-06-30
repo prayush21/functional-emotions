@@ -26,6 +26,7 @@ fe-prototype1 = "functional_emotions.prototype1:main"
 fe-prototype2 = "functional_emotions.prototype2:main"
 fe-prototype25 = "functional_emotions.prototype25:main"
 fe-prototype3 = "functional_emotions.prototype3:main"
+fe-prototype4 = "functional_emotions.prototype4:main"
 fe-register-run = "functional_emotions.registry:main"
 
 [tool.hatch.build.targets.wheel]
