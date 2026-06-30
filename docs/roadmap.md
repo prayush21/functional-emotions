@@ -58,6 +58,12 @@ geometry is weak.
 Reproduce pairwise preferences, Elo ratings, activation/preference correlations,
 and causal Elo shifts under token-local steering.
 
+Implemented as `fe-prototype5`. The first version consumes the canonical
+Prototype 2.5 nested Prototype 1 vector bundle and tests deterministic
+next-token `A`/`B` activity choices under real, opposite-sign, random-vector, and
+wrong-emotion controls. Elo is included as a diagnostic summary, while hard gates
+focus on artifact loading, zero fidelity, controls, KL, and pairwise scores.
+
 ## Prototype 6 — representation dynamics
 
 Study local versus planned emotion, present versus other speakers, negation,

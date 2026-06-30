@@ -167,6 +167,23 @@ Because Prototype 3 found weak valence/arousal geometry, Prototype 4 is framed
 narrowly as local causal efficacy over compact validated vectors, not evidence
 of a mature emotion manifold. See [docs/prototype4.md](docs/prototype4.md).
 
+## Prototype 5: activity preferences
+
+Prototype 5 tests whether the same compact emotion-vector steering transfers to
+simple pairwise activity preferences. It scores deterministic `A` versus `B`
+next-token logit margins for activities such as calling a friend, resting,
+checking for safety, correcting someone, helping, or joining a celebration.
+
+```bash
+fe-prototype5 --config configs/prototype5.yaml
+```
+
+The default run records zero-steering fidelity, expected-direction preference
+effects, dose-response, opposite-sign reversal, random-vector and wrong-emotion
+controls, KL diagnostics, and lightweight category Elo summaries. It preserves
+the Prototype 3/4 caveat: this tests local causal preference consequences, not
+mature human-like emotion structure. See [docs/prototype5.md](docs/prototype5.md).
+
 ## Roadmap
 
 See [docs/roadmap.md](docs/roadmap.md).
