@@ -138,6 +138,20 @@ fe-prototype25 --config configs/prototype25.yaml --stage all
 Use this before Prototype 3 if semantic controls fail on the current vectors.
 See [docs/prototype25.md](docs/prototype25.md).
 
+## Prototype 3: emotion-space geometry
+
+Prototype 3 consumes the canonical Prototype 2.5 vector bundle and measures
+diagnostic geometry: cosine structure, nearest neighbors, clustering, PCA,
+valence/arousal alignment, and representational similarity across layers.
+
+```bash
+fe-prototype3 --config configs/prototype3.yaml
+```
+
+This is a structural checkpoint before causal steering. It does not rerun
+extraction or semantic validation, and it does not make claims about subjective
+experience. See [docs/prototype3.md](docs/prototype3.md).
+
 ## Roadmap
 
 See [docs/roadmap.md](docs/roadmap.md).

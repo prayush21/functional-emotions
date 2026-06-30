@@ -1,0 +1,35 @@
+experiment: prototype3
+seed: 42
+
+prototype1:
+  # Canonical vector source from the accepted Prototype 2.5 handoff.
+  run_dir: results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306
+  emotion_vectors: emotion_vectors.safetensors
+
+prototype2_validation:
+  # Semantic controls for the same vectors. Prototype 3 records this as provenance
+  # but does not rerun semantic validation.
+  run_dir: results/runs/colab-run-prototype-2.5/prototype2/20260628T205450Z__prototype2-prototype25-validation__qwen-qwen3-0-6b-base__seed-42__39a92c5ae9
+
+geometry:
+  # If omitted, the runner uses the Prototype 1 pre-registered selected layer.
+  selected_layer:
+
+valence_arousal:
+  # Compact hand-authored priors for the four-emotion bridge run. These are
+  # diagnostic anchors, not a substitute for paper-scale affective norm tables.
+  ratings:
+    happy:
+      valence: 1.0
+      arousal: 0.6
+    sad:
+      valence: -0.9
+      arousal: -0.4
+    angry:
+      valence: -0.8
+      arousal: 0.8
+    afraid:
+      valence: -0.9
+      arousal: 0.9
+
+output_dir: artifacts/prototype3

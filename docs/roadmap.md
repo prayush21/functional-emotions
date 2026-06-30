@@ -39,6 +39,10 @@ Implemented as `fe-prototype25`.
 Measure cosine structure, clustering, PCA/UMAP, valence/arousal alignment, and
 representational similarity across layers.
 
+Implemented as `fe-prototype3`. This prototype consumes the accepted Prototype
+2.5 handoff vectors and frames the result as diagnostic geometry before causal
+steering.
+
 ## Prototype 4 — causal emotion steering
 
 Run matching-token and free-generation interventions with dose-response,
