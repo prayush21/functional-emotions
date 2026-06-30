@@ -184,6 +184,22 @@ controls, KL diagnostics, and lightweight category Elo summaries. It preserves
 the Prototype 3/4 caveat: this tests local causal preference consequences, not
 mature human-like emotion structure. See [docs/prototype5.md](docs/prototype5.md).
 
+## Prototype 5.1: robust activity-preference assay
+
+Prototype 5.1 keeps the same canonical Prototype 2.5 vector bundle and asks
+whether Prototype 5's null behavioral-transfer result survives a stronger
+assay. It adds A/B order swaps, full option-text logprob scoring, contextualized
+prompt families, per-emotion/context/scoring/layer breakdowns, a compact layer
+sweep around layer 19, stronger signed strengths, and KL guardrails.
+
+```bash
+fe-prototype51 --config configs/prototype51.yaml
+```
+
+This is not a new extraction step. It tests whether the Prototype 5 activity
+preference null was caused by brittle A/B token scoring, option-order bias,
+missing context, or layer/strength choice. See [docs/prototype51.md](docs/prototype51.md).
+
 ## Roadmap
 
 See [docs/roadmap.md](docs/roadmap.md).

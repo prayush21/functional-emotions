@@ -64,6 +64,18 @@ next-token `A`/`B` activity choices under real, opposite-sign, random-vector, an
 wrong-emotion controls. Elo is included as a diagnostic summary, while hard gates
 focus on artifact loading, zero fidelity, controls, KL, and pairwise scores.
 
+## Prototype 5.1 — robust activity-preference assay
+
+Stress-test the Prototype 5 null result before changing extraction. Add A/B
+order swaps, option-text logprob scoring, contextualized prompt families,
+per-emotion/context/scoring/layer breakdowns, a compact layer sweep around layer
+19, stronger signed strengths, random and wrong-emotion controls, and KL-filtered
+effect summaries.
+
+Implemented as `fe-prototype51`. It consumes the same canonical Prototype 2.5
+nested Prototype 1 vector bundle and frames any result as an assay robustness
+test, not a new emotion-vector extraction.
+
 ## Prototype 6 — representation dynamics
 
 Study local versus planned emotion, present versus other speakers, negation,
