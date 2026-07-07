@@ -21,20 +21,60 @@ before scaling the emotion and topic sets.
 Test implicit scenarios, numerical intensity sweeps, lexical controls, logit-lens
 effects, shuffled-label controls, and cross-topic generalization.
 
+Implemented as `fe-prototype2`. This prototype treats Prototype 1 as a completed
+failed-but-informative feasibility run and asks whether its signal survives
+semantic controls before moving to emotion-space geometry.
+
+## Prototype 2.5 — revised extraction bridge
+
+When Prototype 2 finds fragile semantic robustness, revise the compact
+extraction run before geometry: expand topics and stories per topic/emotion,
+balance angry-versus-afraid contexts, then rerun Prototype 2 controls on the new
+vectors.
+
+Implemented as `fe-prototype25`.
+
 ## Prototype 3 — emotion-space geometry
 
 Measure cosine structure, clustering, PCA/UMAP, valence/arousal alignment, and
 representational similarity across layers.
+
+Implemented as `fe-prototype3`. This prototype consumes the accepted Prototype
+2.5 handoff vectors and frames the result as diagnostic geometry before causal
+steering.
 
 ## Prototype 4 — causal emotion steering
 
 Run matching-token and free-generation interventions with dose-response,
 specificity, random-vector, KL, and fluency controls.
 
+Implemented as `fe-prototype4`. It consumes the canonical Prototype 2.5 nested
+Prototype 1 vector bundle and explicitly preserves the Prototype 3 caveat: the
+four vectors are compact and causally testable, but their valence/arousal
+geometry is weak.
+
 ## Prototype 5 — activity preferences
 
 Reproduce pairwise preferences, Elo ratings, activation/preference correlations,
 and causal Elo shifts under token-local steering.
+
+Implemented as `fe-prototype5`. The first version consumes the canonical
+Prototype 2.5 nested Prototype 1 vector bundle and tests deterministic
+next-token `A`/`B` activity choices under real, opposite-sign, random-vector, and
+wrong-emotion controls. Elo is included as a diagnostic summary, while hard gates
+focus on artifact loading, zero fidelity, controls, KL, and pairwise scores.
+
+## Prototype 5.1 — robust activity-preference assay
+
+Stress-test the Prototype 5 null result before changing extraction. Add A/B
+order swaps, option-text logprob scoring, contextualized prompt families,
+per-emotion/context/scoring/layer breakdowns, a compact layer sweep around layer
+19, stronger signed strengths, random and wrong-emotion controls, and KL-filtered
+effect summaries.
+
+Implemented as `fe-prototype51`. It consumes the same canonical Prototype 2.5
+nested Prototype 1 vector bundle and frames any result as an assay robustness
+test, not a new emotion-vector extraction.
 
 ## Prototype 6 — representation dynamics
 

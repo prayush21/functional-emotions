@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "run_id": "20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306",
+  "created_at": "2026-06-28T20:54:23.184241+00:00",
+  "experiment": "prototype1-prototype25",
+  "seed": 42,
+  "config_sha256": "8f5d56f306cdccdf06c9ea215b5ed9cbf8eba2dba691c1c56ecc5cc46e4b11f3",
+  "model": {
+    "name": "Qwen/Qwen3-0.6B-Base",
+    "requested_revision": "main",
+    "resolved_revision": "da87bfb608c14b7cf20ba1ce41287e8de496c0cd"
+  },
+  "code": {
+    "commit": "82c72f851b938fd5e540dd0beacee21a59405e4c",
+    "dirty": true
+  },
+  "legacy_import": false
+}

@@ -56,6 +56,33 @@ def test_register_legacy_bundle_is_idempotent(tmp_path):
     assert len(registry.joinpath("index.jsonl").read_text().splitlines()) == 1
 
 
+def test_register_prefers_bundle_summary(tmp_path):
+    bundle = tmp_path / "bundle"
+    bundle.mkdir()
+    sample_bundle(bundle)
+    bundle_summary = {"all_hard_gates_pass": True, "selected_layer": 19, "custom_metric": 0.5}
+    (bundle / "summary.json").write_text(json.dumps(bundle_summary))
+    registry = tmp_path / "results"
+
+    destination = register_bundle(bundle, registry)
+
+    assert json.loads((destination / "summary.json").read_text()) == bundle_summary
+    record = json.loads(registry.joinpath("index.jsonl").read_text().splitlines()[0])
+    assert record["custom_metric"] == 0.5
+
+
+def test_summary_tolerates_geometry_layer_rows():
+    metrics = {
+        "selected_layer": 19,
+        "layers": [{"layer": 19, "pca": {"explained_variance": [0.5]}}],
+    }
+
+    summary = summary_from_metrics(metrics)
+
+    assert summary["selected_layer"] == 19
+    assert summary["held_out_accuracy"] is None
+
+
 def test_summary_supports_prototype1_metrics():
     metrics = {
         "all_hard_gates_pass": True,

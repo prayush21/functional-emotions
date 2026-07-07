@@ -1,0 +1,28 @@
+{
+  "selected_layer": 19,
+  "number_of_emotions": 4,
+  "number_of_layers": 28,
+  "selected_layer_mean_abs_off_diagonal_cosine": 0.3296242356300354,
+  "selected_layer_valence_spearman": 0.0,
+  "selected_layer_arousal_spearman": 0.08571428571428572,
+  "selected_layer_nearest_neighbors": {
+    "happy": {
+      "emotion": "angry",
+      "cosine": -0.15044304728507996
+    },
+    "sad": {
+      "emotion": "happy",
+      "cosine": -0.24237114191055298
+    },
+    "angry": {
+      "emotion": "happy",
+      "cosine": -0.15044304728507996
+    },
+    "afraid": {
+      "emotion": "sad",
+      "cosine": -0.33974626660346985
+    }
+  },
+  "umap_available": false,
+  "prototype4_recommendation": "Proceed to causal steering only as a diagnostic follow-up over the canonical Prototype 2.5 vectors."
+}

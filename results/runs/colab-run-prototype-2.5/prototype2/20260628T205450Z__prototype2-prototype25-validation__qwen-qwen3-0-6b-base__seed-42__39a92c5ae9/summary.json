@@ -1,0 +1,65 @@
+{
+  "all_soft_gates_pass": true,
+  "selected_layer": 19,
+  "shuffled_macro_auc_effect": 0.5152083333333335,
+  "lexical_accuracy": 0.5,
+  "intensity_mean_spearman": 0.12499999999999997,
+  "calibrated_margin_delta": -3.003045380115509,
+  "answers": {
+    "is_there_signal_beyond_shuffled_labels": true,
+    "shuffled_label_effect_at_selected_layer": {
+      "accuracy": 0.4625000059604645,
+      "macro_auc": 0.5152083333333335,
+      "mean_correct_margin": 14.239136695861816
+    },
+    "is_signal_stable_across_layers": {
+      "layers_above_chance_macro_auc": 28,
+      "layers_with_positive_margin": 14,
+      "total_layers": 28
+    },
+    "cross_topic_generalization": {
+      "selected_layer_minimum_topic_accuracy": 0.5,
+      "selected_layer_mean_topic_accuracy": 0.6125,
+      "selected_layer_minimum_topic_margin": 3.1426403522491455
+    },
+    "is_pca_cleaning_helping_at_selected_layer": {
+      "accuracy": 0.025000035762786865,
+      "macro_auc": -0.003541666666666665,
+      "mean_correct_margin": 1.7577500343322754
+    },
+    "logit_lens": {
+      "available": true,
+      "selected_layer_accuracy": 0.32499998807907104,
+      "selected_layer_macro_auc": 0.6581250000000001,
+      "diagnostic_only": true
+    },
+    "afraid_status": {
+      "ever_wins_argmax_across_layers": true,
+      "selected_layer_win_rate": 0.2625
+    },
+    "angry_status": {
+      "top_win_rate_fraction_across_layers": 0.03571428571428571,
+      "selected_layer_win_rate": 0.0125
+    },
+    "implicit_intensity_monotonicity": {
+      "selected_layer_mean_spearman": 0.12499999999999997,
+      "positive": true
+    },
+    "lexical_robustness": {
+      "selected_layer_accuracy": 0.5,
+      "beats_chance": true
+    },
+    "calibration_interpretation": {
+      "diagnostic_only": true,
+      "calibrated_minus_uncalibrated": {
+        "accuracy": 0.125,
+        "macro_auc": 0.0,
+        "mean_correct_margin": -3.003045380115509
+      },
+      "margin_failure_looks_like_score_scale_mismatch": false
+    },
+    "prototype3_recommendation": "Proceed to Prototype 3 geometry, while preserving calibration caveats."
+  },
+  "logit_lens_selected_layer_accuracy": 0.32499998807907104,
+  "minimum_topic_accuracy": 0.5
+}

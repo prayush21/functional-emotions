@@ -1,0 +1,73 @@
+{
+  "all_hard_gates_pass": true,
+  "hard_gates": {
+    "required_vector_artifacts_loaded": true,
+    "zero_steering_reproduces_baseline": true,
+    "random_vector_control_recorded": true,
+    "wrong_emotion_control_recorded": true,
+    "kl_diagnostics_recorded": true,
+    "pairwise_preference_scores_recorded": true
+  },
+  "soft_gates": {
+    "positive_steering_shifts_expected_preferences": false,
+    "opposite_sign_moves_opposite_direction": false,
+    "intended_effect_exceeds_random_control": false,
+    "intended_effect_exceeds_wrong_emotion_control": false,
+    "dose_response_spearman_positive": false,
+    "matching_pairs_stronger_than_nonmatching_pairs": false
+  },
+  "selected_layer": 19,
+  "configured_layer": 19,
+  "emotions": [
+    "happy",
+    "sad",
+    "angry",
+    "afraid"
+  ],
+  "hidden_size": 1024,
+  "prototype1_run_dir": "results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306",
+  "artifacts": {
+    "emotion_vectors": "results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306/emotion_vectors.safetensors"
+  },
+  "vector_norms": {
+    "happy": 1.0,
+    "sad": 0.9999999403953552,
+    "angry": 1.0,
+    "afraid": 1.0000001192092896
+  },
+  "zero_fidelity": {
+    "max_abs_logit_error": 0.0,
+    "rows": 96
+  },
+  "preferences": {
+    "positive_strength_summary": {
+      "mean_expected_effect": -0.0032398091422186953,
+      "mean_matching_expected_effect": -0.0032398091422186953,
+      "mean_nonmatching_abs_delta": 0.008973549471961127
+    },
+    "control_summary": {
+      "real": {
+        "mean_expected_effect": -0.0032398091422186953,
+        "mean_matching_expected_effect": -0.0032398091422186953
+      },
+      "random": {
+        "mean_expected_effect": 0.003660183482699924,
+        "mean_matching_expected_effect": 0.003660183482699924
+      },
+      "wrong_emotion": {
+        "mean_expected_effect": -4.142257902357274e-05,
+        "mean_matching_expected_effect": -4.142257902357274e-05
+      }
+    },
+    "dose_response": {
+      "spearman_by_emotion": {
+        "afraid": -1.0,
+        "angry": -1.0,
+        "happy": 1.0,
+        "sad": 1.0
+      },
+      "mean_spearman": 0.0
+    }
+  },
+  "interpretation_caveat": "These are compact four-emotion vectors with weak valence/arousal geometry. Prototype 5 tests whether local causal steering transfers to simple preference behavior, not whether the model has mature human-like emotion structure."
+}

@@ -1,0 +1,5242 @@
+{
+  "all_hard_gates_pass": true,
+  "gates": {
+    "topic_splits_are_disjoint": true,
+    "stories_have_no_label_leakage": true,
+    "held_out_accuracy_above_threshold": true,
+    "held_out_macro_auc_above_threshold": true,
+    "held_out_margin_is_positive": true
+  },
+  "selected_layer": 19,
+  "selection_metric": "pre_registered_model.evaluation_layer",
+  "chance_accuracy": 0.25,
+  "dataset_audit": {
+    "number_of_stories": 256,
+    "number_of_topics": 16,
+    "emotion_counts": {
+      "happy": 64,
+      "sad": 64,
+      "angry": 64,
+      "afraid": 64
+    },
+    "minimum_stories_per_topic_emotion": 4,
+    "lexical_leakage": []
+  },
+  "dataset_artifacts": {
+    "stories": "dataset/stories.jsonl",
+    "neutral": "dataset/neutral.jsonl"
+  },
+  "split": {
+    "train_topics": [
+      "A clerk finds a customer has quietly paid for another person's order",
+      "A coach changes an athlete's role just before the match begins",
+      "A lab partner changes shared results before the final submission",
+      "A musician finds a note tucked inside their instrument case",
+      "A nurse notices an unexpected alarm while checking a quiet ward",
+      "A person hears footsteps stop outside their apartment late at night",
+      "A researcher notices a locked cabinet standing open after hours",
+      "A sibling finds an old recording saved by someone they miss",
+      "A tenant reads a building notice after seeing workers in the hallway",
+      "A traveler realizes their bag has been opened during a long delay",
+      "A volunteer finds their name missing from a public thank-you list"
+    ],
+    "test_topics": [
+      "A child sees their handmade project displayed at the front of the room",
+      "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "A driver watches another car swerve across the lane ahead",
+      "A student receives a revised scholarship decision minutes before class",
+      "An employee discovers their careful report was dismissed unread"
+    ],
+    "train_stories": 176,
+    "test_stories": 80
+  },
+  "pooling": [
+    {
+      "split": "train",
+      "rows": 176,
+      "token_start": 50,
+      "minimum_tokens": 61,
+      "median_tokens": 118.0,
+      "maximum_tokens": 161,
+      "final_token_fallback_rows": 0,
+      "final_token_fallback_fraction": 0.0,
+      "fallback_examples": [],
+      "per_emotion": {
+        "happy": {
+          "rows": 44,
+          "fallback_rows": 0
+        },
+        "sad": {
+          "rows": 44,
+          "fallback_rows": 0
+        },
+        "angry": {
+          "rows": 44,
+          "fallback_rows": 0
+        },
+        "afraid": {
+          "rows": 44,
+          "fallback_rows": 0
+        }
+      }
+    },
+    {
+      "split": "test",
+      "rows": 80,
+      "token_start": 50,
+      "minimum_tokens": 74,
+      "median_tokens": 115.5,
+      "maximum_tokens": 161,
+      "final_token_fallback_rows": 0,
+      "final_token_fallback_fraction": 0.0,
+      "fallback_examples": [],
+      "per_emotion": {
+        "happy": {
+          "rows": 20,
+          "fallback_rows": 0
+        },
+        "sad": {
+          "rows": 20,
+          "fallback_rows": 0
+        },
+        "angry": {
+          "rows": 20,
+          "fallback_rows": 0
+        },
+        "afraid": {
+          "rows": 20,
+          "fallback_rows": 0
+        }
+      }
+    },
+    {
+      "split": "neutral",
+      "rows": 16,
+      "token_start": 50,
+      "minimum_tokens": 18,
+      "median_tokens": 67.5,
+      "maximum_tokens": 111,
+      "final_token_fallback_rows": 2,
+      "final_token_fallback_fraction": 0.125,
+      "fallback_examples": [
+        {
+          "row": 4,
+          "id": "neutral-000004",
+          "topic": "A cook labels containers before placing them in a refrigerator",
+          "emotion": null,
+          "token_count": 18
+        },
+        {
+          "row": 11,
+          "id": "neutral-000011",
+          "topic": "A volunteer sorts forms by date",
+          "emotion": null,
+          "token_count": 44
+        }
+      ],
+      "per_emotion": {}
+    }
+  ],
+  "neutral_pca": [
+    {
+      "layer": 0,
+      "number_of_components": 2,
+      "explained_variance": 0.6318191289901733
+    },
+    {
+      "layer": 1,
+      "number_of_components": 1,
+      "explained_variance": 0.5132936239242554
+    },
+    {
+      "layer": 2,
+      "number_of_components": 2,
+      "explained_variance": 0.5983642935752869
+    },
+    {
+      "layer": 3,
+      "number_of_components": 2,
+      "explained_variance": 0.5667974352836609
+    },
+    {
+      "layer": 4,
+      "number_of_components": 2,
+      "explained_variance": 0.5425209999084473
+    },
+    {
+      "layer": 5,
+      "number_of_components": 2,
+      "explained_variance": 0.5010181069374084
+    },
+    {
+      "layer": 6,
+      "number_of_components": 3,
+      "explained_variance": 0.566824197769165
+    },
+    {
+      "layer": 7,
+      "number_of_components": 3,
+      "explained_variance": 0.5388208031654358
+    },
+    {
+      "layer": 8,
+      "number_of_components": 3,
+      "explained_variance": 0.5580347180366516
+    },
+    {
+      "layer": 9,
+      "number_of_components": 3,
+      "explained_variance": 0.5450240969657898
+    },
+    {
+      "layer": 10,
+      "number_of_components": 3,
+      "explained_variance": 0.5402247309684753
+    },
+    {
+      "layer": 11,
+      "number_of_components": 3,
+      "explained_variance": 0.5431070923805237
+    },
+    {
+      "layer": 12,
+      "number_of_components": 3,
+      "explained_variance": 0.542313814163208
+    },
+    {
+      "layer": 13,
+      "number_of_components": 3,
+      "explained_variance": 0.5365153551101685
+    },
+    {
+      "layer": 14,
+      "number_of_components": 3,
+      "explained_variance": 0.5453662872314453
+    },
+    {
+      "layer": 15,
+      "number_of_components": 3,
+      "explained_variance": 0.547093391418457
+    },
+    {
+      "layer": 16,
+      "number_of_components": 3,
+      "explained_variance": 0.5625384449958801
+    },
+    {
+      "layer": 17,
+      "number_of_components": 3,
+      "explained_variance": 0.55055171251297
+    },
+    {
+      "layer": 18,
+      "number_of_components": 3,
+      "explained_variance": 0.5760641694068909
+    },
+    {
+      "layer": 19,
+      "number_of_components": 3,
+      "explained_variance": 0.5944799184799194
+    },
+    {
+      "layer": 20,
+      "number_of_components": 3,
+      "explained_variance": 0.5839115381240845
+    },
+    {
+      "layer": 21,
+      "number_of_components": 3,
+      "explained_variance": 0.5629613399505615
+    },
+    {
+      "layer": 22,
+      "number_of_components": 3,
+      "explained_variance": 0.5542401075363159
+    },
+    {
+      "layer": 23,
+      "number_of_components": 3,
+      "explained_variance": 0.5590490102767944
+    },
+    {
+      "layer": 24,
+      "number_of_components": 3,
+      "explained_variance": 0.5585840940475464
+    },
+    {
+      "layer": 25,
+      "number_of_components": 3,
+      "explained_variance": 0.5496827363967896
+    },
+    {
+      "layer": 26,
+      "number_of_components": 3,
+      "explained_variance": 0.5485689043998718
+    },
+    {
+      "layer": 27,
+      "number_of_components": 2,
+      "explained_variance": 0.57945716381073
+    }
+  ],
+  "selected_layer_examples": [
+    {
+      "id": "story-000000",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 4.687310695648193,
+      "raw_scores": {
+        "happy": 7.002419948577881,
+        "sad": 5.951925277709961,
+        "angry": -8.157431602478027,
+        "afraid": -4.300782203674316
+      },
+      "pca_cleaned_scores": {
+        "happy": 5.3042731285095215,
+        "sad": 0.6169623136520386,
+        "angry": -5.401167869567871,
+        "afraid": -0.5525959730148315
+      }
+    },
+    {
+      "id": "story-000001",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 13.500370025634766,
+      "raw_scores": {
+        "happy": 17.828155517578125,
+        "sad": 6.129821300506592,
+        "angry": -11.130317687988281,
+        "afraid": -11.025214195251465
+      },
+      "pca_cleaned_scores": {
+        "happy": 16.178359985351562,
+        "sad": 2.6779897212982178,
+        "angry": -9.505623817443848,
+        "afraid": -7.997114658355713
+      }
+    },
+    {
+      "id": "story-000002",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 18.411558151245117,
+      "raw_scores": {
+        "happy": 18.551410675048828,
+        "sad": 2.236607789993286,
+        "angry": -4.88531494140625,
+        "afraid": -13.33172607421875
+      },
+      "pca_cleaned_scores": {
+        "happy": 16.756738662719727,
+        "sad": -1.6548190116882324,
+        "angry": -3.0586628913879395,
+        "afraid": -10.02719497680664
+      }
+    },
+    {
+      "id": "story-000003",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 22.609600067138672,
+      "raw_scores": {
+        "happy": 19.775312423706055,
+        "sad": -1.238142728805542,
+        "angry": -8.005194664001465,
+        "afraid": -8.88835620880127
+      },
+      "pca_cleaned_scores": {
+        "happy": 17.66839027404785,
+        "sad": -6.012421131134033,
+        "angry": -5.723132133483887,
+        "afraid": -4.941208839416504
+      }
+    },
+    {
+      "id": "story-000004",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -0.7345619201660156,
+      "raw_scores": {
+        "happy": -0.7292541861534119,
+        "sad": 12.1542329788208,
+        "angry": -17.370445251464844,
+        "afraid": 4.228601932525635
+      },
+      "pca_cleaned_scores": {
+        "happy": -2.717362880706787,
+        "sad": 7.4123687744140625,
+        "angry": -15.034198760986328,
+        "afraid": 8.146930694580078
+      }
+    },
+    {
+      "id": "story-000005",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "sad",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -5.794666290283203,
+      "raw_scores": {
+        "happy": 9.687612533569336,
+        "sad": 6.837224006652832,
+        "angry": -7.66107177734375,
+        "afraid": -7.6737823486328125
+      },
+      "pca_cleaned_scores": {
+        "happy": 8.061239242553711,
+        "sad": 2.266573190689087,
+        "angry": -5.404051780700684,
+        "afraid": -4.233130931854248
+      }
+    },
+    {
+      "id": "story-000006",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 9.02713680267334,
+      "raw_scores": {
+        "happy": 3.2677385807037354,
+        "sad": 15.072393417358398,
+        "angry": -7.530002117156982,
+        "afraid": -9.459747314453125
+      },
+      "pca_cleaned_scores": {
+        "happy": 1.1099252700805664,
+        "sad": 10.137062072753906,
+        "angry": -5.072906494140625,
+        "afraid": -5.392609596252441
+      }
+    },
+    {
+      "id": "story-000007",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 3.682471513748169,
+      "raw_scores": {
+        "happy": 4.848602294921875,
+        "sad": 11.323108673095703,
+        "angry": -10.673196792602539,
+        "afraid": -5.0599446296691895
+      },
+      "pca_cleaned_scores": {
+        "happy": 2.4872262477874756,
+        "sad": 6.1696977615356445,
+        "angry": -8.126153945922852,
+        "afraid": -0.7085691094398499
+      }
+    },
+    {
+      "id": "story-000008",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "angry",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -4.783899784088135,
+      "raw_scores": {
+        "happy": 5.927763938903809,
+        "sad": 6.992251396179199,
+        "angry": -3.6685314178466797,
+        "afraid": -7.899298667907715
+      },
+      "pca_cleaned_scores": {
+        "happy": 3.615529775619507,
+        "sad": 1.9356307983398438,
+        "angry": -1.1683698892593384,
+        "afraid": -3.6916794776916504
+      }
+    },
+    {
+      "id": "story-000009",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "angry",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -11.697380065917969,
+      "raw_scores": {
+        "happy": 7.230578422546387,
+        "sad": 3.1041977405548096,
+        "angry": -9.91087532043457,
+        "afraid": -0.6629850268363953
+      },
+      "pca_cleaned_scores": {
+        "happy": 4.802133083343506,
+        "sad": -2.8428287506103516,
+        "angry": -6.895247459411621,
+        "afraid": 3.999845266342163
+      }
+    },
+    {
+      "id": "story-000010",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "angry",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -5.591259956359863,
+      "raw_scores": {
+        "happy": 9.996949195861816,
+        "sad": -0.21908211708068848,
+        "angry": -0.6006786823272705,
+        "afraid": -7.605870723724365
+      },
+      "pca_cleaned_scores": {
+        "happy": 7.248569965362549,
+        "sad": -4.9264817237854,
+        "angry": 1.657310128211975,
+        "afraid": -3.1863605976104736
+      }
+    },
+    {
+      "id": "story-000011",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "angry",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -10.081647872924805,
+      "raw_scores": {
+        "happy": 9.337801933288574,
+        "sad": 7.2000226974487305,
+        "angry": -4.526890277862549,
+        "afraid": -10.20902156829834
+      },
+      "pca_cleaned_scores": {
+        "happy": 7.339587688446045,
+        "sad": 3.4640934467315674,
+        "angry": -2.7420597076416016,
+        "afraid": -6.80122184753418
+      }
+    },
+    {
+      "id": "story-000012",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "afraid",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 8.088747024536133,
+      "raw_scores": {
+        "happy": 0.20927512645721436,
+        "sad": 3.8955271244049072,
+        "angry": -9.813253402709961,
+        "afraid": 4.398067474365234
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.5151400566101074,
+        "sad": -0.2661215364933014,
+        "angry": -7.836719989776611,
+        "afraid": 7.822625160217285
+      }
+    },
+    {
+      "id": "story-000013",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "afraid",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 17.58152198791504,
+      "raw_scores": {
+        "happy": -0.4548676013946533,
+        "sad": -5.384928226470947,
+        "angry": -9.624969482421875,
+        "afraid": 12.678852081298828
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.619415283203125,
+        "sad": -10.641921997070312,
+        "angry": -6.940326690673828,
+        "afraid": 15.962106704711914
+      }
+    },
+    {
+      "id": "story-000014",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "afraid",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 6.5628275871276855,
+      "raw_scores": {
+        "happy": 0.7541115283966064,
+        "sad": 5.518874168395996,
+        "angry": -11.367334365844727,
+        "afraid": 3.8162107467651367
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.1558924913406372,
+        "sad": 1.0014910697937012,
+        "angry": -9.211377143859863,
+        "afraid": 7.564318656921387
+      }
+    },
+    {
+      "id": "story-000015",
+      "topic": "A student receives a revised scholarship decision minutes before class",
+      "emotion": "afraid",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 9.790681838989258,
+      "raw_scores": {
+        "happy": -1.8570055961608887,
+        "sad": 3.950749397277832,
+        "angry": -10.994701385498047,
+        "afraid": 7.010097026824951
+      },
+      "pca_cleaned_scores": {
+        "happy": -3.578895330429077,
+        "sad": 0.3879881203174591,
+        "angry": -9.31657600402832,
+        "afraid": 10.178669929504395
+      }
+    },
+    {
+      "id": "story-000064",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 13.575872421264648,
+      "raw_scores": {
+        "happy": 14.777360916137695,
+        "sad": -5.13415002822876,
+        "angry": -4.202659606933594,
+        "afraid": -4.495797634124756
+      },
+      "pca_cleaned_scores": {
+        "happy": 12.900028228759766,
+        "sad": -10.169370651245117,
+        "angry": -1.758544683456421,
+        "afraid": -0.6758438348770142
+      }
+    },
+    {
+      "id": "story-000065",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 5.593379497528076,
+      "raw_scores": {
+        "happy": 13.108567237854004,
+        "sad": -2.4570205211639404,
+        "angry": -11.80135726928711,
+        "afraid": 0.7131571769714355
+      },
+      "pca_cleaned_scores": {
+        "happy": 10.779052734375,
+        "sad": -8.120482444763184,
+        "angry": -8.971114158630371,
+        "afraid": 5.185673236846924
+      }
+    },
+    {
+      "id": "story-000066",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 7.646631717681885,
+      "raw_scores": {
+        "happy": 12.767539978027344,
+        "sad": 6.614082336425781,
+        "angry": -8.084197998046875,
+        "afraid": -9.69377326965332
+      },
+      "pca_cleaned_scores": {
+        "happy": 10.70494270324707,
+        "sad": 3.0583109855651855,
+        "angry": -6.471368312835693,
+        "afraid": -6.23277473449707
+      }
+    },
+    {
+      "id": "story-000067",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 11.179084777832031,
+      "raw_scores": {
+        "happy": 11.019716262817383,
+        "sad": 0.7503345012664795,
+        "angry": -5.398873329162598,
+        "afraid": -5.423007965087891
+      },
+      "pca_cleaned_scores": {
+        "happy": 9.302055358886719,
+        "sad": -3.8537988662719727,
+        "angry": -3.18854022026062,
+        "afraid": -1.8770296573638916
+      }
+    },
+    {
+      "id": "story-000068",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 3.715911388397217,
+      "raw_scores": {
+        "happy": 2.4937734603881836,
+        "sad": 9.235334396362305,
+        "angry": -6.802389621734619,
+        "afraid": -4.445745468139648
+      },
+      "pca_cleaned_scores": {
+        "happy": 0.3331112265586853,
+        "sad": 4.049022674560547,
+        "angry": -4.214566230773926,
+        "afraid": -0.29194891452789307
+      }
+    },
+    {
+      "id": "story-000069",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -1.4067997932434082,
+      "raw_scores": {
+        "happy": 5.715684413909912,
+        "sad": 7.792032718658447,
+        "angry": -7.999092102050781,
+        "afraid": -4.925755977630615
+      },
+      "pca_cleaned_scores": {
+        "happy": 3.506453514099121,
+        "sad": 2.099653720855713,
+        "angry": -5.136862277984619,
+        "afraid": -0.5292664766311646
+      }
+    },
+    {
+      "id": "story-000070",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 10.20755386352539,
+      "raw_scores": {
+        "happy": -0.7846941351890564,
+        "sad": 12.488618850708008,
+        "angry": -6.53895902633667,
+        "afraid": -4.706817626953125
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.72331964969635,
+        "sad": 8.484233856201172,
+        "angry": -4.523177146911621,
+        "afraid": -2.0884695053100586
+      }
+    },
+    {
+      "id": "story-000071",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 2.1804208755493164,
+      "raw_scores": {
+        "happy": 6.865522384643555,
+        "sad": 11.936478614807129,
+        "angry": -12.258021354675293,
+        "afraid": -5.977750301361084
+      },
+      "pca_cleaned_scores": {
+        "happy": 4.99154806137085,
+        "sad": 7.171968936920166,
+        "angry": -9.855060577392578,
+        "afraid": -2.235434055328369
+      }
+    },
+    {
+      "id": "story-000072",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "angry",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -12.742128372192383,
+      "raw_scores": {
+        "happy": 4.719264030456543,
+        "sad": 14.29167366027832,
+        "angry": -5.94581413269043,
+        "afraid": -11.27012825012207
+      },
+      "pca_cleaned_scores": {
+        "happy": 3.0565054416656494,
+        "sad": 9.304548263549805,
+        "angry": -3.43757963180542,
+        "afraid": -7.62628173828125
+      }
+    },
+    {
+      "id": "story-000073",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "angry",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -4.331347942352295,
+      "raw_scores": {
+        "happy": 7.033834934234619,
+        "sad": -3.4885032176971436,
+        "angry": -0.6383477449417114,
+        "afraid": -2.3461949825286865
+      },
+      "pca_cleaned_scores": {
+        "happy": 5.516490936279297,
+        "sad": -7.222893714904785,
+        "angry": 1.1851428747177124,
+        "afraid": 0.5754619836807251
+      }
+    },
+    {
+      "id": "story-000074",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "angry",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -2.620413303375244,
+      "raw_scores": {
+        "happy": 0.5255802869796753,
+        "sad": -1.4530295133590698,
+        "angry": -0.4794197678565979,
+        "afraid": 1.1842598915100098
+      },
+      "pca_cleaned_scores": {
+        "happy": -0.826134979724884,
+        "sad": -5.487948894500732,
+        "angry": 1.4969916343688965,
+        "afraid": 4.117404937744141
+      }
+    },
+    {
+      "id": "story-000075",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "angry",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -5.65653133392334,
+      "raw_scores": {
+        "happy": 2.516495704650879,
+        "sad": 9.070915222167969,
+        "angry": -4.0404438972473145,
+        "afraid": -6.542649269104004
+      },
+      "pca_cleaned_scores": {
+        "happy": 0.7835241556167603,
+        "sad": 4.054466247558594,
+        "angry": -1.602064847946167,
+        "afraid": -2.783862590789795
+      }
+    },
+    {
+      "id": "story-000076",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "afraid",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 12.585243225097656,
+      "raw_scores": {
+        "happy": 1.2899811267852783,
+        "sad": -2.0699713230133057,
+        "angry": -11.125611305236816,
+        "afraid": 9.624086380004883
+      },
+      "pca_cleaned_scores": {
+        "happy": 0.013416334986686707,
+        "sad": -6.188257217407227,
+        "angry": -9.114657402038574,
+        "afraid": 12.59865951538086
+      }
+    },
+    {
+      "id": "story-000077",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "afraid",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 7.487886905670166,
+      "raw_scores": {
+        "happy": 1.9518309831619263,
+        "sad": 1.3516314029693604,
+        "angry": -8.695406913757324,
+        "afraid": 4.218783378601074
+      },
+      "pca_cleaned_scores": {
+        "happy": -0.011227890849113464,
+        "sad": -1.8464401960372925,
+        "angry": -7.298734188079834,
+        "afraid": 7.476658821105957
+      }
+    },
+    {
+      "id": "story-000078",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "afraid",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 3.8526713848114014,
+      "raw_scores": {
+        "happy": 1.4845519065856934,
+        "sad": 5.8565568923950195,
+        "angry": -8.9739990234375,
+        "afraid": 1.0030534267425537
+      },
+      "pca_cleaned_scores": {
+        "happy": -0.533573567867279,
+        "sad": 1.0545427799224854,
+        "angry": -6.620762348175049,
+        "afraid": 4.907214164733887
+      }
+    },
+    {
+      "id": "story-000079",
+      "topic": "An employee discovers their careful report was dismissed unread",
+      "emotion": "afraid",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 4.9911417961120605,
+      "raw_scores": {
+        "happy": 1.1113239526748657,
+        "sad": 4.121431827545166,
+        "angry": -8.124688148498535,
+        "afraid": 2.1037192344665527
+      },
+      "pca_cleaned_scores": {
+        "happy": -0.9150007963180542,
+        "sad": 0.5276901125907898,
+        "angry": -6.434665203094482,
+        "afraid": 5.518831729888916
+      }
+    },
+    {
+      "id": "story-000096",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 16.946739196777344,
+      "raw_scores": {
+        "happy": 17.604881286621094,
+        "sad": 3.0377731323242188,
+        "angry": -10.010627746582031,
+        "afraid": -9.11329460144043
+      },
+      "pca_cleaned_scores": {
+        "happy": 15.131107330322266,
+        "sad": -1.815631628036499,
+        "angry": -7.6466193199157715,
+        "afraid": -4.8305792808532715
+      }
+    },
+    {
+      "id": "story-000097",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 25.940719604492188,
+      "raw_scores": {
+        "happy": 23.69224739074707,
+        "sad": 0.3184773027896881,
+        "angry": -10.081470489501953,
+        "afraid": -11.785346984863281
+      },
+      "pca_cleaned_scores": {
+        "happy": 21.251201629638672,
+        "sad": -4.689517021179199,
+        "angry": -7.674918174743652,
+        "afraid": -7.453763008117676
+      }
+    },
+    {
+      "id": "story-000098",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 17.26522445678711,
+      "raw_scores": {
+        "happy": 16.493900299072266,
+        "sad": 0.5251963138580322,
+        "angry": -8.863746643066406,
+        "afraid": -6.980607986450195
+      },
+      "pca_cleaned_scores": {
+        "happy": 14.175069808959961,
+        "sad": -3.7586138248443604,
+        "angry": -6.785670757293701,
+        "afraid": -3.0901546478271484
+      }
+    },
+    {
+      "id": "story-000099",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 17.52579116821289,
+      "raw_scores": {
+        "happy": 17.302627563476562,
+        "sad": -5.167143821716309,
+        "angry": -6.6214985847473145,
+        "afraid": -4.615704536437988
+      },
+      "pca_cleaned_scores": {
+        "happy": 15.727781295776367,
+        "sad": -8.303297996520996,
+        "angry": -5.222597599029541,
+        "afraid": -1.7980103492736816
+      }
+    },
+    {
+      "id": "story-000100",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -1.3886284828186035,
+      "raw_scores": {
+        "happy": 7.901137828826904,
+        "sad": 9.12885856628418,
+        "angry": -12.024399757385254,
+        "afraid": -4.6378889083862305
+      },
+      "pca_cleaned_scores": {
+        "happy": 5.760564804077148,
+        "sad": 4.371936321258545,
+        "angry": -9.662482261657715,
+        "afraid": -0.6603329181671143
+      }
+    },
+    {
+      "id": "story-000101",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 10.268336296081543,
+      "raw_scores": {
+        "happy": 4.407526016235352,
+        "sad": 16.671104431152344,
+        "angry": -13.55341625213623,
+        "afraid": -6.924402713775635
+      },
+      "pca_cleaned_scores": {
+        "happy": 2.5299808979034424,
+        "sad": 12.798316955566406,
+        "angry": -11.66304874420166,
+        "afraid": -3.49050235748291
+      }
+    },
+    {
+      "id": "story-000102",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 4.72721004486084,
+      "raw_scores": {
+        "happy": 4.621822834014893,
+        "sad": 11.891426086425781,
+        "angry": -3.8129193782806396,
+        "afraid": -10.863506317138672
+      },
+      "pca_cleaned_scores": {
+        "happy": 2.268099069595337,
+        "sad": 6.995309352874756,
+        "angry": -1.3187525272369385,
+        "afraid": -6.732762336730957
+      }
+    },
+    {
+      "id": "story-000103",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -1.2884821891784668,
+      "raw_scores": {
+        "happy": 7.371678829193115,
+        "sad": 8.429295539855957,
+        "angry": -7.644955635070801,
+        "afraid": -7.122043132781982
+      },
+      "pca_cleaned_scores": {
+        "happy": 5.150534152984619,
+        "sad": 3.8620519638061523,
+        "angry": -5.4285078048706055,
+        "afraid": -3.1483378410339355
+      }
+    },
+    {
+      "id": "story-000104",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "angry",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -8.954752922058105,
+      "raw_scores": {
+        "happy": 7.2701735496521,
+        "sad": 6.204427719116211,
+        "angry": -5.478089809417725,
+        "afraid": -6.888262748718262
+      },
+      "pca_cleaned_scores": {
+        "happy": 5.418038368225098,
+        "sad": 2.0832455158233643,
+        "angry": -3.536714792251587,
+        "afraid": -3.3958988189697266
+      }
+    },
+    {
+      "id": "story-000105",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "angry",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -7.359947204589844,
+      "raw_scores": {
+        "happy": 8.197402000427246,
+        "sad": 8.572632789611816,
+        "angry": -3.725922107696533,
+        "afraid": -11.074081420898438
+      },
+      "pca_cleaned_scores": {
+        "happy": 6.033746719360352,
+        "sad": 3.779548168182373,
+        "angry": -1.3262004852294922,
+        "afraid": -7.130229949951172
+      }
+    },
+    {
+      "id": "story-000106",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "angry",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -16.815221786499023,
+      "raw_scores": {
+        "happy": 10.886950492858887,
+        "sad": 8.363700866699219,
+        "angry": -9.541868209838867,
+        "afraid": -8.452770233154297
+      },
+      "pca_cleaned_scores": {
+        "happy": 9.219184875488281,
+        "sad": 4.424183368682861,
+        "angry": -7.5960373878479,
+        "afraid": -5.245789527893066
+      }
+    },
+    {
+      "id": "story-000107",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "angry",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -14.073911666870117,
+      "raw_scores": {
+        "happy": 16.112844467163086,
+        "sad": 3.7641561031341553,
+        "angry": -2.3258023262023926,
+        "afraid": -14.665921211242676
+      },
+      "pca_cleaned_scores": {
+        "happy": 14.103160858154297,
+        "sad": -1.0887844562530518,
+        "angry": 0.029248714447021484,
+        "afraid": -10.802803039550781
+      }
+    },
+    {
+      "id": "story-000108",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "afraid",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -0.9843559265136719,
+      "raw_scores": {
+        "happy": 7.8670268058776855,
+        "sad": -0.5012409090995789,
+        "angry": -8.918503761291504,
+        "afraid": 1.0756343603134155
+      },
+      "pca_cleaned_scores": {
+        "happy": 5.810973167419434,
+        "sad": -4.740668773651123,
+        "angry": -6.96708345413208,
+        "afraid": 4.826617240905762
+      }
+    },
+    {
+      "id": "story-000109",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "afraid",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -3.8019561767578125,
+      "raw_scores": {
+        "happy": 10.324459075927734,
+        "sad": -2.8877291679382324,
+        "angry": -8.482865333557129,
+        "afraid": 0.7187401056289673
+      },
+      "pca_cleaned_scores": {
+        "happy": 8.345806121826172,
+        "sad": -7.550886631011963,
+        "angry": -6.278256416320801,
+        "afraid": 4.543849945068359
+      }
+    },
+    {
+      "id": "story-000110",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "afraid",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 6.171455383300781,
+      "raw_scores": {
+        "happy": 0.2305009961128235,
+        "sad": 6.096022605895996,
+        "angry": -12.634943962097168,
+        "afraid": 4.777239799499512
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.5232181549072266,
+        "sad": 2.04080867767334,
+        "angry": -10.722411155700684,
+        "afraid": 8.212264060974121
+      }
+    },
+    {
+      "id": "story-000111",
+      "topic": "A child sees their handmade project displayed at the front of the room",
+      "emotion": "afraid",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 6.104025840759277,
+      "raw_scores": {
+        "happy": 0.0008344054222106934,
+        "sad": 5.83967924118042,
+        "angry": -11.014996528625488,
+        "afraid": 3.8843131065368652
+      },
+      "pca_cleaned_scores": {
+        "happy": -2.2400717735290527,
+        "sad": 1.6944119930267334,
+        "angry": -9.11357307434082,
+        "afraid": 7.798437595367432
+      }
+    },
+    {
+      "id": "story-000144",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 12.747832298278809,
+      "raw_scores": {
+        "happy": 13.227181434631348,
+        "sad": -1.1347815990447998,
+        "angry": -3.697009801864624,
+        "afraid": -7.015552997589111
+      },
+      "pca_cleaned_scores": {
+        "happy": 11.229543685913086,
+        "sad": -5.731940746307373,
+        "angry": -1.5182888507843018,
+        "afraid": -3.238492488861084
+      }
+    },
+    {
+      "id": "story-000145",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 7.030037879943848,
+      "raw_scores": {
+        "happy": 12.544035911560059,
+        "sad": -3.4899957180023193,
+        "angry": -9.037836074829102,
+        "afraid": -0.16124987602233887
+      },
+      "pca_cleaned_scores": {
+        "happy": 10.566627502441406,
+        "sad": -7.764193534851074,
+        "angry": -7.08753776550293,
+        "afraid": 3.5365896224975586
+      }
+    },
+    {
+      "id": "story-000146",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 6.573013782501221,
+      "raw_scores": {
+        "happy": 13.461796760559082,
+        "sad": -6.324610233306885,
+        "angry": -8.509319305419922,
+        "afraid": 1.0622929334640503
+      },
+      "pca_cleaned_scores": {
+        "happy": 11.559066772460938,
+        "sad": -11.412221908569336,
+        "angry": -6.082062244415283,
+        "afraid": 4.986052989959717
+      }
+    },
+    {
+      "id": "story-000147",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 14.952776908874512,
+      "raw_scores": {
+        "happy": 18.79521942138672,
+        "sad": -9.2401704788208,
+        "angry": -8.250807762145996,
+        "afraid": -1.083467721939087
+      },
+      "pca_cleaned_scores": {
+        "happy": 17.140941619873047,
+        "sad": -13.204923629760742,
+        "angry": -6.473084926605225,
+        "afraid": 2.188164472579956
+      }
+    },
+    {
+      "id": "story-000148",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "sad",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -8.77276611328125,
+      "raw_scores": {
+        "happy": 0.4498310387134552,
+        "sad": 2.065220594406128,
+        "angry": -5.684324741363525,
+        "afraid": 2.4381299018859863
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.2164247035980225,
+        "sad": -2.763331890106201,
+        "angry": -3.2905304431915283,
+        "afraid": 6.009433746337891
+      }
+    },
+    {
+      "id": "story-000149",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 1.685500144958496,
+      "raw_scores": {
+        "happy": 2.7102065086364746,
+        "sad": 6.154261589050293,
+        "angry": -5.211806774139404,
+        "afraid": -3.2851877212524414
+      },
+      "pca_cleaned_scores": {
+        "happy": 0.4865421652793884,
+        "sad": 2.1720423698425293,
+        "angry": -3.2623300552368164,
+        "afraid": 0.3983306288719177
+      }
+    },
+    {
+      "id": "story-000150",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "sad",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -5.190395832061768,
+      "raw_scores": {
+        "happy": 4.41510534286499,
+        "sad": 1.9162027835845947,
+        "angry": -4.3144707679748535,
+        "afraid": -1.8173062801361084
+      },
+      "pca_cleaned_scores": {
+        "happy": 2.3837947845458984,
+        "sad": -2.806601047515869,
+        "angry": -2.0252816677093506,
+        "afraid": 2.035539150238037
+      }
+    },
+    {
+      "id": "story-000151",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -3.733336925506592,
+      "raw_scores": {
+        "happy": 0.751498818397522,
+        "sad": 4.054454326629639,
+        "angry": -3.8528645038604736,
+        "afraid": -0.9716982841491699
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.5056984424591064,
+        "sad": -0.6777616739273071,
+        "angry": -1.5237430334091187,
+        "afraid": 3.055575132369995
+      }
+    },
+    {
+      "id": "story-000152",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "angry",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -23.24645233154297,
+      "raw_scores": {
+        "happy": 1.4613068103790283,
+        "sad": 16.929794311523438,
+        "angry": -12.4827299118042,
+        "afraid": -5.565250396728516
+      },
+      "pca_cleaned_scores": {
+        "happy": -0.6385403871536255,
+        "sad": 12.890328407287598,
+        "angry": -10.356122970581055,
+        "afraid": -1.9969736337661743
+      }
+    },
+    {
+      "id": "story-000153",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "angry",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -3.0938515663146973,
+      "raw_scores": {
+        "happy": 5.348092079162598,
+        "sad": 2.7028419971466064,
+        "angry": -2.111410140991211,
+        "afraid": -5.026656150817871
+      },
+      "pca_cleaned_scores": {
+        "happy": 3.1508970260620117,
+        "sad": -1.8907692432403564,
+        "angry": 0.057045578956604004,
+        "afraid": -1.060400128364563
+      }
+    },
+    {
+      "id": "story-000154",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "angry",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -0.31638336181640625,
+      "raw_scores": {
+        "happy": 0.9037066102027893,
+        "sad": 4.939903259277344,
+        "angry": -0.8976234197616577,
+        "afraid": -4.2226667404174805
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.1925727128982544,
+        "sad": 1.1948069334030151,
+        "angry": 0.8784235715866089,
+        "afraid": -0.7318893671035767
+      }
+    },
+    {
+      "id": "story-000155",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "angry",
+      "raw_prediction": "angry",
+      "pca_cleaned_prediction": "angry",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 11.927835464477539,
+      "raw_scores": {
+        "happy": 3.0551137924194336,
+        "sad": -8.212252616882324,
+        "angry": 10.507881164550781,
+        "afraid": -3.990975856781006
+      },
+      "pca_cleaned_scores": {
+        "happy": 1.1787550449371338,
+        "sad": -13.445035934448242,
+        "angry": 13.106590270996094,
+        "afraid": -0.20669972896575928
+      }
+    },
+    {
+      "id": "story-000156",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "afraid",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 5.152693748474121,
+      "raw_scores": {
+        "happy": 0.6136171221733093,
+        "sad": 5.459308624267578,
+        "angry": -8.816774368286133,
+        "afraid": 1.9350641965866089
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.3310331106185913,
+        "sad": 0.6334068775177002,
+        "angry": -6.448976993560791,
+        "afraid": 5.7861008644104
+      }
+    },
+    {
+      "id": "story-000157",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "afraid",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 13.347434043884277,
+      "raw_scores": {
+        "happy": -3.3523123264312744,
+        "sad": 0.7016066312789917,
+        "angry": -5.883570671081543,
+        "afraid": 6.903329372406006
+      },
+      "pca_cleaned_scores": {
+        "happy": -5.021160125732422,
+        "sad": -3.2016913890838623,
+        "angry": -4.04315185546875,
+        "afraid": 10.145742416381836
+      }
+    },
+    {
+      "id": "story-000158",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "afraid",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 15.96286678314209,
+      "raw_scores": {
+        "happy": 0.2140963077545166,
+        "sad": -2.1863577365875244,
+        "angry": -11.904114723205566,
+        "afraid": 11.238536834716797
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.3847694396972656,
+        "sad": -6.285287380218506,
+        "angry": -10.026063919067383,
+        "afraid": 14.578097343444824
+      }
+    },
+    {
+      "id": "story-000159",
+      "topic": "A driver watches another car swerve across the lane ahead",
+      "emotion": "afraid",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 14.441431045532227,
+      "raw_scores": {
+        "happy": 0.1677904725074768,
+        "sad": -6.88623571395874,
+        "angry": -5.411651611328125,
+        "afraid": 10.055449485778809
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.2381802797317505,
+        "sad": -11.147297859191895,
+        "angry": -3.39277982711792,
+        "afraid": 13.203250885009766
+      }
+    },
+    {
+      "id": "story-000160",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 9.501501083374023,
+      "raw_scores": {
+        "happy": 12.799886703491211,
+        "sad": 4.733656406402588,
+        "angry": -9.704117774963379,
+        "afraid": -6.822674751281738
+      },
+      "pca_cleaned_scores": {
+        "happy": 10.68750286102295,
+        "sad": 1.1860013008117676,
+        "angry": -8.07748031616211,
+        "afraid": -3.3348727226257324
+      }
+    },
+    {
+      "id": "story-000161",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 9.542315483093262,
+      "raw_scores": {
+        "happy": 13.126935005187988,
+        "sad": -2.999652624130249,
+        "angry": -8.47728157043457,
+        "afraid": -1.510291576385498
+      },
+      "pca_cleaned_scores": {
+        "happy": 11.597084999084473,
+        "sad": -7.991614818572998,
+        "angry": -6.074854373931885,
+        "afraid": 2.054769515991211
+      }
+    },
+    {
+      "id": "story-000162",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 2.5225329399108887,
+      "raw_scores": {
+        "happy": 9.733491897583008,
+        "sad": 9.093057632446289,
+        "angry": -14.489996910095215,
+        "afraid": -4.144360542297363
+      },
+      "pca_cleaned_scores": {
+        "happy": 7.809988021850586,
+        "sad": 5.287455081939697,
+        "angry": -12.68313980102539,
+        "afraid": -0.6913388967514038
+      }
+    },
+    {
+      "id": "story-000163",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "happy",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 8.71003532409668,
+      "raw_scores": {
+        "happy": 17.8358211517334,
+        "sad": 11.459749221801758,
+        "angry": -20.241241455078125,
+        "afraid": -8.242755889892578
+      },
+      "pca_cleaned_scores": {
+        "happy": 15.837672233581543,
+        "sad": 7.127636909484863,
+        "angry": -18.19373893737793,
+        "afraid": -4.449928283691406
+      }
+    },
+    {
+      "id": "story-000164",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 11.660489082336426,
+      "raw_scores": {
+        "happy": 4.577419281005859,
+        "sad": 17.97272491455078,
+        "angry": -13.46817684173584,
+        "afraid": -8.238990783691406
+      },
+      "pca_cleaned_scores": {
+        "happy": 1.441963791847229,
+        "sad": 13.102453231811523,
+        "angry": -11.022478103637695,
+        "afraid": -3.363396167755127
+      }
+    },
+    {
+      "id": "story-000165",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 13.879786491394043,
+      "raw_scores": {
+        "happy": 4.882004261016846,
+        "sad": 21.293855667114258,
+        "angry": -13.653943061828613,
+        "afraid": -11.162711143493652
+      },
+      "pca_cleaned_scores": {
+        "happy": 2.520127058029175,
+        "sad": 16.399913787841797,
+        "angry": -11.186321258544922,
+        "afraid": -6.9150543212890625
+      }
+    },
+    {
+      "id": "story-000166",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "sad",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -2.0707054138183594,
+      "raw_scores": {
+        "happy": 7.778557777404785,
+        "sad": 7.660435676574707,
+        "angry": -11.876376152038574,
+        "afraid": -3.4081063270568848
+      },
+      "pca_cleaned_scores": {
+        "happy": 5.745619297027588,
+        "sad": 3.6749138832092285,
+        "angry": -9.960683822631836,
+        "afraid": 0.18300819396972656
+      }
+    },
+    {
+      "id": "story-000167",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "sad",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 12.931333541870117,
+      "raw_scores": {
+        "happy": 3.3726072311401367,
+        "sad": 18.350322723388672,
+        "angry": -14.74917984008789,
+        "afraid": -6.53387975692749
+      },
+      "pca_cleaned_scores": {
+        "happy": 1.947056770324707,
+        "sad": 14.878390312194824,
+        "angry": -13.043014526367188,
+        "afraid": -3.650240898132324
+      }
+    },
+    {
+      "id": "story-000168",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "angry",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "happy",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -7.057683944702148,
+      "raw_scores": {
+        "happy": 8.252849578857422,
+        "sad": 5.795800685882568,
+        "angry": -3.776643753051758,
+        "afraid": -8.720778465270996
+      },
+      "pca_cleaned_scores": {
+        "happy": 5.733584403991699,
+        "sad": 0.6932977437973022,
+        "angry": -1.3240997791290283,
+        "afraid": -4.271868705749512
+      }
+    },
+    {
+      "id": "story-000169",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "angry",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -9.063531875610352,
+      "raw_scores": {
+        "happy": 6.873542308807373,
+        "sad": 9.117774963378906,
+        "angry": -6.319915294647217,
+        "afraid": -8.358442306518555
+      },
+      "pca_cleaned_scores": {
+        "happy": 4.260769844055176,
+        "sad": 4.796534061431885,
+        "angry": -4.266998291015625,
+        "afraid": -4.140469551086426
+      }
+    },
+    {
+      "id": "story-000170",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "angry",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -9.29908275604248,
+      "raw_scores": {
+        "happy": 1.6939557790756226,
+        "sad": 9.50387954711914,
+        "angry": -4.995940685272217,
+        "afraid": -5.462342739105225
+      },
+      "pca_cleaned_scores": {
+        "happy": -0.04955703020095825,
+        "sad": 5.959022521972656,
+        "angry": -3.340060234069824,
+        "afraid": -2.2978973388671875
+      }
+    },
+    {
+      "id": "story-000171",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "angry",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -16.54259490966797,
+      "raw_scores": {
+        "happy": 9.23481273651123,
+        "sad": 12.373713493347168,
+        "angry": -9.14395523071289,
+        "afraid": -10.810678482055664
+      },
+      "pca_cleaned_scores": {
+        "happy": 7.284402847290039,
+        "sad": 8.972410202026367,
+        "angry": -7.570184707641602,
+        "afraid": -7.509463310241699
+      }
+    },
+    {
+      "id": "story-000172",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "afraid",
+      "raw_prediction": "happy",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 5.189418792724609,
+      "raw_scores": {
+        "happy": 5.3729963302612305,
+        "sad": -3.575143814086914,
+        "angry": -7.605300426483154,
+        "afraid": 4.6962785720825195
+      },
+      "pca_cleaned_scores": {
+        "happy": 3.3574419021606445,
+        "sad": -8.2982177734375,
+        "angry": -5.329244136810303,
+        "afraid": 8.546860694885254
+      }
+    },
+    {
+      "id": "story-000173",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "afraid",
+      "raw_prediction": "sad",
+      "pca_cleaned_prediction": "sad",
+      "pca_cleaned_correct": false,
+      "pca_cleaned_margin": -0.8135950565338135,
+      "raw_scores": {
+        "happy": 0.10529926419258118,
+        "sad": 8.225305557250977,
+        "angry": -8.515253067016602,
+        "afraid": -0.2355654239654541
+      },
+      "pca_cleaned_scores": {
+        "happy": -1.706420660018921,
+        "sad": 4.05463981628418,
+        "angry": -6.495855808258057,
+        "afraid": 3.241044759750366
+      }
+    },
+    {
+      "id": "story-000174",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "afraid",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 18.893251419067383,
+      "raw_scores": {
+        "happy": -1.8955100774765015,
+        "sad": -5.053156852722168,
+        "angry": -8.731760025024414,
+        "afraid": 12.872268676757812
+      },
+      "pca_cleaned_scores": {
+        "happy": -3.090390682220459,
+        "sad": -9.297048568725586,
+        "angry": -6.641427040100098,
+        "afraid": 15.802861213684082
+      }
+    },
+    {
+      "id": "story-000175",
+      "topic": "A cook learns a family recipe was chosen for the neighborhood dinner",
+      "emotion": "afraid",
+      "raw_prediction": "afraid",
+      "pca_cleaned_prediction": "afraid",
+      "pca_cleaned_correct": true,
+      "pca_cleaned_margin": 15.340185165405273,
+      "raw_scores": {
+        "happy": -0.38992244005203247,
+        "sad": -5.875781536102295,
+        "angry": -4.926889896392822,
+        "afraid": 9.269603729248047
+      },
+      "pca_cleaned_scores": {
+        "happy": -2.413935899734497,
+        "sad": -9.98931884765625,
+        "angry": -3.055630683898926,
+        "afraid": 12.926249504089355
+      }
+    }
+  ],
+  "layers": [
+    {
+      "layer": 0,
+      "raw": {
+        "accuracy": 0.625,
+        "macro_auc": 0.8910416666666667,
+        "mean_correct_margin": 0.049164243042469025,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              16,
+              0,
+              0,
+              4
+            ],
+            [
+              1,
+              1,
+              3,
+              15
+            ],
+            [
+              1,
+              0,
+              13,
+              6
+            ],
+            [
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.800000011920929,
+            "auc": 0.9875
+          },
+          "sad": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8608333333333333
+          },
+          "angry": {
+            "accuracy": 0.6499999761581421,
+            "auc": 0.7841666666666667
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9316666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5249999761581421,
+        "macro_auc": 0.8877083333333333,
+        "mean_correct_margin": 0.02894887700676918,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              9,
+              0,
+              0,
+              11
+            ],
+            [
+              12,
+              0,
+              4,
+              4
+            ],
+            [
+              2,
+              0,
+              0,
+              18
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.985
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.8575
+          },
+          "angry": {
+            "accuracy": 0.20000000298023224,
+            "auc": 0.7775
+          },
+          "afraid": {
+            "accuracy": 0.8999999761581421,
+            "auc": 0.9308333333333333
+          }
+        }
+      }
+    },
+    {
+      "layer": 1,
+      "raw": {
+        "accuracy": 0.4749999940395355,
+        "macro_auc": 0.8775000000000001,
+        "mean_correct_margin": -0.03871079534292221,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              10,
+              0,
+              0,
+              10
+            ],
+            [
+              18,
+              0,
+              1,
+              1
+            ],
+            [
+              3,
+              0,
+              0,
+              17
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9741666666666666
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.8425
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7525
+          },
+          "afraid": {
+            "accuracy": 0.8500000238418579,
+            "auc": 0.9408333333333333
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.4625000059604645,
+        "macro_auc": 0.8752083333333333,
+        "mean_correct_margin": -0.07135893404483795,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              10,
+              0,
+              0,
+              10
+            ],
+            [
+              19,
+              0,
+              0,
+              1
+            ],
+            [
+              3,
+              0,
+              0,
+              17
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.975
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.85
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.7358333333333333
+          },
+          "afraid": {
+            "accuracy": 0.8500000238418579,
+            "auc": 0.94
+          }
+        }
+      }
+    },
+    {
+      "layer": 2,
+      "raw": {
+        "accuracy": 0.2874999940395355,
+        "macro_auc": 0.8845833333333333,
+        "mean_correct_margin": -0.49074703454971313,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              17,
+              3,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9725
+          },
+          "sad": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.8558333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.7675
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9425
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.2874999940395355,
+        "macro_auc": 0.8814583333333333,
+        "mean_correct_margin": -0.4060054421424866,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              17,
+              3,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9758333333333333
+          },
+          "sad": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.845
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.76
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.945
+          }
+        }
+      }
+    },
+    {
+      "layer": 3,
+      "raw": {
+        "accuracy": 0.4124999940395355,
+        "macro_auc": 0.8918750000000001,
+        "mean_correct_margin": -0.23304982483386993,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              8,
+              12,
+              0,
+              0
+            ],
+            [
+              16,
+              3,
+              1,
+              0
+            ],
+            [
+              17,
+              3,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9858333333333333
+          },
+          "sad": {
+            "accuracy": 0.6000000238418579,
+            "auc": 0.8475
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7791666666666667
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.955
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.4000000059604645,
+        "macro_auc": 0.8897916666666666,
+        "mean_correct_margin": -0.17107197642326355,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              9,
+              10,
+              1,
+              0
+            ],
+            [
+              16,
+              2,
+              2,
+              0
+            ],
+            [
+              16,
+              3,
+              1,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9858333333333333
+          },
+          "sad": {
+            "accuracy": 0.5,
+            "auc": 0.8408333333333333
+          },
+          "angry": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.7783333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9541666666666667
+          }
+        }
+      }
+    },
+    {
+      "layer": 4,
+      "raw": {
+        "accuracy": 0.26249998807907104,
+        "macro_auc": 0.8752083333333334,
+        "mean_correct_margin": -0.6191320419311523,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              19,
+              0,
+              1,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9808333333333333
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.8166666666666667
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7483333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.955
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.30000001192092896,
+        "macro_auc": 0.874375,
+        "mean_correct_margin": -0.5045501589775085,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              18,
+              1,
+              1,
+              0
+            ],
+            [
+              17,
+              0,
+              3,
+              0
+            ],
+            [
+              18,
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9816666666666667
+          },
+          "sad": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.81
+          },
+          "angry": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.7483333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9575
+          }
+        }
+      }
+    },
+    {
+      "layer": 5,
+      "raw": {
+        "accuracy": 0.26249998807907104,
+        "macro_auc": 0.890625,
+        "mean_correct_margin": -1.2316974401474,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              19,
+              1,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9816666666666667
+          },
+          "sad": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.83
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.7908333333333334
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.96
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.26249998807907104,
+        "macro_auc": 0.8889583333333334,
+        "mean_correct_margin": -1.1106287240982056,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              19,
+              1,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.985
+          },
+          "sad": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8191666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.7933333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9583333333333334
+          }
+        }
+      }
+    },
+    {
+      "layer": 6,
+      "raw": {
+        "accuracy": 0.32499998807907104,
+        "macro_auc": 0.9035416666666667,
+        "mean_correct_margin": -0.6636590361595154,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              14,
+              6,
+              0,
+              0
+            ],
+            [
+              19,
+              1,
+              0,
+              0
+            ],
+            [
+              18,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9841666666666666
+          },
+          "sad": {
+            "accuracy": 0.30000001192092896,
+            "auc": 0.8725
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.79
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9675
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.3499999940395355,
+        "macro_auc": 0.8995833333333333,
+        "mean_correct_margin": -0.4537656903266907,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              13,
+              7,
+              0,
+              0
+            ],
+            [
+              18,
+              1,
+              1,
+              0
+            ],
+            [
+              18,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9875
+          },
+          "sad": {
+            "accuracy": 0.3499999940395355,
+            "auc": 0.86
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7883333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9625
+          }
+        }
+      }
+    },
+    {
+      "layer": 7,
+      "raw": {
+        "accuracy": 0.4000000059604645,
+        "macro_auc": 0.9110416666666666,
+        "mean_correct_margin": -1.0738770961761475,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              12,
+              8,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.6000000238418579,
+            "auc": 0.985
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8725
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8175
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9691666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.4124999940395355,
+        "macro_auc": 0.9120833333333332,
+        "mean_correct_margin": -0.6220165491104126,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              12,
+              8,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              1,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.6000000238418579,
+            "auc": 0.9866666666666667
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8641666666666666
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.835
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9625
+          }
+        }
+      }
+    },
+    {
+      "layer": 8,
+      "raw": {
+        "accuracy": 0.4749999940395355,
+        "macro_auc": 0.9010416666666666,
+        "mean_correct_margin": -0.4311750531196594,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              14,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              1,
+              18,
+              1,
+              0
+            ],
+            [
+              0,
+              17,
+              0,
+              3
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.699999988079071,
+            "auc": 0.9858333333333333
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8658333333333333
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7816666666666666
+          },
+          "afraid": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.9708333333333333
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5625,
+        "macro_auc": 0.90375,
+        "mean_correct_margin": 0.33957332372665405,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              16,
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              1,
+              18,
+              1,
+              0
+            ],
+            [
+              1,
+              11,
+              0,
+              8
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.800000011920929,
+            "auc": 0.985
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8575
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8025
+          },
+          "afraid": {
+            "accuracy": 0.4000000059604645,
+            "auc": 0.97
+          }
+        }
+      }
+    },
+    {
+      "layer": 9,
+      "raw": {
+        "accuracy": 0.699999988079071,
+        "macro_auc": 0.90375,
+        "mean_correct_margin": 0.8069639205932617,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              19,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              17,
+              2,
+              1
+            ],
+            [
+              6,
+              7,
+              7,
+              0
+            ],
+            [
+              2,
+              5,
+              0,
+              13
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.9866666666666667
+          },
+          "sad": {
+            "accuracy": 0.8500000238418579,
+            "auc": 0.8675
+          },
+          "angry": {
+            "accuracy": 0.3499999940395355,
+            "auc": 0.785
+          },
+          "afraid": {
+            "accuracy": 0.6499999761581421,
+            "auc": 0.9758333333333333
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.7875000238418579,
+        "macro_auc": 0.8991666666666667,
+        "mean_correct_margin": 0.7764328122138977,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              18,
+              1,
+              1,
+              0
+            ],
+            [
+              2,
+              11,
+              5,
+              2
+            ],
+            [
+              2,
+              3,
+              15,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              19
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.8999999761581421,
+            "auc": 0.9866666666666667
+          },
+          "sad": {
+            "accuracy": 0.550000011920929,
+            "auc": 0.8475
+          },
+          "angry": {
+            "accuracy": 0.75,
+            "auc": 0.7916666666666666
+          },
+          "afraid": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.9708333333333333
+          }
+        }
+      }
+    },
+    {
+      "layer": 10,
+      "raw": {
+        "accuracy": 0.550000011920929,
+        "macro_auc": 0.9022916666666666,
+        "mean_correct_margin": -0.23050589859485626,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              18,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              6,
+              13,
+              1,
+              0
+            ],
+            [
+              2,
+              13,
+              0,
+              5
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.8999999761581421,
+            "auc": 0.9841666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8491666666666666
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8008333333333333
+          },
+          "afraid": {
+            "accuracy": 0.25,
+            "auc": 0.975
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.574999988079071,
+        "macro_auc": 0.9014583333333334,
+        "mean_correct_margin": 0.5171035528182983,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              19,
+              1,
+              0,
+              0
+            ],
+            [
+              2,
+              18,
+              0,
+              0
+            ],
+            [
+              12,
+              7,
+              1,
+              0
+            ],
+            [
+              3,
+              9,
+              0,
+              8
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.9833333333333333
+          },
+          "sad": {
+            "accuracy": 0.8999999761581421,
+            "auc": 0.8408333333333333
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8091666666666667
+          },
+          "afraid": {
+            "accuracy": 0.4000000059604645,
+            "auc": 0.9725
+          }
+        }
+      }
+    },
+    {
+      "layer": 11,
+      "raw": {
+        "accuracy": 0.4375,
+        "macro_auc": 0.9004166666666666,
+        "mean_correct_margin": -1.5601842403411865,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              15,
+              5,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              4,
+              16,
+              0,
+              0
+            ],
+            [
+              2,
+              18,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.75,
+            "auc": 0.9858333333333333
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8341666666666666
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8083333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9733333333333334
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.48750001192092896,
+        "macro_auc": 0.8914583333333334,
+        "mean_correct_margin": -0.46834057569503784,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              17,
+              3,
+              0,
+              0
+            ],
+            [
+              2,
+              18,
+              0,
+              0
+            ],
+            [
+              6,
+              13,
+              1,
+              0
+            ],
+            [
+              2,
+              15,
+              0,
+              3
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.8500000238418579,
+            "auc": 0.9858333333333333
+          },
+          "sad": {
+            "accuracy": 0.8999999761581421,
+            "auc": 0.8091666666666667
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.805
+          },
+          "afraid": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.9658333333333333
+          }
+        }
+      }
+    },
+    {
+      "layer": 12,
+      "raw": {
+        "accuracy": 0.4375,
+        "macro_auc": 0.8985416666666666,
+        "mean_correct_margin": -1.953733205795288,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              15,
+              5,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              2,
+              18,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.75,
+            "auc": 0.9783333333333334
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8458333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.7941666666666667
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9758333333333333
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.44999998807907104,
+        "macro_auc": 0.891875,
+        "mean_correct_margin": -1.1720811128616333,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              15,
+              5,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              1,
+              18,
+              1,
+              0
+            ],
+            [
+              1,
+              19,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.75,
+            "auc": 0.9783333333333334
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8175
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8008333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9708333333333333
+          }
+        }
+      }
+    },
+    {
+      "layer": 13,
+      "raw": {
+        "accuracy": 0.44999998807907104,
+        "macro_auc": 0.9029166666666667,
+        "mean_correct_margin": -0.41906994581222534,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              15,
+              5,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              2,
+              17,
+              1,
+              0
+            ],
+            [
+              1,
+              19,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.75,
+            "auc": 0.9875
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8433333333333334
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8016666666666666
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9791666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5249999761581421,
+        "macro_auc": 0.8972916666666667,
+        "mean_correct_margin": 0.18228204548358917,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              16,
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              2,
+              13,
+              5,
+              0
+            ],
+            [
+              2,
+              15,
+              2,
+              1
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.800000011920929,
+            "auc": 0.985
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8191666666666667
+          },
+          "angry": {
+            "accuracy": 0.25,
+            "auc": 0.81
+          },
+          "afraid": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.975
+          }
+        }
+      }
+    },
+    {
+      "layer": 14,
+      "raw": {
+        "accuracy": 0.4375,
+        "macro_auc": 0.9029166666666667,
+        "mean_correct_margin": -0.9567367434501648,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              14,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              1,
+              18,
+              1,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.699999988079071,
+            "auc": 0.9816666666666667
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.845
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8016666666666666
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9833333333333333
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.512499988079071,
+        "macro_auc": 0.89875,
+        "mean_correct_margin": 0.21011655032634735,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              15,
+              5,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              2,
+              16,
+              2,
+              0
+            ],
+            [
+              1,
+              15,
+              0,
+              4
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.75,
+            "auc": 0.9791666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8333333333333334
+          },
+          "angry": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.8041666666666667
+          },
+          "afraid": {
+            "accuracy": 0.20000000298023224,
+            "auc": 0.9783333333333334
+          }
+        }
+      }
+    },
+    {
+      "layer": 15,
+      "raw": {
+        "accuracy": 0.44999998807907104,
+        "macro_auc": 0.9077083333333333,
+        "mean_correct_margin": -1.123414158821106,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              15,
+              5,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              2,
+              17,
+              1,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.75,
+            "auc": 0.9791666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8583333333333333
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8041666666666667
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.9891666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5249999761581421,
+        "macro_auc": 0.904375,
+        "mean_correct_margin": 0.45136022567749023,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              16,
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              3,
+              16,
+              1,
+              0
+            ],
+            [
+              3,
+              12,
+              0,
+              5
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.800000011920929,
+            "auc": 0.9825
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8391666666666666
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8108333333333333
+          },
+          "afraid": {
+            "accuracy": 0.25,
+            "auc": 0.985
+          }
+        }
+      }
+    },
+    {
+      "layer": 16,
+      "raw": {
+        "accuracy": 0.4625000059604645,
+        "macro_auc": 0.90625,
+        "mean_correct_margin": -0.5013808012008667,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              14,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              1,
+              18,
+              1,
+              0
+            ],
+            [
+              0,
+              18,
+              0,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.699999988079071,
+            "auc": 0.9791666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8591666666666666
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.805
+          },
+          "afraid": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.9816666666666667
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.6499999761581421,
+        "macro_auc": 0.903125,
+        "mean_correct_margin": 1.3886572122573853,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              18,
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              15,
+              4,
+              0
+            ],
+            [
+              1,
+              7,
+              12,
+              0
+            ],
+            [
+              1,
+              8,
+              4,
+              7
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.8999999761581421,
+            "auc": 0.9816666666666667
+          },
+          "sad": {
+            "accuracy": 0.75,
+            "auc": 0.8341666666666666
+          },
+          "angry": {
+            "accuracy": 0.6000000238418579,
+            "auc": 0.82
+          },
+          "afraid": {
+            "accuracy": 0.3499999940395355,
+            "auc": 0.9766666666666667
+          }
+        }
+      }
+    },
+    {
+      "layer": 17,
+      "raw": {
+        "accuracy": 0.550000011920929,
+        "macro_auc": 0.9141666666666667,
+        "mean_correct_margin": 0.35248151421546936,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              17,
+              3,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              1,
+              13,
+              6,
+              0
+            ],
+            [
+              3,
+              14,
+              2,
+              1
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.8500000238418579,
+            "auc": 0.9808333333333333
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8666666666666667
+          },
+          "angry": {
+            "accuracy": 0.30000001192092896,
+            "auc": 0.83
+          },
+          "afraid": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.9791666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.574999988079071,
+        "macro_auc": 0.906875,
+        "mean_correct_margin": 0.81224524974823,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              19,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              16,
+              3,
+              0
+            ],
+            [
+              2,
+              9,
+              9,
+              0
+            ],
+            [
+              2,
+              10,
+              6,
+              2
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.9808333333333333
+          },
+          "sad": {
+            "accuracy": 0.800000011920929,
+            "auc": 0.8425
+          },
+          "angry": {
+            "accuracy": 0.44999998807907104,
+            "auc": 0.8291666666666667
+          },
+          "afraid": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.975
+          }
+        }
+      }
+    },
+    {
+      "layer": 18,
+      "raw": {
+        "accuracy": 0.574999988079071,
+        "macro_auc": 0.9097916666666668,
+        "mean_correct_margin": 2.380131244659424,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              12,
+              4,
+              0
+            ],
+            [
+              10,
+              3,
+              7,
+              0
+            ],
+            [
+              4,
+              8,
+              1,
+              7
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9766666666666667
+          },
+          "sad": {
+            "accuracy": 0.6000000238418579,
+            "auc": 0.8575
+          },
+          "angry": {
+            "accuracy": 0.3499999940395355,
+            "auc": 0.8291666666666667
+          },
+          "afraid": {
+            "accuracy": 0.3499999940395355,
+            "auc": 0.9758333333333333
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.675000011920929,
+        "macro_auc": 0.9022916666666667,
+        "mean_correct_margin": 2.4563164710998535,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              5,
+              8,
+              7,
+              0
+            ],
+            [
+              7,
+              2,
+              11,
+              0
+            ],
+            [
+              2,
+              1,
+              2,
+              15
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9766666666666667
+          },
+          "sad": {
+            "accuracy": 0.4000000059604645,
+            "auc": 0.8391666666666666
+          },
+          "angry": {
+            "accuracy": 0.550000011920929,
+            "auc": 0.8233333333333334
+          },
+          "afraid": {
+            "accuracy": 0.75,
+            "auc": 0.97
+          }
+        }
+      }
+    },
+    {
+      "layer": 19,
+      "raw": {
+        "accuracy": 0.5874999761581421,
+        "macro_auc": 0.9072916666666667,
+        "mean_correct_margin": 2.0496439933776855,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              3,
+              16,
+              0,
+              1
+            ],
+            [
+              9,
+              9,
+              1,
+              1
+            ],
+            [
+              3,
+              7,
+              0,
+              10
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9758333333333333
+          },
+          "sad": {
+            "accuracy": 0.800000011920929,
+            "auc": 0.8516666666666667
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8216666666666667
+          },
+          "afraid": {
+            "accuracy": 0.5,
+            "auc": 0.98
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.612500011920929,
+        "macro_auc": 0.90375,
+        "mean_correct_margin": 3.807394027709961,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              6,
+              11,
+              0,
+              3
+            ],
+            [
+              11,
+              7,
+              1,
+              1
+            ],
+            [
+              2,
+              1,
+              0,
+              17
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 1.0,
+            "auc": 0.9775
+          },
+          "sad": {
+            "accuracy": 0.550000011920929,
+            "auc": 0.8383333333333334
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8216666666666667
+          },
+          "afraid": {
+            "accuracy": 0.8500000238418579,
+            "auc": 0.9775
+          }
+        }
+      }
+    },
+    {
+      "layer": 20,
+      "raw": {
+        "accuracy": 0.5375000238418579,
+        "macro_auc": 0.9095833333333333,
+        "mean_correct_margin": 0.23584012687206268,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              14,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              1,
+              18,
+              1,
+              0
+            ],
+            [
+              1,
+              11,
+              0,
+              8
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.699999988079071,
+            "auc": 0.9791666666666666
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.8466666666666667
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8458333333333333
+          },
+          "afraid": {
+            "accuracy": 0.4000000059604645,
+            "auc": 0.9666666666666667
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.612500011920929,
+        "macro_auc": 0.9047916666666667,
+        "mean_correct_margin": 2.8853554725646973,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              12,
+              5,
+              0,
+              3
+            ],
+            [
+              0,
+              17,
+              0,
+              3
+            ],
+            [
+              2,
+              14,
+              1,
+              3
+            ],
+            [
+              0,
+              1,
+              0,
+              19
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.6000000238418579,
+            "auc": 0.9808333333333333
+          },
+          "sad": {
+            "accuracy": 0.8500000238418579,
+            "auc": 0.83
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8425
+          },
+          "afraid": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.9658333333333333
+          }
+        }
+      }
+    },
+    {
+      "layer": 21,
+      "raw": {
+        "accuracy": 0.6875,
+        "macro_auc": 0.9208333333333334,
+        "mean_correct_margin": 5.834764003753662,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              18,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              17,
+              0,
+              3
+            ],
+            [
+              3,
+              13,
+              1,
+              3
+            ],
+            [
+              0,
+              1,
+              0,
+              19
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.8999999761581421,
+            "auc": 0.975
+          },
+          "sad": {
+            "accuracy": 0.8500000238418579,
+            "auc": 0.8608333333333333
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8691666666666666
+          },
+          "afraid": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.9783333333333334
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.5874999761581421,
+        "macro_auc": 0.916875,
+        "mean_correct_margin": 6.917048454284668,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              15,
+              2,
+              0,
+              3
+            ],
+            [
+              1,
+              11,
+              0,
+              8
+            ],
+            [
+              6,
+              8,
+              1,
+              5
+            ],
+            [
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.75,
+            "auc": 0.9775
+          },
+          "sad": {
+            "accuracy": 0.550000011920929,
+            "auc": 0.8516666666666667
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8641666666666666
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9741666666666666
+          }
+        }
+      }
+    },
+    {
+      "layer": 22,
+      "raw": {
+        "accuracy": 0.5,
+        "macro_auc": 0.8979166666666667,
+        "mean_correct_margin": 2.2034659385681152,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              5,
+              5,
+              0,
+              10
+            ],
+            [
+              0,
+              14,
+              0,
+              6
+            ],
+            [
+              0,
+              13,
+              1,
+              6
+            ],
+            [
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.25,
+            "auc": 0.9658333333333333
+          },
+          "sad": {
+            "accuracy": 0.699999988079071,
+            "auc": 0.8383333333333334
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.815
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9725
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.3375000059604645,
+        "macro_auc": 0.8920833333333333,
+        "mean_correct_margin": -0.8910506367683411,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              3,
+              0,
+              0,
+              17
+            ],
+            [
+              0,
+              2,
+              0,
+              18
+            ],
+            [
+              0,
+              1,
+              2,
+              17
+            ],
+            [
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.9675
+          },
+          "sad": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.825
+          },
+          "angry": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.81
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9658333333333333
+          }
+        }
+      }
+    },
+    {
+      "layer": 23,
+      "raw": {
+        "accuracy": 0.48750001192092896,
+        "macro_auc": 0.9075,
+        "mean_correct_margin": -5.899926662445068,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              5,
+              11,
+              0,
+              4
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              18,
+              0,
+              2
+            ],
+            [
+              0,
+              5,
+              0,
+              15
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.25,
+            "auc": 0.9608333333333333
+          },
+          "sad": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.8666666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8291666666666667
+          },
+          "afraid": {
+            "accuracy": 0.75,
+            "auc": 0.9733333333333334
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.4749999940395355,
+        "macro_auc": 0.9008333333333334,
+        "mean_correct_margin": -3.752906084060669,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              4,
+              8,
+              0,
+              8
+            ],
+            [
+              0,
+              15,
+              0,
+              5
+            ],
+            [
+              0,
+              13,
+              0,
+              7
+            ],
+            [
+              0,
+              1,
+              0,
+              19
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.20000000298023224,
+            "auc": 0.9616666666666667
+          },
+          "sad": {
+            "accuracy": 0.75,
+            "auc": 0.8433333333333334
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8291666666666667
+          },
+          "afraid": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.9691666666666666
+          }
+        }
+      }
+    },
+    {
+      "layer": 24,
+      "raw": {
+        "accuracy": 0.5249999761581421,
+        "macro_auc": 0.8970833333333332,
+        "mean_correct_margin": -10.914408683776855,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              7,
+              5,
+              0,
+              8
+            ],
+            [
+              0,
+              15,
+              0,
+              5
+            ],
+            [
+              0,
+              13,
+              0,
+              7
+            ],
+            [
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.3499999940395355,
+            "auc": 0.95
+          },
+          "sad": {
+            "accuracy": 0.75,
+            "auc": 0.8541666666666666
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.82
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9641666666666666
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.3375000059604645,
+        "macro_auc": 0.890625,
+        "mean_correct_margin": -10.968493461608887,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              0,
+              0,
+              18
+            ],
+            [
+              0,
+              5,
+              0,
+              15
+            ],
+            [
+              1,
+              2,
+              0,
+              17
+            ],
+            [
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.9491666666666667
+          },
+          "sad": {
+            "accuracy": 0.25,
+            "auc": 0.8383333333333334
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8141666666666667
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9608333333333333
+          }
+        }
+      }
+    },
+    {
+      "layer": 25,
+      "raw": {
+        "accuracy": 0.637499988079071,
+        "macro_auc": 0.9033333333333333,
+        "mean_correct_margin": -16.69080924987793,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              18,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              2,
+              15,
+              0,
+              3
+            ],
+            [
+              1,
+              5,
+              0,
+              14
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.8999999761581421,
+            "auc": 0.9566666666666667
+          },
+          "sad": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.8625
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8241666666666667
+          },
+          "afraid": {
+            "accuracy": 0.699999988079071,
+            "auc": 0.97
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.625,
+        "macro_auc": 0.89625,
+        "mean_correct_margin": -11.997710227966309,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              15,
+              2,
+              0,
+              3
+            ],
+            [
+              0,
+              16,
+              0,
+              4
+            ],
+            [
+              3,
+              11,
+              0,
+              6
+            ],
+            [
+              0,
+              1,
+              0,
+              19
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.75,
+            "auc": 0.9566666666666667
+          },
+          "sad": {
+            "accuracy": 0.800000011920929,
+            "auc": 0.8475
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8191666666666667
+          },
+          "afraid": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.9616666666666667
+          }
+        }
+      }
+    },
+    {
+      "layer": 26,
+      "raw": {
+        "accuracy": 0.4000000059604645,
+        "macro_auc": 0.8997916666666667,
+        "mean_correct_margin": -26.286901473999023,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              12,
+              0,
+              0,
+              8
+            ],
+            [
+              4,
+              0,
+              0,
+              16
+            ],
+            [
+              7,
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.6000000238418579,
+            "auc": 0.9483333333333334
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.8608333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8266666666666667
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9633333333333334
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.4124999940395355,
+        "macro_auc": 0.8922916666666667,
+        "mean_correct_margin": -27.099315643310547,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              13,
+              0,
+              0,
+              7
+            ],
+            [
+              4,
+              0,
+              0,
+              16
+            ],
+            [
+              9,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.6499999761581421,
+            "auc": 0.945
+          },
+          "sad": {
+            "accuracy": 0.0,
+            "auc": 0.8483333333333334
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.8191666666666667
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9566666666666667
+          }
+        }
+      }
+    },
+    {
+      "layer": 27,
+      "raw": {
+        "accuracy": 0.30000001192092896,
+        "macro_auc": 0.8610416666666666,
+        "mean_correct_margin": -4.1577606201171875,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              1,
+              0,
+              0,
+              19
+            ],
+            [
+              0,
+              3,
+              0,
+              17
+            ],
+            [
+              0,
+              2,
+              0,
+              18
+            ],
+            [
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8933333333333333
+          },
+          "sad": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.8358333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.7966666666666666
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9183333333333333
+          }
+        }
+      },
+      "pca_cleaned": {
+        "accuracy": 0.512499988079071,
+        "macro_auc": 0.8610416666666666,
+        "mean_correct_margin": 2.312687873840332,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              12,
+              0,
+              1,
+              7
+            ],
+            [
+              9,
+              1,
+              4,
+              6
+            ],
+            [
+              7,
+              0,
+              8,
+              5
+            ],
+            [
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.6000000238418579,
+            "auc": 0.8891666666666667
+          },
+          "sad": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.835
+          },
+          "angry": {
+            "accuracy": 0.4000000059604645,
+            "auc": 0.7966666666666666
+          },
+          "afraid": {
+            "accuracy": 1.0,
+            "auc": 0.9233333333333333
+          }
+        }
+      }
+    }
+  ]
+}

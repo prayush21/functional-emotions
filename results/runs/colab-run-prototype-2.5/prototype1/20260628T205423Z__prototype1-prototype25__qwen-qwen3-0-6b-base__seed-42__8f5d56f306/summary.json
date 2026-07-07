@@ -1,0 +1,8 @@
+{
+  "all_hard_gates_pass": true,
+  "selected_layer": 19,
+  "held_out_accuracy": 0.612500011920929,
+  "held_out_macro_auc": 0.90375,
+  "mean_correct_margin": 3.807394027709961,
+  "number_of_emotions": 4
+}

@@ -1,0 +1,1909 @@
+{
+  "available": true,
+  "method": "pooled residual through final norm and output embeddings",
+  "emotion_token_ids": {
+    "happy": [
+      6072,
+      6247,
+      15713,
+      56521
+    ],
+    "sad": [
+      1495,
+      2923,
+      12421,
+      82114
+    ],
+    "angry": [
+      524,
+      12796,
+      18514,
+      20302
+    ],
+    "afraid": [
+      2388,
+      2577,
+      16575,
+      26115
+    ]
+  },
+  "layers": [
+    {
+      "layer": 0,
+      "metrics": {
+        "accuracy": 0.23749999701976776,
+        "macro_auc": 0.5197916666666667,
+        "mean_correct_margin": -1.2632687091827393,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6833333333333333
+          },
+          "sad": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.4791666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.38916666666666666
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.5275
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -7.334448337554932,
+        "sad": -4.303247928619385,
+        "angry": -6.177978515625,
+        "afraid": -6.212674617767334
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 1,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.5093749999999999,
+        "mean_correct_margin": -1.292572259902954,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6433333333333333
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.46416666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.42
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.51
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -7.741706848144531,
+        "sad": -4.84450626373291,
+        "angry": -7.0530805587768555,
+        "afraid": -6.865011692047119
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 2,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.5739583333333333,
+        "mean_correct_margin": -1.4526660442352295,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.7066666666666667
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.4716666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.41333333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.7041666666666667
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -7.082385063171387,
+        "sad": -4.142405033111572,
+        "angry": -7.399783134460449,
+        "afraid": -5.9130659103393555
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 3,
+      "metrics": {
+        "accuracy": 0.23749999701976776,
+        "macro_auc": 0.5579166666666667,
+        "mean_correct_margin": -1.1928757429122925,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6441666666666667
+          },
+          "sad": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.4825
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.45666666666666667
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.6483333333333333
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -6.379161357879639,
+        "sad": -4.0714006423950195,
+        "angry": -6.728426933288574,
+        "afraid": -5.553338527679443
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 4,
+      "metrics": {
+        "accuracy": 0.26249998807907104,
+        "macro_auc": 0.5577083333333334,
+        "mean_correct_margin": -1.2019842863082886,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.7275
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.4841666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.44
+          },
+          "afraid": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.5791666666666667
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -5.788159370422363,
+        "sad": -3.595017671585083,
+        "angry": -6.396521091461182,
+        "afraid": -5.058465003967285
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 5,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.5477083333333332,
+        "mean_correct_margin": -1.3380348682403564,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6491666666666667
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.4816666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5475
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.5125
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -6.607021331787109,
+        "sad": -4.094477653503418,
+        "angry": -7.154109954833984,
+        "afraid": -5.769715309143066
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 6,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.6041666666666666,
+        "mean_correct_margin": -1.1062976121902466,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.78
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.5416666666666666
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.6158333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.4791666666666667
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -6.462899684906006,
+        "sad": -3.7064318656921387,
+        "angry": -5.973578929901123,
+        "afraid": -5.844569206237793
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 7,
+      "metrics": {
+        "accuracy": 0.26249998807907104,
+        "macro_auc": 0.605,
+        "mean_correct_margin": -1.1839748620986938,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              1,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.7008333333333333
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.5583333333333333
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.6091666666666666
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.5516666666666666
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -6.779440879821777,
+        "sad": -3.712312698364258,
+        "angry": -5.828062534332275,
+        "afraid": -5.991515159606934
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 8,
+      "metrics": {
+        "accuracy": 0.26249998807907104,
+        "macro_auc": 0.5810416666666667,
+        "mean_correct_margin": -1.2566664218902588,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              1,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.575
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.5891666666666666
+          },
+          "angry": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.6225
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.5375
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -7.304902076721191,
+        "sad": -3.7940750122070312,
+        "angry": -5.541360378265381,
+        "afraid": -5.789759159088135
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 9,
+      "metrics": {
+        "accuracy": 0.3125,
+        "macro_auc": 0.6031249999999999,
+        "mean_correct_margin": -0.7929258942604065,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              15,
+              2,
+              3
+            ],
+            [
+              0,
+              17,
+              0,
+              3
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.6783333333333333
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.575
+          },
+          "angry": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.5841666666666666
+          },
+          "afraid": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.575
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -6.072713851928711,
+        "sad": -3.543769359588623,
+        "angry": -4.7104973793029785,
+        "afraid": -4.65280294418335
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 10,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.6433333333333333,
+        "mean_correct_margin": -1.2281038761138916,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.7466666666666667
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.6233333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5766666666666667
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.6266666666666667
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -4.592495918273926,
+        "sad": -1.4005361795425415,
+        "angry": -4.123491287231445,
+        "afraid": -3.394926071166992
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 11,
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_auc": 0.638125,
+        "mean_correct_margin": -1.024898648262024,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.7291666666666666
+          },
+          "sad": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.5391666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5083333333333333
+          },
+          "afraid": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7758333333333334
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -4.004810810089111,
+        "sad": -1.6360082626342773,
+        "angry": -4.175617218017578,
+        "afraid": -3.0747249126434326
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 12,
+      "metrics": {
+        "accuracy": 0.26249998807907104,
+        "macro_auc": 0.6581250000000001,
+        "mean_correct_margin": -0.80140221118927,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              1,
+              19,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.785
+          },
+          "sad": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.5541666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5358333333333334
+          },
+          "afraid": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7575
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -4.208516597747803,
+        "sad": -2.0499472618103027,
+        "angry": -4.109076499938965,
+        "afraid": -3.209071397781372
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 13,
+      "metrics": {
+        "accuracy": 0.26249998807907104,
+        "macro_auc": 0.665625,
+        "mean_correct_margin": -0.9915696382522583,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.805
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.5858333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5408333333333334
+          },
+          "afraid": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7308333333333333
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -3.5941643714904785,
+        "sad": -1.5280174016952515,
+        "angry": -4.378899574279785,
+        "afraid": -3.20965313911438
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 14,
+      "metrics": {
+        "accuracy": 0.2750000059604645,
+        "macro_auc": 0.6647916666666667,
+        "mean_correct_margin": -0.7323042750358582,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              1,
+              19,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8225
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.6208333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.48833333333333334
+          },
+          "afraid": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7275
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -3.147613048553467,
+        "sad": -1.3587156534194946,
+        "angry": -3.637847900390625,
+        "afraid": -2.8996002674102783
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 15,
+      "metrics": {
+        "accuracy": 0.30000001192092896,
+        "macro_auc": 0.6666666666666667,
+        "mean_correct_margin": -0.755377471446991,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              1,
+              17,
+              0,
+              2
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              17,
+              0,
+              3
+            ],
+            [
+              0,
+              17,
+              0,
+              3
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8833333333333333
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.6208333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5133333333333333
+          },
+          "afraid": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.6491666666666667
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -3.5189146995544434,
+        "sad": -1.7046737670898438,
+        "angry": -4.023172855377197,
+        "afraid": -2.845512866973877
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 16,
+      "metrics": {
+        "accuracy": 0.26249998807907104,
+        "macro_auc": 0.6275,
+        "mean_correct_margin": -1.0200622081756592,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              1,
+              18,
+              0,
+              1
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7783333333333333
+          },
+          "sad": {
+            "accuracy": 1.0,
+            "auc": 0.6225
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5483333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.5608333333333333
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -3.7148964405059814,
+        "sad": -1.4159069061279297,
+        "angry": -4.027029991149902,
+        "afraid": -2.9079811573028564
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 17,
+      "metrics": {
+        "accuracy": 0.36250001192092896,
+        "macro_auc": 0.6529166666666667,
+        "mean_correct_margin": -0.9660568237304688,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              1,
+              17,
+              0,
+              2
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              16,
+              0,
+              4
+            ],
+            [
+              0,
+              11,
+              0,
+              9
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.8341666666666666
+          },
+          "sad": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.6541666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5691666666666667
+          },
+          "afraid": {
+            "accuracy": 0.44999998807907104,
+            "auc": 0.5541666666666667
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -4.28857946395874,
+        "sad": -1.7806828022003174,
+        "angry": -4.042540550231934,
+        "afraid": -2.4641356468200684
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 18,
+      "metrics": {
+        "accuracy": 0.3499999940395355,
+        "macro_auc": 0.6708333333333333,
+        "mean_correct_margin": -0.8473631739616394,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              15,
+              0,
+              3
+            ],
+            [
+              0,
+              10,
+              0,
+              10
+            ],
+            [
+              0,
+              10,
+              0,
+              10
+            ],
+            [
+              0,
+              4,
+              0,
+              16
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.815
+          },
+          "sad": {
+            "accuracy": 0.5,
+            "auc": 0.6516666666666666
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5658333333333333
+          },
+          "afraid": {
+            "accuracy": 0.800000011920929,
+            "auc": 0.6508333333333334
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -5.063655853271484,
+        "sad": -2.7835209369659424,
+        "angry": -4.744349479675293,
+        "afraid": -2.8526501655578613
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 19,
+      "metrics": {
+        "accuracy": 0.32499998807907104,
+        "macro_auc": 0.6581250000000001,
+        "mean_correct_margin": -0.8064253926277161,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              1,
+              17,
+              0,
+              2
+            ],
+            [
+              0,
+              13,
+              0,
+              7
+            ],
+            [
+              0,
+              13,
+              0,
+              7
+            ],
+            [
+              0,
+              8,
+              0,
+              12
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7933333333333333
+          },
+          "sad": {
+            "accuracy": 0.6499999761581421,
+            "auc": 0.6241666666666666
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.6175
+          },
+          "afraid": {
+            "accuracy": 0.6000000238418579,
+            "auc": 0.5975
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -5.060366153717041,
+        "sad": -2.6686389446258545,
+        "angry": -4.469851016998291,
+        "afraid": -2.928222417831421
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 20,
+      "metrics": {
+        "accuracy": 0.30000001192092896,
+        "macro_auc": 0.6866666666666666,
+        "mean_correct_margin": -0.625553548336029,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              17,
+              0,
+              1
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              18,
+              0,
+              2
+            ],
+            [
+              0,
+              17,
+              0,
+              3
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.8016666666666666
+          },
+          "sad": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.615
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.6475
+          },
+          "afraid": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.6825
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -5.075691223144531,
+        "sad": -3.1361541748046875,
+        "angry": -4.899472236633301,
+        "afraid": -4.103497505187988
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 21,
+      "metrics": {
+        "accuracy": 0.38749998807907104,
+        "macro_auc": 0.6758333333333334,
+        "mean_correct_margin": -0.6077213287353516,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              6,
+              13,
+              0,
+              1
+            ],
+            [
+              0,
+              15,
+              0,
+              5
+            ],
+            [
+              2,
+              12,
+              0,
+              6
+            ],
+            [
+              0,
+              10,
+              0,
+              10
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.30000001192092896,
+            "auc": 0.85
+          },
+          "sad": {
+            "accuracy": 0.75,
+            "auc": 0.62
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.6158333333333333
+          },
+          "afraid": {
+            "accuracy": 0.5,
+            "auc": 0.6175
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -4.325425148010254,
+        "sad": -3.2345638275146484,
+        "angry": -5.346556663513184,
+        "afraid": -3.6267895698547363
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 22,
+      "metrics": {
+        "accuracy": 0.2750000059604645,
+        "macro_auc": 0.6575,
+        "mean_correct_margin": -0.6615585088729858,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              3,
+              16,
+              0,
+              1
+            ],
+            [
+              0,
+              16,
+              0,
+              4
+            ],
+            [
+              1,
+              13,
+              0,
+              6
+            ],
+            [
+              0,
+              17,
+              0,
+              3
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.8116666666666666
+          },
+          "sad": {
+            "accuracy": 0.800000011920929,
+            "auc": 0.6333333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5933333333333334
+          },
+          "afraid": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.5916666666666667
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -4.320454120635986,
+        "sad": -2.970651865005493,
+        "angry": -4.936427116394043,
+        "afraid": -3.5270514488220215
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 23,
+      "metrics": {
+        "accuracy": 0.3125,
+        "macro_auc": 0.6570833333333332,
+        "mean_correct_margin": -0.7700639963150024,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              3,
+              17,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              17,
+              0,
+              3
+            ],
+            [
+              0,
+              17,
+              0,
+              3
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.8225
+          },
+          "sad": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.6141666666666666
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5933333333333334
+          },
+          "afraid": {
+            "accuracy": 0.15000000596046448,
+            "auc": 0.5983333333333334
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -4.038320064544678,
+        "sad": -2.487271785736084,
+        "angry": -4.8763885498046875,
+        "afraid": -3.354269504547119
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 24,
+      "metrics": {
+        "accuracy": 0.3125,
+        "macro_auc": 0.6720833333333333,
+        "mean_correct_margin": -0.6476587057113647,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              4,
+              15,
+              0,
+              1
+            ],
+            [
+              0,
+              16,
+              0,
+              4
+            ],
+            [
+              0,
+              15,
+              0,
+              5
+            ],
+            [
+              1,
+              14,
+              0,
+              5
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.20000000298023224,
+            "auc": 0.805
+          },
+          "sad": {
+            "accuracy": 0.800000011920929,
+            "auc": 0.6566666666666666
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.6225
+          },
+          "afraid": {
+            "accuracy": 0.25,
+            "auc": 0.6041666666666666
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -3.4758236408233643,
+        "sad": -2.3979878425598145,
+        "angry": -4.587401866912842,
+        "afraid": -2.956209659576416
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 25,
+      "metrics": {
+        "accuracy": 0.3375000059604645,
+        "macro_auc": 0.6725,
+        "mean_correct_margin": -0.4320830702781677,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              4,
+              16,
+              0,
+              0
+            ],
+            [
+              0,
+              18,
+              0,
+              2
+            ],
+            [
+              1,
+              16,
+              0,
+              3
+            ],
+            [
+              1,
+              14,
+              0,
+              5
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.20000000298023224,
+            "auc": 0.8308333333333333
+          },
+          "sad": {
+            "accuracy": 0.8999999761581421,
+            "auc": 0.6058333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.615
+          },
+          "afraid": {
+            "accuracy": 0.25,
+            "auc": 0.6383333333333333
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -2.974489688873291,
+        "sad": -2.1051032543182373,
+        "angry": -3.62028169631958,
+        "afraid": -2.7255122661590576
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 26,
+      "metrics": {
+        "accuracy": 0.23749999701976776,
+        "macro_auc": 0.6227083333333333,
+        "mean_correct_margin": -0.7095750570297241,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              20,
+              0,
+              0
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.0,
+            "auc": 0.8
+          },
+          "sad": {
+            "accuracy": 0.949999988079071,
+            "auc": 0.4741666666666667
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.5858333333333333
+          },
+          "afraid": {
+            "accuracy": 0.0,
+            "auc": 0.6308333333333334
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": -2.672581434249878,
+        "sad": -1.2881345748901367,
+        "angry": -3.0531187057495117,
+        "afraid": -2.15101957321167
+      },
+      "diagnostic_only": true
+    },
+    {
+      "layer": 27,
+      "metrics": {
+        "accuracy": 0.26249998807907104,
+        "macro_auc": 0.5547916666666667,
+        "mean_correct_margin": -0.7474818229675293,
+        "confusion_matrix": {
+          "labels": [
+            "happy",
+            "sad",
+            "angry",
+            "afraid"
+          ],
+          "rows_are_true_labels": [
+            [
+              2,
+              18,
+              0,
+              0
+            ],
+            [
+              0,
+              18,
+              0,
+              2
+            ],
+            [
+              0,
+              19,
+              0,
+              1
+            ],
+            [
+              1,
+              18,
+              0,
+              1
+            ]
+          ]
+        },
+        "per_emotion": {
+          "happy": {
+            "accuracy": 0.10000000149011612,
+            "auc": 0.68
+          },
+          "sad": {
+            "accuracy": 0.8999999761581421,
+            "auc": 0.3933333333333333
+          },
+          "angry": {
+            "accuracy": 0.0,
+            "auc": 0.37916666666666665
+          },
+          "afraid": {
+            "accuracy": 0.05000000074505806,
+            "auc": 0.7666666666666667
+          }
+        }
+      },
+      "mean_logits": {
+        "happy": 9.676424026489258,
+        "sad": 10.955106735229492,
+        "angry": 8.654333114624023,
+        "afraid": 10.054052352905273
+      },
+      "diagnostic_only": true
+    }
+  ],
+  "diagnostic_only": true
+}

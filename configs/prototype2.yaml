@@ -1,0 +1,44 @@
+experiment: prototype2
+seed: 42
+
+prototype1:
+  # Update this path in Colab after copying or registering the Prototype 1 run.
+  run_dir: artifacts/prototype1/20260623T232651Z__prototype1__qwen-qwen3-0-6b-base__seed-42__f0d38f143e
+  emotion_vectors: emotion_vectors.safetensors
+  neutral_pca: neutral_pca.safetensors
+
+model:
+  # Defaults inherit from the Prototype 1 config. These override only runtime choices.
+  device: auto
+  dtype: float32
+  local_files_only: false
+  layers: all
+
+extraction:
+  token_start: 50
+  batch_size: 2
+
+controls:
+  shuffle_seed: 43
+
+logit_lens:
+  # Projects pooled layer activations through the final norm and lm_head, then
+  # scores compact emotion-word token sets. This is diagnostic only.
+  batch_size: 4
+  terms:
+    happy: [happy, glad]
+    sad: [sad, downcast]
+    angry: [angry, mad]
+    afraid: [afraid, scared]
+
+lexical_robustness:
+  # If omitted, the runner uses a compact hand-authored set of implicit scenarios
+  # with a small number of minimal lexical-control variants.
+  scenarios: []
+
+intensity_sweep:
+  # If omitted, the runner uses three hand-authored implicit intensity levels per
+  # Prototype 1 emotion.
+  scenarios: []
+
+output_dir: artifacts/prototype2

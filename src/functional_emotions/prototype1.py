@@ -7,6 +7,7 @@ import math
 import platform
 import random
 import re
+import shutil
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -54,6 +55,17 @@ def dataset_sha256(rows: list[dict[str, Any]]) -> str:
     return hashlib.sha256(canonical.encode()).hexdigest()
 
 
+def _forbidden_pattern(term: str) -> re.Pattern[str]:
+    escaped = re.escape(term)
+    variants = [escaped]
+    if term.endswith("y") and len(term) > 1:
+        variants.append(re.escape(term[:-1]) + r"i(?:ly|ness|er|est)?")
+    if term.endswith("e") and len(term) > 1:
+        variants.append(re.escape(term[:-1]) + r"(?:ing|ed)")
+    variants.append(escaped + r"(?:s|ed|ing|ly)?")
+    return re.compile(rf"\b(?:{'|'.join(dict.fromkeys(variants))})\b", re.I)
+
+
 def split_topics(topics: list[str], train_fraction: float, seed: int) -> tuple[set[str], set[str]]:
     if len(topics) < 2:
         raise ValueError("At least two topics are required for a held-out topic split")
@@ -81,7 +93,7 @@ def validate_story_rows(
     leaks = []
     for index, row in enumerate(rows):
         terms = [row["emotion"], *forbidden_terms.get(row["emotion"], [])]
-        matched = [term for term in terms if re.search(rf"\b{re.escape(term)}\b", row["text"], re.I)]
+        matched = [term for term in terms if _forbidden_pattern(term).search(row["text"])]
         if matched:
             leaks.append({"row": index, "emotion": row["emotion"], "terms": matched})
     counts = Counter((row["topic"], row["emotion"]) for row in rows)
@@ -100,6 +112,37 @@ def _clean_generation(text: str) -> str:
     return text.strip().strip('"')
 
 
+def _generation_malformed_reason(text: str) -> str | None:
+    if re.search(r"<think\b", text, re.I) and not re.search(r"</think>", text, re.I):
+        return "unterminated_think"
+    return None
+
+
+def _emotion_generation_guidance(emotion: str) -> str:
+    guidance = {
+        "happy": (
+            "Use signs such as an easing posture, quickened steps, careful but buoyant "
+            "choices, spontaneous generosity, or a private smile."
+        ),
+        "sad": (
+            "Use signs such as slowed movement, quiet withdrawal, lingering over small "
+            "objects, heavy pauses, or difficulty continuing ordinary tasks."
+        ),
+        "angry": (
+            "Use signs such as clipped movements, tightened hands, controlled speech, "
+            "sharp decisions, or forceful handling of ordinary objects."
+        ),
+        "afraid": (
+            "Use signs such as scanning exits, guarded breathing, hesitation, checking "
+            "details repeatedly, or keeping close to familiar things."
+        ),
+    }
+    return guidance.get(
+        emotion,
+        "Use only concrete actions, choices, physical sensations, and body language.",
+    )
+
+
 def _generation_prompt(topic: str, emotion: str, forbidden: list[str], neutral: bool) -> str:
     if neutral:
         return (
@@ -109,12 +152,88 @@ def _generation_prompt(topic: str, emotion: str, forbidden: list[str], neutral: 
         )
     avoid = ", ".join([emotion, *forbidden])
     return (
-        "Write one self-contained story paragraph based on the premise below. The story should "
-        f"follow a character experiencing {emotion}, but must never use these words: {avoid}. "
-        "Convey the state only through actions, choices, physical sensations, and body language. "
-        "Do not name or explain the emotion.\n\n"
+        "Write one self-contained story paragraph based on the premise below. The paragraph "
+        "should imply the private target state through concrete behavior, not labels. If the "
+        "premise is ambiguous, add plausible context that makes the target state fit naturally. "
+        f"{_emotion_generation_guidance(emotion)} "
+        f"Forbidden words that must not appear in the paragraph: {avoid}. "
+        "Do not name, summarize, or explain the state.\n\n"
         f"Premise: {topic}\n\nReturn only the story paragraph."
     )
+
+
+def generation_inputs(
+    tokenizer: Any,
+    prompt: str,
+    device: str,
+    enable_thinking: bool = True,
+) -> tuple[Tensor, Tensor]:
+    messages = [{"role": "user", "content": prompt}]
+    if hasattr(tokenizer, "apply_chat_template") and tokenizer.chat_template:
+        try:
+            encoded = tokenizer.apply_chat_template(
+                messages,
+                add_generation_prompt=True,
+                return_tensors="pt",
+                enable_thinking=enable_thinking,
+            )
+        except TypeError:
+            encoded = tokenizer.apply_chat_template(
+                messages, add_generation_prompt=True, return_tensors="pt"
+            )
+        if isinstance(encoded, Tensor):
+            input_ids = encoded.to(device)
+            attention_mask = torch.ones_like(input_ids)
+            return input_ids, attention_mask
+        batch = encoded.to(device) if hasattr(encoded, "to") else encoded
+        input_ids = batch["input_ids"]
+        attention_mask = batch.get("attention_mask")
+        if attention_mask is None:
+            attention_mask = torch.ones_like(input_ids)
+        return input_ids.to(device), attention_mask.to(device)
+    batch = tokenizer(prompt, return_tensors="pt")
+    return batch["input_ids"].to(device), batch["attention_mask"].to(device)
+
+
+def generation_failure_report(
+    *,
+    topic: str,
+    emotion: str,
+    story_index: int,
+    sequence: int,
+    maximum_attempts: int,
+    forbidden_terms: list[str],
+    prompt: str,
+    attempts: list[dict[str, Any]],
+    successful_rows: int,
+) -> dict[str, Any]:
+    matched_counts = Counter(
+        term for attempt in attempts for term in attempt.get("matched_terms", [])
+    )
+    return {
+        "topic": topic,
+        "emotion": emotion,
+        "story_index": story_index,
+        "sequence": sequence,
+        "maximum_attempts": maximum_attempts,
+        "successful_rows_before_failure": successful_rows,
+        "forbidden_terms": [emotion, *forbidden_terms],
+        "matched_term_counts": dict(matched_counts),
+        "prompt": prompt,
+        "attempts": attempts,
+    }
+
+
+def write_generation_failure_diagnostics(
+    dataset_path: Path,
+    report: dict[str, Any],
+    partial_rows: list[dict[str, Any]],
+) -> Path:
+    dataset_path.parent.mkdir(parents=True, exist_ok=True)
+    failure_path = dataset_path.parent / "generation_failure.json"
+    failure_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
+    write_jsonl(dataset_path.parent / "generation_partial_stories.jsonl", partial_rows)
+    return failure_path
 
 
 def generate_dataset(config: dict[str, Any]) -> Path:
@@ -145,20 +264,15 @@ def generate_dataset(config: dict[str, Any]) -> Path:
     forbidden = data.get("forbidden_terms", {})
     stories_per_pair = int(generation["stories_per_topic_emotion"])
     maximum_attempts = int(generation.get("maximum_attempts_per_story", 3))
+    dataset_path = Path(data["stories_path"])
+    neutral_path = Path(data["neutral_path"])
     rows: list[dict[str, Any]] = []
 
-    def sample(prompt: str, sample_seed: int) -> str:
+    enable_thinking = bool(generation.get("enable_thinking", True))
+
+    def sample(prompt: str, sample_seed: int) -> tuple[str, str | None, str]:
         torch.manual_seed(sample_seed)
-        messages = [{"role": "user", "content": prompt}]
-        if hasattr(tokenizer, "apply_chat_template") and tokenizer.chat_template:
-            encoded = tokenizer.apply_chat_template(
-                messages, add_generation_prompt=True, return_tensors="pt"
-            ).to(device)
-            attention_mask = torch.ones_like(encoded)
-        else:
-            batch = tokenizer(prompt, return_tensors="pt")
-            encoded = batch["input_ids"].to(device)
-            attention_mask = batch["attention_mask"].to(device)
+        encoded, attention_mask = generation_inputs(tokenizer, prompt, device, enable_thinking)
         with torch.inference_mode():
             output = model.generate(
                 input_ids=encoded,
@@ -169,7 +283,11 @@ def generate_dataset(config: dict[str, Any]) -> Path:
                 max_new_tokens=int(generation.get("max_new_tokens", 220)),
                 pad_token_id=tokenizer.pad_token_id,
             )
-        return _clean_generation(tokenizer.decode(output[0, encoded.shape[1] :], skip_special_tokens=True))
+        raw = tokenizer.decode(output[0, encoded.shape[1] :], skip_special_tokens=True)
+        malformed_reason = _generation_malformed_reason(raw)
+        if malformed_reason:
+            return "", malformed_reason, raw
+        return _clean_generation(raw), None, raw
 
     sequence = 0
     for topic in data["topics"]:
@@ -177,18 +295,64 @@ def generate_dataset(config: dict[str, Any]) -> Path:
             for story_index in range(stories_per_pair):
                 prompt = _generation_prompt(topic, emotion, forbidden.get(emotion, []), False)
                 text = ""
+                attempts = []
                 for attempt in range(maximum_attempts):
-                    text = sample(prompt, seed + sequence * maximum_attempts + attempt)
+                    sample_seed = seed + sequence * maximum_attempts + attempt
+                    text, malformed_reason, raw_text = sample(prompt, sample_seed)
                     check = validate_story_rows(
                         [{"topic": topic, "emotion": emotion, "text": text}],
                         emotions,
                         forbidden,
                     )
-                    if text and not check["lexical_leakage"]:
+                    leakage = check["lexical_leakage"]
+                    matched_terms = leakage[0]["terms"] if leakage else []
+                    attempts.append(
+                        {
+                            "attempt": attempt + 1,
+                            "sample_seed": sample_seed,
+                            "accepted": bool(text and not leakage and not malformed_reason),
+                            "malformed_reason": malformed_reason,
+                            "matched_terms": matched_terms,
+                            "character_count": len(text),
+                            "word_count": len(text.split()),
+                            "text": text,
+                            "raw_text": raw_text,
+                        }
+                    )
+                    if text and not check["lexical_leakage"] and not malformed_reason:
                         break
                 else:
+                    report = generation_failure_report(
+                        topic=topic,
+                        emotion=emotion,
+                        story_index=story_index,
+                        sequence=sequence,
+                        maximum_attempts=maximum_attempts,
+                        forbidden_terms=forbidden.get(emotion, []),
+                        prompt=prompt,
+                        attempts=attempts,
+                        successful_rows=len(rows),
+                    )
+                    failure_path = write_generation_failure_diagnostics(
+                        dataset_path, report, rows
+                    )
+                    print(
+                        json.dumps(
+                            {
+                                "generation_failure": str(failure_path),
+                                "partial_stories": str(
+                                    failure_path.parent / "generation_partial_stories.jsonl"
+                                ),
+                                "topic": topic,
+                                "emotion": emotion,
+                                "matched_term_counts": report["matched_term_counts"],
+                            },
+                            indent=2,
+                        )
+                    )
                     raise RuntimeError(
-                        f"Could not generate a leakage-free story for {emotion!r}/{topic!r}"
+                        f"Could not generate a leakage-free story for {emotion!r}/{topic!r}; "
+                        f"diagnostics written to {failure_path}"
                     )
                 rows.append(
                     {
@@ -204,13 +368,16 @@ def generate_dataset(config: dict[str, Any]) -> Path:
     neutral_rows = []
     for index, topic in enumerate(data["neutral_topics"]):
         prompt = _generation_prompt(topic, "", [], True)
+        text, malformed_reason, _raw_text = sample(prompt, seed + sequence)
+        if malformed_reason:
+            raise RuntimeError(
+                f"Could not generate a valid neutral paragraph for {topic!r}: {malformed_reason}"
+            )
         neutral_rows.append(
-            {"id": f"neutral-{index:06d}", "topic": topic, "text": sample(prompt, seed + sequence)}
+            {"id": f"neutral-{index:06d}", "topic": topic, "text": text}
         )
         sequence += 1
 
-    dataset_path = Path(data["stories_path"])
-    neutral_path = Path(data["neutral_path"])
     write_jsonl(dataset_path, rows)
     write_jsonl(neutral_path, neutral_rows)
     print(json.dumps({"stories": str(dataset_path), "neutral": str(neutral_path)}, indent=2))
@@ -220,6 +387,10 @@ def generate_dataset(config: dict[str, Any]) -> Path:
 def encode(tokenizer: Any, texts: list[str], device: str) -> dict[str, Tensor]:
     batch = tokenizer(texts, return_tensors="pt", padding=True, truncation=True)
     return {key: value.to(device) for key, value in batch.items()}
+
+
+def flat_nonzero(values: Tensor) -> Tensor:
+    return torch.nonzero(values, as_tuple=False).flatten()
 
 
 def pooled_activations(
@@ -242,12 +413,53 @@ def pooled_activations(
             hidden = output.hidden_states[layer_index + 1]
             vectors = []
             for row in range(hidden.shape[0]):
-                valid = torch.flatnonzero(masks[row])
+                valid = flat_nonzero(masks[row])
                 selected = valid[token_start:] if len(valid) > token_start else valid[-1:]
                 vectors.append(hidden[row, selected].float().mean(dim=0).cpu())
             pooled_layers.append(torch.stack(vectors))
         batches.append(torch.stack(pooled_layers, dim=1))
     return torch.cat(batches) if batches else torch.empty(0)
+
+
+def pooling_diagnostics(
+    tokenizer: Any,
+    rows: list[dict[str, Any]],
+    token_start: int,
+    split_name: str,
+) -> dict[str, Any]:
+    lengths = []
+    fallback_rows = []
+    per_emotion: dict[str, dict[str, int]] = {}
+    for index, row in enumerate(rows):
+        token_count = len(tokenizer(row["text"], truncation=True)["input_ids"])
+        lengths.append(token_count)
+        emotion = row.get("emotion")
+        if emotion is not None:
+            bucket = per_emotion.setdefault(emotion, {"rows": 0, "fallback_rows": 0})
+            bucket["rows"] += 1
+        if token_count <= token_start:
+            fallback = {
+                "row": index,
+                "id": row.get("id"),
+                "topic": row.get("topic"),
+                "emotion": emotion,
+                "token_count": token_count,
+            }
+            fallback_rows.append(fallback)
+            if emotion is not None:
+                per_emotion[emotion]["fallback_rows"] += 1
+    return {
+        "split": split_name,
+        "rows": len(rows),
+        "token_start": token_start,
+        "minimum_tokens": min(lengths, default=0),
+        "median_tokens": float(np.median(lengths)) if lengths else 0.0,
+        "maximum_tokens": max(lengths, default=0),
+        "final_token_fallback_rows": len(fallback_rows),
+        "final_token_fallback_fraction": len(fallback_rows) / len(rows) if rows else 0.0,
+        "fallback_examples": fallback_rows[:20],
+        "per_emotion": per_emotion,
+    }
 
 
 def difference_in_means(activations: Tensor, labels: list[str], emotions: list[str]) -> Tensor:
@@ -330,6 +542,13 @@ def evaluate_vectors(
         masked = scores.clone()
         masked[torch.arange(len(scores)), label_ids] = -torch.inf
         margins = correct_scores - masked.max(dim=1).values
+        confusion = [
+            [
+                int(((label_ids == true_index) & (predicted == predicted_index)).sum())
+                for predicted_index in range(len(emotions))
+            ]
+            for true_index in range(len(emotions))
+        ]
         aucs = [
             binary_auc(scores[:, index], label_ids == index) for index in range(len(emotions))
         ]
@@ -345,10 +564,53 @@ def evaluate_vectors(
                 "accuracy": float((predicted == label_ids).float().mean()),
                 "macro_auc": float(np.nanmean(aucs)),
                 "mean_correct_margin": float(margins.mean()),
+                "confusion_matrix": {
+                    "labels": emotions,
+                    "rows_are_true_labels": confusion,
+                },
                 "per_emotion": per_emotion,
             }
         )
     return results
+
+
+def selected_layer_examples(
+    rows: list[dict[str, Any]],
+    activations: Tensor,
+    emotions: list[str],
+    raw_vectors: Tensor,
+    clean_vectors: Tensor,
+    layer_position: int,
+) -> list[dict[str, Any]]:
+    raw_scores = activations[:, layer_position] @ raw_vectors[:, layer_position].T
+    clean_scores = activations[:, layer_position] @ clean_vectors[:, layer_position].T
+    examples = []
+    for index, row in enumerate(rows):
+        label_index = emotions.index(row["emotion"])
+        raw_predicted = int(raw_scores[index].argmax())
+        clean_predicted = int(clean_scores[index].argmax())
+        clean_masked = clean_scores[index].clone()
+        clean_masked[label_index] = -torch.inf
+        examples.append(
+            {
+                "id": row.get("id"),
+                "topic": row["topic"],
+                "emotion": row["emotion"],
+                "raw_prediction": emotions[raw_predicted],
+                "pca_cleaned_prediction": emotions[clean_predicted],
+                "pca_cleaned_correct": clean_predicted == label_index,
+                "pca_cleaned_margin": float(clean_scores[index, label_index] - clean_masked.max()),
+                "raw_scores": {
+                    emotion: float(raw_scores[index, emotion_index])
+                    for emotion_index, emotion in enumerate(emotions)
+                },
+                "pca_cleaned_scores": {
+                    emotion: float(clean_scores[index, emotion_index])
+                    for emotion_index, emotion in enumerate(emotions)
+                },
+            }
+        )
+    return examples
 
 
 def resolve_layer_indices(specification: Any, number_of_layers: int) -> list[int]:
@@ -408,12 +670,13 @@ def run(config: dict[str, Any]) -> Path:
     number_of_layers = len(decoder_layers(model))
     layer_indices = resolve_layer_indices(model_config.get("layers", "all"), number_of_layers)
     extraction = config["extraction"]
+    token_start = int(extraction.get("token_start", 50))
     activation_args = {
         "model": model,
         "tokenizer": tokenizer,
         "device": device,
         "layer_indices": layer_indices,
-        "token_start": int(extraction.get("token_start", 50)),
+        "token_start": token_start,
         "batch_size": int(extraction.get("batch_size", 2)),
     }
     train_activations = pooled_activations(
@@ -478,6 +741,10 @@ def run(config: dict[str, Any]) -> Path:
     )
     output = Path(config["output_dir"]) / run_id
     output.mkdir(parents=True, exist_ok=False)
+    dataset_output = output / "dataset"
+    dataset_output.mkdir()
+    shutil.copy2(Path(data["stories_path"]), dataset_output / "stories.jsonl")
+    shutil.copy2(Path(data["neutral_path"]), dataset_output / "neutral.jsonl")
     metrics = {
         "all_hard_gates_pass": all(gates.values()),
         "gates": gates,
@@ -485,16 +752,33 @@ def run(config: dict[str, Any]) -> Path:
         "selection_metric": "pre_registered_model.evaluation_layer",
         "chance_accuracy": 1 / len(emotions),
         "dataset_audit": audit,
+        "dataset_artifacts": {
+            "stories": "dataset/stories.jsonl",
+            "neutral": "dataset/neutral.jsonl",
+        },
         "split": {
             "train_topics": sorted(train_topics),
             "test_topics": sorted(test_topics),
             "train_stories": len(train_rows),
             "test_stories": len(test_rows),
         },
+        "pooling": [
+            pooling_diagnostics(tokenizer, train_rows, token_start, "train"),
+            pooling_diagnostics(tokenizer, test_rows, token_start, "test"),
+            pooling_diagnostics(tokenizer, neutral, token_start, "neutral"),
+        ],
         "neutral_pca": [
             {"layer": layer, **metadata}
             for layer, metadata in zip(layer_indices, pca_metadata, strict=True)
         ],
+        "selected_layer_examples": selected_layer_examples(
+            test_rows,
+            test_activations,
+            emotions,
+            raw_vectors,
+            clean_vectors,
+            selected_position,
+        ),
         "layers": [
             {
                 "layer": layer,

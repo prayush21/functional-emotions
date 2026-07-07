@@ -1,0 +1,165 @@
+{
+  "experiment": "prototype2.5",
+  "seed": 42,
+  "prototype1": {
+    "base_config": "configs/prototype1.yaml",
+    "overrides": {
+      "model": {
+        "name": "Qwen/Qwen3-0.6B-Base",
+        "revision": "main",
+        "dtype": "float32",
+        "device": "auto",
+        "local_files_only": false,
+        "layers": "all",
+        "evaluation_layer": "two_thirds"
+      },
+      "generation": {
+        "model": "Qwen/Qwen3-1.7B",
+        "revision": "main",
+        "dtype": "auto",
+        "device": "auto",
+        "local_files_only": false,
+        "enable_thinking": false,
+        "stories_per_topic_emotion": 4,
+        "maximum_attempts_per_story": 20,
+        "temperature": 0.85,
+        "top_p": 0.95,
+        "max_new_tokens": 240
+      },
+      "data": {
+        "train_topic_fraction": 0.7,
+        "emotions": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "forbidden_terms": {
+          "happy": [
+            "happiness",
+            "joyful",
+            "joy",
+            "delighted",
+            "cheerful",
+            "pleased",
+            "glad"
+          ],
+          "sad": [
+            "sadness",
+            "sorrowful",
+            "sorrow",
+            "grief",
+            "unhappy",
+            "miserable",
+            "mournful"
+          ],
+          "angry": [
+            "anger",
+            "furious",
+            "rage",
+            "enraged",
+            "irritated",
+            "annoyed",
+            "mad"
+          ],
+          "afraid": [
+            "fear",
+            "fearful",
+            "scared",
+            "terrified",
+            "frightened",
+            "anxious",
+            "panic"
+          ]
+        },
+        "topics": [
+          "A student receives a revised scholarship decision minutes before class",
+          "A lab partner changes shared results before the final submission",
+          "A person hears footsteps stop outside their apartment late at night",
+          "A nurse notices an unexpected alarm while checking a quiet ward",
+          "An employee discovers their careful report was dismissed unread",
+          "A traveler realizes their bag has been opened during a long delay",
+          "A child sees their handmade project displayed at the front of the room",
+          "A musician finds a note tucked inside their instrument case",
+          "A tenant reads a building notice after seeing workers in the hallway",
+          "A driver watches another car swerve across the lane ahead",
+          "A cook learns a family recipe was chosen for the neighborhood dinner",
+          "A volunteer finds their name missing from a public thank-you list",
+          "A researcher notices a locked cabinet standing open after hours",
+          "A sibling finds an old recording saved by someone they miss",
+          "A coach changes an athlete's role just before the match begins",
+          "A clerk finds a customer has quietly paid for another person's order"
+        ],
+        "neutral_topics": [
+          "A clerk inventories office supplies at closing time",
+          "A commuter checks the stops on a familiar bus route",
+          "A gardener records the week's rainfall measurements",
+          "A librarian reshelves returned reference books",
+          "A cook labels containers before placing them in a refrigerator",
+          "A technician replaces a scheduled air filter",
+          "A student copies a timetable into a calendar",
+          "A cashier counts unopened rolls of coins",
+          "A hiker compares two printed trail maps",
+          "A tailor measures a plain curtain panel",
+          "A custodian unlocks rooms in a municipal building",
+          "A volunteer sorts forms by date",
+          "A registrar alphabetizes appointment cards",
+          "A mechanic logs tire pressure readings",
+          "A florist counts empty glass vases",
+          "A courier scans barcodes on sealed boxes"
+        ]
+      },
+      "extraction": {
+        "token_start": 50,
+        "batch_size": 2,
+        "neutral_variance_threshold": 0.5
+      },
+      "gates": {
+        "minimum_held_out_accuracy": 0.4,
+        "minimum_held_out_macro_auc": 0.6,
+        "minimum_mean_correct_margin": 0.0
+      }
+    }
+  },
+  "prototype2": {
+    "base_config": "configs/prototype2.yaml",
+    "prototype1_run_dir": null,
+    "overrides": {
+      "model": {
+        "device": "auto",
+        "dtype": "float32",
+        "local_files_only": false,
+        "layers": "all"
+      },
+      "extraction": {
+        "token_start": 50,
+        "batch_size": 2
+      },
+      "controls": {
+        "shuffle_seed": 43
+      },
+      "logit_lens": {
+        "batch_size": 4,
+        "terms": {
+          "happy": [
+            "happy",
+            "glad"
+          ],
+          "sad": [
+            "sad",
+            "downcast"
+          ],
+          "angry": [
+            "angry",
+            "mad"
+          ],
+          "afraid": [
+            "afraid",
+            "scared"
+          ]
+        }
+      }
+    }
+  },
+  "output_dir": "artifacts/prototype25"
+}

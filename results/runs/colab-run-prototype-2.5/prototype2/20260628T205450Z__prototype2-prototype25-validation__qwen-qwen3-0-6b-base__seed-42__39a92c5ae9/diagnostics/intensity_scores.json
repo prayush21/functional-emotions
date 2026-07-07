@@ -1,0 +1,5381 @@
+{
+  "lexical_leakage": [],
+  "layers": [
+    {
+      "layer": 0,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.4999999999999999,
+        "angry": -0.4999999999999999,
+        "afraid": -0.9999999999999998
+      },
+      "mean_spearman": -0.3749999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.0714893788099289,
+          "scores": {
+            "happy": -0.0714893788099289,
+            "sad": -0.35386335849761963,
+            "angry": 0.015067428350448608,
+            "afraid": 0.3649054169654846
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.09853807091712952,
+          "scores": {
+            "happy": -0.09853807091712952,
+            "sad": -0.3594079613685608,
+            "angry": 0.07735323160886765,
+            "afraid": 0.3356359302997589
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.09117921441793442,
+          "scores": {
+            "happy": -0.09117921441793442,
+            "sad": -0.29104816913604736,
+            "angry": 0.0788668766617775,
+            "afraid": 0.2671247720718384
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.34113365411758423,
+          "scores": {
+            "happy": -0.09785319864749908,
+            "sad": -0.34113365411758423,
+            "angry": 0.06567356735467911,
+            "afraid": 0.3302900195121765
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.38041216135025024,
+          "scores": {
+            "happy": -0.09367316216230392,
+            "sad": -0.38041216135025024,
+            "angry": 0.07749971002340317,
+            "afraid": 0.3491670787334442
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.2948412299156189,
+          "scores": {
+            "happy": -0.10197537392377853,
+            "sad": -0.2948412299156189,
+            "angry": 0.03682166337966919,
+            "afraid": 0.32172662019729614
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.05804721266031265,
+          "scores": {
+            "happy": -0.09931487590074539,
+            "sad": -0.36922359466552734,
+            "angry": 0.05804721266031265,
+            "afraid": 0.36371853947639465
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.06435806304216385,
+          "scores": {
+            "happy": -0.127125084400177,
+            "sad": -0.36948952078819275,
+            "angry": 0.06435806304216385,
+            "afraid": 0.3848617970943451
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.02410784363746643,
+          "scores": {
+            "happy": -0.13588079810142517,
+            "sad": -0.341631680727005,
+            "angry": 0.02410784363746643,
+            "afraid": 0.40801000595092773
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.35852378606796265,
+          "scores": {
+            "happy": -0.10273997485637665,
+            "sad": -0.326015830039978,
+            "angry": 0.027809657156467438,
+            "afraid": 0.35852378606796265
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.3535717725753784,
+          "scores": {
+            "happy": -0.12801773846149445,
+            "sad": -0.3380851149559021,
+            "angry": 0.06914559006690979,
+            "afraid": 0.3535717725753784
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.30232638120651245,
+          "scores": {
+            "happy": -0.08688472956418991,
+            "sad": -0.33187317848205566,
+            "angry": 0.07514593750238419,
+            "afraid": 0.30232638120651245
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 1,
+      "spearman_by_emotion": {
+        "happy": 0.9999999999999998,
+        "sad": 0.4999999999999999,
+        "angry": -0.9999999999999998,
+        "afraid": -0.9999999999999998
+      },
+      "mean_spearman": -0.125,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.3004440665245056,
+          "scores": {
+            "happy": -0.3004440665245056,
+            "sad": -0.17196719348430634,
+            "angry": -0.25126922130584717,
+            "afraid": 0.7088348269462585
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.26034313440322876,
+          "scores": {
+            "happy": -0.26034313440322876,
+            "sad": -0.19563710689544678,
+            "angry": -0.1774434596300125,
+            "afraid": 0.6166363954544067
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.15832598507404327,
+          "scores": {
+            "happy": -0.15832598507404327,
+            "sad": -0.07731196284294128,
+            "angry": -0.2989380657672882,
+            "afraid": 0.5230891108512878
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.17198924720287323,
+          "scores": {
+            "happy": -0.256689190864563,
+            "sad": -0.17198924720287323,
+            "angry": -0.1713525950908661,
+            "afraid": 0.5859135985374451
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.2279546558856964,
+          "scores": {
+            "happy": -0.2613811790943146,
+            "sad": -0.2279546558856964,
+            "angry": -0.13309524953365326,
+            "afraid": 0.6034719944000244
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.12357884645462036,
+          "scores": {
+            "happy": -0.15433833003044128,
+            "sad": -0.12357884645462036,
+            "angry": -0.3001132309436798,
+            "afraid": 0.5612106323242188
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.07126070559024811,
+          "scores": {
+            "happy": -0.2501359283924103,
+            "sad": -0.27531832456588745,
+            "angry": -0.07126070559024811,
+            "afraid": 0.5739659070968628
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.14673921465873718,
+          "scores": {
+            "happy": -0.29848140478134155,
+            "sad": -0.1937963366508484,
+            "angry": -0.14673921465873718,
+            "afraid": 0.6249080896377563
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.1631249338388443,
+          "scores": {
+            "happy": -0.3226606547832489,
+            "sad": -0.15185301005840302,
+            "angry": -0.1631249338388443,
+            "afraid": 0.6286437511444092
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.7304793000221252,
+          "scores": {
+            "happy": -0.3614009618759155,
+            "sad": -0.1971774399280548,
+            "angry": -0.18506138026714325,
+            "afraid": 0.7304793000221252
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.6460596919059753,
+          "scores": {
+            "happy": -0.25301700830459595,
+            "sad": -0.1624801754951477,
+            "angry": -0.24608862400054932,
+            "afraid": 0.6460596919059753
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.6162530183792114,
+          "scores": {
+            "happy": -0.23343221843242645,
+            "sad": -0.1536698341369629,
+            "angry": -0.2444276213645935,
+            "afraid": 0.6162530183792114
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 2,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.4999999999999999,
+        "angry": -0.4999999999999999,
+        "afraid": -0.4999999999999999
+      },
+      "mean_spearman": -0.24999999999999994,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.24369211494922638,
+          "scores": {
+            "happy": 0.24369211494922638,
+            "sad": 0.27861300110816956,
+            "angry": -0.4708893299102783,
+            "afraid": -0.029000919312238693
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.29771512746810913,
+          "scores": {
+            "happy": 0.29771512746810913,
+            "sad": 0.2517896294593811,
+            "angry": -0.4408217668533325,
+            "afraid": -0.0869867354631424
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.23646864295005798,
+          "scores": {
+            "happy": 0.23646864295005798,
+            "sad": 0.3979061245918274,
+            "angry": -0.4575193524360657,
+            "afraid": -0.13754378259181976
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.2131119966506958,
+          "scores": {
+            "happy": 0.3011528551578522,
+            "sad": 0.2131119966506958,
+            "angry": -0.35332995653152466,
+            "afraid": -0.14022764563560486
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.20373950898647308,
+          "scores": {
+            "happy": 0.2639133930206299,
+            "sad": 0.20373950898647308,
+            "angry": -0.3732888698577881,
+            "afraid": -0.0769663080573082
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.3873862028121948,
+          "scores": {
+            "happy": 0.35445863008499146,
+            "sad": 0.3873862028121948,
+            "angry": -0.5262155532836914,
+            "afraid": -0.17778287827968597
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -0.2918813228607178,
+          "scores": {
+            "happy": 0.28189370036125183,
+            "sad": 0.18329383432865143,
+            "angry": -0.2918813228607178,
+            "afraid": -0.1542695164680481
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -0.35780471563339233,
+          "scores": {
+            "happy": 0.1833680272102356,
+            "sad": 0.14260461926460266,
+            "angry": -0.35780471563339233,
+            "afraid": 0.039282675832509995
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.3388918936252594,
+          "scores": {
+            "happy": 0.10562306642532349,
+            "sad": 0.26454997062683105,
+            "angry": -0.3388918936252594,
+            "afraid": -0.00828230008482933
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.05572337657213211,
+          "scores": {
+            "happy": 0.17973639070987701,
+            "sad": 0.2304399609565735,
+            "angry": -0.4509601593017578,
+            "afraid": 0.05572337657213211
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.11200685799121857,
+          "scores": {
+            "happy": 0.2639290690422058,
+            "sad": 0.3074449300765991,
+            "angry": -0.43044236302375793,
+            "afraid": -0.11200685799121857
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.07813511788845062,
+          "scores": {
+            "happy": 0.28386610746383667,
+            "sad": 0.3533225655555725,
+            "angry": -0.5279775261878967,
+            "afraid": -0.07813511788845062
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 3,
+      "spearman_by_emotion": {
+        "happy": -0.9999999999999998,
+        "sad": 0.4999999999999999,
+        "angry": -0.9999999999999998,
+        "afraid": -0.9999999999999998
+      },
+      "mean_spearman": -0.6249999999999998,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.23877081274986267,
+          "scores": {
+            "happy": 0.23877081274986267,
+            "sad": -0.16618621349334717,
+            "angry": 0.24815446138381958,
+            "afraid": -0.28693318367004395
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.12744906544685364,
+          "scores": {
+            "happy": 0.12744906544685364,
+            "sad": -0.010809458792209625,
+            "angry": 0.2068467140197754,
+            "afraid": -0.29020771384239197
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.10900630056858063,
+          "scores": {
+            "happy": 0.10900630056858063,
+            "sad": 0.11076661944389343,
+            "angry": 0.2733345925807953,
+            "afraid": -0.44284722208976746
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.15427948534488678,
+          "scores": {
+            "happy": 0.17265558242797852,
+            "sad": -0.15427948534488678,
+            "angry": 0.5062033534049988,
+            "afraid": -0.4733164310455322
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.2089168280363083,
+          "scores": {
+            "happy": 0.20571577548980713,
+            "sad": -0.2089168280363083,
+            "angry": 0.3825545907020569,
+            "afraid": -0.3415151536464691
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.2198149561882019,
+          "scores": {
+            "happy": 0.2925718426704407,
+            "sad": 0.2198149561882019,
+            "angry": 0.3154040575027466,
+            "afraid": -0.7400937080383301
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.3491520583629608,
+          "scores": {
+            "happy": 0.33375585079193115,
+            "sad": 0.035782307386398315,
+            "angry": 0.3491520583629608,
+            "afraid": -0.6425854563713074
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.16682007908821106,
+          "scores": {
+            "happy": 0.2589584290981293,
+            "sad": -0.22696642577648163,
+            "angry": 0.16682007908821106,
+            "afraid": -0.17667564749717712
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.05416730418801308,
+          "scores": {
+            "happy": 0.06756000220775604,
+            "sad": 0.039981648325920105,
+            "angry": 0.05416730418801308,
+            "afraid": -0.14438262581825256
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.09992196410894394,
+          "scores": {
+            "happy": -0.14561307430267334,
+            "sad": -0.18372417986392975,
+            "angry": 0.2121906727552414,
+            "afraid": 0.09992196410894394
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.28964266180992126,
+          "scores": {
+            "happy": 0.02183811366558075,
+            "sad": 0.004706241190433502,
+            "angry": 0.2935328483581543,
+            "afraid": -0.28964266180992126
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.7716149687767029,
+          "scores": {
+            "happy": 0.2984963655471802,
+            "sad": 0.07245727628469467,
+            "angry": 0.4895747900009155,
+            "afraid": -0.7716149687767029
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 4,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.4999999999999999,
+        "angry": -0.9999999999999998,
+        "afraid": -0.9999999999999998
+      },
+      "mean_spearman": -0.4999999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.2751616835594177,
+          "scores": {
+            "happy": 0.2751616835594177,
+            "sad": -0.5206122398376465,
+            "angry": 1.1305291652679443,
+            "afraid": -0.7934833765029907
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.055283933877944946,
+          "scores": {
+            "happy": 0.055283933877944946,
+            "sad": -0.29083070158958435,
+            "angry": 0.9614689350128174,
+            "afraid": -0.6481114029884338
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.10215321183204651,
+          "scores": {
+            "happy": 0.10215321183204651,
+            "sad": -0.33781319856643677,
+            "angry": 1.1246832609176636,
+            "afraid": -0.7938547134399414
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.5137680768966675,
+          "scores": {
+            "happy": 0.1754957139492035,
+            "sad": -0.5137680768966675,
+            "angry": 1.0396769046783447,
+            "afraid": -0.6294097900390625
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.5660289525985718,
+          "scores": {
+            "happy": 0.1789044737815857,
+            "sad": -0.5660289525985718,
+            "angry": 1.1710169315338135,
+            "afraid": -0.703221321105957
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.2852134108543396,
+          "scores": {
+            "happy": 0.1761355698108673,
+            "sad": -0.2852134108543396,
+            "angry": 1.1195991039276123,
+            "afraid": -0.9019157886505127
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 1.0550110340118408,
+          "scores": {
+            "happy": 0.5020528435707092,
+            "sad": -0.6420888900756836,
+            "angry": 1.0550110340118408,
+            "afraid": -0.8230515122413635
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.8796065449714661,
+          "scores": {
+            "happy": 0.34141799807548523,
+            "sad": -0.496791273355484,
+            "angry": 0.8796065449714661,
+            "afraid": -0.6508914828300476
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.8011437058448792,
+          "scores": {
+            "happy": 0.2838227450847626,
+            "sad": -0.38903045654296875,
+            "angry": 0.8011437058448792,
+            "afraid": -0.6242659091949463
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.5236656665802002,
+          "scores": {
+            "happy": 0.025565236806869507,
+            "sad": -0.5832086205482483,
+            "angry": 1.1406828165054321,
+            "afraid": -0.5236656665802002
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.7588081359863281,
+          "scores": {
+            "happy": 0.14535604417324066,
+            "sad": -0.35448402166366577,
+            "angry": 1.0581326484680176,
+            "afraid": -0.7588081359863281
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -1.0319751501083374,
+          "scores": {
+            "happy": 0.3762921690940857,
+            "sad": -0.37787532806396484,
+            "angry": 1.1556572914123535,
+            "afraid": -1.0319751501083374
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 5,
+      "spearman_by_emotion": {
+        "happy": -0.9999999999999998,
+        "sad": 0.9999999999999998,
+        "angry": -0.9999999999999998,
+        "afraid": -0.9999999999999998
+      },
+      "mean_spearman": -0.4999999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.3374614715576172,
+          "scores": {
+            "happy": 1.3374614715576172,
+            "sad": 0.339449405670166,
+            "angry": 0.3826695382595062,
+            "afraid": -1.7830522060394287
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.1686103343963623,
+          "scores": {
+            "happy": 1.1686103343963623,
+            "sad": 0.48180481791496277,
+            "angry": -0.08688145875930786,
+            "afraid": -1.3545483350753784
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.987356424331665,
+          "scores": {
+            "happy": 0.987356424331665,
+            "sad": 0.6494094133377075,
+            "angry": 0.10961580276489258,
+            "afraid": -1.5070011615753174
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.3028777241706848,
+          "scores": {
+            "happy": 1.1560218334197998,
+            "sad": 0.3028777241706848,
+            "angry": 0.22010743618011475,
+            "afraid": -1.454465389251709
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.4695163369178772,
+          "scores": {
+            "happy": 1.0234835147857666,
+            "sad": 0.4695163369178772,
+            "angry": 0.1813691258430481,
+            "afraid": -1.4471712112426758
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.757749080657959,
+          "scores": {
+            "happy": 1.059546947479248,
+            "sad": 0.757749080657959,
+            "angry": -0.002932250499725342,
+            "afraid": -1.5656399726867676
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.16249674558639526,
+          "scores": {
+            "happy": 1.3783152103424072,
+            "sad": 0.4047219753265381,
+            "angry": 0.16249674558639526,
+            "afraid": -1.6856110095977783
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -0.10467225313186646,
+          "scores": {
+            "happy": 1.4442037343978882,
+            "sad": 0.2755478024482727,
+            "angry": -0.10467225313186646,
+            "afraid": -1.4046164751052856
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -0.15663596987724304,
+          "scores": {
+            "happy": 1.2405775785446167,
+            "sad": 0.4078395366668701,
+            "angry": -0.15663596987724304,
+            "afraid": -1.2947934865951538
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -1.187564492225647,
+          "scores": {
+            "happy": 0.7132355570793152,
+            "sad": 0.09738251566886902,
+            "angry": 0.5634766817092896,
+            "afraid": -1.187564492225647
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -1.4409979581832886,
+          "scores": {
+            "happy": 0.9407795667648315,
+            "sad": 0.6050547361373901,
+            "angry": 0.12399840354919434,
+            "afraid": -1.4409979581832886
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -1.9568309783935547,
+          "scores": {
+            "happy": 1.4608356952667236,
+            "sad": 0.6916206479072571,
+            "angry": 0.11056274175643921,
+            "afraid": -1.9568309783935547
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 6,
+      "spearman_by_emotion": {
+        "happy": -0.9999999999999998,
+        "sad": 0.9999999999999998,
+        "angry": -0.4999999999999999,
+        "afraid": -0.9999999999999998
+      },
+      "mean_spearman": -0.3749999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.18303382396698,
+          "scores": {
+            "happy": 1.18303382396698,
+            "sad": 0.26686835289001465,
+            "angry": 0.4202512204647064,
+            "afraid": -1.6378544569015503
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.94228196144104,
+          "scores": {
+            "happy": 0.94228196144104,
+            "sad": 0.7506115436553955,
+            "angry": -0.021675050258636475,
+            "afraid": -1.4725415706634521
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.35839182138442993,
+          "scores": {
+            "happy": 0.35839182138442993,
+            "sad": 1.1202419996261597,
+            "angry": 0.33097684383392334,
+            "afraid": -1.5959532260894775
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.27014729380607605,
+          "scores": {
+            "happy": 0.672944188117981,
+            "sad": 0.27014729380607605,
+            "angry": 0.4380139708518982,
+            "afraid": -1.2096304893493652
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.953499436378479,
+          "scores": {
+            "happy": 0.4836490750312805,
+            "sad": 0.953499436378479,
+            "angry": 0.3215826451778412,
+            "afraid": -1.5494146347045898
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 1.0902466773986816,
+          "scores": {
+            "happy": 0.5426274538040161,
+            "sad": 1.0902466773986816,
+            "angry": 0.05709713697433472,
+            "afraid": -1.4926323890686035
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.14344483613967896,
+          "scores": {
+            "happy": 1.0410701036453247,
+            "sad": 0.5482921600341797,
+            "angry": 0.14344483613967896,
+            "afraid": -1.522885799407959
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -0.1133638322353363,
+          "scores": {
+            "happy": 1.1341488361358643,
+            "sad": 0.2622874081134796,
+            "angry": -0.1133638322353363,
+            "afraid": -1.1273138523101807
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -0.1009598970413208,
+          "scores": {
+            "happy": 1.206845998764038,
+            "sad": 0.5016295313835144,
+            "angry": -0.1009598970413208,
+            "afraid": -1.4142189025878906
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -1.0855988264083862,
+          "scores": {
+            "happy": 0.5804153680801392,
+            "sad": 0.2865965664386749,
+            "angry": 0.37168198823928833,
+            "afraid": -1.0855988264083862
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.1686698198318481,
+          "scores": {
+            "happy": 0.5070537328720093,
+            "sad": 0.6664336919784546,
+            "angry": 0.15312111377716064,
+            "afraid": -1.1686698198318481
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -1.7985261678695679,
+          "scores": {
+            "happy": 1.0562855005264282,
+            "sad": 0.974656343460083,
+            "angry": 0.009712636470794678,
+            "afraid": -1.7985261678695679
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 7,
+      "spearman_by_emotion": {
+        "happy": -0.9999999999999998,
+        "sad": 0.9999999999999998,
+        "angry": 0.4999999999999999,
+        "afraid": -0.9999999999999998
+      },
+      "mean_spearman": -0.12499999999999997,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.05980914831161499,
+          "scores": {
+            "happy": -0.05980914831161499,
+            "sad": 1.673769474029541,
+            "angry": -1.4189350605010986,
+            "afraid": -0.25668540596961975
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.6442673802375793,
+          "scores": {
+            "happy": -0.6442673802375793,
+            "sad": 2.0613255500793457,
+            "angry": -1.5473793745040894,
+            "afraid": 0.0050310492515563965
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.265799641609192,
+          "scores": {
+            "happy": -1.265799641609192,
+            "sad": 2.3528618812561035,
+            "angry": -0.8892953395843506,
+            "afraid": -0.2798406481742859
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 1.7149726152420044,
+          "scores": {
+            "happy": -0.6031006574630737,
+            "sad": 1.7149726152420044,
+            "angry": -1.0888170003890991,
+            "afraid": -0.10603843629360199
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.260117769241333,
+          "scores": {
+            "happy": -0.8268510103225708,
+            "sad": 2.260117769241333,
+            "angry": -0.9496445059776306,
+            "afraid": -0.5224655866622925
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.793069362640381,
+          "scores": {
+            "happy": -0.9947035312652588,
+            "sad": 2.793069362640381,
+            "angry": -1.1626031398773193,
+            "afraid": -0.6782471537590027
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.3264714479446411,
+          "scores": {
+            "happy": -0.2559267282485962,
+            "sad": 1.7115638256072998,
+            "angry": -1.3264714479446411,
+            "afraid": -0.20037469267845154
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.5947011709213257,
+          "scores": {
+            "happy": -0.39397114515304565,
+            "sad": 1.6250479221343994,
+            "angry": -1.5947011709213257,
+            "afraid": 0.22293320298194885
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.2700386047363281,
+          "scores": {
+            "happy": -0.4314008355140686,
+            "sad": 1.510176181793213,
+            "angry": -1.2700386047363281,
+            "afraid": 0.08409633487462997
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.3761412501335144,
+          "scores": {
+            "happy": -1.2047436237335205,
+            "sad": 1.7694015502929688,
+            "angry": -1.1056407690048218,
+            "afraid": 0.3761412501335144
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.2732026278972626,
+          "scores": {
+            "happy": -1.128839373588562,
+            "sad": 1.856025218963623,
+            "angry": -1.1533231735229492,
+            "afraid": 0.2732026278972626
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.5581443309783936,
+          "scores": {
+            "happy": -0.5976433753967285,
+            "sad": 2.439425468444824,
+            "angry": -1.3314571380615234,
+            "afraid": -0.5581443309783936
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "spearman_by_emotion": {
+        "happy": -0.9999999999999998,
+        "sad": 0.9999999999999998,
+        "angry": 0.4999999999999999,
+        "afraid": -0.9999999999999998
+      },
+      "mean_spearman": -0.12499999999999997,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.29643386602401733,
+          "scores": {
+            "happy": -0.29643386602401733,
+            "sad": 0.5250586271286011,
+            "angry": -0.31650614738464355,
+            "afraid": 0.05082911252975464
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.5243314504623413,
+          "scores": {
+            "happy": -0.5243314504623413,
+            "sad": 1.037076711654663,
+            "angry": -0.6132583022117615,
+            "afraid": 0.03930739313364029
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.8972051739692688,
+          "scores": {
+            "happy": -0.8972051739692688,
+            "sad": 1.0413473844528198,
+            "angry": -0.05556285381317139,
+            "afraid": -0.12500862777233124
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.4905550181865692,
+          "scores": {
+            "happy": -0.6768452525138855,
+            "sad": 0.4905550181865692,
+            "angry": -0.17434477806091309,
+            "afraid": 0.2783147692680359
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.9666688442230225,
+          "scores": {
+            "happy": -0.8341984748840332,
+            "sad": 0.9666688442230225,
+            "angry": 0.052663326263427734,
+            "afraid": -0.20304585993289948
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 1.3219585418701172,
+          "scores": {
+            "happy": -1.0692431926727295,
+            "sad": 1.3219585418701172,
+            "angry": -0.2983916997909546,
+            "afraid": -0.024227403104305267
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.6136918067932129,
+          "scores": {
+            "happy": -0.6036518216133118,
+            "sad": 1.1308716535568237,
+            "angry": -0.6136918067932129,
+            "afraid": 0.02293892577290535
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.0167120695114136,
+          "scores": {
+            "happy": -0.4377272129058838,
+            "sad": 0.7194552421569824,
+            "angry": -1.0167120695114136,
+            "afraid": 0.5887753963470459
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.4754418730735779,
+          "scores": {
+            "happy": -0.26937854290008545,
+            "sad": 0.4404186010360718,
+            "angry": -0.4754418730735779,
+            "afraid": 0.2374027520418167
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.4914666414260864,
+          "scores": {
+            "happy": -1.1348590850830078,
+            "sad": 0.8394368886947632,
+            "angry": -0.3393970727920532,
+            "afraid": 0.4914666414260864
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.4377398192882538,
+          "scores": {
+            "happy": -1.2715715169906616,
+            "sad": 0.9708620309829712,
+            "angry": -0.27836406230926514,
+            "afraid": 0.4377398192882538
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.293758362531662,
+          "scores": {
+            "happy": -1.1100984811782837,
+            "sad": 1.2243927717208862,
+            "angry": -0.5322905778884888,
+            "afraid": 0.293758362531662
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.4999999999999999,
+        "angry": 0.9999999999999998,
+        "afraid": 0.9999999999999998
+      },
+      "mean_spearman": 0.4999999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.40087175369262695,
+          "scores": {
+            "happy": -0.40087175369262695,
+            "sad": -1.7123565673828125,
+            "angry": 1.6841115951538086,
+            "afraid": 0.46928057074546814
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.37675249576568604,
+          "scores": {
+            "happy": -0.37675249576568604,
+            "sad": -0.6870406866073608,
+            "angry": 0.584564208984375,
+            "afraid": 0.448993444442749
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -1.5751501321792603,
+          "scores": {
+            "happy": -1.5751501321792603,
+            "sad": -0.9464901685714722,
+            "angry": 2.282042980194092,
+            "afraid": 0.2463461011648178
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -1.6894426345825195,
+          "scores": {
+            "happy": -0.10333949327468872,
+            "sad": -1.6894426345825195,
+            "angry": 1.6015108823776245,
+            "afraid": 0.2673575282096863
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.0022089481353759766,
+          "scores": {
+            "happy": -1.1760507822036743,
+            "sad": -0.0022089481353759766,
+            "angry": 1.1444668769836426,
+            "afraid": 0.01594272255897522
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.8396856784820557,
+          "scores": {
+            "happy": -1.279753565788269,
+            "sad": -0.8396856784820557,
+            "angry": 1.8638060092926025,
+            "afraid": 0.2567669749259949
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.6661516427993774,
+          "scores": {
+            "happy": -0.5978873372077942,
+            "sad": -0.05893361568450928,
+            "angry": 0.6661516427993774,
+            "afraid": -0.011058270931243896
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 1.8738620281219482,
+          "scores": {
+            "happy": -0.8361724615097046,
+            "sad": -1.6819435358047485,
+            "angry": 1.8738620281219482,
+            "afraid": 0.6469081044197083
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 2.128225803375244,
+          "scores": {
+            "happy": -0.34672117233276367,
+            "sad": -2.600409507751465,
+            "angry": 2.128225803375244,
+            "afraid": 0.8589235544204712
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.6348540782928467,
+          "scores": {
+            "happy": -1.0883405208587646,
+            "sad": -0.565778374671936,
+            "angry": 0.9399749636650085,
+            "afraid": 0.6348540782928467
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.9633990526199341,
+          "scores": {
+            "happy": -1.3164188861846924,
+            "sad": -0.6944186687469482,
+            "angry": 0.9196414947509766,
+            "afraid": 0.9633990526199341
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 1.3215312957763672,
+          "scores": {
+            "happy": -1.5995590686798096,
+            "sad": -0.948227047920227,
+            "angry": 1.053339958190918,
+            "afraid": 1.3215312957763672
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 10,
+      "spearman_by_emotion": {
+        "happy": -0.9999999999999998,
+        "sad": 0.4999999999999999,
+        "angry": 0.4999999999999999,
+        "afraid": 0.9999999999999998
+      },
+      "mean_spearman": 0.24999999999999994,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.0418853759765625,
+          "scores": {
+            "happy": 1.0418853759765625,
+            "sad": -0.814132571220398,
+            "angry": -0.028784096240997314,
+            "afraid": -0.12299138307571411
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.8128315210342407,
+          "scores": {
+            "happy": 0.8128315210342407,
+            "sad": 0.721021294593811,
+            "angry": -1.322544813156128,
+            "afraid": -0.23813402652740479
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.6555793881416321,
+          "scores": {
+            "happy": -0.6555793881416321,
+            "sad": -0.7066280245780945,
+            "angry": 1.3842101097106934,
+            "afraid": 0.04033583402633667
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -0.4078471064567566,
+          "scores": {
+            "happy": 0.7607338428497314,
+            "sad": -0.4078471064567566,
+            "angry": 0.38320720195770264,
+            "afraid": -0.5952292680740356
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 1.6526241302490234,
+          "scores": {
+            "happy": -0.6897497177124023,
+            "sad": 1.6526241302490234,
+            "angry": -0.4207082986831665,
+            "afraid": -0.5586099624633789
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.5045088529586792,
+          "scores": {
+            "happy": -1.2424970865249634,
+            "sad": 0.5045088529586792,
+            "angry": 0.25142407417297363,
+            "afraid": 0.38695335388183594
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.4123740792274475,
+          "scores": {
+            "happy": 1.0281199216842651,
+            "sad": 1.7618577480316162,
+            "angry": -0.4123740792274475,
+            "afraid": -2.1192991733551025
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 1.305211067199707,
+          "scores": {
+            "happy": -0.5726567506790161,
+            "sad": -1.4252128601074219,
+            "angry": 1.305211067199707,
+            "afraid": 0.6852087378501892
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.9255896210670471,
+          "scores": {
+            "happy": 1.130759358406067,
+            "sad": -1.83793306350708,
+            "angry": 0.9255896210670471,
+            "afraid": -0.06838029623031616
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.05231916904449463,
+          "scores": {
+            "happy": 0.19169366359710693,
+            "sad": 0.5983408689498901,
+            "angry": -0.7810899019241333,
+            "afraid": -0.05231916904449463
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.42852509021759033,
+          "scores": {
+            "happy": -0.8680450916290283,
+            "sad": 0.7772114872932434,
+            "angry": -0.4748755693435669,
+            "afraid": 0.42852509021759033
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 1.9972829818725586,
+          "scores": {
+            "happy": -2.080476760864258,
+            "sad": -0.05680745840072632,
+            "angry": -0.2207072377204895,
+            "afraid": 1.9972829818725586
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 11,
+      "spearman_by_emotion": {
+        "happy": -0.9999999999999998,
+        "sad": 0.4999999999999999,
+        "angry": 0.9999999999999998,
+        "afraid": 0.9999999999999998
+      },
+      "mean_spearman": 0.3749999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 2.681276321411133,
+          "scores": {
+            "happy": 2.681276321411133,
+            "sad": 0.8461084365844727,
+            "angry": -1.4985299110412598,
+            "afraid": -1.8524467945098877
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 2.156859874725342,
+          "scores": {
+            "happy": 2.156859874725342,
+            "sad": 2.0492382049560547,
+            "angry": -2.4351067543029785,
+            "afraid": -1.719069004058838
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.7317402362823486,
+          "scores": {
+            "happy": 0.7317402362823486,
+            "sad": 1.0792179107666016,
+            "angry": 0.5907624363899231,
+            "afraid": -2.0795655250549316
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.3818678855895996,
+          "scores": {
+            "happy": 2.1235551834106445,
+            "sad": 1.3818678855895996,
+            "angry": -1.1104719638824463,
+            "afraid": -2.168039560317993
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 3.509307861328125,
+          "scores": {
+            "happy": 0.4769972860813141,
+            "sad": 3.509307861328125,
+            "angry": -1.2900421619415283,
+            "afraid": -2.5124154090881348
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.7937099933624268,
+          "scores": {
+            "happy": 0.17361417412757874,
+            "sad": 2.7937099933624268,
+            "angry": -1.4273271560668945,
+            "afraid": -1.49704909324646
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.4740228652954102,
+          "scores": {
+            "happy": 2.41202712059021,
+            "sad": 2.9540491104125977,
+            "angry": -1.4740228652954102,
+            "afraid": -3.5323069095611572
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.06145298480987549,
+          "scores": {
+            "happy": 0.9120009541511536,
+            "sad": 0.9728779196739197,
+            "angry": 0.06145298480987549,
+            "afraid": -1.7092623710632324
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.3408716320991516,
+          "scores": {
+            "happy": 3.0026211738586426,
+            "sad": -0.03466939926147461,
+            "angry": 0.3408716320991516,
+            "afraid": -2.8339569568634033
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.5325218439102173,
+          "scores": {
+            "happy": 1.5143823623657227,
+            "sad": 1.8886218070983887,
+            "angry": -1.805968999862671,
+            "afraid": -1.5325218439102173
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.4708163738250732,
+          "scores": {
+            "happy": 1.0277632474899292,
+            "sad": 2.1195194721221924,
+            "angry": -1.620844841003418,
+            "afraid": -1.4708163738250732
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 1.1191511154174805,
+          "scores": {
+            "happy": -3.0548171997070312,
+            "sad": 3.0871987342834473,
+            "angry": -1.5466885566711426,
+            "afraid": 1.1191511154174805
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 12,
+      "spearman_by_emotion": {
+        "happy": -0.9999999999999998,
+        "sad": 0.4999999999999999,
+        "angry": 0.4999999999999999,
+        "afraid": 0.9999999999999998
+      },
+      "mean_spearman": 0.24999999999999994,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.1455769538879395,
+          "scores": {
+            "happy": 2.1455769538879395,
+            "sad": 2.4910027980804443,
+            "angry": -1.7741584777832031,
+            "afraid": -2.6376428604125977
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.0982890129089355,
+          "scores": {
+            "happy": 2.0982890129089355,
+            "sad": 3.145092487335205,
+            "angry": -2.531785488128662,
+            "afraid": -2.5608866214752197
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.22562192380428314,
+          "scores": {
+            "happy": -0.22562192380428314,
+            "sad": 3.010913372039795,
+            "angry": 0.6797381639480591,
+            "afraid": -3.0359857082366943
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 2.583075523376465,
+          "scores": {
+            "happy": 1.7903416156768799,
+            "sad": 2.583075523376465,
+            "angry": -1.2894550561904907,
+            "afraid": -2.8053395748138428
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 5.556906700134277,
+          "scores": {
+            "happy": 0.47268146276474,
+            "sad": 5.556906700134277,
+            "angry": -1.7015972137451172,
+            "afraid": -3.9679250717163086
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 5.34623908996582,
+          "scores": {
+            "happy": -1.1193246841430664,
+            "sad": 5.34623908996582,
+            "angry": -1.3364536762237549,
+            "afraid": -2.6923937797546387
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.7583222389221191,
+          "scores": {
+            "happy": 2.0515122413635254,
+            "sad": 4.3774566650390625,
+            "angry": -1.7583222389221191,
+            "afraid": -4.246737957000732
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.39329642057418823,
+          "scores": {
+            "happy": 0.1353060007095337,
+            "sad": 2.4738690853118896,
+            "angry": 0.39329642057418823,
+            "afraid": -2.638991355895996
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.3562157154083252,
+          "scores": {
+            "happy": 2.7957980632781982,
+            "sad": 1.34151291847229,
+            "angry": 0.3562157154083252,
+            "afraid": -3.917203426361084
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -2.510782241821289,
+          "scores": {
+            "happy": 1.8544508218765259,
+            "sad": 3.037886142730713,
+            "angry": -2.2158257961273193,
+            "afraid": -2.510782241821289
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -2.0896785259246826,
+          "scores": {
+            "happy": 0.702189564704895,
+            "sad": 3.681361436843872,
+            "angry": -2.2042534351348877,
+            "afraid": -2.0896785259246826
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.3071751594543457,
+          "scores": {
+            "happy": -3.2436156272888184,
+            "sad": 4.851011276245117,
+            "angry": -1.4539092779159546,
+            "afraid": -0.3071751594543457
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.4999999999999999,
+        "angry": 0.4999999999999999,
+        "afraid": 0.9999999999999998
+      },
+      "mean_spearman": 0.3749999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.3486167192459106,
+          "scores": {
+            "happy": 1.3486167192459106,
+            "sad": 0.4311622381210327,
+            "angry": 0.987563967704773,
+            "afraid": -2.3835701942443848
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.772161841392517,
+          "scores": {
+            "happy": 1.772161841392517,
+            "sad": 1.3992729187011719,
+            "angry": -0.41034698486328125,
+            "afraid": -2.442108154296875
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.9450598955154419,
+          "scores": {
+            "happy": -0.9450598955154419,
+            "sad": 1.0012115240097046,
+            "angry": 3.5239689350128174,
+            "afraid": -2.9515793323516846
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 1.1485010385513306,
+          "scores": {
+            "happy": 1.0481102466583252,
+            "sad": 1.1485010385513306,
+            "angry": 0.8055493831634521,
+            "afraid": -2.5907764434814453
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 3.4810144901275635,
+          "scores": {
+            "happy": -0.23014456033706665,
+            "sad": 3.4810144901275635,
+            "angry": 1.0504871606826782,
+            "afraid": -3.6910173892974854
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 3.2805771827697754,
+          "scores": {
+            "happy": -1.5427742004394531,
+            "sad": 3.2805771827697754,
+            "angry": 1.8115487098693848,
+            "afraid": -2.986976385116577
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.5538181066513062,
+          "scores": {
+            "happy": 1.4930411577224731,
+            "sad": 2.49532413482666,
+            "angry": 0.5538181066513062,
+            "afraid": -3.945892333984375
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 3.421264171600342,
+          "scores": {
+            "happy": -1.0302821397781372,
+            "sad": 0.6290112733840942,
+            "angry": 3.421264171600342,
+            "afraid": -2.467862129211426
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 3.048603057861328,
+          "scores": {
+            "happy": 1.832824945449829,
+            "sad": -0.685478925704956,
+            "angry": 3.048603057861328,
+            "afraid": -3.5467867851257324
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -2.2817063331604004,
+          "scores": {
+            "happy": 1.172751545906067,
+            "sad": 1.5650705099105835,
+            "angry": -0.13834857940673828,
+            "afraid": -2.2817063331604004
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.8820725679397583,
+          "scores": {
+            "happy": 0.008532464504241943,
+            "sad": 2.1432137489318848,
+            "angry": 0.01460564136505127,
+            "afraid": -1.8820725679397583
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.7502565383911133,
+          "scores": {
+            "happy": -2.6445226669311523,
+            "sad": 2.118098735809326,
+            "angry": 1.5056722164154053,
+            "afraid": -0.7502565383911133
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 14,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.4999999999999999,
+        "angry": 0.4999999999999999,
+        "afraid": 0.9999999999999998
+      },
+      "mean_spearman": 0.3749999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.4649055004119873,
+          "scores": {
+            "happy": 0.4649055004119873,
+            "sad": 1.1226272583007812,
+            "angry": 0.4677318334579468,
+            "afraid": -1.7518410682678223
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 1.1626689434051514,
+          "scores": {
+            "happy": 1.1626689434051514,
+            "sad": 1.7010948657989502,
+            "angry": -0.4093196392059326,
+            "afraid": -2.136115550994873
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.808533251285553,
+          "scores": {
+            "happy": -0.808533251285553,
+            "sad": 1.1257213354110718,
+            "angry": 2.7066447734832764,
+            "afraid": -2.4835453033447266
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 1.4088146686553955,
+          "scores": {
+            "happy": 0.643389880657196,
+            "sad": 1.4088146686553955,
+            "angry": 0.4682040810585022,
+            "afraid": -2.1531577110290527
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 3.854550838470459,
+          "scores": {
+            "happy": -0.8650752305984497,
+            "sad": 3.854550838470459,
+            "angry": 0.27686434984207153,
+            "afraid": -2.788841485977173
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 3.791675090789795,
+          "scores": {
+            "happy": -2.1455941200256348,
+            "sad": 3.791675090789795,
+            "angry": 0.5294351577758789,
+            "afraid": -1.8300514221191406
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.652026891708374,
+          "scores": {
+            "happy": 1.2624391317367554,
+            "sad": 2.579808235168457,
+            "angry": 0.652026891708374,
+            "afraid": -3.847672462463379
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 2.675999641418457,
+          "scores": {
+            "happy": -1.5690727233886719,
+            "sad": 0.7556917667388916,
+            "angry": 2.675999641418457,
+            "afraid": -1.480133295059204
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 2.097018241882324,
+          "scores": {
+            "happy": 1.1424119472503662,
+            "sad": -0.05507707595825195,
+            "angry": 2.097018241882324,
+            "afraid": -2.6628823280334473
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.9204875230789185,
+          "scores": {
+            "happy": 0.7279912829399109,
+            "sad": 1.8870446681976318,
+            "angry": -0.40698540210723877,
+            "afraid": -1.9204875230789185
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.660487174987793,
+          "scores": {
+            "happy": -0.29397034645080566,
+            "sad": 2.385509967803955,
+            "angry": -0.16436278820037842,
+            "afraid": -1.660487174987793
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 0.5774826407432556,
+          "scores": {
+            "happy": -3.8773865699768066,
+            "sad": 3.0180177688598633,
+            "angry": 0.2376340627670288,
+            "afraid": 0.5774826407432556
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 15,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.9999999999999998,
+        "angry": 0.4999999999999999,
+        "afraid": 0.9999999999999998
+      },
+      "mean_spearman": 0.4999999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.3064563274383545,
+          "scores": {
+            "happy": 1.3064563274383545,
+            "sad": 0.27639448642730713,
+            "angry": -0.7341169118881226,
+            "afraid": -0.7927423715591431
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 3.1306793689727783,
+          "scores": {
+            "happy": 3.1306793689727783,
+            "sad": 0.9248169660568237,
+            "angry": -1.7481204271316528,
+            "afraid": -2.1393637657165527
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -1.889500617980957,
+          "scores": {
+            "happy": -1.889500617980957,
+            "sad": 1.6374491453170776,
+            "angry": 3.4249494075775146,
+            "afraid": -2.5851337909698486
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.017365574836730957,
+          "scores": {
+            "happy": 2.728422164916992,
+            "sad": 0.017365574836730957,
+            "angry": -0.43319907784461975,
+            "afraid": -2.0653343200683594
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 3.303834915161133,
+          "scores": {
+            "happy": 0.37406355142593384,
+            "sad": 3.303834915161133,
+            "angry": -0.2507011890411377,
+            "afraid": -3.0307326316833496
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 4.154214859008789,
+          "scores": {
+            "happy": -2.613914966583252,
+            "sad": 4.154214859008789,
+            "angry": 1.678456425666809,
+            "afraid": -2.727565288543701
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 0.23121264576911926,
+          "scores": {
+            "happy": 2.705378532409668,
+            "sad": 1.1181786060333252,
+            "angry": 0.23121264576911926,
+            "afraid": -3.5585896968841553
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 2.5503010749816895,
+          "scores": {
+            "happy": -1.56113862991333,
+            "sad": -0.3063361644744873,
+            "angry": 2.5503010749816895,
+            "afraid": -0.4469795227050781
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 2.385432243347168,
+          "scores": {
+            "happy": 2.967259645462036,
+            "sad": -1.472244381904602,
+            "angry": 2.385432243347168,
+            "afraid": -3.2781615257263184
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -0.931308925151825,
+          "scores": {
+            "happy": 1.879228115081787,
+            "sad": 0.6111592650413513,
+            "angry": -1.53956937789917,
+            "afraid": -0.931308925151825
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -0.7678197622299194,
+          "scores": {
+            "happy": 0.09220463037490845,
+            "sad": 1.859975814819336,
+            "angry": -1.1577293872833252,
+            "afraid": -0.7678197622299194
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 1.2425755262374878,
+          "scores": {
+            "happy": -3.7926268577575684,
+            "sad": 1.993849277496338,
+            "angry": 0.4225350022315979,
+            "afraid": 1.2425755262374878
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 16,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.9999999999999998,
+        "angry": 0.4999999999999999,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": 0.3749999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -0.2558419704437256,
+          "scores": {
+            "happy": -0.2558419704437256,
+            "sad": -2.0952327251434326,
+            "angry": 1.5412557125091553,
+            "afraid": 0.7584027647972107
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.620772361755371,
+          "scores": {
+            "happy": 1.620772361755371,
+            "sad": -0.3390035629272461,
+            "angry": 0.28284120559692383,
+            "afraid": -1.3449245691299438
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -3.6776113510131836,
+          "scores": {
+            "happy": -3.6776113510131836,
+            "sad": -0.7872716784477234,
+            "angry": 6.248249053955078,
+            "afraid": -1.2517260313034058
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -1.6076035499572754,
+          "scores": {
+            "happy": 1.3438810110092163,
+            "sad": -1.6076035499572754,
+            "angry": 0.9496283531188965,
+            "afraid": -0.5620028972625732
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 1.1066628694534302,
+          "scores": {
+            "happy": -1.0094767808914185,
+            "sad": 1.1066628694534302,
+            "angry": 2.5952563285827637,
+            "afraid": -2.199185609817505
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 1.7375760078430176,
+          "scores": {
+            "happy": -5.355808258056641,
+            "sad": 1.7375760078430176,
+            "angry": 4.303974628448486,
+            "afraid": -0.37315335869789124
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 2.3565070629119873,
+          "scores": {
+            "happy": 1.6052806377410889,
+            "sad": -1.5446428060531616,
+            "angry": 2.3565070629119873,
+            "afraid": -1.9940145015716553
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 5.95643949508667,
+          "scores": {
+            "happy": -3.3002841472625732,
+            "sad": -4.2708659172058105,
+            "angry": 5.95643949508667,
+            "afraid": 1.6498650312423706
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 5.717554092407227,
+          "scores": {
+            "happy": 1.1712079048156738,
+            "sad": -5.213794231414795,
+            "angry": 5.717554092407227,
+            "afraid": -1.2198587656021118
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 1.2127001285552979,
+          "scores": {
+            "happy": -0.2008528709411621,
+            "sad": -1.5828685760498047,
+            "angry": 0.3907291889190674,
+            "afraid": 1.2127001285552979
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 0.7727793455123901,
+          "scores": {
+            "happy": -1.0109436511993408,
+            "sad": -0.3418881893157959,
+            "angry": 0.48458337783813477,
+            "afraid": 0.7727793455123901
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 3.8655858039855957,
+          "scores": {
+            "happy": -6.457034111022949,
+            "sad": -1.2991366386413574,
+            "angry": 3.4751574993133545,
+            "afraid": 3.8655858039855957
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 17,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.4999999999999999,
+        "angry": 0.4999999999999999,
+        "afraid": 0.9999999999999998
+      },
+      "mean_spearman": 0.3749999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.6865102052688599,
+          "scores": {
+            "happy": 1.6865102052688599,
+            "sad": -0.802801251411438,
+            "angry": 1.2965956926345825,
+            "afraid": -1.7950419187545776
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 3.5827245712280273,
+          "scores": {
+            "happy": 3.5827245712280273,
+            "sad": 2.3411262035369873,
+            "angry": -0.8619133234024048,
+            "afraid": -4.299867153167725
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -3.4886229038238525,
+          "scores": {
+            "happy": -3.4886229038238525,
+            "sad": 1.1993082761764526,
+            "angry": 8.047504425048828,
+            "afraid": -4.456798553466797
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.3875830173492432,
+          "scores": {
+            "happy": 3.074474811553955,
+            "sad": 1.3875830173492432,
+            "angry": 1.0088590383529663,
+            "afraid": -4.566498756408691
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": 3.879580020904541,
+          "scores": {
+            "happy": 0.44235649704933167,
+            "sad": 3.879580020904541,
+            "angry": 2.1151986122131348,
+            "afraid": -5.291862487792969
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 3.3064703941345215,
+          "scores": {
+            "happy": -3.6886768341064453,
+            "sad": 3.3064703941345215,
+            "angry": 5.7765045166015625,
+            "afraid": -4.231088638305664
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 2.3589091300964355,
+          "scores": {
+            "happy": 3.1347293853759766,
+            "sad": 0.9455132484436035,
+            "angry": 2.3589091300964355,
+            "afraid": -5.325873374938965
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 7.9484405517578125,
+          "scores": {
+            "happy": -1.574009656906128,
+            "sad": -3.835014581680298,
+            "angry": 7.9484405517578125,
+            "afraid": -1.8090760707855225
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 6.947013854980469,
+          "scores": {
+            "happy": 4.1011223793029785,
+            "sad": -5.114638328552246,
+            "angry": 6.947013854980469,
+            "afraid": -4.757110118865967
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -1.9189096689224243,
+          "scores": {
+            "happy": 2.030172348022461,
+            "sad": -0.3129615783691406,
+            "angry": 0.5748882293701172,
+            "afraid": -1.9189096689224243
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "sad",
+          "intended_score": -1.8399794101715088,
+          "scores": {
+            "happy": -0.08606904745101929,
+            "sad": 1.7640860080718994,
+            "angry": 0.5571645498275757,
+            "afraid": -1.8399794101715088
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 0.790459394454956,
+          "scores": {
+            "happy": -4.992577075958252,
+            "sad": 0.49857449531555176,
+            "angry": 3.7976579666137695,
+            "afraid": 0.790459394454956
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 18,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": -0.4999999999999999,
+        "angry": 0.9999999999999998,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": 0.12499999999999997,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 1.9053621292114258,
+          "scores": {
+            "happy": 1.9053621292114258,
+            "sad": -8.614179611206055,
+            "angry": 1.0339940786361694,
+            "afraid": 4.70514440536499
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 3.990774154663086,
+          "scores": {
+            "happy": 3.990774154663086,
+            "sad": -2.1038599014282227,
+            "angry": -2.314699411392212,
+            "afraid": 0.2821601629257202
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -5.270803451538086,
+          "scores": {
+            "happy": -5.270803451538086,
+            "sad": -7.927627086639404,
+            "angry": 10.14474868774414,
+            "afraid": 2.7708263397216797
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -2.440680503845215,
+          "scores": {
+            "happy": 2.3127760887145996,
+            "sad": -2.440680503845215,
+            "angry": -0.3216201663017273,
+            "afraid": 0.3519006371498108
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -2.1715402603149414,
+          "scores": {
+            "happy": -0.45398277044296265,
+            "sad": -2.1715402603149414,
+            "angry": 1.3702728748321533,
+            "afraid": 1.069751501083374
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": -5.481274127960205,
+          "scores": {
+            "happy": -5.566734313964844,
+            "sad": -5.481274127960205,
+            "angry": 9.170228004455566,
+            "afraid": 1.7790780067443848
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 1.1588788032531738,
+          "scores": {
+            "happy": 2.9676055908203125,
+            "sad": -3.7116618156433105,
+            "angry": 1.1588788032531738,
+            "afraid": -0.33525168895721436
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 9.296453475952148,
+          "scores": {
+            "happy": -2.9153685569763184,
+            "sad": -13.898581504821777,
+            "angry": 9.296453475952148,
+            "afraid": 6.4319071769714355
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "angry",
+          "intended_score": 9.459577560424805,
+          "scores": {
+            "happy": 3.506840944290161,
+            "sad": -15.605712890625,
+            "angry": 9.459577560424805,
+            "afraid": 2.3644847869873047
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 4.884407997131348,
+          "scores": {
+            "happy": 1.0799589157104492,
+            "sad": -6.903203010559082,
+            "angry": -0.09167146682739258,
+            "afraid": 4.884407997131348
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 3.5819666385650635,
+          "scores": {
+            "happy": -0.7247635126113892,
+            "sad": -3.5773086547851562,
+            "angry": -0.024330615997314453,
+            "afraid": 3.5819666385650635
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 8.110858917236328,
+          "scores": {
+            "happy": -6.914765357971191,
+            "sad": -9.55163288116455,
+            "angry": 6.884124755859375,
+            "afraid": 8.110858917236328
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 19,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": -0.4999999999999999,
+        "angry": 0.9999999999999998,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": 0.12499999999999997,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 6.427982330322266,
+          "scores": {
+            "happy": 6.427982330322266,
+            "sad": -12.135696411132812,
+            "angry": -5.848857879638672,
+            "afraid": 9.666423797607422
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": 6.509690284729004,
+          "scores": {
+            "happy": 6.509690284729004,
+            "sad": -3.1987223625183105,
+            "angry": -7.429266452789307,
+            "afraid": 3.316319465637207
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -5.8692169189453125,
+          "scores": {
+            "happy": -5.8692169189453125,
+            "sad": -10.416788101196289,
+            "angry": 6.553282260894775,
+            "afraid": 8.380525588989258
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "happy",
+          "intended_score": -2.9117703437805176,
+          "scores": {
+            "happy": 4.986216068267822,
+            "sad": -2.9117703437805176,
+            "angry": -5.758183479309082,
+            "afraid": 2.9854984283447266
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -2.7024216651916504,
+          "scores": {
+            "happy": 2.2668943405151367,
+            "sad": -2.7024216651916504,
+            "angry": -5.629876136779785,
+            "afraid": 4.9606614112854
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -7.713656902313232,
+          "scores": {
+            "happy": -4.273388862609863,
+            "sad": -7.713656902313232,
+            "angry": 2.6029086112976074,
+            "afraid": 7.96568489074707
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -5.132768154144287,
+          "scores": {
+            "happy": 4.285285949707031,
+            "sad": -4.896782398223877,
+            "angry": -5.132768154144287,
+            "afraid": 4.7404279708862305
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.13682937622070312,
+          "scores": {
+            "happy": -1.3277232646942139,
+            "sad": -17.416271209716797,
+            "angry": -0.13682937622070312,
+            "afraid": 15.947081565856934
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 3.7198166847229004,
+          "scores": {
+            "happy": 5.73741340637207,
+            "sad": -20.40887451171875,
+            "angry": 3.7198166847229004,
+            "afraid": 9.497211456298828
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 10.206098556518555,
+          "scores": {
+            "happy": 3.1817758083343506,
+            "sad": -8.81814193725586,
+            "angry": -6.656279563903809,
+            "afraid": 10.206098556518555
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 7.990159034729004,
+          "scores": {
+            "happy": 1.1151899099349976,
+            "sad": -5.45155143737793,
+            "angry": -5.318609237670898,
+            "afraid": 7.990159034729004
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 15.567855834960938,
+          "scores": {
+            "happy": -6.103214263916016,
+            "sad": -12.620820045471191,
+            "angry": 0.21427035331726074,
+            "afraid": 15.567855834960938
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 20,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": -0.4999999999999999,
+        "angry": 0.9999999999999998,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": 0.12499999999999997,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -4.946452617645264,
+          "scores": {
+            "happy": -4.946452617645264,
+            "sad": -4.344852447509766,
+            "angry": -13.002494812011719,
+            "afraid": 17.489654541015625
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -2.142831802368164,
+          "scores": {
+            "happy": -2.142831802368164,
+            "sad": 3.5902631282806396,
+            "angry": -12.10328483581543,
+            "afraid": 8.054899215698242
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -15.946073532104492,
+          "scores": {
+            "happy": -15.946073532104492,
+            "sad": -4.552230358123779,
+            "angry": 0.605536937713623,
+            "afraid": 16.15011978149414
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 3.5088915824890137,
+          "scores": {
+            "happy": -2.666443347930908,
+            "sad": 3.5088915824890137,
+            "angry": -9.279672622680664,
+            "afraid": 6.385912895202637
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 3.7807910442352295,
+          "scores": {
+            "happy": -8.276519775390625,
+            "sad": 3.7807910442352295,
+            "angry": -9.711271286010742,
+            "afraid": 11.03085994720459
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -1.2307103872299194,
+          "scores": {
+            "happy": -16.717905044555664,
+            "sad": -1.2307103872299194,
+            "angry": -2.9454762935638428,
+            "afraid": 16.777000427246094
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -9.026002883911133,
+          "scores": {
+            "happy": -3.590297222137451,
+            "sad": 2.2478530406951904,
+            "angry": -9.026002883911133,
+            "afraid": 7.968850135803223
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -4.890316009521484,
+          "scores": {
+            "happy": -12.743558883666992,
+            "sad": -10.747756958007812,
+            "angry": -4.890316009521484,
+            "afraid": 22.82150650024414
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -2.420625686645508,
+          "scores": {
+            "happy": -3.76120662689209,
+            "sad": -12.952410697937012,
+            "angry": -2.420625686645508,
+            "afraid": 15.469305992126465
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 14.584274291992188,
+          "scores": {
+            "happy": -6.177096366882324,
+            "sad": -1.3246524333953857,
+            "angry": -11.126587867736816,
+            "afraid": 14.584274291992188
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 11.965659141540527,
+          "scores": {
+            "happy": -8.091450691223145,
+            "sad": 2.1894819736480713,
+            "angry": -9.430047988891602,
+            "afraid": 11.965659141540527
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 23.794626235961914,
+          "scores": {
+            "happy": -17.445194244384766,
+            "sad": -5.899015426635742,
+            "angry": -6.368598937988281,
+            "afraid": 23.794626235961914
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 21,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": -0.9999999999999998,
+        "angry": 0.9999999999999998,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": 2.7755575615628914e-17,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 1.0962159633636475,
+          "scores": {
+            "happy": 1.0962159633636475,
+            "sad": -13.201162338256836,
+            "angry": -16.990365982055664,
+            "afraid": 22.96797752380371
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 2.8964078426361084,
+          "scores": {
+            "happy": 2.8964078426361084,
+            "sad": -1.3729557991027832,
+            "angry": -16.463165283203125,
+            "afraid": 11.345861434936523
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -10.310075759887695,
+          "scores": {
+            "happy": -10.310075759887695,
+            "sad": -12.003950119018555,
+            "angry": 0.7654309272766113,
+            "afraid": 18.053009033203125
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -3.047564744949341,
+          "scores": {
+            "happy": 2.606069803237915,
+            "sad": -3.047564744949341,
+            "angry": -10.748041152954102,
+            "afraid": 8.554688453674316
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -3.2227771282196045,
+          "scores": {
+            "happy": -4.916947364807129,
+            "sad": -3.2227771282196045,
+            "angry": -10.815484046936035,
+            "afraid": 15.189491271972656
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -7.073149681091309,
+          "scores": {
+            "happy": -13.978940963745117,
+            "sad": -7.073149681091309,
+            "angry": -4.7603044509887695,
+            "afraid": 21.423782348632812
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -7.825572967529297,
+          "scores": {
+            "happy": 1.9993360042572021,
+            "sad": -6.194210052490234,
+            "angry": -7.825572967529297,
+            "afraid": 9.392948150634766
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -4.384370803833008,
+          "scores": {
+            "happy": -11.314384460449219,
+            "sad": -16.788249969482422,
+            "angry": -4.384370803833008,
+            "afraid": 26.799062728881836
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -2.5592870712280273,
+          "scores": {
+            "happy": 3.182138681411743,
+            "sad": -22.65621566772461,
+            "angry": -2.5592870712280273,
+            "afraid": 17.78189468383789
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 20.15725326538086,
+          "scores": {
+            "happy": -2.5426645278930664,
+            "sad": -7.671176910400391,
+            "angry": -15.17264461517334,
+            "afraid": 20.15725326538086
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 16.70590591430664,
+          "scores": {
+            "happy": -3.357779026031494,
+            "sad": -5.318828582763672,
+            "angry": -12.288716316223145,
+            "afraid": 16.70590591430664
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 29.486148834228516,
+          "scores": {
+            "happy": -15.571098327636719,
+            "sad": -11.31663990020752,
+            "angry": -8.945174217224121,
+            "afraid": 29.486148834228516
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 22,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": -0.9999999999999998,
+        "angry": 0.9999999999999998,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": 2.7755575615628914e-17,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -27.359413146972656,
+          "scores": {
+            "happy": -27.359413146972656,
+            "sad": -16.564254760742188,
+            "angry": -14.603811264038086,
+            "afraid": 46.42981719970703
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -22.271236419677734,
+          "scores": {
+            "happy": -22.271236419677734,
+            "sad": -3.5959739685058594,
+            "angry": -15.370261192321777,
+            "afraid": 32.56510925292969
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -38.727386474609375,
+          "scores": {
+            "happy": -38.727386474609375,
+            "sad": -16.72304916381836,
+            "angry": 3.700082778930664,
+            "afraid": 42.24379348754883
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -2.6267688274383545,
+          "scores": {
+            "happy": -21.123727798461914,
+            "sad": -2.6267688274383545,
+            "angry": -8.887051582336426,
+            "afraid": 26.026832580566406
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -6.153443336486816,
+          "scores": {
+            "happy": -32.94567108154297,
+            "sad": -6.153443336486816,
+            "angry": -9.422805786132812,
+            "afraid": 38.913978576660156
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -10.038751602172852,
+          "scores": {
+            "happy": -45.47079849243164,
+            "sad": -10.038751602172852,
+            "angry": -1.6331017017364502,
+            "afraid": 46.45915222167969
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -6.978603363037109,
+          "scores": {
+            "happy": -22.987667083740234,
+            "sad": -8.377304077148438,
+            "angry": -6.978603363037109,
+            "afraid": 30.684425354003906
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -1.806736946105957,
+          "scores": {
+            "happy": -42.391170501708984,
+            "sad": -22.235286712646484,
+            "angry": -1.806736946105957,
+            "afraid": 53.71366500854492
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 1.4245524406433105,
+          "scores": {
+            "happy": -24.837554931640625,
+            "sad": -30.55858612060547,
+            "angry": 1.4245524406433105,
+            "afraid": 43.493812561035156
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 42.682884216308594,
+          "scores": {
+            "happy": -29.516878128051758,
+            "sad": -10.692451477050781,
+            "angry": -13.435728073120117,
+            "afraid": 42.682884216308594
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 37.764915466308594,
+          "scores": {
+            "happy": -29.73948860168457,
+            "sad": -6.115375518798828,
+            "angry": -11.45100212097168,
+            "afraid": 37.764915466308594
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 56.15572738647461,
+          "scores": {
+            "happy": -48.17180633544922,
+            "sad": -17.54134750366211,
+            "angry": -3.705657720565796,
+            "afraid": 56.15572738647461
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 23,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.4999999999999999,
+        "angry": 0.4999999999999999,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": 0.24999999999999994,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -25.361122131347656,
+          "scores": {
+            "happy": -25.361122131347656,
+            "sad": 8.221748352050781,
+            "angry": -44.757198333740234,
+            "afraid": 48.999603271484375
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -18.53493309020996,
+          "scores": {
+            "happy": -18.53493309020996,
+            "sad": 15.533288955688477,
+            "angry": -40.24126052856445,
+            "afraid": 33.84319305419922
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -37.98915100097656,
+          "scores": {
+            "happy": -37.98915100097656,
+            "sad": 7.083124160766602,
+            "angry": -24.344587326049805,
+            "afraid": 45.1608772277832
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 15.59424114227295,
+          "scores": {
+            "happy": -19.714736938476562,
+            "sad": 15.59424114227295,
+            "angry": -29.24034309387207,
+            "afraid": 26.43541717529297
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 18.280256271362305,
+          "scores": {
+            "happy": -31.834468841552734,
+            "sad": 18.280256271362305,
+            "angry": -37.685394287109375,
+            "afraid": 41.01445007324219
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 16.01732063293457,
+          "scores": {
+            "happy": -43.942848205566406,
+            "sad": 16.01732063293457,
+            "angry": -34.091209411621094,
+            "afraid": 50.42804718017578
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -30.965970993041992,
+          "scores": {
+            "happy": -17.083892822265625,
+            "sad": 14.685083389282227,
+            "angry": -30.965970993041992,
+            "afraid": 26.239925384521484
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -33.24235153198242,
+          "scores": {
+            "happy": -39.22981643676758,
+            "sad": 8.613740921020508,
+            "angry": -33.24235153198242,
+            "afraid": 51.74668884277344
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -29.008508682250977,
+          "scores": {
+            "happy": -17.23478889465332,
+            "sad": -4.255138397216797,
+            "angry": -29.008508682250977,
+            "afraid": 40.179420471191406
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 43.34877395629883,
+          "scores": {
+            "happy": -28.259733200073242,
+            "sad": 13.842968940734863,
+            "angry": -40.04804992675781,
+            "afraid": 43.34877395629883
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 38.44749450683594,
+          "scores": {
+            "happy": -29.45488166809082,
+            "sad": 17.171920776367188,
+            "angry": -35.798728942871094,
+            "afraid": 38.44749450683594
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 61.20570373535156,
+          "scores": {
+            "happy": -49.31055450439453,
+            "sad": 10.366894721984863,
+            "angry": -36.24748992919922,
+            "afraid": 61.20570373535156
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 24,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": -0.9999999999999998,
+        "angry": 0.4999999999999999,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": -0.12499999999999994,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -25.10192108154297,
+          "scores": {
+            "happy": -25.10192108154297,
+            "sad": -6.45994234085083,
+            "angry": -67.22541809082031,
+            "afraid": 77.00383758544922
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -16.46816635131836,
+          "scores": {
+            "happy": -16.46816635131836,
+            "sad": 2.5670108795166016,
+            "angry": -62.339202880859375,
+            "afraid": 58.84213638305664
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -41.32080078125,
+          "scores": {
+            "happy": -41.32080078125,
+            "sad": -6.5732831954956055,
+            "angry": -41.94174575805664,
+            "afraid": 71.66227722167969
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 4.112940788269043,
+          "scores": {
+            "happy": -20.58293914794922,
+            "sad": 4.112940788269043,
+            "angry": -48.17650604248047,
+            "afraid": 50.38275909423828
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 4.0347137451171875,
+          "scores": {
+            "happy": -34.402626037597656,
+            "sad": 4.0347137451171875,
+            "angry": -57.91626739501953,
+            "afraid": 69.42123413085938
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 2.305421829223633,
+          "scores": {
+            "happy": -48.72682189941406,
+            "sad": 2.305421829223633,
+            "angry": -51.6488151550293,
+            "afraid": 78.12506866455078
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -50.30415344238281,
+          "scores": {
+            "happy": -17.526161193847656,
+            "sad": 2.35012149810791,
+            "angry": -50.30415344238281,
+            "afraid": 50.82461929321289
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -53.90885543823242,
+          "scores": {
+            "happy": -39.73757553100586,
+            "sad": -6.852691650390625,
+            "angry": -53.90885543823242,
+            "afraid": 79.58316802978516
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -46.6593017578125,
+          "scores": {
+            "happy": -17.63882064819336,
+            "sad": -21.476856231689453,
+            "angry": -46.6593017578125,
+            "afraid": 67.2029800415039
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 71.46207427978516,
+          "scores": {
+            "happy": -31.29973030090332,
+            "sad": 1.307647705078125,
+            "angry": -61.193695068359375,
+            "afraid": 71.46207427978516
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 66.1825942993164,
+          "scores": {
+            "happy": -34.08647918701172,
+            "sad": 5.904242515563965,
+            "angry": -55.95586395263672,
+            "afraid": 66.1825942993164
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 89.05147552490234,
+          "scores": {
+            "happy": -52.10992431640625,
+            "sad": -5.128067493438721,
+            "angry": -54.48772048950195,
+            "afraid": 89.05147552490234
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 25,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": 0.9999999999999998,
+        "angry": 0.4999999999999999,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": 0.3749999999999999,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 12.498239517211914,
+          "scores": {
+            "happy": 12.498239517211914,
+            "sad": 15.910408020019531,
+            "angry": -106.0824966430664,
+            "afraid": 58.78852081298828
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 17.288978576660156,
+          "scores": {
+            "happy": 17.288978576660156,
+            "sad": 24.29143524169922,
+            "angry": -103.02444458007812,
+            "afraid": 45.47312927246094
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -8.795990943908691,
+          "scores": {
+            "happy": -8.795990943908691,
+            "sad": 16.124713897705078,
+            "angry": -80.97673034667969,
+            "afraid": 57.528751373291016
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 25.008407592773438,
+          "scores": {
+            "happy": 11.671928405761719,
+            "sad": 25.008407592773438,
+            "angry": -88.43795776367188,
+            "afraid": 38.41238784790039
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 25.37273406982422,
+          "scores": {
+            "happy": -0.07833576202392578,
+            "sad": 25.37273406982422,
+            "angry": -96.84602355957031,
+            "afraid": 54.83020782470703
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 25.662609100341797,
+          "scores": {
+            "happy": -14.006912231445312,
+            "sad": 25.662609100341797,
+            "angry": -89.75727081298828,
+            "afraid": 61.14301681518555
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -90.32269287109375,
+          "scores": {
+            "happy": 15.316685676574707,
+            "sad": 25.822711944580078,
+            "angry": -90.32269287109375,
+            "afraid": 36.06267547607422
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -93.91322326660156,
+          "scores": {
+            "happy": -2.9268412590026855,
+            "sad": 17.65353012084961,
+            "angry": -93.91322326660156,
+            "afraid": 61.26891326904297
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -84.82591247558594,
+          "scores": {
+            "happy": 19.309532165527344,
+            "sad": 0.6520624160766602,
+            "angry": -84.82591247558594,
+            "afraid": 48.72013854980469
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 56.587562561035156,
+          "scores": {
+            "happy": 2.3186564445495605,
+            "sad": 25.436634063720703,
+            "angry": -101.84110260009766,
+            "afraid": 56.587562561035156
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 52.16072082519531,
+          "scores": {
+            "happy": -1.5230045318603516,
+            "sad": 28.093297958374023,
+            "angry": -94.63865661621094,
+            "afraid": 52.16072082519531
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 69.88751220703125,
+          "scores": {
+            "happy": -17.084945678710938,
+            "sad": 18.75339126586914,
+            "angry": -90.37774658203125,
+            "afraid": 69.88751220703125
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 26,
+      "spearman_by_emotion": {
+        "happy": -0.4999999999999999,
+        "sad": -0.9999999999999998,
+        "angry": 0.4999999999999999,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": -0.12499999999999994,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 37.95436096191406,
+          "scores": {
+            "happy": 37.95436096191406,
+            "sad": -93.18881225585938,
+            "angry": -67.17341613769531,
+            "afraid": 90.95552825927734
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 44.442543029785156,
+          "scores": {
+            "happy": 44.442543029785156,
+            "sad": -76.6016845703125,
+            "angry": -71.29345703125,
+            "afraid": 75.65742492675781
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 17.247814178466797,
+          "scores": {
+            "happy": 17.247814178466797,
+            "sad": -89.84928131103516,
+            "angry": -45.259796142578125,
+            "afraid": 89.32877349853516
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -64.38008117675781,
+          "scores": {
+            "happy": 34.77775192260742,
+            "sad": -64.38008117675781,
+            "angry": -57.03989791870117,
+            "afraid": 63.594627380371094
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -79.06794738769531,
+          "scores": {
+            "happy": 23.880817413330078,
+            "sad": -79.06794738769531,
+            "angry": -62.8203125,
+            "afraid": 88.36479187011719
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -84.49836730957031,
+          "scores": {
+            "happy": 12.626949310302734,
+            "sad": -84.49836730957031,
+            "angry": -52.54826354980469,
+            "afraid": 94.35173034667969
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -56.87168502807617,
+          "scores": {
+            "happy": 36.50898742675781,
+            "sad": -71.48970794677734,
+            "angry": -56.87168502807617,
+            "afraid": 67.59307861328125
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -58.0008430480957,
+          "scores": {
+            "happy": 17.48075294494629,
+            "sad": -91.69493103027344,
+            "angry": -58.0008430480957,
+            "afraid": 99.97881317138672
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -49.9499397277832,
+          "scores": {
+            "happy": 42.80304718017578,
+            "sad": -110.15441131591797,
+            "angry": -49.9499397277832,
+            "afraid": 87.49124145507812
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 90.38064575195312,
+          "scores": {
+            "happy": 24.818262100219727,
+            "sad": -76.53919982910156,
+            "angry": -69.28368377685547,
+            "afraid": 90.38064575195312
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 85.3405532836914,
+          "scores": {
+            "happy": 21.146541595458984,
+            "sad": -71.20983123779297,
+            "angry": -63.97574996948242,
+            "afraid": 85.3405532836914
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 106.44577026367188,
+          "scores": {
+            "happy": 9.566375732421875,
+            "sad": -97.17658233642578,
+            "angry": -52.07421875,
+            "afraid": 106.44577026367188
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    },
+    {
+      "layer": 27,
+      "spearman_by_emotion": {
+        "happy": -0.9999999999999998,
+        "sad": -0.9999999999999998,
+        "angry": 0.4999999999999999,
+        "afraid": 0.4999999999999999
+      },
+      "mean_spearman": -0.24999999999999992,
+      "examples": [
+        {
+          "id": "intensity-happy-1",
+          "emotion": "happy",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -0.7696375846862793,
+          "scores": {
+            "happy": -0.7696375846862793,
+            "sad": -14.971226692199707,
+            "angry": -7.328302383422852,
+            "afraid": 15.512066841125488
+          },
+          "text": "After the call, Avery tidied the desk with a lighter rhythm and left the window open."
+        },
+        {
+          "id": "intensity-happy-2",
+          "emotion": "happy",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -3.0127575397491455,
+          "scores": {
+            "happy": -3.0127575397491455,
+            "sad": -19.79869270324707,
+            "angry": -8.441483497619629,
+            "afraid": 21.050678253173828
+          },
+          "text": "After the call, Avery crossed the room twice, started three small helpful tasks, and hummed while packing."
+        },
+        {
+          "id": "intensity-happy-3",
+          "emotion": "happy",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -5.698026657104492,
+          "scores": {
+            "happy": -5.698026657104492,
+            "sad": -20.627151489257812,
+            "angry": -4.55457878112793,
+            "afraid": 20.878610610961914
+          },
+          "text": "After the call, Avery ran upstairs, gathered everyone in the kitchen, and could barely stand still."
+        },
+        {
+          "id": "intensity-sad-1",
+          "emotion": "sad",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -11.895133972167969,
+          "scores": {
+            "happy": -1.9796397686004639,
+            "sad": -11.895133972167969,
+            "angry": -7.810131072998047,
+            "afraid": 14.571823120117188
+          },
+          "text": "After reading the note, Rowan moved more slowly and let the kettle cool before pouring."
+        },
+        {
+          "id": "intensity-sad-2",
+          "emotion": "sad",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -14.435033798217773,
+          "scores": {
+            "happy": -4.269344329833984,
+            "sad": -14.435033798217773,
+            "angry": -7.13068962097168,
+            "afraid": 17.4079532623291
+          },
+          "text": "After reading the note, Rowan skipped the meal, held the sleeve of an old coat, and stopped answering messages."
+        },
+        {
+          "id": "intensity-sad-3",
+          "emotion": "sad",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -16.109825134277344,
+          "scores": {
+            "happy": -5.096197128295898,
+            "sad": -16.109825134277344,
+            "angry": -3.5118093490600586,
+            "afraid": 16.717422485351562
+          },
+          "text": "After reading the note, Rowan sat on the hallway floor, surrounded by unopened boxes, unable to begin again."
+        },
+        {
+          "id": "intensity-angry-1",
+          "emotion": "angry",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -8.283631324768066,
+          "scores": {
+            "happy": -1.9147124290466309,
+            "sad": -13.028051376342773,
+            "angry": -8.283631324768066,
+            "afraid": 15.608016014099121
+          },
+          "text": "After the decision, Imani set the pen down carefully and answered with shorter sentences."
+        },
+        {
+          "id": "intensity-angry-2",
+          "emotion": "angry",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -9.063426971435547,
+          "scores": {
+            "happy": -8.744312286376953,
+            "sad": -23.915504455566406,
+            "angry": -9.063426971435547,
+            "afraid": 28.16534423828125
+          },
+          "text": "After the decision, Imani rewrote the agenda in block letters and pushed each page into a precise stack."
+        },
+        {
+          "id": "intensity-angry-3",
+          "emotion": "angry",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": -8.090849876403809,
+          "scores": {
+            "happy": -0.5938642024993896,
+            "sad": -23.72027587890625,
+            "angry": -8.090849876403809,
+            "afraid": 21.825090408325195
+          },
+          "text": "After the decision, Imani cleared the table in one sweep and told everyone to start over from the first line."
+        },
+        {
+          "id": "intensity-afraid-1",
+          "emotion": "afraid",
+          "level": 1,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 22.61051368713379,
+          "scores": {
+            "happy": -6.6674017906188965,
+            "sad": -15.754584312438965,
+            "angry": -11.174358367919922,
+            "afraid": 22.61051368713379
+          },
+          "text": "After the sound, Ellis checked the window latch once and kept the lamp on."
+        },
+        {
+          "id": "intensity-afraid-2",
+          "emotion": "afraid",
+          "level": 2,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 20.81749153137207,
+          "scores": {
+            "happy": -7.190065860748291,
+            "sad": -13.198614120483398,
+            "angry": -10.541951179504395,
+            "afraid": 20.81749153137207
+          },
+          "text": "After the sound, Ellis checked every room, listened at the door, and kept shoes beside the bed."
+        },
+        {
+          "id": "intensity-afraid-3",
+          "emotion": "afraid",
+          "level": 3,
+          "variant": null,
+          "prediction": "afraid",
+          "intended_score": 25.710811614990234,
+          "scores": {
+            "happy": -6.569283485412598,
+            "sad": -23.405832290649414,
+            "angry": -8.11884880065918,
+            "afraid": 25.710811614990234
+          },
+          "text": "After the sound, Ellis crouched behind the sofa, phone in hand, waiting for any sign that it had stopped."
+        }
+      ]
+    }
+  ]
+}

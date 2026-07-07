@@ -1,0 +1,19 @@
+{
+  "stage": "all",
+  "dataset_plan": {
+    "emotions": [
+      "happy",
+      "sad",
+      "angry",
+      "afraid"
+    ],
+    "topics": 16,
+    "neutral_topics": 16,
+    "stories_per_topic_emotion": 4,
+    "total_emotion_stories": 256,
+    "train_topic_fraction": 0.7,
+    "purpose": "Revise Prototype 1 extraction/data before geometry: more topics, more stories per pair, and balanced negative-emotion premises."
+  },
+  "prototype1_run_dir": "artifacts/prototype25/colab-run/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306",
+  "prototype2_run_dir": "artifacts/prototype25/colab-run/prototype2/20260628T205450Z__prototype2-prototype25-validation__qwen-qwen3-0-6b-base__seed-42__39a92c5ae9"
+}

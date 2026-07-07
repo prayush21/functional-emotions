@@ -1,0 +1,95 @@
+experiment: prototype5
+seed: 42
+
+prototype1:
+  # Canonical vector source from the accepted Prototype 2.5 handoff.
+  run_dir: results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306
+  emotion_vectors: emotion_vectors.safetensors
+
+model:
+  # Defaults are inherited from the Prototype 1 bundle when left unset.
+  name:
+  revision:
+  dtype:
+  device:
+  local_files_only:
+
+emotions:
+  - happy
+  - sad
+  - angry
+  - afraid
+
+intervention:
+  # If omitted, the runner uses Prototype 1's pre-registered selected layer.
+  layer:
+  strengths: [-4, -2, -1, 0, 1, 2, 4]
+  scale_by_vector_norm: false
+
+preference_task:
+  expected_categories:
+    happy:
+      - social_connection
+      - celebration_play
+      - helping_generosity
+      - exploration_novelty
+    sad:
+      - rest_withdrawal
+      - reflection
+      - low_energy
+    angry:
+      - confrontation_correction
+      - boundary_setting
+    afraid:
+      - safety_checking
+      - avoidance_caution
+      - careful_review
+  pairs:
+    - id: social-vs-rest
+      activity_a: call a friend
+      category_a: social_connection
+      activity_b: sit quietly alone
+      category_b: rest_withdrawal
+    - id: calm-ask-vs-confront
+      activity_a: ask for clarification calmly
+      category_a: careful_review
+      activity_b: confront the person immediately
+      category_b: confrontation_correction
+    - id: check-door-vs-cook
+      activity_a: check that the door is locked
+      category_a: safety_checking
+      activity_b: start cooking dinner
+      category_b: routine_maintenance
+    - id: celebration-vs-leave
+      activity_a: join the celebration
+      category_a: celebration_play
+      activity_b: leave early
+      category_b: avoidance_caution
+    - id: write-vs-angry-reply
+      activity_a: write down what happened
+      category_a: reflection
+      activity_b: send an angry reply
+      category_b: confrontation_correction
+    - id: walk-vs-bed
+      activity_a: take a walk outside
+      category_a: exploration_novelty
+      activity_b: stay in bed
+      category_b: low_energy
+    - id: help-vs-ignore
+      activity_a: help clean up
+      category_a: helping_generosity
+      activity_b: ignore the mess
+      category_b: routine_maintenance
+    - id: review-vs-rush
+      activity_a: review the plan carefully
+      category_a: careful_review
+      activity_b: rush ahead
+      category_b: exploration_novelty
+
+controls:
+  random_seed: 314159
+
+gates:
+  zero_steering_max_abs_logit_error: 1.0e-6
+
+output_dir: artifacts/prototype5

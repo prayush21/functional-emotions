@@ -76,11 +76,22 @@ The full Colab walkthrough, including cloning and downloading artifacts, is in
 [docs/colab.md](docs/colab.md).
 
 Modal is useful for repeatable short GPU jobs and should be run only when a GPU
-is needed:
+is needed. `cloud/modal_run.py` is the general, agent-friendly runner: it launches
+any prototype, persists its bundle to the `functional-emotions-artifacts` volume,
+and prints the run directory and `summary.json` as JSON. `cloud/fetch_run.py` then
+downloads and registers that bundle locally. The full loop is four commands:
 
 ```bash
-modal run cloud/modal_prototype0.py
+modal token new                                                    # one-time auth
+modal run cloud/modal_run.py --prototype 51 --config configs/prototype51.yaml --gpu T4
+python cloud/fetch_run.py --prototype 51 --register                # download + register
+# (add --stage for prototype 1/2.5, e.g. --prototype 25 --stage all)
 ```
+
+Input bundles a config references under `results/runs/...` (or `artifacts/...`)
+are shipped inside the Modal image because `results/` is small and version
+controlled, so no extra upload step is needed. The original single-purpose
+`modal run cloud/modal_prototype0.py` still works for backward compatibility.
 
 Prototype 0 is complete when all hard gates in `metrics.json` pass. Semantic
 movement of the happy/sad margin is reported as a diagnostic, not a hard gate.
@@ -100,8 +111,105 @@ fe-prototype1 --config configs/prototype1.yaml --stage extract
 The generator and measured base model are configured separately. Runs record
 dataset hashes, the exact topic split, raw-versus-cleaned validation at every
 layer, and safetensor bundles for both emotion vectors and neutral components.
+Prototype 1 now runs end to end. The first completed compact run found
+above-chance held-out signal, but failed the mean-margin hard gate because the
+uncalibrated multiclass scores over-predicted `angry` and never selected
+`afraid` at the pre-registered layer. Prototype 2 will test semantic robustness
+and controls rather than tuning Prototype 1 to pass.
 See [docs/prototype1.md](docs/prototype1.md) for the experiment card, gates,
 scaling guidance, and interpretation limits.
+
+## Prototype 2: semantic validation and controls
+
+Prototype 2 explains the Prototype 1 result rather than tuning it to pass. It
+loads a completed Prototype 1 artifact bundle, reruns held-out scoring, compares
+real versus shuffled vector labels, raw versus PCA-cleaned directions, diagnostic
+best layers, emotion confusion patterns, compact lexical scenarios,
+topic-stratified held-out metrics, logit-lens emotion-word effects, implicit
+intensity sweeps, and simple train-score calibration.
+
+```bash
+fe-prototype2 --config configs/prototype2.yaml
+```
+
+See [docs/prototype2.md](docs/prototype2.md) for Colab cells, expected outputs,
+and interpretation guidance.
+
+## Prototype 2.5: revised extraction before geometry
+
+Prototype 2.5 is a bridge step prompted by Prototype 2's failure modes. It
+orchestrates a larger, better-balanced Prototype 1 extraction and immediately
+runs the Prototype 2 controls on the new bundle.
+
+```bash
+fe-prototype25 --config configs/prototype25.yaml --stage prepare
+fe-prototype25 --config configs/prototype25.yaml --stage all
+```
+
+Use this before Prototype 3 if semantic controls fail on the current vectors.
+See [docs/prototype25.md](docs/prototype25.md).
+
+## Prototype 3: emotion-space geometry
+
+Prototype 3 consumes the canonical Prototype 2.5 vector bundle and measures
+diagnostic geometry: cosine structure, nearest neighbors, clustering, PCA,
+valence/arousal alignment, and representational similarity across layers.
+
+```bash
+fe-prototype3 --config configs/prototype3.yaml
+```
+
+This is a structural checkpoint before causal steering. It does not rerun
+extraction or semantic validation, and it does not make claims about subjective
+experience. See [docs/prototype3.md](docs/prototype3.md).
+
+## Prototype 4: causal emotion steering
+
+Prototype 4 consumes the canonical Prototype 2.5 nested Prototype 1 vector
+bundle and applies signed residual-stream interventions at the selected layer.
+It records matching-token and free-generation effects with dose-response,
+specificity, random-vector, wrong-emotion, KL, and fluency controls.
+
+```bash
+fe-prototype4 --config configs/prototype4.yaml
+```
+
+Because Prototype 3 found weak valence/arousal geometry, Prototype 4 is framed
+narrowly as local causal efficacy over compact validated vectors, not evidence
+of a mature emotion manifold. See [docs/prototype4.md](docs/prototype4.md).
+
+## Prototype 5: activity preferences
+
+Prototype 5 tests whether the same compact emotion-vector steering transfers to
+simple pairwise activity preferences. It scores deterministic `A` versus `B`
+next-token logit margins for activities such as calling a friend, resting,
+checking for safety, correcting someone, helping, or joining a celebration.
+
+```bash
+fe-prototype5 --config configs/prototype5.yaml
+```
+
+The default run records zero-steering fidelity, expected-direction preference
+effects, dose-response, opposite-sign reversal, random-vector and wrong-emotion
+controls, KL diagnostics, and lightweight category Elo summaries. It preserves
+the Prototype 3/4 caveat: this tests local causal preference consequences, not
+mature human-like emotion structure. See [docs/prototype5.md](docs/prototype5.md).
+
+## Prototype 5.1: robust activity-preference assay
+
+Prototype 5.1 keeps the same canonical Prototype 2.5 vector bundle and asks
+whether Prototype 5's null behavioral-transfer result survives a stronger
+assay. It adds A/B order swaps, full option-text logprob scoring, contextualized
+prompt families, per-emotion/context/scoring/layer breakdowns, a compact layer
+sweep around layer 19, stronger signed strengths, and KL guardrails.
+
+```bash
+fe-prototype51 --config configs/prototype51.yaml
+```
+
+This is not a new extraction step. It tests whether the Prototype 5 activity
+preference null was caused by brittle A/B token scoring, option-order bias,
+missing context, or layer/strength choice. See [docs/prototype51.md](docs/prototype51.md).
 
 ## Roadmap
 
