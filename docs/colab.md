@@ -17,11 +17,8 @@ print(torch.cuda.get_device_name(0))
 
 ## 2. Clone and install
 
-Replace the branch with `main` after this change has been merged.
-
 ```python
-!git clone --branch codex/colab-1-7b-compat \
-  https://github.com/prayush21/functional-emotions.git
+!git clone https://github.com/prayush21/functional-emotions.git
 %cd functional-emotions
 !python -m pip install -q -e ".[dev]"
 ```

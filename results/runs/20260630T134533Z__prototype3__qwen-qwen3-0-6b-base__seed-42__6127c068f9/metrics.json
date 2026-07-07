@@ -1,0 +1,4307 @@
+{
+  "selected_layer": 19,
+  "selection_metric": "Prototype 1 pre-registered layer; Prototype 3 layer sweep is diagnostic only",
+  "emotions": [
+    "happy",
+    "sad",
+    "angry",
+    "afraid"
+  ],
+  "prototype1_run_dir": "results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306",
+  "prototype1_summary": {
+    "all_hard_gates_pass": true,
+    "selected_layer": 19,
+    "held_out_accuracy": 0.612500011920929,
+    "held_out_macro_auc": 0.90375,
+    "mean_correct_margin": 3.807394027709961,
+    "number_of_emotions": 4
+  },
+  "prototype2_validation_run_dir": "results/runs/colab-run-prototype-2.5/prototype2/20260628T205450Z__prototype2-prototype25-validation__qwen-qwen3-0-6b-base__seed-42__39a92c5ae9",
+  "artifacts": {
+    "emotion_vectors": "results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306/emotion_vectors.safetensors"
+  },
+  "layers": [
+    {
+      "layer": 0,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0,
+            -0.24407193064689636,
+            -0.23748460412025452,
+            -0.5278285145759583
+          ],
+          [
+            -0.24407193064689636,
+            1.0000001192092896,
+            -0.4646756649017334,
+            -0.188114196062088
+          ],
+          [
+            -0.23748460412025452,
+            -0.4646756649017334,
+            1.000000238418579,
+            -0.332080602645874
+          ],
+          [
+            -0.5278285145759583,
+            -0.188114196062088,
+            -0.332080602645874,
+            1.0000001192092896
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3323759138584137,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.23748460412025452
+        },
+        "sad": {
+          "emotion": "afraid",
+          "cosine": -0.188114196062088
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.23748460412025452
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.188114196062088
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.188114196062088
+        },
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.23748460412025452
+        },
+        {
+          "left": [
+            "afraid",
+            "sad"
+          ],
+          "right": [
+            "angry",
+            "happy"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.3921641781926155
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6898055672645569,
+            0.5238502621650696
+          ],
+          [
+            0.4587525725364685,
+            0.6438237428665161
+          ],
+          [
+            -0.5430620908737183,
+            -0.7363579273223877
+          ],
+          [
+            0.7741148471832275,
+            -0.4313163757324219
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.3953979015350342,
+          0.3545507788658142
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.44136741475237473,
+          "pearson_similarity_vs_negative_distance": 0.06818006022731389
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": -0.2571428571428571,
+          "pearson_similarity_vs_negative_distance": -0.20924837981888897
+        }
+      }
+    },
+    {
+      "layer": 1,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            0.9999998807907104,
+            -0.25726330280303955,
+            -0.2917163074016571,
+            -0.5285367965698242
+          ],
+          [
+            -0.25726330280303955,
+            1.0,
+            -0.433639258146286,
+            -0.2012534886598587
+          ],
+          [
+            -0.2917163074016571,
+            -0.433639258146286,
+            1.0,
+            -0.2801428437232971
+          ],
+          [
+            -0.5285367965698242,
+            -0.2012534886598587,
+            -0.2801428437232971,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3320920169353485,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "sad",
+          "cosine": -0.25726330280303955
+        },
+        "sad": {
+          "emotion": "afraid",
+          "cosine": -0.2012534886598587
+        },
+        "angry": {
+          "emotion": "afraid",
+          "cosine": -0.2801428437232971
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.2012534886598587
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.2012534886598587
+        },
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.2917163074016571
+        },
+        {
+          "left": [
+            "afraid",
+            "sad"
+          ],
+          "right": [
+            "angry",
+            "happy"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.3748955503106117
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.875625491142273,
+            -0.23515057563781738
+          ],
+          [
+            0.1980048418045044,
+            -0.7586448192596436
+          ],
+          [
+            -0.16039612889289856,
+            0.8899177312850952
+          ],
+          [
+            0.8380167484283447,
+            0.10387763381004333
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.38383862376213074,
+          0.3587297201156616
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.44136741475237473,
+          "pearson_similarity_vs_negative_distance": 0.2685066538805464
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": -0.3142857142857143,
+          "pearson_similarity_vs_negative_distance": -0.231770986773471
+        }
+      }
+    },
+    {
+      "layer": 2,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            0.9999998807907104,
+            -0.1555914282798767,
+            -0.3067055940628052,
+            -0.5459108352661133
+          ],
+          [
+            -0.1555914282798767,
+            1.0,
+            -0.4663516879081726,
+            -0.26717060804367065
+          ],
+          [
+            -0.3067055940628052,
+            -0.4663516879081726,
+            1.000000238418579,
+            -0.25133147835731506
+          ],
+          [
+            -0.5459108352661133,
+            -0.26717060804367065,
+            -0.25133147835731506,
+            1.0000001192092896
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.33217692375183105,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "sad",
+          "cosine": -0.1555914282798767
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.1555914282798767
+        },
+        "angry": {
+          "emotion": "afraid",
+          "cosine": -0.25133147835731506
+        },
+        "afraid": {
+          "emotion": "angry",
+          "cosine": -0.25133147835731506
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "sad"
+          ],
+          "merged": [
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.1555914282798767
+        },
+        {
+          "left": [
+            "angry"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "angry"
+          ],
+          "average_cosine": -0.25133147835731506
+        },
+        {
+          "left": [
+            "happy",
+            "sad"
+          ],
+          "right": [
+            "afraid",
+            "angry"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.39653468132019043
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7632429599761963,
+            -0.3813698887825012
+          ],
+          [
+            -0.4710153341293335,
+            0.6357398629188538
+          ],
+          [
+            0.48938679695129395,
+            -0.7743640542030334
+          ],
+          [
+            0.7448717355728149,
+            0.51999431848526
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.4000289738178253,
+          0.35521844029426575
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.08827348295047495,
+          "pearson_similarity_vs_negative_distance": 0.04177794993272625
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": -0.12440124004129788
+        }
+      }
+    },
+    {
+      "layer": 3,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            0.9999997615814209,
+            -0.18231981992721558,
+            -0.23207128047943115,
+            -0.5075554847717285
+          ],
+          [
+            -0.18231981992721558,
+            1.000000238418579,
+            -0.45579811930656433,
+            -0.3193508982658386
+          ],
+          [
+            -0.23207128047943115,
+            -0.45579811930656433,
+            0.9999998807907104,
+            -0.29519400000572205
+          ],
+          [
+            -0.5075554847717285,
+            -0.3193508982658386,
+            -0.29519400000572205,
+            1.0000001192092896
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3320482671260834,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "sad",
+          "cosine": -0.18231981992721558
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.18231981992721558
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.23207128047943115
+        },
+        "afraid": {
+          "emotion": "angry",
+          "cosine": -0.29519400000572205
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "sad"
+          ],
+          "merged": [
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.18231981992721558
+        },
+        {
+          "left": [
+            "angry"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "angry"
+          ],
+          "average_cosine": -0.29519400000572205
+        },
+        {
+          "left": [
+            "happy",
+            "sad"
+          ],
+          "right": [
+            "afraid",
+            "angry"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.37869394570589066
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7161906361579895,
+            -0.2890622317790985
+          ],
+          [
+            -0.4362453818321228,
+            0.7179439067840576
+          ],
+          [
+            0.2876104712486267,
+            -0.826525866985321
+          ],
+          [
+            0.8648257255554199,
+            0.39764463901519775
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.3838408291339874,
+          0.36041393876075745
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": -0.1765469659009499,
+          "pearson_similarity_vs_negative_distance": -0.1957916541557259
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.2571428571428571,
+          "pearson_similarity_vs_negative_distance": 0.03277353501740093
+        }
+      }
+    },
+    {
+      "layer": 4,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0000003576278687,
+            -0.2072177529335022,
+            -0.1881510615348816,
+            -0.5473586320877075
+          ],
+          [
+            -0.2072177529335022,
+            1.0000001192092896,
+            -0.4735777974128723,
+            -0.2725067138671875
+          ],
+          [
+            -0.1881510615348816,
+            -0.4735777974128723,
+            1.0,
+            -0.30346640944480896
+          ],
+          [
+            -0.5473586320877075,
+            -0.2725067138671875,
+            -0.30346640944480896,
+            1.0
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.33204638957977295,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.1881510615348816
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.2072177529335022
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.1881510615348816
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.2725067138671875
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.1881510615348816
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.2725067138671875
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.38290514796972275
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7778610587120056,
+            -0.21872563660144806
+          ],
+          [
+            0.1778988540172577,
+            -0.8395746350288391
+          ],
+          [
+            -0.3103408217430115,
+            0.8062570691108704
+          ],
+          [
+            0.9103022217750549,
+            0.2520431876182556
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.39079660177230835,
+          0.3669297695159912
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.10494670178370921
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": 0.0014227926334468399
+        }
+      }
+    },
+    {
+      "layer": 5,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0000001192092896,
+            -0.23498636484146118,
+            -0.16179975867271423,
+            -0.5344796180725098
+          ],
+          [
+            -0.23498636484146118,
+            1.000000238418579,
+            -0.43035760521888733,
+            -0.27579817175865173
+          ],
+          [
+            -0.16179975867271423,
+            -0.43035760521888733,
+            1.0000001192092896,
+            -0.3495821952819824
+          ],
+          [
+            -0.5344796180725098,
+            -0.27579817175865173,
+            -0.3495821952819824,
+            1.000000238418579
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3311672806739807,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.16179975867271423
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.23498636484146118
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.16179975867271423
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.27579817175865173
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.16179975867271423
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.27579817175865173
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.3873514458537102
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7113248109817505,
+            -0.2990204691886902
+          ],
+          [
+            0.30272793769836426,
+            -0.8075849413871765
+          ],
+          [
+            -0.46683406829833984,
+            0.6980575919151306
+          ],
+          [
+            0.8754310607910156,
+            0.4085477590560913
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.39612850546836853,
+          0.34951817989349365
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.13336797623127836
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": -0.05472693883642101
+        }
+      }
+    },
+    {
+      "layer": 6,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            0.9999999403953552,
+            -0.263408899307251,
+            -0.16751307249069214,
+            -0.49604982137680054
+          ],
+          [
+            -0.263408899307251,
+            1.000000238418579,
+            -0.41826748847961426,
+            -0.29374444484710693
+          ],
+          [
+            -0.16751307249069214,
+            -0.41826748847961426,
+            1.0000001192092896,
+            -0.35094326734542847
+          ],
+          [
+            -0.49604982137680054,
+            -0.29374444484710693,
+            -0.35094326734542847,
+            1.000000238418579
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.33165451884269714,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.16751307249069214
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.263408899307251
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.16751307249069214
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.29374444484710693
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.16751307249069214
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.29374444484710693
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.38216736912727356
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6827973127365112,
+            -0.29605457186698914
+          ],
+          [
+            0.35206133127212524,
+            -0.814853847026825
+          ],
+          [
+            -0.5074519515037537,
+            0.6290068030357361
+          ],
+          [
+            0.8381879329681396,
+            0.481901615858078
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.38804519176483154,
+          0.34531325101852417
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.17758250280168797
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": 0.015280310288258799
+        }
+      }
+    },
+    {
+      "layer": 7,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0000001192092896,
+            -0.2762741148471832,
+            -0.1528986394405365,
+            -0.4811728000640869
+          ],
+          [
+            -0.2762741148471832,
+            0.9999998807907104,
+            -0.40355122089385986,
+            -0.32218122482299805
+          ],
+          [
+            -0.1528986394405365,
+            -0.40355122089385986,
+            1.0000001192092896,
+            -0.35052305459976196
+          ],
+          [
+            -0.4811728000640869,
+            -0.32218122482299805,
+            -0.35052305459976196,
+            1.000000238418579
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3311001658439636,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.1528986394405365
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.2762741148471832
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.1528986394405365
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.32218122482299805
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.1528986394405365
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.32218122482299805
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.377880297601223
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6788436770439148,
+            -0.20865248143672943
+          ],
+          [
+            0.32257887721061707,
+            -0.8666608333587646
+          ],
+          [
+            -0.49533241987228394,
+            0.5774688720703125
+          ],
+          [
+            0.8515976667404175,
+            0.497844398021698
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.38450855016708374,
+          0.3445659875869751
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.2357323809600916
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": 0.10470945237215536
+        }
+      }
+    },
+    {
+      "layer": 8,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.000000238418579,
+            -0.26040443778038025,
+            -0.12850485742092133,
+            -0.4950602352619171
+          ],
+          [
+            -0.26040443778038025,
+            1.0,
+            -0.41878730058670044,
+            -0.31240352988243103
+          ],
+          [
+            -0.12850485742092133,
+            -0.41878730058670044,
+            0.9999998807907104,
+            -0.3681677579879761
+          ],
+          [
+            -0.4950602352619171,
+            -0.31240352988243103,
+            -0.3681677579879761,
+            1.000000238418579
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.33055469393730164,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.12850485742092133
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.26040443778038025
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.12850485742092133
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.31240352988243103
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.12850485742092133
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.31240352988243103
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.38560493290424347
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6586484909057617,
+            -0.24502652883529663
+          ],
+          [
+            0.3520377278327942,
+            -0.8472246527671814
+          ],
+          [
+            -0.5410424470901489,
+            0.5681459307670593
+          ],
+          [
+            0.8476535081863403,
+            0.5241053104400635
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.39306679368019104,
+          0.34454402327537537
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.27126261842674493
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": 0.07142702283857988
+        }
+      }
+    },
+    {
+      "layer": 9,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0000001192092896,
+            -0.2866498529911041,
+            -0.10951702296733856,
+            -0.4885532855987549
+          ],
+          [
+            -0.2866498529911041,
+            1.0,
+            -0.43799299001693726,
+            -0.3011040985584259
+          ],
+          [
+            -0.10951702296733856,
+            -0.43799299001693726,
+            1.000000238418579,
+            -0.36185720562934875
+          ],
+          [
+            -0.4885532855987549,
+            -0.3011040985584259,
+            -0.36185720562934875,
+            1.0000003576278687
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3309457302093506,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.10951702296733856
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.2866498529911041
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.10951702296733856
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.3011040985584259
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.10951702296733856
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.3011040985584259
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.39376333355903625
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6483354568481445,
+            -0.2954830527305603
+          ],
+          [
+            0.4727306067943573,
+            -0.8115541934967041
+          ],
+          [
+            -0.5941919684410095,
+            0.48396241664886475
+          ],
+          [
+            0.7697969079017639,
+            0.6230747103691101
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.3980790078639984,
+          0.3427068889141083
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.2571480027413196
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": 0.14222566200090406
+        }
+      }
+    },
+    {
+      "layer": 10,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0,
+            -0.27026423811912537,
+            -0.1069556474685669,
+            -0.5136889815330505
+          ],
+          [
+            -0.27026423811912537,
+            0.9999999403953552,
+            -0.44060415029525757,
+            -0.3075368404388428
+          ],
+          [
+            -0.1069556474685669,
+            -0.44060415029525757,
+            1.0,
+            -0.34448879957199097
+          ],
+          [
+            -0.5136889815330505,
+            -0.3075368404388428,
+            -0.34448879957199097,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.33058980107307434,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.1069556474685669
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.27026423811912537
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.1069556474685669
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.3075368404388428
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.1069556474685669
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.3075368404388428
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.3922615423798561
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6823574900627136,
+            -0.2745031416416168
+          ],
+          [
+            0.4095616936683655,
+            -0.8369430303573608
+          ],
+          [
+            -0.5414146184921265,
+            0.5528667569160461
+          ],
+          [
+            0.8142101764678955,
+            0.5585789680480957
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.3981744945049286,
+          0.3490927815437317
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.22472174718400686
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": 0.13913400514014734
+        }
+      }
+    },
+    {
+      "layer": 11,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.000000238418579,
+            -0.2856816053390503,
+            -0.0809742659330368,
+            -0.5396727323532104
+          ],
+          [
+            -0.2856816053390503,
+            1.0,
+            -0.4480147957801819,
+            -0.2871800363063812
+          ],
+          [
+            -0.0809742659330368,
+            -0.4480147957801819,
+            1.0,
+            -0.3409009277820587
+          ],
+          [
+            -0.5396727323532104,
+            -0.2871800363063812,
+            -0.3409009277820587,
+            1.0
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.33040404319763184,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.0809742659330368
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.2856816053390503
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.0809742659330368
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.2871800363063812
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.0809742659330368
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.2871800363063812
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.40356751531362534
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7019134759902954,
+            -0.2918369770050049
+          ],
+          [
+            0.45294439792633057,
+            -0.8216482400894165
+          ],
+          [
+            -0.5483664274215698,
+            0.5354117155075073
+          ],
+          [
+            0.7973352670669556,
+            0.5780730843544006
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.40947243571281433,
+          0.3460373878479004
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.15901845037489165
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": 0.12702818612487168
+        }
+      }
+    },
+    {
+      "layer": 12,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            0.9999997615814209,
+            -0.30329442024230957,
+            -0.07284772396087646,
+            -0.5412429571151733
+          ],
+          [
+            -0.30329442024230957,
+            0.9999999403953552,
+            -0.4414283037185669,
+            -0.2658126652240753
+          ],
+          [
+            -0.07284772396087646,
+            -0.4414283037185669,
+            1.0,
+            -0.3588637113571167
+          ],
+          [
+            -0.5412429571151733,
+            -0.2658126652240753,
+            -0.3588637113571167,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3305816352367401,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.07284772396087646
+        },
+        "sad": {
+          "emotion": "afraid",
+          "cosine": -0.2658126652240753
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.07284772396087646
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.2658126652240753
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.07284772396087646
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.2658126652240753
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.4112073481082916
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6989126801490784,
+            0.29876694083213806
+          ],
+          [
+            0.4844842553138733,
+            0.8034108281135559
+          ],
+          [
+            -0.569984495639801,
+            -0.5051214098930359
+          ],
+          [
+            0.7844129800796509,
+            -0.5970567464828491
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.4167076647281647,
+          0.3372846841812134
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.26482044885142486,
+          "pearson_similarity_vs_negative_distance": -0.12822075627460344
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": -0.02857142857142857,
+          "pearson_similarity_vs_negative_distance": 0.0827918205804041
+        }
+      }
+    },
+    {
+      "layer": 13,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0,
+            -0.29808691143989563,
+            -0.09588237851858139,
+            -0.5451339483261108
+          ],
+          [
+            -0.29808691143989563,
+            1.0000001192092896,
+            -0.4329429566860199,
+            -0.24729685485363007
+          ],
+          [
+            -0.09588237851858139,
+            -0.4329429566860199,
+            1.0,
+            -0.3666839599609375
+          ],
+          [
+            -0.5451339483261108,
+            -0.24729685485363007,
+            -0.3666839599609375,
+            1.000000238418579
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3310045003890991,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.09588237851858139
+        },
+        "sad": {
+          "emotion": "afraid",
+          "cosine": -0.24729685485363007
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.09588237851858139
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.24729685485363007
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.09588237851858139
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.24729685485363007
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.41071194410324097
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7019204497337341,
+            0.32294952869415283
+          ],
+          [
+            0.4685092866420746,
+            0.7845916152000427
+          ],
+          [
+            -0.5627461671829224,
+            -0.5451993346214294
+          ],
+          [
+            0.7961573600769043,
+            -0.5623414516448975
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.41641315817832947,
+          0.3339207172393799
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.26482044885142486,
+          "pearson_similarity_vs_negative_distance": -0.0848877322801912
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": -0.02857142857142857,
+          "pearson_similarity_vs_negative_distance": 0.0032540378633841103
+        }
+      }
+    },
+    {
+      "layer": 14,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0,
+            -0.26854944229125977,
+            -0.089390829205513,
+            -0.5641036033630371
+          ],
+          [
+            -0.26854944229125977,
+            1.000000238418579,
+            -0.45146992802619934,
+            -0.2563941776752472
+          ],
+          [
+            -0.089390829205513,
+            -0.45146992802619934,
+            1.000000238418579,
+            -0.3537839651107788
+          ],
+          [
+            -0.5641036033630371,
+            -0.2563941776752472,
+            -0.3537839651107788,
+            1.000000238418579
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3306153118610382,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.089390829205513
+        },
+        "sad": {
+          "emotion": "afraid",
+          "cosine": -0.2563941776752472
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.089390829205513
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.2563941776752472
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.089390829205513
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.2563941776752472
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.40947673469781876
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7085243463516235,
+            -0.32536518573760986
+          ],
+          [
+            0.43521493673324585,
+            -0.7967939972877502
+          ],
+          [
+            -0.5464762449264526,
+            0.5882343053817749
+          ],
+          [
+            0.8197851777076721,
+            0.5339245200157166
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.41637465357780457,
+          0.3436603844165802
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.26482044885142486,
+          "pearson_similarity_vs_negative_distance": -0.11507491648140226
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": -0.02857142857142857,
+          "pearson_similarity_vs_negative_distance": 0.02359478398507486
+        }
+      }
+    },
+    {
+      "layer": 15,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0000001192092896,
+            -0.2630765438079834,
+            -0.14441892504692078,
+            -0.5316476821899414
+          ],
+          [
+            -0.2630765438079834,
+            1.0,
+            -0.4207013249397278,
+            -0.3026118576526642
+          ],
+          [
+            -0.14441892504692078,
+            -0.4207013249397278,
+            1.0,
+            -0.3230888843536377
+          ],
+          [
+            -0.5316476821899414,
+            -0.3026118576526642,
+            -0.3230888843536377,
+            1.0
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3309241831302643,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.14441892504692078
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.2630765438079834
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.14441892504692078
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.3026118576526642
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.14441892504692078
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.3026118576526642
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.38462860882282257
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.741058349609375,
+            -0.2150340974330902
+          ],
+          [
+            0.28536030650138855,
+            -0.8616177439689636
+          ],
+          [
+            -0.4188969135284424,
+            0.6610907316207886
+          ],
+          [
+            0.8745948076248169,
+            0.41556107997894287
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.3934580385684967,
+          0.35022205114364624
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.11421607143565979
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": 0.0698980554964467
+        }
+      }
+    },
+    {
+      "layer": 16,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            0.9999999403953552,
+            -0.28221115469932556,
+            -0.14076197147369385,
+            -0.5090773701667786
+          ],
+          [
+            -0.28221115469932556,
+            1.000000238418579,
+            -0.382854163646698,
+            -0.30033785104751587
+          ],
+          [
+            -0.14076197147369385,
+            -0.382854163646698,
+            1.000000238418579,
+            -0.3679245710372925
+          ],
+          [
+            -0.5090773701667786,
+            -0.30033785104751587,
+            -0.3679245710372925,
+            1.0
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3305278718471527,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.14076197147369385
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.28221115469932556
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.14076197147369385
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.30033785104751587
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.14076197147369385
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.30033785104751587
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.38551681488752365
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6961960792541504,
+            -0.19921272993087769
+          ],
+          [
+            0.3203965425491333,
+            -0.8585389256477356
+          ],
+          [
+            -0.48983505368232727,
+            0.5748893022537231
+          ],
+          [
+            0.8656339049339294,
+            0.4828627109527588
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.3949817717075348,
+          0.33581387996673584
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.14061166311591589
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": -0.016305201703491035
+        }
+      }
+    },
+    {
+      "layer": 17,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.000000238418579,
+            -0.28930455446243286,
+            -0.11578483879566193,
+            -0.5146924257278442
+          ],
+          [
+            -0.28930455446243286,
+            1.0000001192092896,
+            -0.3637368679046631,
+            -0.2973882555961609
+          ],
+          [
+            -0.11578483879566193,
+            -0.3637368679046631,
+            0.9999997615814209,
+            -0.39625853300094604
+          ],
+          [
+            -0.5146924257278442,
+            -0.2973882555961609,
+            -0.39625853300094604,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3295275866985321,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.11578483879566193
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.28930455446243286
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.11578483879566193
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.2973882555961609
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.11578483879566193
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.2973882555961609
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.39099809527397156
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6813689470291138,
+            0.1445087343454361
+          ],
+          [
+            0.3245639503002167,
+            0.8759863376617432
+          ],
+          [
+            -0.519182562828064,
+            -0.507530152797699
+          ],
+          [
+            0.8759875297546387,
+            -0.5129647850990295
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.40277722477912903,
+          0.3281753957271576
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.15135081827211982
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": -0.14285714285714285,
+          "pearson_similarity_vs_negative_distance": -0.05966970889843448
+        }
+      }
+    },
+    {
+      "layer": 18,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            0.9999997615814209,
+            -0.2581115961074829,
+            -0.12123187631368637,
+            -0.5215421319007874
+          ],
+          [
+            -0.2581115961074829,
+            1.0,
+            -0.38165661692619324,
+            -0.30464789271354675
+          ],
+          [
+            -0.12123187631368637,
+            -0.38165661692619324,
+            0.9999998807907104,
+            -0.38924965262413025
+          ],
+          [
+            -0.5215421319007874,
+            -0.30464789271354675,
+            -0.38924965262413025,
+            1.0
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.32940664887428284,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.12123187631368637
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.2581115961074829
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.12123187631368637
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.30464789271354675
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.12123187631368637
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.30464789271354675
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.38763999938964844
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6781023144721985,
+            -0.1832043081521988
+          ],
+          [
+            0.27887824177742004,
+            -0.8642540574073792
+          ],
+          [
+            -0.500774621963501,
+            0.5896176695823669
+          ],
+          [
+            0.8999980092048645,
+            0.4578408896923065
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.4007721543312073,
+          0.33542948961257935
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.19970451111030338
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": -0.14285714285714285,
+          "pearson_similarity_vs_negative_distance": -0.051055201915551664
+        }
+      }
+    },
+    {
+      "layer": 19,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0,
+            -0.24237114191055298,
+            -0.15044304728507996,
+            -0.502869725227356
+          ],
+          [
+            -0.24237114191055298,
+            1.0,
+            -0.3772326707839966,
+            -0.33974626660346985
+          ],
+          [
+            -0.15044304728507996,
+            -0.3772326707839966,
+            0.9999999403953552,
+            -0.3650825023651123
+          ],
+          [
+            -0.502869725227356,
+            -0.33974626660346985,
+            -0.3650825023651123,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3296242356300354,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.15044304728507996
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.24237114191055298
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.15044304728507996
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.33974626660346985
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.15044304728507996
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "angry",
+            "happy"
+          ],
+          "merged": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.3098019063472748
+        },
+        {
+          "left": [
+            "afraid"
+          ],
+          "right": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.40256616473197937
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6830873489379883,
+            0.0939994603395462
+          ],
+          [
+            0.12001387029886246,
+            0.8973180055618286
+          ],
+          [
+            -0.3920990228652954,
+            -0.6705394983291626
+          ],
+          [
+            0.9551723003387451,
+            -0.3207782804965973
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.38785603642463684,
+          0.34258729219436646
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.2522656810281821
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": 0.008284390020374335
+        }
+      }
+    },
+    {
+      "layer": 20,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0000001192092896,
+            -0.22201302647590637,
+            -0.12119119614362717,
+            -0.534765362739563
+          ],
+          [
+            -0.22201302647590637,
+            1.000000238418579,
+            -0.37026602029800415,
+            -0.3539605140686035
+          ],
+          [
+            -0.12119119614362717,
+            -0.37026602029800415,
+            1.0,
+            -0.36421555280685425
+          ],
+          [
+            -0.534765362739563,
+            -0.3539605140686035,
+            -0.36421555280685425,
+            1.0
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3277352750301361,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.12119119614362717
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.22201302647590637
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.12119119614362717
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.3539605140686035
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.12119119614362717
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "angry",
+            "happy"
+          ],
+          "merged": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.29613952338695526
+        },
+        {
+          "left": [
+            "afraid"
+          ],
+          "right": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.4176471432050069
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.6937810778617859,
+            0.03334243595600128
+          ],
+          [
+            0.041962455958127975,
+            0.9085680246353149
+          ],
+          [
+            -0.33925479650497437,
+            -0.690437912940979
+          ],
+          [
+            0.9910730719566345,
+            -0.251472532749176
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.396769255399704,
+          0.3430781364440918
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.24487281372181957
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": 0.010035712793209414
+        }
+      }
+    },
+    {
+      "layer": 21,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.000000238418579,
+            -0.2695872187614441,
+            -0.12544506788253784,
+            -0.5386818647384644
+          ],
+          [
+            -0.2695872187614441,
+            1.0000001192092896,
+            -0.3595186769962311,
+            -0.30977100133895874
+          ],
+          [
+            -0.12544506788253784,
+            -0.3595186769962311,
+            1.0,
+            -0.3701006770133972
+          ],
+          [
+            -0.5386818647384644,
+            -0.30977100133895874,
+            -0.3701006770133972,
+            1.0
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.32885074615478516,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.12544506788253784
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.2695872187614441
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.12544506788253784
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.30977100133895874
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.12544506788253784
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.30977100133895874
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.3844721093773842
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7167125940322876,
+            -0.12480226904153824
+          ],
+          [
+            0.23236526548862457,
+            -0.8864602446556091
+          ],
+          [
+            -0.4334297478199005,
+            0.6006323099136353
+          ],
+          [
+            0.9177769422531128,
+            0.41063010692596436
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.4008091688156128,
+          0.3338128626346588
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.10886001470275118
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": -0.14285714285714285,
+          "pearson_similarity_vs_negative_distance": -0.05681386124485611
+        }
+      }
+    },
+    {
+      "layer": 22,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0000001192092896,
+            -0.213027685880661,
+            -0.10464125126600266,
+            -0.5737481117248535
+          ],
+          [
+            -0.213027685880661,
+            0.9999999403953552,
+            -0.3813421130180359,
+            -0.3324696719646454
+          ],
+          [
+            -0.10464125126600266,
+            -0.3813421130180359,
+            1.0000001192092896,
+            -0.3574143648147583
+          ],
+          [
+            -0.5737481117248535,
+            -0.3324696719646454,
+            -0.3574143648147583,
+            1.0
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.32710719108581543,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.10464125126600266
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.213027685880661
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.10464125126600266
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.3324696719646454
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.10464125126600266
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "angry",
+            "happy"
+          ],
+          "merged": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.29718489944934845
+        },
+        {
+          "left": [
+            "afraid"
+          ],
+          "right": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.42121071616808575
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7276140451431274,
+            -0.07995353639125824
+          ],
+          [
+            0.09143645316362381,
+            -0.8934721350669861
+          ],
+          [
+            -0.344554603099823,
+            0.7026020884513855
+          ],
+          [
+            0.980732262134552,
+            0.2708234488964081
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.4064824879169464,
+          0.3445287346839905
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.17794795256563223
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": -0.02197194991629122
+        }
+      }
+    },
+    {
+      "layer": 23,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0,
+            -0.260675847530365,
+            -0.08912605047225952,
+            -0.5738331079483032
+          ],
+          [
+            -0.260675847530365,
+            1.0000001192092896,
+            -0.39269357919692993,
+            -0.28705477714538574
+          ],
+          [
+            -0.08912605047225952,
+            -0.39269357919692993,
+            0.9999999403953552,
+            -0.3671424388885498
+          ],
+          [
+            -0.5738331079483032,
+            -0.28705477714538574,
+            -0.3671424388885498,
+            1.0
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3284209668636322,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.08912605047225952
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.260675847530365
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.08912605047225952
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.28705477714538574
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.08912605047225952
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "afraid"
+          ],
+          "merged": [
+            "afraid",
+            "sad"
+          ],
+          "average_cosine": -0.28705477714538574
+        },
+        {
+          "left": [
+            "angry",
+            "happy"
+          ],
+          "right": [
+            "afraid",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.398586243391037
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7296086549758911,
+            -0.1945367008447647
+          ],
+          [
+            0.30013781785964966,
+            -0.8596760630607605
+          ],
+          [
+            -0.46878349781036377,
+            0.6077853441238403
+          ],
+          [
+            0.8982544541358948,
+            0.446427583694458
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.4137822389602661,
+          0.3376409411430359
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.10434041486049025
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": -0.03385256410454891
+        }
+      }
+    },
+    {
+      "layer": 24,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0,
+            -0.21374601125717163,
+            -0.11922167241573334,
+            -0.5806259512901306
+          ],
+          [
+            -0.21374601125717163,
+            1.000000238418579,
+            -0.3953714072704315,
+            -0.3206775188446045
+          ],
+          [
+            -0.11922167241573334,
+            -0.3953714072704315,
+            0.9999998807907104,
+            -0.3383984863758087
+          ],
+          [
+            -0.5806259512901306,
+            -0.3206775188446045,
+            -0.3383984863758087,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3280068635940552,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.11922167241573334
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.21374601125717163
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.11922167241573334
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.3206775188446045
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.11922167241573334
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "angry",
+            "happy"
+          ],
+          "merged": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.3045587092638016
+        },
+        {
+          "left": [
+            "afraid"
+          ],
+          "right": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.4132339855035146
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7522954940795898,
+            -0.09204419702291489
+          ],
+          [
+            0.09209083020687103,
+            -0.8854032158851624
+          ],
+          [
+            -0.31102991104125977,
+            0.7307677865028381
+          ],
+          [
+            0.9712348580360413,
+            0.24667967855930328
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.4052354097366333,
+          0.34821179509162903
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.13464404053363302
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": -0.018389706549890823
+        }
+      }
+    },
+    {
+      "layer": 25,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0,
+            -0.22789549827575684,
+            -0.14876732230186462,
+            -0.5655678510665894
+          ],
+          [
+            -0.22789549827575684,
+            1.0,
+            -0.3894243538379669,
+            -0.3098718523979187
+          ],
+          [
+            -0.14876732230186462,
+            -0.3894243538379669,
+            1.0,
+            -0.3334103226661682
+          ],
+          [
+            -0.5655678510665894,
+            -0.3098718523979187,
+            -0.3334103226661682,
+            1.0
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.32915619015693665,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.14876732230186462
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.22789549827575684
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.14876732230186462
+        },
+        "afraid": {
+          "emotion": "sad",
+          "cosine": -0.3098718523979187
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.14876732230186462
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "angry",
+            "happy"
+          ],
+          "merged": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.3086599260568619
+        },
+        {
+          "left": [
+            "afraid"
+          ],
+          "right": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.4029500087102254
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7610163688659668,
+            -0.11023449152708054
+          ],
+          [
+            0.10628215968608856,
+            -0.8724898099899292
+          ],
+          [
+            -0.3003372848033905,
+            0.7405811548233032
+          ],
+          [
+            0.9550713300704956,
+            0.24214333295822144
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.3994528353214264,
+          0.3462054431438446
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": 0.0,
+          "pearson_similarity_vs_negative_distance": -0.08687345009405929
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": -0.04825015701430578
+        }
+      }
+    },
+    {
+      "layer": 26,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.000000238418579,
+            -0.1961214393377304,
+            -0.14604607224464417,
+            -0.5672698020935059
+          ],
+          [
+            -0.1961214393377304,
+            1.0,
+            -0.35450443625450134,
+            -0.3575456738471985
+          ],
+          [
+            -0.14604607224464417,
+            -0.35450443625450134,
+            1.0,
+            -0.3397754430770874
+          ],
+          [
+            -0.5672698020935059,
+            -0.3575456738471985,
+            -0.3397754430770874,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3268771469593048,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "angry",
+          "cosine": -0.14604607224464417
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.1961214393377304
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.14604607224464417
+        },
+        "afraid": {
+          "emotion": "angry",
+          "cosine": -0.3397754430770874
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "angry"
+          ],
+          "merged": [
+            "angry",
+            "happy"
+          ],
+          "average_cosine": -0.14604607224464417
+        },
+        {
+          "left": [
+            "sad"
+          ],
+          "right": [
+            "angry",
+            "happy"
+          ],
+          "merged": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.2753129377961159
+        },
+        {
+          "left": [
+            "afraid"
+          ],
+          "right": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.4215303063392639
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.7275049090385437,
+            0.03362513333559036
+          ],
+          [
+            -0.10427746921777725,
+            -0.8722962737083435
+          ],
+          [
+            -0.18033061921596527,
+            0.7676065564155579
+          ],
+          [
+            1.0121127367019653,
+            0.07106383889913559
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.4011997878551483,
+          0.3407251834869385
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": -0.1765469659009499,
+          "pearson_similarity_vs_negative_distance": -0.15490219336214434
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.42857142857142855,
+          "pearson_similarity_vs_negative_distance": -0.051116645519349926
+        }
+      }
+    },
+    {
+      "layer": 27,
+      "cosine_matrix": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "values": [
+          [
+            1.0000001192092896,
+            -0.03442009165883064,
+            -0.1269095540046692,
+            -0.5757091641426086
+          ],
+          [
+            -0.03442009165883064,
+            0.9999998807907104,
+            -0.24071140587329865,
+            -0.4952336847782135
+          ],
+          [
+            -0.1269095540046692,
+            -0.24071140587329865,
+            1.0,
+            -0.4106783866882324
+          ],
+          [
+            -0.5757091641426086,
+            -0.4952336847782135,
+            -0.4106783866882324,
+            1.000000238418579
+          ]
+        ]
+      },
+      "mean_abs_off_diagonal_cosine": 0.3139437139034271,
+      "nearest_neighbors": {
+        "happy": {
+          "emotion": "sad",
+          "cosine": -0.03442009165883064
+        },
+        "sad": {
+          "emotion": "happy",
+          "cosine": -0.03442009165883064
+        },
+        "angry": {
+          "emotion": "happy",
+          "cosine": -0.1269095540046692
+        },
+        "afraid": {
+          "emotion": "angry",
+          "cosine": -0.4106783866882324
+        }
+      },
+      "agglomerative_clusters": [
+        {
+          "left": [
+            "happy"
+          ],
+          "right": [
+            "sad"
+          ],
+          "merged": [
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.03442009165883064
+        },
+        {
+          "left": [
+            "angry"
+          ],
+          "right": [
+            "happy",
+            "sad"
+          ],
+          "merged": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.18381047993898392
+        },
+        {
+          "left": [
+            "afraid"
+          ],
+          "right": [
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "merged": [
+            "afraid",
+            "angry",
+            "happy",
+            "sad"
+          ],
+          "average_cosine": -0.4938737452030182
+        }
+      ],
+      "pca": {
+        "labels": [
+          "happy",
+          "sad",
+          "angry",
+          "afraid"
+        ],
+        "coordinates": [
+          [
+            -0.5675895810127258,
+            0.05943278968334198
+          ],
+          [
+            -0.41866931319236755,
+            0.6402314901351929
+          ],
+          [
+            -0.1096113920211792,
+            -0.8863843679428101
+          ],
+          [
+            1.0958698987960815,
+            0.1867198795080185
+          ]
+        ],
+        "explained_variance_ratio": [
+          0.4339068830013275,
+          0.3130449056625366
+        ]
+      },
+      "valence_arousal_alignment": {
+        "valence": {
+          "spearman_similarity_vs_negative_distance": -0.26482044885142486,
+          "pearson_similarity_vs_negative_distance": -0.34823046681857556
+        },
+        "arousal": {
+          "spearman_similarity_vs_negative_distance": 0.08571428571428572,
+          "pearson_similarity_vs_negative_distance": -0.1394965970811432
+        }
+      }
+    }
+  ],
+  "representational_similarity": {
+    "selected_layer": 19,
+    "layers": [
+      {
+        "layer": 0,
+        "pearson_to_selected_layer": 0.7662233384765738,
+        "spearman_to_selected_layer": 0.8285714285714286
+      },
+      {
+        "layer": 1,
+        "pearson_to_selected_layer": 0.6626855046474445,
+        "spearman_to_selected_layer": 0.6
+      },
+      {
+        "layer": 2,
+        "pearson_to_selected_layer": 0.6779707070462304,
+        "spearman_to_selected_layer": 0.6
+      },
+      {
+        "layer": 3,
+        "pearson_to_selected_layer": 0.8591775816273838,
+        "spearman_to_selected_layer": 0.8857142857142857
+      },
+      {
+        "layer": 4,
+        "pearson_to_selected_layer": 0.8926253666798779,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 5,
+        "pearson_to_selected_layer": 0.9562381250221365,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 6,
+        "pearson_to_selected_layer": 0.9670547552293144,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 7,
+        "pearson_to_selected_layer": 0.9821160317655814,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 8,
+        "pearson_to_selected_layer": 0.9801386149244609,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 9,
+        "pearson_to_selected_layer": 0.9489420773157933,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 10,
+        "pearson_to_selected_layer": 0.9638170797948153,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 11,
+        "pearson_to_selected_layer": 0.9483528254586697,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 12,
+        "pearson_to_selected_layer": 0.9327929477348582,
+        "spearman_to_selected_layer": 0.9428571428571428
+      },
+      {
+        "layer": 13,
+        "pearson_to_selected_layer": 0.9277680216510901,
+        "spearman_to_selected_layer": 0.9428571428571428
+      },
+      {
+        "layer": 14,
+        "pearson_to_selected_layer": 0.9460327299067236,
+        "spearman_to_selected_layer": 0.9428571428571428
+      },
+      {
+        "layer": 15,
+        "pearson_to_selected_layer": 0.9652924931430683,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 16,
+        "pearson_to_selected_layer": 0.9778297040082523,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 17,
+        "pearson_to_selected_layer": 0.9639269908864151,
+        "spearman_to_selected_layer": 0.9428571428571428
+      },
+      {
+        "layer": 18,
+        "pearson_to_selected_layer": 0.9866113847934659,
+        "spearman_to_selected_layer": 0.9428571428571428
+      },
+      {
+        "layer": 19,
+        "pearson_to_selected_layer": 1.0,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 20,
+        "pearson_to_selected_layer": 0.9977757562542588,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 21,
+        "pearson_to_selected_layer": 0.9827295902711903,
+        "spearman_to_selected_layer": 0.9428571428571428
+      },
+      {
+        "layer": 22,
+        "pearson_to_selected_layer": 0.996350859439677,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 23,
+        "pearson_to_selected_layer": 0.9782513952658357,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 24,
+        "pearson_to_selected_layer": 0.9877321876528423,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 25,
+        "pearson_to_selected_layer": 0.9785530162971847,
+        "spearman_to_selected_layer": 1.0
+      },
+      {
+        "layer": 26,
+        "pearson_to_selected_layer": 0.9769256775946277,
+        "spearman_to_selected_layer": 0.8285714285714286
+      },
+      {
+        "layer": 27,
+        "pearson_to_selected_layer": 0.809951557276015,
+        "spearman_to_selected_layer": 0.7142857142857143
+      }
+    ],
+    "adjacent_layers": [
+      {
+        "left_layer": 0,
+        "right_layer": 1,
+        "pearson": 0.9640382451245544,
+        "spearman": 0.8285714285714286
+      },
+      {
+        "left_layer": 1,
+        "right_layer": 2,
+        "pearson": 0.9189288052788503,
+        "spearman": 0.8285714285714286
+      },
+      {
+        "left_layer": 2,
+        "right_layer": 3,
+        "pearson": 0.9422212117630413,
+        "spearman": 0.8285714285714286
+      },
+      {
+        "left_layer": 3,
+        "right_layer": 4,
+        "pearson": 0.9743155486059666,
+        "spearman": 0.8857142857142857
+      },
+      {
+        "left_layer": 4,
+        "right_layer": 5,
+        "pearson": 0.9743606824689908,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 5,
+        "right_layer": 6,
+        "pearson": 0.9943726248078866,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 6,
+        "right_layer": 7,
+        "pearson": 0.9883020953130828,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 7,
+        "right_layer": 8,
+        "pearson": 0.9973375717156209,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 8,
+        "right_layer": 9,
+        "pearson": 0.9912910213527308,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 9,
+        "right_layer": 10,
+        "pearson": 0.9950031721352522,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 10,
+        "right_layer": 11,
+        "pearson": 0.9964085204741226,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 11,
+        "right_layer": 12,
+        "pearson": 0.995441750346041,
+        "spearman": 0.9428571428571428
+      },
+      {
+        "left_layer": 12,
+        "right_layer": 13,
+        "pearson": 0.9963082827535088,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 13,
+        "right_layer": 14,
+        "pearson": 0.9947611794234524,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 14,
+        "right_layer": 15,
+        "pearson": 0.987112932285552,
+        "spearman": 0.9428571428571428
+      },
+      {
+        "left_layer": 15,
+        "right_layer": 16,
+        "pearson": 0.9767771830799118,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 16,
+        "right_layer": 17,
+        "pearson": 0.9916487382507334,
+        "spearman": 0.9428571428571428
+      },
+      {
+        "left_layer": 17,
+        "right_layer": 18,
+        "pearson": 0.9920879967527062,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 18,
+        "right_layer": 19,
+        "pearson": 0.9866113847934659,
+        "spearman": 0.9428571428571428
+      },
+      {
+        "left_layer": 19,
+        "right_layer": 20,
+        "pearson": 0.9977757562542588,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 20,
+        "right_layer": 21,
+        "pearson": 0.9781559391795585,
+        "spearman": 0.9428571428571428
+      },
+      {
+        "left_layer": 21,
+        "right_layer": 22,
+        "pearson": 0.9855137037215262,
+        "spearman": 0.9428571428571428
+      },
+      {
+        "left_layer": 22,
+        "right_layer": 23,
+        "pearson": 0.9813847788277277,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 23,
+        "right_layer": 24,
+        "pearson": 0.980036928228526,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 24,
+        "right_layer": 25,
+        "pearson": 0.9984134692459854,
+        "spearman": 1.0
+      },
+      {
+        "left_layer": 25,
+        "right_layer": 26,
+        "pearson": 0.9791843611404858,
+        "spearman": 0.8285714285714286
+      },
+      {
+        "left_layer": 26,
+        "right_layer": 27,
+        "pearson": 0.8717420654318453,
+        "spearman": 0.8857142857142857
+      }
+    ]
+  },
+  "umap": {
+    "available": false,
+    "reason": "UMAP is not a project dependency; PCA geometry is recorded and UMAP can be added as an optional diagnostic later."
+  },
+  "interpretation_limits": [
+    "Diagnostic geometry over compact four-emotion synthetic vectors.",
+    "Does not establish paper-scale emotion space coverage.",
+    "Does not test causal steering; Prototype 4 owns causal intervention.",
+    "Does not make claims about subjective experience."
+  ],
+  "prototype4_recommendation": "Proceed to causal steering only as a diagnostic follow-up over the canonical Prototype 2.5 vectors."
+}

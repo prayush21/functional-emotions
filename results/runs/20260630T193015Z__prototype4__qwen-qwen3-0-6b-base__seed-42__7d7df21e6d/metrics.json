@@ -1,0 +1,80 @@
+{
+  "all_hard_gates_pass": true,
+  "hard_gates": {
+    "required_vector_artifacts_loaded": true,
+    "zero_steering_reproduces_baseline": true,
+    "random_vector_control_recorded": true,
+    "kl_diagnostics_recorded": true,
+    "fluency_diagnostics_recorded": true
+  },
+  "soft_gates": {
+    "intended_emotion_logit_improves_for_positive_steering": true,
+    "opposite_sign_moves_opposite_direction": true,
+    "intended_effect_exceeds_random_control": true,
+    "intended_effect_exceeds_wrong_emotion_control": true,
+    "dose_response_spearman_positive": true,
+    "positive_steering_is_specific": true
+  },
+  "selected_layer": 19,
+  "configured_layer": 19,
+  "emotions": [
+    "happy",
+    "sad",
+    "angry",
+    "afraid"
+  ],
+  "hidden_size": 1024,
+  "prototype1_run_dir": "results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306",
+  "artifacts": {
+    "emotion_vectors": "results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306/emotion_vectors.safetensors"
+  },
+  "vector_norms": {
+    "happy": 1.0,
+    "sad": 0.9999999403953552,
+    "angry": 1.0,
+    "afraid": 1.0000001192092896
+  },
+  "zero_fidelity": {
+    "max_abs_logit_error": 0.0,
+    "rows": 12
+  },
+  "matching_token": {
+    "positive_strength_summary": {
+      "mean_target_delta": 0.06546441713968913,
+      "mean_specificity_delta": 0.09127309587266712
+    },
+    "control_summary": {
+      "real": {
+        "mean_target_delta": 0.06546441713968913,
+        "mean_specificity_delta": 0.09127309587266712
+      },
+      "random": {
+        "mean_target_delta": 0.008062998453776041,
+        "mean_specificity_delta": 0.009408924314710831
+      },
+      "wrong_emotion": {
+        "mean_target_delta": -0.029471635818481445,
+        "mean_specificity_delta": -0.03530830807156033
+      }
+    },
+    "dose_response": {
+      "spearman_by_emotion": {
+        "afraid": 1.0,
+        "angry": 1.0,
+        "happy": 1.0,
+        "sad": 1.0
+      },
+      "mean_spearman": 1.0
+    }
+  },
+  "free_generation": {
+    "sample_count": 120,
+    "mean_average_token_logprob": -1.0519662462174892,
+    "minimum_average_token_logprob": -2.059041976928711,
+    "mean_positive_target_term_count": 0.375,
+    "mean_zero_target_term_count": 0.20833333333333334,
+    "mean_positive_lexical_specificity": 0.25000000000000006,
+    "mean_zero_lexical_specificity": 0.1388888888888889
+  },
+  "interpretation_caveat": "These are compact four-emotion vectors with weak valence/arousal geometry. Prototype 4 tests local causal efficacy and specificity, not mature human-like emotion structure."
+}

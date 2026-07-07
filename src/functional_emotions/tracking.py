@@ -71,7 +71,7 @@ def summary_from_metrics(metrics: dict[str, Any]) -> dict[str, Any]:
             (
                 row["pca_cleaned"]
                 for row in metrics.get("layers", [])
-                if row.get("layer") == metrics["selected_layer"]
+                if row.get("layer") == metrics["selected_layer"] and "pca_cleaned" in row
             ),
             {},
         )
@@ -170,7 +170,11 @@ def register_bundle(bundle: Path, registry: Path = Path("results")) -> Path:
     for name in REQUIRED_BUNDLE_FILES:
         shutil.copy2(bundle / name, destination / name)
     (destination / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
-    summary = summary_from_metrics(metrics)
+    bundle_summary_path = bundle / "summary.json"
+    if bundle_summary_path.is_file():
+        summary = json.loads(bundle_summary_path.read_text())
+    else:
+        summary = summary_from_metrics(metrics)
     (destination / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
 
     index_path = registry / "index.jsonl"

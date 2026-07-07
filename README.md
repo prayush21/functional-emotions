@@ -76,11 +76,22 @@ The full Colab walkthrough, including cloning and downloading artifacts, is in
 [docs/colab.md](docs/colab.md).
 
 Modal is useful for repeatable short GPU jobs and should be run only when a GPU
-is needed:
+is needed. `cloud/modal_run.py` is the general, agent-friendly runner: it launches
+any prototype, persists its bundle to the `functional-emotions-artifacts` volume,
+and prints the run directory and `summary.json` as JSON. `cloud/fetch_run.py` then
+downloads and registers that bundle locally. The full loop is four commands:
 
 ```bash
-modal run cloud/modal_prototype0.py
+modal token new                                                    # one-time auth
+modal run cloud/modal_run.py --prototype 51 --config configs/prototype51.yaml --gpu T4
+python cloud/fetch_run.py --prototype 51 --register                # download + register
+# (add --stage for prototype 1/2.5, e.g. --prototype 25 --stage all)
 ```
+
+Input bundles a config references under `results/runs/...` (or `artifacts/...`)
+are shipped inside the Modal image because `results/` is small and version
+controlled, so no extra upload step is needed. The original single-purpose
+`modal run cloud/modal_prototype0.py` still works for backward compatibility.
 
 Prototype 0 is complete when all hard gates in `metrics.json` pass. Semantic
 movement of the happy/sad margin is reported as a diagnostic, not a hard gate.

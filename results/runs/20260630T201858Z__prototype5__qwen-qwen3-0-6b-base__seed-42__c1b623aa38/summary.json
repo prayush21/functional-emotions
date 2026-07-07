@@ -1,0 +1,14 @@
+{
+  "all_hard_gates_pass": true,
+  "selected_layer": 19,
+  "emotions": [
+    "happy",
+    "sad",
+    "angry",
+    "afraid"
+  ],
+  "zero_steering_max_abs_logit_error": 0.0,
+  "positive_strength_mean_expected_effect": -0.0032398091422186953,
+  "dose_response_mean_spearman": 0.0,
+  "interpretation_caveat": "These are compact four-emotion vectors with weak valence/arousal geometry. Prototype 5 tests whether local causal steering transfers to simple preference behavior, not whether the model has mature human-like emotion structure."
+}
