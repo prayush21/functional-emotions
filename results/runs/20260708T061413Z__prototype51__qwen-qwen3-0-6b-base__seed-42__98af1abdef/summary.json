@@ -1,0 +1,36 @@
+{
+  "all_hard_gates_pass": true,
+  "configured_layers": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "evaluated_layers": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "best_diagnostic_layer": 16,
+  "primary_scoring_mode": "option_text_logprob_margin",
+  "emotions": [
+    "happy",
+    "sad",
+    "angry",
+    "afraid"
+  ],
+  "zero_steering_max_abs_logit_error": 0.0,
+  "zero_steering_max_abs_logprob_or_margin_error": 0.0,
+  "positive_strength_mean_expected_effect": 0.37236164093017576,
+  "dose_response_mean_spearman": 1.0,
+  "kl_max_for_effect_summary": 0.25,
+  "interpretation_caveat": "These are compact four-emotion vectors with weak valence/arousal geometry. Prototype 5.1 tests whether the Prototype 5 null result survives more robust preference measurement, not whether the model has mature human-like emotion structure.",
+  "additional_interpretation_caveat": "Prototype 5.1 is not a new extraction. It tests whether the original Prototype 5 activity-preference null was caused by brittle A/B token scoring, option-order bias, missing context, or layer/strength choice."
+}

@@ -24,6 +24,16 @@ VOLUME = "functional-emotions-artifacts"
 REPOSITORY = Path(__file__).resolve().parents[1]
 
 
+def _modal_cli() -> str:
+    sibling = Path(sys.executable).parent / "modal"
+    if sibling.is_file():
+        return str(sibling)
+    found = shutil.which("modal")
+    if found:
+        return found
+    raise SystemExit("Could not find the `modal` CLI; install it with pip install modal")
+
+
 def _normalize(prototype: str) -> str:
     return prototype.strip().lower().removeprefix("prototype").replace(".", "")
 
@@ -39,11 +49,11 @@ def _run(cmd: list[str], **kwargs) -> subprocess.CompletedProcess[str]:
 def list_run_dirs(subdir: str) -> list[str]:
     """Return run-directory names under ``<subdir>/`` on the artifacts volume."""
 
-    result = _run(["modal", "volume", "ls", VOLUME, subdir, "--json"])
+    result = _run([_modal_cli(), "volume", "ls", VOLUME, subdir, "--json"])
     entries = json.loads(result.stdout)
     names: list[str] = []
     for entry in entries:
-        name = entry.get("Filename") or entry.get("path") or entry.get("name")
+        name = entry.get("filename") or entry.get("Filename") or entry.get("path")
         if not name:
             continue
         names.append(Path(name).name)
@@ -66,7 +76,7 @@ def download(subdir: str, run_dir: str, destination: Path) -> Path:
     target = destination / run_dir
     if target.exists():
         shutil.rmtree(target)
-    _run(["modal", "volume", "get", VOLUME, f"{subdir}/{run_dir}", str(destination)])
+    _run([_modal_cli(), "volume", "get", VOLUME, f"{subdir}/{run_dir}", str(destination)])
     return target
 
 

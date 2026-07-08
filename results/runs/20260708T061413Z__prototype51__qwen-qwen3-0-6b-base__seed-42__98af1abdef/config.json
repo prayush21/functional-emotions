@@ -1,0 +1,186 @@
+{
+  "experiment": "prototype51",
+  "seed": 42,
+  "prototype1": {
+    "run_dir": "results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306",
+    "emotion_vectors": "emotion_vectors.safetensors",
+    "resolved_run_dir": "results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306",
+    "resolved_emotion_vectors": "results/runs/colab-run-prototype-2.5/prototype1/20260628T205423Z__prototype1-prototype25__qwen-qwen3-0-6b-base__seed-42__8f5d56f306/emotion_vectors.safetensors",
+    "resolved_model_revision": "da87bfb608c14b7cf20ba1ce41287e8de496c0cd"
+  },
+  "model": {
+    "name": "Qwen/Qwen3-0.6B-Base",
+    "revision": "main",
+    "dtype": "float32",
+    "device": "auto",
+    "local_files_only": false,
+    "resolved_device": "cuda",
+    "resolved_dtype": "torch.float32",
+    "resolved_revision": "da87bfb608c14b7cf20ba1ce41287e8de496c0cd",
+    "number_of_layers": 28
+  },
+  "emotions": [
+    "happy",
+    "sad",
+    "angry",
+    "afraid"
+  ],
+  "intervention": {
+    "layers": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "layer": null,
+    "strengths": [
+      -12,
+      -8,
+      -4,
+      -2,
+      0,
+      2,
+      4,
+      8,
+      12
+    ],
+    "scale_by_vector_norm": false,
+    "resolved_evaluated_layers": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  "scoring": {
+    "primary": "option_text_logprob_margin",
+    "modes": [
+      "choice_token_margin",
+      "option_text_logprob_margin"
+    ]
+  },
+  "preference_task": {
+    "contexts": [
+      {
+        "id": "neutral",
+        "family": "neutral",
+        "text": "The person is deciding what to do next."
+      },
+      {
+        "id": "welcome-news",
+        "family": "positive_social",
+        "text": "The person just received welcome news and is deciding what to do next."
+      },
+      {
+        "id": "draining-disappointment",
+        "family": "loss_low_energy",
+        "text": "The person has had a draining disappointment and is deciding what to do next."
+      },
+      {
+        "id": "crossed-boundary",
+        "family": "conflict",
+        "text": "The person notices someone crossed a boundary and is deciding what to do next."
+      },
+      {
+        "id": "uncertain-sound",
+        "family": "safety_uncertainty",
+        "text": "The person hears an uncertain sound nearby and is deciding what to do next."
+      }
+    ],
+    "expected_categories": {
+      "happy": [
+        "social_connection",
+        "celebration_play",
+        "helping_generosity",
+        "exploration_novelty"
+      ],
+      "sad": [
+        "rest_withdrawal",
+        "reflection",
+        "low_energy"
+      ],
+      "angry": [
+        "confrontation_correction",
+        "boundary_setting"
+      ],
+      "afraid": [
+        "safety_checking",
+        "avoidance_caution",
+        "careful_review"
+      ]
+    },
+    "pairs": [
+      {
+        "id": "social-vs-rest",
+        "activity_a": "call a friend",
+        "category_a": "social_connection",
+        "activity_b": "sit quietly alone",
+        "category_b": "rest_withdrawal"
+      },
+      {
+        "id": "calm-ask-vs-confront",
+        "activity_a": "ask for clarification calmly",
+        "category_a": "careful_review",
+        "activity_b": "confront the person immediately",
+        "category_b": "confrontation_correction"
+      },
+      {
+        "id": "check-door-vs-cook",
+        "activity_a": "check that the door is locked",
+        "category_a": "safety_checking",
+        "activity_b": "start cooking dinner",
+        "category_b": "routine_maintenance"
+      },
+      {
+        "id": "celebration-vs-leave",
+        "activity_a": "join the celebration",
+        "category_a": "celebration_play",
+        "activity_b": "leave early",
+        "category_b": "avoidance_caution"
+      },
+      {
+        "id": "write-vs-angry-reply",
+        "activity_a": "write down what happened",
+        "category_a": "reflection",
+        "activity_b": "send an angry reply",
+        "category_b": "confrontation_correction"
+      },
+      {
+        "id": "walk-vs-bed",
+        "activity_a": "take a walk outside",
+        "category_a": "exploration_novelty",
+        "activity_b": "stay in bed",
+        "category_b": "low_energy"
+      },
+      {
+        "id": "help-vs-ignore",
+        "activity_a": "help clean up",
+        "category_a": "helping_generosity",
+        "activity_b": "ignore the mess",
+        "category_b": "routine_maintenance"
+      },
+      {
+        "id": "review-vs-rush",
+        "activity_a": "review the plan carefully",
+        "category_a": "careful_review",
+        "activity_b": "rush ahead",
+        "category_b": "exploration_novelty"
+      }
+    ]
+  },
+  "controls": {
+    "random_seed": 314159
+  },
+  "gates": {
+    "zero_steering_max_abs_logit_error": 1e-06,
+    "zero_steering_max_abs_logprob_error": 1e-06,
+    "kl_max_for_effect_summary": 0.25
+  },
+  "output_dir": "/artifacts/prototype51"
+}
