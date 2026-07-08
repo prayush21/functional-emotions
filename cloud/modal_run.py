@@ -40,6 +40,12 @@ image = (
     .add_local_dir(repository / "src", remote_path="/root/src")
     .add_local_dir(repository / "configs", remote_path="/root/configs")
     .add_local_dir(repository / "results", remote_path="/root/results")
+    # The app module is re-imported inside the container at /root/modal_run.py,
+    # so its sibling import must resolve from /root as well.
+    .add_local_file(
+        repository / "cloud" / "prototype_registry.py",
+        remote_path="/root/prototype_registry.py",
+    )
 )
 model_cache = modal.Volume.from_name("functional-emotions-hf-cache", create_if_missing=True)
 artifacts = modal.Volume.from_name("functional-emotions-artifacts", create_if_missing=True)
@@ -111,13 +117,14 @@ def main(
     gpu: str = "T4",
     stage: str | None = None,
     run_dir: str | None = None,
+    timeout_minutes: int = 240,
 ) -> None:
     import json
 
     spec = resolve_spec(prototype)
     chosen_stage = resolve_stage(spec, stage)
 
-    result = run_prototype.with_options(gpu=gpu).remote(
+    result = run_prototype.with_options(gpu=gpu, timeout=timeout_minutes * 60).remote(
         module_name=spec.module,
         config_path=config,
         stage=chosen_stage,
