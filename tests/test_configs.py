@@ -42,3 +42,16 @@ def test_prototype25_config_expands_balanced_extraction_before_geometry():
     assert len(overrides["data"]["topics"]) > 12
     assert "afraid" in overrides["data"]["emotions"]
     assert config["prototype2"]["base_config"] == "configs/prototype2.yaml"
+
+
+def test_prototype25_1_7b_config_changes_only_extraction_model():
+    base = yaml.safe_load(Path("configs/prototype25.yaml").read_text())
+    scaled = yaml.safe_load(Path("configs/prototype25_qwen3_1.7b.yaml").read_text())
+
+    assert scaled["experiment"] == "prototype2.5-qwen3-1.7b"
+    assert scaled["prototype1"]["overrides"]["model"]["name"] == "Qwen/Qwen3-1.7B-Base"
+    # Everything except the experiment label and extraction model name must
+    # match the accepted 0.6B pre-registration exactly.
+    base["experiment"] = scaled["experiment"]
+    base["prototype1"]["overrides"]["model"]["name"] = "Qwen/Qwen3-1.7B-Base"
+    assert scaled == base
