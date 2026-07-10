@@ -18,6 +18,7 @@ from safetensors.torch import load_file
 from torch import Tensor
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from .analysis import prototype51_statistics, statistics_params
 from .instrumentation import decoder_layers, resolve_layer_index, steer_layer_output
 from .prototype0 import choose_device, choose_dtype, encode, next_token_logits
 from .prototype4 import (
@@ -51,6 +52,11 @@ EXTRA_INTERPRETATION_CAVEAT = (
 CHOICE_TOKEN_MARGIN = "choice_token_margin"
 OPTION_TEXT_LOGPROB_MARGIN = "option_text_logprob_margin"
 LABEL_PLUS_TEXT_LOGPROB_MARGIN = "label_plus_text_logprob_margin"
+# Length-normalized diagnostic added after the first registered 0.6B run: mean
+# per-token logprob instead of the sum, so unequal option lengths cannot bias
+# the margin. Extra scoring mode only; option_text_logprob_margin stays the
+# pre-registered primary.
+OPTION_TEXT_MEAN_LOGPROB_MARGIN = "option_text_mean_logprob_margin"
 
 
 def load_config(path: Path) -> dict[str, Any]:
@@ -174,6 +180,7 @@ def continuation_logprob(
     device: str,
     vector: Tensor | None = None,
     strength: float = 0.0,
+    length_normalized: bool = False,
 ) -> float:
     prompt_ids = tokenizer.encode(prompt, add_special_tokens=False)
     continuation_ids = tokenizer.encode(continuation, add_special_tokens=False)
@@ -194,11 +201,14 @@ def continuation_logprob(
     token_log_probs = log_probs.gather(-1, targets.unsqueeze(-1)).squeeze(-1)
     start = len(prompt_ids) - 1
     end = start + len(continuation_ids)
-    return float(token_log_probs[:, start:end].sum().cpu())
+    total = float(token_log_probs[:, start:end].sum().cpu())
+    if length_normalized:
+        return total / len(continuation_ids)
+    return total
 
 
 def option_continuations(scoring_mode: str, activity_a: str, activity_b: str) -> tuple[str, str]:
-    if scoring_mode == OPTION_TEXT_LOGPROB_MARGIN:
+    if scoring_mode in {OPTION_TEXT_LOGPROB_MARGIN, OPTION_TEXT_MEAN_LOGPROB_MARGIN}:
         return f" {activity_a}", f" {activity_b}"
     if scoring_mode == LABEL_PLUS_TEXT_LOGPROB_MARGIN:
         return f" A: {activity_a}", f" B: {activity_b}"
@@ -221,6 +231,7 @@ def option_text_margin(
     continuation_a, continuation_b = option_continuations(
         scoring_mode, activity_a, activity_b
     )
+    length_normalized = scoring_mode == OPTION_TEXT_MEAN_LOGPROB_MARGIN
     score_a = continuation_logprob(
         model=model,
         layer=layer,
@@ -230,6 +241,7 @@ def option_text_margin(
         device=device,
         vector=vector,
         strength=strength,
+        length_normalized=length_normalized,
     )
     score_b = continuation_logprob(
         model=model,
@@ -240,6 +252,7 @@ def option_text_margin(
         device=device,
         vector=vector,
         strength=strength,
+        length_normalized=length_normalized,
     )
     return {
         "score_a": score_a,
@@ -897,7 +910,7 @@ def build_preference_metrics(
 
 
 def summary_from_metrics(metrics: dict[str, Any]) -> dict[str, Any]:
-    return {
+    summary = {
         "all_hard_gates_pass": metrics["all_hard_gates_pass"],
         "configured_layers": metrics["configured_layers"],
         "evaluated_layers": metrics["evaluated_layers"],
@@ -920,6 +933,16 @@ def summary_from_metrics(metrics: dict[str, Any]) -> dict[str, Any]:
         "interpretation_caveat": INTERPRETATION_CAVEAT,
         "additional_interpretation_caveat": EXTRA_INTERPRETATION_CAVEAT,
     }
+    statistics = metrics.get("statistics")
+    if statistics:
+        effect = statistics["expected_effect"]["bootstrap_by_pair"]
+        summary["expected_effect_row_mean"] = effect["estimate"]
+        summary["expected_effect_ci_low"] = effect["ci_low"]
+        summary["expected_effect_ci_high"] = effect["ci_high"]
+        summary["expected_effect_sign_flip_p_value"] = statistics["expected_effect"][
+            "sign_flip_by_pair"
+        ]["p_value"]
+    return summary
 
 
 def run(config: dict[str, Any]) -> Path:
@@ -1032,6 +1055,12 @@ def run(config: dict[str, Any]) -> Path:
         raise ValueError("No configured layer had all required emotion vectors and model layers")
 
     preferences = build_preference_metrics(rows, primary_scoring_mode, kl_max)
+    statistics = prototype51_statistics(
+        rows,
+        primary_scoring_mode=primary_scoring_mode,
+        kl_max=kl_max,
+        **statistics_params(config),
+    )
     zero = zero_fidelity(rows)
     kl = kl_summary(rows)
     controls = preferences["control_summary"]
@@ -1085,6 +1114,7 @@ def run(config: dict[str, Any]) -> Path:
         "zero_fidelity": zero,
         "kl_max_for_effect_summary": kl_max,
         "preferences": preferences,
+        "statistics": statistics,
         "interpretation_caveat": INTERPRETATION_CAVEAT,
         "additional_interpretation_caveat": EXTRA_INTERPRETATION_CAVEAT,
     }
@@ -1177,7 +1207,11 @@ def run(config: dict[str, Any]) -> Path:
                     row
                     for row in rows
                     if row["scoring_mode"]
-                    in {OPTION_TEXT_LOGPROB_MARGIN, LABEL_PLUS_TEXT_LOGPROB_MARGIN}
+                    in {
+                        OPTION_TEXT_LOGPROB_MARGIN,
+                        OPTION_TEXT_MEAN_LOGPROB_MARGIN,
+                        LABEL_PLUS_TEXT_LOGPROB_MARGIN,
+                    }
                 ]
             },
         ),

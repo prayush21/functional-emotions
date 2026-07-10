@@ -30,6 +30,7 @@ fe-prototype4 = "functional_emotions.prototype4:main"
 fe-prototype5 = "functional_emotions.prototype5:main"
 fe-prototype51 = "functional_emotions.prototype51:main"
 fe-register-run = "functional_emotions.registry:main"
+fe-analyze-stats = "functional_emotions.analysis:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/functional_emotions"]

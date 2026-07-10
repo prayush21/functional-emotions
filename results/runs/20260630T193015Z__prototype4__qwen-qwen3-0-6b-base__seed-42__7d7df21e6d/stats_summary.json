@@ -1,0 +1,102 @@
+{
+  "run_dir": "artifacts/prototype4/20260630T193015Z__prototype4__qwen-qwen3-0-6b-base__seed-42__7d7df21e6d",
+  "kind": "prototype4",
+  "experiment": "prototype4",
+  "run_seed": 42,
+  "headline_estimate": 0.06546441713968913,
+  "statistics": {
+    "disclaimer": "Additional reporting only: these intervals and permutation p-values are not pre-registered hard gates and do not change any gate outcome. Findings remain functional/causal observations about model internals and behavior, not evidence of subjective experience.",
+    "cluster_level": "prompt_id",
+    "selection": "control == real and raw_strength > 0",
+    "target_delta": {
+      "bootstrap": {
+        "n_values": 12,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": 0.06546441713968913,
+        "ci_low": 0.04375139872233073,
+        "ci_high": 0.09167718887329102
+      },
+      "sign_flip": {
+        "p_value": 0.125,
+        "observed_mean": 0.06546441713968913,
+        "n_values": 12,
+        "n_clusters": 4,
+        "n_permutations": 16,
+        "method": "exact"
+      }
+    },
+    "specificity_delta": {
+      "bootstrap": {
+        "n_values": 12,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": 0.09127309587266709,
+        "ci_low": 0.07040044996473525,
+        "ci_high": 0.12528488371107313
+      },
+      "sign_flip": {
+        "p_value": 0.125,
+        "observed_mean": 0.09127309587266712,
+        "n_values": 12,
+        "n_clusters": 4,
+        "n_permutations": 16,
+        "method": "exact"
+      }
+    },
+    "specificity_minus_target": {
+      "mean_difference": {
+        "n_values": 12,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": 0.025808678732977975,
+        "ci_low": 0.008573955959743924,
+        "ci_high": 0.03512446085611979
+      },
+      "sign_flip": {
+        "p_value": 0.25,
+        "observed_mean": 0.025808678732977975,
+        "n_values": 12,
+        "n_clusters": 4,
+        "n_permutations": 16,
+        "method": "exact"
+      }
+    },
+    "control_target_delta": {
+      "random": {
+        "n_values": 12,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": 0.008062998453776041,
+        "ci_low": 0.0006988843282063802,
+        "ci_high": 0.016640663146972656
+      },
+      "wrong_emotion": {
+        "n_values": 12,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": -0.029471635818481445,
+        "ci_low": -0.06133572260538737,
+        "ci_high": 0.009929577509562174
+      }
+    },
+    "adjudication": {
+      "question": "Is specificity_delta > target_delta (equivalently, do non-target emotion logits move down under real positive steering)?",
+      "mean_difference": 0.025808678732977975,
+      "ci_low": 0.008573955959743924,
+      "ci_high": 0.03512446085611979,
+      "ci_excludes_zero": true,
+      "sign_flip_p_value": 0.25
+    }
+  }
+}
