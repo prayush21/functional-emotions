@@ -1,0 +1,8 @@
+{"id": "lex-happy-1", "emotion": "happy", "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place at dinner."}
+{"id": "lex-sad-1", "emotion": "sad", "text": "Jon left the clean mug untouched, folded the note along the same crease, and sat until the room went dark."}
+{"id": "lex-sad-control", "emotion": "sad", "variant": "minimal_control", "text": "Jon left the clean mug untouched, folded the note along the same crease, and waited until the room went dark."}
+{"id": "lex-angry-1", "emotion": "angry", "text": "Leah stacked the forms into a hard-edged pile, answered in clipped words, and shut the drawer with both hands."}
+{"id": "lex-angry-control", "emotion": "angry", "variant": "minimal_control", "text": "Leah stacked the forms into a neat pile, answered in brief words, and closed the drawer with both hands."}
+{"id": "lex-afraid-1", "emotion": "afraid", "text": "Noor counted the hallway doors, kept one hand on the rail, and stopped speaking whenever the elevator moved."}
+{"id": "lex-happy-control", "emotion": "happy", "variant": "minimal_control", "text": "Mira read the final line twice, pressed the paper flat, and began setting an extra place on the table."}
+{"id": "lex-afraid-control", "emotion": "afraid", "variant": "minimal_control", "text": "Noor counted the hallway doors, kept one hand near the rail, and paused whenever the elevator moved."}

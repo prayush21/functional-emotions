@@ -1,0 +1,36 @@
+experiment: prototype2-prototype25-validation
+seed: 42
+prototype1:
+  run_dir: /artifacts/prototype25/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype1/20260710T225211Z__prototype1-prototype25__qwen-qwen3-1-7b-base__seed-42__eb0a3670a3
+  emotion_vectors: emotion_vectors.safetensors
+  neutral_pca: neutral_pca.safetensors
+model:
+  device: auto
+  dtype: float32
+  local_files_only: false
+  layers: all
+extraction:
+  token_start: 50
+  batch_size: 2
+controls:
+  shuffle_seed: 43
+logit_lens:
+  batch_size: 4
+  terms:
+    happy:
+    - happy
+    - glad
+    sad:
+    - sad
+    - downcast
+    angry:
+    - angry
+    - mad
+    afraid:
+    - afraid
+    - scared
+lexical_robustness:
+  scenarios: []
+intensity_sweep:
+  scenarios: []
+output_dir: /artifacts/prototype25/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype2
