@@ -80,6 +80,11 @@ def _dispatch(module_name: str, stage: str | None, config: dict, run_dir: str | 
 @app.function(
     image=image,
     timeout=60 * 60,
+    # Long runs get preempted (observed repeatedly on L4 and A100, 2026-07-11);
+    # retries re-schedule the input server-side so a detached run survives both
+    # preemption and local-client disconnects. Prototype runners create a fresh
+    # timestamped output directory per attempt, so retries cannot collide.
+    retries=modal.Retries(max_retries=3, initial_delay=10.0),
     volumes={"/root/.cache/huggingface": model_cache, ARTIFACTS_ROOT: artifacts},
     env={"PYTHONPATH": "/root/src"},
 )
