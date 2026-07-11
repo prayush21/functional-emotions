@@ -1,0 +1,198 @@
+{
+  "experiment": "prototype4-qwen3-1.7b",
+  "seed": 42,
+  "prototype1": {
+    "run_dir": "results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype1/20260710T225211Z__prototype1-prototype25__qwen-qwen3-1-7b-base__seed-42__eb0a3670a3",
+    "emotion_vectors": "emotion_vectors.safetensors",
+    "resolved_run_dir": "results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype1/20260710T225211Z__prototype1-prototype25__qwen-qwen3-1-7b-base__seed-42__eb0a3670a3",
+    "resolved_emotion_vectors": "results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype1/20260710T225211Z__prototype1-prototype25__qwen-qwen3-1-7b-base__seed-42__eb0a3670a3/emotion_vectors.safetensors",
+    "resolved_model_revision": "ea980cb0a6c2ae4b936e82123acc929f1cec04c1"
+  },
+  "model": {
+    "name": "Qwen/Qwen3-1.7B-Base",
+    "revision": "main",
+    "dtype": "float32",
+    "device": "auto",
+    "local_files_only": false,
+    "resolved_device": "cuda",
+    "resolved_dtype": "torch.float32",
+    "resolved_revision": "ea980cb0a6c2ae4b936e82123acc929f1cec04c1",
+    "number_of_layers": 28,
+    "resolved_layer_index": 19
+  },
+  "emotions": [
+    "happy",
+    "sad",
+    "angry",
+    "afraid"
+  ],
+  "intervention": {
+    "layer": null,
+    "strengths": [
+      -4,
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      4
+    ],
+    "scale_by_vector_norm": false
+  },
+  "matching_token": {
+    "terms": {
+      "happy": [
+        "happy",
+        "joyful",
+        "pleased",
+        "glad"
+      ],
+      "sad": [
+        "sad",
+        "sorrowful",
+        "unhappy",
+        "mournful"
+      ],
+      "angry": [
+        "angry",
+        "furious",
+        "annoyed",
+        "mad"
+      ],
+      "afraid": [
+        "afraid",
+        "scared",
+        "fearful",
+        "anxious"
+      ]
+    },
+    "prompts": [
+      {
+        "id": "mt-happy-1",
+        "target_emotion": "happy",
+        "text": "After reading the message, the person felt"
+      },
+      {
+        "id": "mt-sad-1",
+        "target_emotion": "sad",
+        "text": "After reading the message, the person felt"
+      },
+      {
+        "id": "mt-angry-1",
+        "target_emotion": "angry",
+        "text": "After reading the message, the person felt"
+      },
+      {
+        "id": "mt-afraid-1",
+        "target_emotion": "afraid",
+        "text": "After reading the message, the person felt"
+      }
+    ]
+  },
+  "free_generation": {
+    "strengths": [
+      -8,
+      -4,
+      0,
+      4,
+      8
+    ],
+    "max_new_tokens": 96,
+    "do_sample": true,
+    "temperature": 0.8,
+    "top_p": 0.95,
+    "samples_per_condition": 3,
+    "seed": 271828,
+    "terms": {
+      "happy": [
+        "happy",
+        "joyful",
+        "pleased",
+        "glad",
+        "smile",
+        "smiled",
+        "relieved",
+        "delighted"
+      ],
+      "sad": [
+        "sad",
+        "sorrowful",
+        "unhappy",
+        "mournful",
+        "cried",
+        "tears",
+        "lonely",
+        "grief"
+      ],
+      "angry": [
+        "angry",
+        "furious",
+        "annoyed",
+        "mad",
+        "irritated",
+        "rage",
+        "shouted",
+        "glared"
+      ],
+      "afraid": [
+        "afraid",
+        "scared",
+        "fearful",
+        "anxious",
+        "terrified",
+        "panic",
+        "trembled",
+        "nervous"
+      ]
+    },
+    "prompts": [
+      {
+        "id": "fg-happy-1",
+        "target_emotion": "happy",
+        "text": "Avery saw everyone waiting with smiles and"
+      },
+      {
+        "id": "fg-happy-2",
+        "target_emotion": "happy",
+        "text": "Avery read the note and felt"
+      },
+      {
+        "id": "fg-sad-1",
+        "target_emotion": "sad",
+        "text": "Avery looked at the empty chair and"
+      },
+      {
+        "id": "fg-sad-2",
+        "target_emotion": "sad",
+        "text": "Avery read the note and felt"
+      },
+      {
+        "id": "fg-angry-1",
+        "target_emotion": "angry",
+        "text": "Avery saw the broken promise and"
+      },
+      {
+        "id": "fg-angry-2",
+        "target_emotion": "angry",
+        "text": "Avery read the note and felt"
+      },
+      {
+        "id": "fg-afraid-1",
+        "target_emotion": "afraid",
+        "text": "Avery heard the sound behind the door and"
+      },
+      {
+        "id": "fg-afraid-2",
+        "target_emotion": "afraid",
+        "text": "Avery read the note and felt"
+      }
+    ]
+  },
+  "controls": {
+    "random_seed": 314159
+  },
+  "gates": {
+    "zero_steering_max_abs_logit_error": 1e-06
+  },
+  "output_dir": "/artifacts/prototype4"
+}

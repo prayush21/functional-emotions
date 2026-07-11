@@ -1,0 +1,23 @@
+{
+  "all_hard_gates_pass": true,
+  "selected_layer": 19,
+  "emotions": [
+    "happy",
+    "sad",
+    "angry",
+    "afraid"
+  ],
+  "zero_steering_max_abs_logit_error": 0.0,
+  "positive_strength_mean_target_delta": 0.01392062505086263,
+  "positive_strength_mean_specificity_delta": 0.019601927863227,
+  "dose_response_mean_spearman": 1.0,
+  "free_generation_sample_count": 120,
+  "free_generation_mean_positive_target_term_count": 0.14583333333333334,
+  "free_generation_mean_positive_lexical_specificity": 0.06250000000000001,
+  "interpretation_caveat": "These are compact four-emotion vectors with weak valence/arousal geometry. Prototype 4 tests local causal efficacy and specificity, not mature human-like emotion structure.",
+  "target_delta_ci_low": 0.006352742513020833,
+  "target_delta_ci_high": 0.019104480743408203,
+  "specificity_delta_ci_low": 0.0148776372273763,
+  "specificity_delta_ci_high": 0.02432621849907769,
+  "specificity_minus_target_ci_excludes_zero": false
+}
