@@ -123,18 +123,38 @@ def main(
     stage: str | None = None,
     run_dir: str | None = None,
     timeout_minutes: int = 240,
+    spawn: bool = False,
 ) -> None:
     import json
 
     spec = resolve_spec(prototype)
     chosen_stage = resolve_stage(spec, stage)
 
-    result = run_prototype.with_options(gpu=gpu, timeout=timeout_minutes * 60).remote(
-        module_name=spec.module,
-        config_path=config,
-        stage=chosen_stage,
-        run_dir=run_dir,
-    )
+    function = run_prototype.with_options(gpu=gpu, timeout=timeout_minutes * 60)
+    kwargs = {
+        "module_name": spec.module,
+        "config_path": config,
+        "stage": chosen_stage,
+        "run_dir": run_dir,
+    }
+    if spawn:
+        # .remote() inputs are cancelled if the local client disconnects, even
+        # under `modal run --detach` (observed repeatedly on multi-hour runs).
+        # .spawn() decouples the call: pair with --detach, then poll the
+        # artifacts volume / `modal app list`, and fetch with cloud/fetch_run.py.
+        handle = function.spawn(**kwargs)
+        print(
+            json.dumps(
+                {
+                    "spawned_function_call_id": handle.object_id,
+                    "prototype": spec.key,
+                    "artifacts_subdir": volume_subdir(prototype),
+                },
+                indent=2,
+            )
+        )
+        return
+    result = function.remote(**kwargs)
     result["prototype"] = spec.key
     result["artifacts_subdir"] = volume_subdir(prototype)
     print(json.dumps(result, indent=2))
