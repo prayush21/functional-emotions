@@ -1,14 +1,25 @@
 # 0.6B vs 1.7B scale comparison (Qwen3-Base)
 
-Status 2026-07-11: P2.5 / P3 / P4 complete and registered at both scales.
-**P5.1 at 1.7B is pending** — three Modal launch attempts were cancelled
-mid-run (one confirmed L4 worker preemption; the other two empty-reason
-cancellations across L4 and A100 are most consistent with the workspace spend
-limit being reached). No partial artifacts were written; relaunch with:
+Status 2026-07-12: P2.5 / P3 / P4 complete and registered at both scales.
+**P5.1 at 1.7B is blocked on the Modal workspace spend limit.** Six launch
+attempts failed across two distinct causes: genuine L4/A100 worker preemptions
+(fixed by adding server-side `retries` to the Modal function) and `.remote()`
+input cancellations on local-client disconnect (fixed by adding a `--spawn`
+launch mode). With both fixes in place, the final attempt surfaced the real
+blocker explicitly: `App creation failed: workspace billing cycle spend limit
+reached`. This is a configured per-cycle cap (started at $13), separate from
+the account balance; the earlier empty-reason cancellations were most likely
+the same cap. No partial artifacts were written.
+
+Unblock: raise the workspace billing-cycle spend limit in the Modal dashboard
+(Settings → Usage & Billing), then relaunch on **L4** (proven to complete a
+5.1 run, cheaper and better capacity than A100), now hardened with spawn +
+retries:
 
 ```bash
-modal run --detach cloud/modal_run.py --prototype 51 --config configs/prototype51_qwen3_1.7b.yaml --gpu A100 --timeout-minutes 300
-python cloud/fetch_run.py --prototype 51 --register
+modal run --detach cloud/modal_run.py --prototype 51 --config configs/prototype51_qwen3_1.7b.yaml --gpu L4 --timeout-minutes 300 --spawn
+# then, once the artifacts land on the volume:
+python cloud/fetch_run.py --prototype 51 --run-id prototype51-qwen3-1-7b --register
 ```
 
 Method: every 1.7B config is a minimal diff of its accepted 0.6B
