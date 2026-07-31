@@ -1,0 +1,73 @@
+{
+  "experiment": "prototype3-qwen3-1.7b",
+  "seed": 42,
+  "prototype1": {
+    "run_dir": "results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype1/20260710T225211Z__prototype1-prototype25__qwen-qwen3-1-7b-base__seed-42__eb0a3670a3",
+    "emotion_vectors": "emotion_vectors.safetensors",
+    "resolved_run_dir": "results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype1/20260710T225211Z__prototype1-prototype25__qwen-qwen3-1-7b-base__seed-42__eb0a3670a3",
+    "resolved_emotion_vectors": "results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype1/20260710T225211Z__prototype1-prototype25__qwen-qwen3-1-7b-base__seed-42__eb0a3670a3/emotion_vectors.safetensors"
+  },
+  "prototype2_validation": {
+    "run_dir": "results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype2/20260710T225236Z__prototype2-prototype25-validation__qwen-qwen3-1-7b-base__seed-42__4e58e647b3"
+  },
+  "geometry": {
+    "selected_layer": null
+  },
+  "valence_arousal": {
+    "ratings": {
+      "happy": {
+        "valence": 1.0,
+        "arousal": 0.6
+      },
+      "sad": {
+        "valence": -0.9,
+        "arousal": -0.4
+      },
+      "angry": {
+        "valence": -0.8,
+        "arousal": 0.8
+      },
+      "afraid": {
+        "valence": -0.9,
+        "arousal": 0.9
+      }
+    }
+  },
+  "output_dir": "/artifacts/prototype3",
+  "model": {
+    "name": "Qwen/Qwen3-1.7B-Base",
+    "requested_revision": "main",
+    "resolved_revision": "ea980cb0a6c2ae4b936e82123acc929f1cec04c1",
+    "resolved_layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "selected_layer": 19
+  }
+}

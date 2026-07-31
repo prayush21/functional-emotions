@@ -26,9 +26,14 @@ fe-prototype<N> --config configs/prototype<N>.yaml
 # extract, prepare, all)
 fe-prototype1 --config configs/prototype1.yaml --stage extract
 
-# Cloud loop (Modal), example for prototype 5.1 on a T4
-modal run cloud/modal_run.py --prototype 51 --config configs/prototype51.yaml --gpu T4
+# Cloud loop (Modal), example for prototype 5.1 (always --detach; use L4, T4
+# hits timeouts)
+modal run --detach cloud/modal_run.py --prototype 51 --config configs/prototype51.yaml --gpu L4 --timeout-minutes 240
 python cloud/fetch_run.py --prototype 51 --register
+
+# Statistics reporting for completed P4/P5.1 bundles (CIs + permutation nulls;
+# additional reporting only, never a gate). Repeat --run-dir for multi-seed.
+fe-analyze-stats --run-dir artifacts/prototype51/<run-id> --write
 ```
 
 ## Architecture

@@ -1,0 +1,65 @@
+{
+  "all_soft_gates_pass": false,
+  "selected_layer": 19,
+  "shuffled_macro_auc_effect": 0.6283333333333333,
+  "lexical_accuracy": 0.25,
+  "intensity_mean_spearman": 0.0,
+  "calibrated_margin_delta": -26.60791015625,
+  "answers": {
+    "is_there_signal_beyond_shuffled_labels": true,
+    "shuffled_label_effect_at_selected_layer": {
+      "accuracy": 0.7374999970197678,
+      "macro_auc": 0.6283333333333333,
+      "mean_correct_margin": 79.4779167175293
+    },
+    "is_signal_stable_across_layers": {
+      "layers_above_chance_macro_auc": 28,
+      "layers_with_positive_margin": 14,
+      "total_layers": 28
+    },
+    "cross_topic_generalization": {
+      "selected_layer_minimum_topic_accuracy": 0.625,
+      "selected_layer_mean_topic_accuracy": 0.8125,
+      "selected_layer_minimum_topic_margin": 16.357707977294922
+    },
+    "is_pca_cleaning_helping_at_selected_layer": {
+      "accuracy": 0.050000011920928955,
+      "macro_auc": -0.0031250000000000444,
+      "mean_correct_margin": 1.5610694885253906
+    },
+    "logit_lens": {
+      "available": true,
+      "selected_layer_accuracy": 0.38749998807907104,
+      "selected_layer_macro_auc": 0.7216666666666667,
+      "diagnostic_only": true
+    },
+    "afraid_status": {
+      "ever_wins_argmax_across_layers": true,
+      "selected_layer_win_rate": 0.1875
+    },
+    "angry_status": {
+      "top_win_rate_fraction_across_layers": 0.03571428571428571,
+      "selected_layer_win_rate": 0.25
+    },
+    "implicit_intensity_monotonicity": {
+      "selected_layer_mean_spearman": 0.0,
+      "positive": false
+    },
+    "lexical_robustness": {
+      "selected_layer_accuracy": 0.25,
+      "beats_chance": false
+    },
+    "calibration_interpretation": {
+      "diagnostic_only": true,
+      "calibrated_minus_uncalibrated": {
+        "accuracy": 0.0625,
+        "macro_auc": 0.0,
+        "mean_correct_margin": -26.60791015625
+      },
+      "margin_failure_looks_like_score_scale_mismatch": false
+    },
+    "prototype3_recommendation": "Revise extraction/data before treating geometry as substantively meaningful."
+  },
+  "logit_lens_selected_layer_accuracy": 0.38749998807907104,
+  "minimum_topic_accuracy": 0.625
+}

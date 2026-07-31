@@ -1,0 +1,152 @@
+{
+  "run_dir": "artifacts/prototype51/20260708T061413Z__prototype51__qwen-qwen3-0-6b-base__seed-42__98af1abdef",
+  "kind": "prototype51",
+  "experiment": "prototype51",
+  "run_seed": 42,
+  "headline_estimate": 0.3538148432361836,
+  "statistics": {
+    "disclaimer": "Additional reporting only: these intervals and permutation p-values are not pre-registered hard gates and do not change any gate outcome. Findings remain functional/causal observations about model internals and behavior, not evidence of subjective experience.",
+    "primary_scoring_mode": "option_text_logprob_margin",
+    "kl_max": 0.25,
+    "cluster_level": "base_pair_id (sensitivity: context_id)",
+    "selection": "primary scoring mode, control == real, raw_strength > 0, matches_hypothesis, KL <= kl_max",
+    "expected_effect": {
+      "bootstrap_by_pair": {
+        "n_values": 3920,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 8,
+        "estimate": 0.3538148432361836,
+        "ci_low": 0.11967770624647342,
+        "ci_high": 0.589834518821872
+      },
+      "bootstrap_by_context": {
+        "n_values": 3920,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 5,
+        "estimate": 0.3538148432361836,
+        "ci_low": 0.3215991852234821,
+        "ci_high": 0.3817690571960138
+      },
+      "sign_flip_by_pair": {
+        "p_value": 0.0546875,
+        "observed_mean": 0.3538148432361836,
+        "n_values": 3920,
+        "n_clusters": 8,
+        "n_permutations": 256,
+        "method": "exact"
+      }
+    },
+    "per_emotion_expected_effect": {
+      "afraid": {
+        "n_values": 1120,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": 0.22975468635559082,
+        "ci_low": -0.2844911915915353,
+        "ci_high": 0.7440005643027169
+      },
+      "angry": {
+        "n_values": 560,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 2,
+        "estimate": 0.5125990663255964,
+        "ci_low": 0.3022688320704869,
+        "ci_high": 0.7229293005807059
+      },
+      "happy": {
+        "n_values": 1400,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 5,
+        "estimate": 0.3839562470572335,
+        "ci_low": 0.12088546480451311,
+        "ci_high": 0.6470270293099539
+      },
+      "sad": {
+        "n_values": 840,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 3,
+        "estimate": 0.3631365639822824,
+        "ci_low": 0.039600883211408346,
+        "ci_high": 0.6170545714242118
+      }
+    },
+    "control_contrasts": {
+      "random": {
+        "expected_effect": {
+          "n_values": 3920,
+          "n_dropped_nonfinite": 0,
+          "n_resamples": 2000,
+          "confidence": 0.95,
+          "n_clusters": 8,
+          "estimate": 0.012242523018194704,
+          "ci_low": -0.03290999703616884,
+          "ci_high": 0.05839954133544648
+        },
+        "real_minus_control": {
+          "mean_difference": {
+            "n_values": 3920,
+            "n_dropped_nonfinite": 0,
+            "n_resamples": 2000,
+            "confidence": 0.95,
+            "n_clusters": 8,
+            "estimate": 0.34157232021798895,
+            "ci_low": 0.10443745147969044,
+            "ci_high": 0.5716454593502744
+          },
+          "sign_flip": {
+            "p_value": 0.046875,
+            "observed_mean": 0.34157232021798895,
+            "n_values": 3920,
+            "n_clusters": 8,
+            "n_permutations": 256,
+            "method": "exact"
+          }
+        }
+      },
+      "wrong_emotion": {
+        "expected_effect": {
+          "n_values": 3920,
+          "n_dropped_nonfinite": 0,
+          "n_resamples": 2000,
+          "confidence": 0.95,
+          "n_clusters": 8,
+          "estimate": -0.1322874268706964,
+          "ci_low": -0.3661606218772274,
+          "ci_high": 0.10149173388026987
+        },
+        "real_minus_control": {
+          "mean_difference": {
+            "n_values": 3920,
+            "n_dropped_nonfinite": 0,
+            "n_resamples": 2000,
+            "confidence": 0.95,
+            "n_clusters": 8,
+            "estimate": 0.48610227010688,
+            "ci_low": 0.02375835554678385,
+            "ci_high": 0.936659665970575
+          },
+          "sign_flip": {
+            "p_value": 0.09375,
+            "observed_mean": 0.48610227010688,
+            "n_values": 3920,
+            "n_clusters": 8,
+            "n_permutations": 256,
+            "method": "exact"
+          }
+        }
+      }
+    }
+  }
+}

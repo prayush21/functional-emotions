@@ -295,6 +295,11 @@ def test_prototype4_run_writes_steering_artifacts(tmp_path, monkeypatch):
     assert metrics["free_generation"]["sample_count"] == 4
     assert metrics["free_generation"]["mean_positive_target_term_count"] > 0.0
     assert summary["interpretation_caveat"] == INTERPRETATION_CAVEAT
+    statistics = metrics["statistics"]
+    assert statistics["target_delta"]["bootstrap"]["n_clusters"] == 4
+    assert "adjudication" in statistics
+    assert "target_delta_ci_low" in summary
+    assert "specificity_minus_target_ci_excludes_zero" in summary
     free_generation = json.loads(
         (output / "diagnostics" / "free_generation_samples.json").read_text()
     )

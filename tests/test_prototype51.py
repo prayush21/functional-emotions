@@ -14,6 +14,7 @@ from functional_emotions.prototype51 import (
     CHOICE_TOKEN_MARGIN,
     INTERPRETATION_CAVEAT,
     OPTION_TEXT_LOGPROB_MARGIN,
+    OPTION_TEXT_MEAN_LOGPROB_MARGIN,
     aggregate_rows,
     build_preference_metrics,
     choice_margin,
@@ -272,6 +273,87 @@ def test_option_text_logprob_margin_calculation_uses_full_text():
     )
 
     assert steered["margin_a_minus_b"] > baseline["margin_a_minus_b"]
+
+
+def test_mean_logprob_mode_divides_by_continuation_token_count():
+    tokenizer = FakeTokenizer()
+    model = FakeModel()
+    layer = model.model.layers[0]
+    prefix = "The better next action is"
+    # "call a friend" tokenizes to 3 ids, "rest" to 1, so the summed mode is
+    # length-biased while the mean mode normalizes each side.
+    kwargs = dict(
+        model=model,
+        layer=layer,
+        tokenizer=tokenizer,
+        prefix=prefix,
+        activity_a="call a friend",
+        activity_b="rest",
+        device="cpu",
+    )
+
+    summed = option_text_margin(scoring_mode=OPTION_TEXT_LOGPROB_MARGIN, **kwargs)
+    mean = option_text_margin(scoring_mode=OPTION_TEXT_MEAN_LOGPROB_MARGIN, **kwargs)
+
+    assert mean["score_a"] == pytest.approx(summed["score_a"] / 3)
+    assert mean["score_b"] == pytest.approx(summed["score_b"] / 1)
+    assert mean["margin_a_minus_b"] == pytest.approx(
+        summed["score_a"] / 3 - summed["score_b"]
+    )
+
+
+def test_mean_logprob_mode_records_rows_in_full_run(tmp_path, monkeypatch):
+    monkeypatch.setattr(
+        prototype51.AutoTokenizer, "from_pretrained", FakeTokenizer.from_pretrained
+    )
+    monkeypatch.setattr(
+        prototype51.AutoModelForCausalLM, "from_pretrained", FakeModel.from_pretrained
+    )
+    bundle = make_bundle(tmp_path)
+    config = tiny_config(tmp_path, bundle)
+    config["scoring"]["modes"] = [
+        OPTION_TEXT_LOGPROB_MARGIN,
+        OPTION_TEXT_MEAN_LOGPROB_MARGIN,
+    ]
+
+    output = run(config)
+
+    metrics = json.loads((output / "metrics.json").read_text())
+    scores = json.loads((output / "diagnostics" / "preference_scores.json").read_text())
+    option_text = json.loads(
+        (output / "diagnostics" / "option_text_scores.json").read_text()
+    )
+    assert metrics["all_hard_gates_pass"]
+    assert OPTION_TEXT_MEAN_LOGPROB_MARGIN in metrics["scoring_modes"]
+    assert any(
+        row["scoring_mode"] == OPTION_TEXT_MEAN_LOGPROB_MARGIN for row in scores["rows"]
+    )
+    assert any(
+        row["scoring_mode"] == OPTION_TEXT_MEAN_LOGPROB_MARGIN
+        for row in option_text["rows"]
+    )
+
+
+def test_run_metrics_include_statistics_block(tmp_path, monkeypatch):
+    monkeypatch.setattr(
+        prototype51.AutoTokenizer, "from_pretrained", FakeTokenizer.from_pretrained
+    )
+    monkeypatch.setattr(
+        prototype51.AutoModelForCausalLM, "from_pretrained", FakeModel.from_pretrained
+    )
+    bundle = make_bundle(tmp_path)
+    config = tiny_config(tmp_path, bundle)
+    config["statistics"] = {"n_resamples": 50, "n_permutations": 64, "seed": 1}
+
+    output = run(config)
+
+    metrics = json.loads((output / "metrics.json").read_text())
+    summary = json.loads((output / "summary.json").read_text())
+    statistics = metrics["statistics"]
+    assert statistics["expected_effect"]["bootstrap_by_pair"]["n_resamples"] == 50
+    assert "disclaimer" in statistics
+    assert "expected_effect_ci_low" in summary
+    assert "expected_effect_sign_flip_p_value" in summary
 
 
 def test_choice_token_margin_still_works():

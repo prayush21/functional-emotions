@@ -80,6 +80,11 @@ def _dispatch(module_name: str, stage: str | None, config: dict, run_dir: str | 
 @app.function(
     image=image,
     timeout=60 * 60,
+    # Long runs get preempted (observed repeatedly on L4 and A100, 2026-07-11);
+    # retries re-schedule the input server-side so a detached run survives both
+    # preemption and local-client disconnects. Prototype runners create a fresh
+    # timestamped output directory per attempt, so retries cannot collide.
+    retries=modal.Retries(max_retries=3, initial_delay=10.0),
     volumes={"/root/.cache/huggingface": model_cache, ARTIFACTS_ROOT: artifacts},
     env={"PYTHONPATH": "/root/src"},
 )
@@ -118,18 +123,38 @@ def main(
     stage: str | None = None,
     run_dir: str | None = None,
     timeout_minutes: int = 240,
+    spawn: bool = False,
 ) -> None:
     import json
 
     spec = resolve_spec(prototype)
     chosen_stage = resolve_stage(spec, stage)
 
-    result = run_prototype.with_options(gpu=gpu, timeout=timeout_minutes * 60).remote(
-        module_name=spec.module,
-        config_path=config,
-        stage=chosen_stage,
-        run_dir=run_dir,
-    )
+    function = run_prototype.with_options(gpu=gpu, timeout=timeout_minutes * 60)
+    kwargs = {
+        "module_name": spec.module,
+        "config_path": config,
+        "stage": chosen_stage,
+        "run_dir": run_dir,
+    }
+    if spawn:
+        # .remote() inputs are cancelled if the local client disconnects, even
+        # under `modal run --detach` (observed repeatedly on multi-hour runs).
+        # .spawn() decouples the call: pair with --detach, then poll the
+        # artifacts volume / `modal app list`, and fetch with cloud/fetch_run.py.
+        handle = function.spawn(**kwargs)
+        print(
+            json.dumps(
+                {
+                    "spawned_function_call_id": handle.object_id,
+                    "prototype": spec.key,
+                    "artifacts_subdir": volume_subdir(prototype),
+                },
+                indent=2,
+            )
+        )
+        return
+    result = function.remote(**kwargs)
     result["prototype"] = spec.key
     result["artifacts_subdir"] = volume_subdir(prototype)
     print(json.dumps(result, indent=2))

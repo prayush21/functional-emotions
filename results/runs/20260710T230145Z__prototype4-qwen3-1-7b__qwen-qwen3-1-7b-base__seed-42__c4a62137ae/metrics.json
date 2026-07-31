@@ -1,0 +1,175 @@
+{
+  "all_hard_gates_pass": true,
+  "hard_gates": {
+    "required_vector_artifacts_loaded": true,
+    "zero_steering_reproduces_baseline": true,
+    "random_vector_control_recorded": true,
+    "kl_diagnostics_recorded": true,
+    "fluency_diagnostics_recorded": true
+  },
+  "soft_gates": {
+    "intended_emotion_logit_improves_for_positive_steering": true,
+    "opposite_sign_moves_opposite_direction": true,
+    "intended_effect_exceeds_random_control": true,
+    "intended_effect_exceeds_wrong_emotion_control": true,
+    "dose_response_spearman_positive": true,
+    "positive_steering_is_specific": true
+  },
+  "selected_layer": 19,
+  "configured_layer": 19,
+  "emotions": [
+    "happy",
+    "sad",
+    "angry",
+    "afraid"
+  ],
+  "hidden_size": 2048,
+  "prototype1_run_dir": "results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype1/20260710T225211Z__prototype1-prototype25__qwen-qwen3-1-7b-base__seed-42__eb0a3670a3",
+  "artifacts": {
+    "emotion_vectors": "results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype1/20260710T225211Z__prototype1-prototype25__qwen-qwen3-1-7b-base__seed-42__eb0a3670a3/emotion_vectors.safetensors"
+  },
+  "vector_norms": {
+    "happy": 1.0,
+    "sad": 0.9999999403953552,
+    "angry": 0.9999999403953552,
+    "afraid": 0.9999998807907104
+  },
+  "zero_fidelity": {
+    "max_abs_logit_error": 0.0,
+    "rows": 12
+  },
+  "matching_token": {
+    "positive_strength_summary": {
+      "mean_target_delta": 0.01392062505086263,
+      "mean_specificity_delta": 0.019601927863227
+    },
+    "control_summary": {
+      "real": {
+        "mean_target_delta": 0.01392062505086263,
+        "mean_specificity_delta": 0.019601927863227
+      },
+      "random": {
+        "mean_target_delta": -0.00025399525960286457,
+        "mean_specificity_delta": -6.675720214843739e-05
+      },
+      "wrong_emotion": {
+        "mean_target_delta": -0.005370140075683594,
+        "mean_specificity_delta": -0.006119092305501302
+      }
+    },
+    "dose_response": {
+      "spearman_by_emotion": {
+        "afraid": 1.0,
+        "angry": 1.0,
+        "happy": 1.0,
+        "sad": 1.0
+      },
+      "mean_spearman": 1.0
+    }
+  },
+  "statistics": {
+    "disclaimer": "Additional reporting only: these intervals and permutation p-values are not pre-registered hard gates and do not change any gate outcome. Findings remain functional/causal observations about model internals and behavior, not evidence of subjective experience.",
+    "cluster_level": "prompt_id",
+    "selection": "control == real and raw_strength > 0",
+    "target_delta": {
+      "bootstrap": {
+        "n_values": 12,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": 0.01392062505086263,
+        "ci_low": 0.006352742513020833,
+        "ci_high": 0.019104480743408203
+      },
+      "sign_flip": {
+        "p_value": 0.125,
+        "observed_mean": 0.01392062505086263,
+        "n_values": 12,
+        "n_clusters": 4,
+        "n_permutations": 16,
+        "method": "exact"
+      }
+    },
+    "specificity_delta": {
+      "bootstrap": {
+        "n_values": 12,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": 0.019601927863226995,
+        "ci_low": 0.0148776372273763,
+        "ci_high": 0.02432621849907769
+      },
+      "sign_flip": {
+        "p_value": 0.125,
+        "observed_mean": 0.019601927863226995,
+        "n_values": 12,
+        "n_clusters": 4,
+        "n_permutations": 16,
+        "method": "exact"
+      }
+    },
+    "specificity_minus_target": {
+      "mean_difference": {
+        "n_values": 12,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": 0.005681302812364367,
+        "ci_low": -0.0010789235432942714,
+        "ci_high": 0.011059867011176214
+      },
+      "sign_flip": {
+        "p_value": 0.25,
+        "observed_mean": 0.005681302812364365,
+        "n_values": 12,
+        "n_clusters": 4,
+        "n_permutations": 16,
+        "method": "exact"
+      }
+    },
+    "control_target_delta": {
+      "random": {
+        "n_values": 12,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": -0.00025399525960286457,
+        "ci_low": -0.002419153849283854,
+        "ci_high": 0.0021026929219563804
+      },
+      "wrong_emotion": {
+        "n_values": 12,
+        "n_dropped_nonfinite": 0,
+        "n_resamples": 2000,
+        "confidence": 0.95,
+        "n_clusters": 4,
+        "estimate": -0.005370140075683594,
+        "ci_low": -0.015395164489746094,
+        "ci_high": 0.0072358449300130205
+      }
+    },
+    "adjudication": {
+      "question": "Is specificity_delta > target_delta (equivalently, do non-target emotion logits move down under real positive steering)?",
+      "mean_difference": 0.005681302812364367,
+      "ci_low": -0.0010789235432942714,
+      "ci_high": 0.011059867011176214,
+      "ci_excludes_zero": false,
+      "sign_flip_p_value": 0.25
+    }
+  },
+  "free_generation": {
+    "sample_count": 120,
+    "mean_average_token_logprob": -1.222563195725282,
+    "minimum_average_token_logprob": -2.0338521003723145,
+    "mean_positive_target_term_count": 0.14583333333333334,
+    "mean_zero_target_term_count": 0.2916666666666667,
+    "mean_positive_lexical_specificity": 0.06250000000000001,
+    "mean_zero_lexical_specificity": 0.25
+  },
+  "interpretation_caveat": "These are compact four-emotion vectors with weak valence/arousal geometry. Prototype 4 tests local causal efficacy and specificity, not mature human-like emotion structure."
+}

@@ -1,0 +1,42 @@
+# 1.7B scale-up pre-registration (2026-07-10). Identical to the accepted 0.6B
+# configs/prototype3.yaml except the experiment label and the Prototype 2.5
+# bundle paths, which point at the registered Qwen3-1.7B-Base extraction
+# (nested Prototype 1 run 20260710T225211Z__...__eb0a3670a3; model, dtype, and
+# selected layer are inherited from that bundle). Scale-up caveat carried
+# from the 1.7B Prototype 2.5 validation: lexical robustness at chance and zero
+# intensity monotonicity (weaker semantic controls than 0.6B).
+experiment: prototype3-qwen3-1.7b
+seed: 42
+
+prototype1:
+  # Canonical vector source from the accepted Prototype 2.5 handoff.
+  run_dir: results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype1/20260710T225211Z__prototype1-prototype25__qwen-qwen3-1-7b-base__seed-42__eb0a3670a3
+  emotion_vectors: emotion_vectors.safetensors
+
+prototype2_validation:
+  # Semantic controls for the same vectors. Prototype 3 records this as provenance
+  # but does not rerun semantic validation.
+  run_dir: results/runs/20260710T223434Z__prototype2-5-qwen3-1-7b__qwen-qwen3-1-7b-base__seed-42__530f4b779c/prototype2/20260710T225236Z__prototype2-prototype25-validation__qwen-qwen3-1-7b-base__seed-42__4e58e647b3
+
+geometry:
+  # If omitted, the runner uses the Prototype 1 pre-registered selected layer.
+  selected_layer:
+
+valence_arousal:
+  # Compact hand-authored priors for the four-emotion bridge run. These are
+  # diagnostic anchors, not a substitute for paper-scale affective norm tables.
+  ratings:
+    happy:
+      valence: 1.0
+      arousal: 0.6
+    sad:
+      valence: -0.9
+      arousal: -0.4
+    angry:
+      valence: -0.8
+      arousal: 0.8
+    afraid:
+      valence: -0.9
+      arousal: 0.9
+
+output_dir: artifacts/prototype3

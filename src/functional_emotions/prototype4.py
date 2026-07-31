@@ -18,6 +18,7 @@ from safetensors.torch import load_file
 from torch import Tensor
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from .analysis import prototype4_statistics, statistics_params
 from .instrumentation import decoder_layers, resolve_layer_index, steer_layer_output
 from .prototype0 import choose_device, choose_dtype, encode, next_token_logits
 from .tracking import build_manifest, git_metadata, make_run_id, sha256_json
@@ -621,7 +622,7 @@ def soft_gates(matching: dict[str, Any]) -> dict[str, bool]:
 
 
 def summary_from_metrics(metrics: dict[str, Any]) -> dict[str, Any]:
-    return {
+    summary = {
         "all_hard_gates_pass": metrics["all_hard_gates_pass"],
         "selected_layer": metrics["selected_layer"],
         "emotions": metrics["emotions"],
@@ -646,6 +647,18 @@ def summary_from_metrics(metrics: dict[str, Any]) -> dict[str, Any]:
         ],
         "interpretation_caveat": INTERPRETATION_CAVEAT,
     }
+    statistics = metrics.get("statistics")
+    if statistics:
+        target = statistics["target_delta"]["bootstrap"]
+        specificity = statistics["specificity_delta"]["bootstrap"]
+        summary["target_delta_ci_low"] = target["ci_low"]
+        summary["target_delta_ci_high"] = target["ci_high"]
+        summary["specificity_delta_ci_low"] = specificity["ci_low"]
+        summary["specificity_delta_ci_high"] = specificity["ci_high"]
+        summary["specificity_minus_target_ci_excludes_zero"] = statistics[
+            "adjudication"
+        ]["ci_excludes_zero"]
+    return summary
 
 
 def default_model_config(prototype1_config: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
@@ -821,6 +834,7 @@ def run(config: dict[str, Any]) -> Path:
             "control_summary": controls,
             "dose_response": matching["dose_response"],
         },
+        "statistics": prototype4_statistics(matching["rows"], **statistics_params(config)),
         "free_generation": free_generation_summary,
         "interpretation_caveat": INTERPRETATION_CAVEAT,
     }
